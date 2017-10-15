@@ -1,0 +1,134 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://use.fontawesome.com/7372348d53.js"></script>
+        <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+
+        <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+        <script>
+        
+
+
+
+
+        </script> 
+
+
+    </head>
+
+    <body>
+
+    <div class="site-container">
+        <div class="title-area"><p class="site-title" itemprop="headline">
+
+            <div class="nav-right">
+                <a class="link" href="https://drive.google.com/file/d/0BwnGj5qD7BpXd1huckR2X0hqVVk/view?usp=sharing">Resume</a>
+                <a href=https://www.linkedin.com/in/aditeya-pandey-24195727/" class="link">Linkedin</a>
+                <a href="https://twitter.com/aaditeya" class="link">Github</a>
+            </div>
+
+
+        </div>
+        <!-- Add your site or application content here -->
+        <div id="maincontent">
+        <div id="name">
+        <h2>Aditeya Pandey</h2>
+        <p>My hindi name : अद्वितीय पांडेय</p>
+        </div>
+        <div id="information" style="margin-left:5%;display: flex;">
+            <div style="width:50%">
+            <img style="max-width:100%;max-height:100%;" src="img/AP.png">
+            </div>
+            <div style="font-size:20px;margin-left:2%;width:45%">
+            <div style="height:30%"></div>
+            <div>
+            <p> PhD Student at Northeastern University. I leverage the power of Information Visualization to solve data-driven problems in Medical Science, Digital Humanities, and Machine Learning. </p>
+
+            <a class="button" href="index.html#timeline-embed" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
+                Explore my work!
+
+            </a>
+
+
+            </div>
+            </div>
+        </div>
+        <div id="information-mobile" style="display: none">
+            <div>
+            <img style="max-width:100%;max-height:100%;" src="img/AP.png">
+            </div>
+            <div style="font-size:20px;margin-left:2%">
+            <div>
+            <p>PhD Student at Northeastern University. I leverage the power of Information Visualization to solve data-driven problems in Medical Science, Digital Humanities, and Machine Learning. </p>
+
+            <a class="button" href="index.html#timeline-embed" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
+                Explore my work!
+
+            </a>
+            </div>
+
+            </div>
+        </div>
+
+        <div class="site-inner" id="timeline-embed" style="width: 100%; height: 600px">
+           <!--  <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1Xr08pZVlN6yfI4GqmPrxfQ_afIPT8BAwRMG4roqcw_s&font=Default&lang=en&initial_zoom=1&scale_factor=1
+            &height=650' width='100%' height='100%' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe> -->
+        </div>
+
+                <script type="text/javascript">
+                  var screenWidth=window.innerWidth
+                  var scrrenHeight=window.innerHeight
+                 var additionalOptions = {
+                                 start_at_end: true,
+                                 }
+                        timeline = new TL.Timeline('timeline-embed',
+                          'https://docs.google.com/spreadsheets/d/1Xr08pZVlN6yfI4GqmPrxfQ_afIPT8BAwRMG4roqcw_s/pubhtml',additionalOptions);
+                console.log(screenWidth)
+                    if(screenWidth>600)
+                      {
+
+                           document.getElementById("maincontent").style.marginLeft="2%"
+                           document.getElementById("maincontent").style.marginRight="2%"
+                           document.getElementById("timeline-embed").style.marginTop="5%"
+
+
+
+                       }    
+                        if(screenWidth<600)
+                      {
+
+                           document.getElementById("maincontent").style.marginTop="30%"
+                            document.getElementById("information").style.display="none"
+                            document.getElementById("information-mobile").style.display=""
+                           document.getElementById("timeline-embed").style.marginTop="10%"
+
+
+                       }  
+
+                    function displayTimeline(){
+
+                        
+
+                    }              
+
+               
+        </script>
+        </div>
+    
+
+
+
+
+    </body>
+</html>
