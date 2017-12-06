@@ -35,7 +35,7 @@ function viewSpec (projectionType,viewType)
         this.viewMode="Normal"
     }
     else{
-        this.viewMode="Normal"
+        this.viewMode="Hybrid"
     }
 
     this.projection={x:"x",y:"y"}
@@ -104,6 +104,8 @@ function defineGlobalAccessDataStructures (data,projection)
     this.nodeId=getKeys(this.segments)
     this.arteryLabels=arteryLabelsArcs;
     this.arteryLabelsRectangular=arteryLabels;
+    this.bloodFlowSymmetry=false
+
 
     console.log(this.branchData)
 
@@ -112,14 +114,29 @@ function defineGlobalAccessDataStructures (data,projection)
     }
 
     var randomElementNodeId=this.nodeId[(Math.random() * this.nodeId.length) | 0]
+    //this.treeData = treeTransformation(this.treeData,this.treeData)
+    //console.log(treeTransformation(this.treeData,this.treeData))
+    //bloodFlowtemp=generateBloodFlowWithBlockageForNewView(this.treeData,1000,parseInt(randomElementNodeId),this.dataForArteries)
+   // console.log(bloodFlowtemp)
     bloodFlow=generateBloodFlowWithBlockage(this.treeData,this.branchData,1000,parseInt(randomElementNodeId),this.dataForArteries)
-    this.treeData=bloodFlow[0]
+    var treeData=bloodFlow[0]
+    var temptree = jQuery.extend(true, {}, treeData);
     this.branchData=bloodFlow[2]
     console.log(this.branchData)
     nodes = d3.hierarchy(this.treeData);
     bloodFlow1=testgenerateBloodFlowWithBlockage(nodes,32768,parseInt(randomElementNodeId),this.dataForArteries)
     this.dataForArteries=bloodFlow1[1]
+    var abc=this.treeData;
 
+    this.hybridTreeData=hybridViz(temptree,temptree);
+
+    this.fetchBloodFlowSymmetry=function(){
+        return this.bloodFlowSymmetry
+    }
+    this.setBloodBlowSymmetry=function(val)
+    {
+        this.bloodFlowSymmetry=val
+    }
 
     this.fetchData=function(){
         return this.data
@@ -152,6 +169,9 @@ function defineGlobalAccessDataStructures (data,projection)
 
     this.setDataforArteries=function(value){
         this.dataForArteries=value;
+    }
+    this.fetchHybridData=function(value){
+        return this.hybridTreeData
     }
 
     this.changedataForArteries=function(nodes){
@@ -205,4 +225,5 @@ function defineGlobalAccessDataStructures (data,projection)
 
 
 }
+
 

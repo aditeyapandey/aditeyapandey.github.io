@@ -64,6 +64,9 @@ function changeProjection(brainView){
 
 //This function should be called for switching between normal and symmetry view for both arc and rectangular dendorgrams, dendogramView=Symmetry and for arc dendogram treetype=arcsD and for rectangular dendrogram treetype=arcsR
 function changeView(dendrogramView){
+    if(dendrogramView=="Hybrid"){
+        //globalDataStructures.setBloodBlowSymmetry(true)
+    }
 
     var data=globalDataStructures.fetchData()
 
@@ -78,6 +81,25 @@ function changeView(dendrogramView){
     else{
         drawphlyogram(globalDataStructures,viewspecs.getView())
         drawBrainMap(globalDataStructures,viewspecs)
+
+    }
+
+}
+
+function addBloodFlowInSymmetry(val){
+
+    globalDataStructures.setBloodBlowSymmetry(val)
+
+    console.log("addflow")
+
+    if(viewspecs.getTreeView()=="arcsD"){
+        drawDendrogram(globalDataStructures,viewspecs.getView())
+        drawBrainMap(globalDataStructures,viewspecs)
+
+    }
+    else{
+        drawphlyogram(globalDataStructures,viewspecs.getView())
+         drawBrainMap(globalDataStructures,viewspecs)
 
     }
 

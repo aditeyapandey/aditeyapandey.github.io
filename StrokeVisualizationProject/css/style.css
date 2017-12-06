@@ -228,12 +228,19 @@ footer {
     left: 50%;}
 
 .dashboard{
-    margin-top: 3%;
-
 }
 .right-panel{
     border-style: solid;
+    border-color: whitesmoke;
 }
 .left-panel{
     border-style: solid;
+    border-color: whitesmoke;
+
+}
+
+.menubar{
+    background-color: #333;
+    color: white;
+
 }

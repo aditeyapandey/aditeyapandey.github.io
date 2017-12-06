@@ -17,9 +17,9 @@ function drawBrainMap(globalData,viewSpec)
       var arteries=globalData.fetchDataForArteries();
       var treeData=globalData.fetchtreeData();
       var nodes = d3.hierarchy(treeData).descendants();
+      var bloodFlow=globalData.fetchBloodFlowSymmetry()
 
-      console.log(arteries)
-     console.log(nodes)
+      console.log(treeData)
 
       var margin = {top: 20, right: 20, bottom: 20, left: 20}
           , width = $('#brainmap').innerWidth() - margin.left - margin.right
@@ -78,7 +78,7 @@ function drawBrainMap(globalData,viewSpec)
            // .call(xAxis);
 
         //We are going to append paths one at a time and create an animation to view the transition
-
+        //viewSpec.getView()=="Normal"
           index=0
             function drawArteries(index){
             data=[[arteries[index].x1,arteries[index].y1],[arteries[index].x2,arteries[index].y2]]
@@ -86,9 +86,10 @@ function drawBrainMap(globalData,viewSpec)
             .datum(data)
               .attr("fill", "none")
                 .attr("class","C_"+arteries[index].nodeid)
+                .attr("id","pathBM")
               //  .attr("stroke","steelblue")
               .attr("stroke", function(){
-                  if(viewSpec.getView()=="Normal") {
+                  if(bloodFlow) {
                       return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
                       // if (arteries[index].bloodFlow == undefined) {
                       //     return '#1b9e77'
@@ -140,14 +141,28 @@ function drawBrainMap(globalData,viewSpec)
 
 }
 
+
+
 function drawDendrogram(globalDataStructure,view) {
+
 
     d3.select(".chartTree").remove()
 
 
     var treeData=globalDataStructure.fetchtreeData();
+    var treeData1=globalDataStructure.fetchtreeData();
     var result=globalDataStructure.fetchData()
     var arteryLabels=globalDataStructure.fetchArteryLabels()
+    var bloodFlow=globalDataStructure.fetchBloodFlowSymmetry()
+    var hybridTreeData=globalDataStructure.fetchHybridData()
+    var hybrid=false
+
+    var temptree=treeData1
+
+
+   // var extractRoot=treeData.children[0].children[0].children[0].children[1].children[0]
+    //treeData.children[0].children[0].children[0].children[1].children[0]=[];
+
 
 
 
@@ -190,17 +205,54 @@ if(view =="Symmetry") {
     treeData1 = {name: "Test", children: [leftSideB2, rightSideB2]}
 
 //  assigns the data to a hierarchy using parent-child relationships
-    var nodes = d3.hierarchy(treeData);
     var nodes1 = d3.hierarchy(treeData1)
 
     nodes = treemap(nodes1);
 
 }
+   else if(view=="Hybrid") {
+
+        var nodes1 = d3.hierarchy(hybridTreeData)
+
+        nodes = treemap(nodes1);
+        // treeData = treeData.children[0].children[0].children[0]
+        // temp1 = treeData.children[0]
+        // temp2 = treeData.children[1]
+        // treeData.children[0] = temp2
+        // treeData.children[1] = temp1
+        // //treeData.children.push(temptree.children[0].children[0])
+        //
+        // treetemp1 = treeData.children[0]
+        // child1 = treetemp1.children[0].children[1].children[0]
+        // child2 = treetemp1.children[0].children[1].children[1]
+        // treetemp1.children[0].children[1].children[0] = child2
+        // treetemp1.children[0].children[1].children[1] = child1
+        // treetemp2 = treeData.children[1]
+        // branch3 = temptree.children[0].children[0].children[1]
+        // branch1 = temptree.children[0].children[1]
+        // branch3 = temptree.children[0].children[0].children[1]
+        //
+        // branch2 = {
+        //     name: temptree.children[0].name,
+        //     bloodFlow: temptree.children[0].bloodFlow,
+        //     length: temptree.children[0].length,
+        //     childs: temptree.children[0].childs,
+        //     children: [branch3, branch1]
+        // }
+        // temptree.children[0] = branch2
+        // console.log(temptree)
+        // console.log(treeData)
+        //
+        // treeData = {name: "New Tree", children: [treetemp1, treetemp2, temptree]}
+        //bloodFlow = true
+        // console.log(treeData)
+    }
 else{
     nodes = d3.hierarchy(treeData);
 
     //nodes = treemap(nodes);
 }
+
 //Color scale
     var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7]).range(['#1b9e77', '#d95f02', '#7570b3', '#e7298a', '#66a61e', '#e6ab02', '#a6761d'])
 
@@ -245,6 +297,7 @@ else{
 //         });
 
     treemapVis(nodes)
+    view="Symmetry"
     // setTimeout(function() {
     //     treemapVis(nodes1.descendants())
     // }, 1500);
@@ -280,6 +333,7 @@ else{
         link
             .enter().append("path")
             .attr("class", "linkForeGround")
+            .attr("id","linkFG")
             .attr("d", function (d) {
                 return "M" + d.x + "," + (height - d.y)
                     + "C" + d.x + "," + ((height - d.y) + (height - d.parent.y)) / 2
@@ -288,7 +342,7 @@ else{
             })
             .attr("stroke", function (d) {
                 //Color scale for blood flow
-                if(view=="Normal") {
+                if(bloodFlow) {
                     return colorEncodingForBloodFlow(d.data.bloodFlow,d.depth)
                     // if (d.data.bloodFlow == undefined) {
                     //     return '#1b9e77'
@@ -300,7 +354,7 @@ else{
                 else{
                    return colorSymmetry(d.data.type)
                    // return color(d.data.type)
-                }
+                 }
                 //Color Scale for brain parts
 
             })
@@ -336,12 +390,16 @@ else{
             //     selectAllChild(d);
             // })
             .on("click", function (d) {
-                d3.select(this).style("stroke", "steelblue")
+                d3.selectAll("#linkFG").style("stroke", "darkgray")
+                d3.select(this).attr("id","linkFGC").style("stroke", "")
                 highLightSegment(d)
             })
             .on("dblclick", function (d) {
-                d3.select(this).style("stroke", "")
-                unHighLightSegment(d)
+                d3.selectAll("#linkFG").style("stroke", "")
+                d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
+                d3.selectAll("#pathBM").style("stroke", "")
+                d3.selectAll("#linkFGC").attr("id","pathBM").style("stroke", "")
+
             });
 
         // update
@@ -356,6 +414,8 @@ else{
         link.exit().remove();
 
     }
+
+
 
     function selectAllChild(d){
         if(!toggleBranches)
@@ -376,6 +436,23 @@ else{
         }
     }
 
+    function highLightSegment(d)
+    {
+        d3.selectAll("#pathBM").style("stroke", "darkgray")
+
+        segmentComponents=d.data.childs;
+        segmentComponents.forEach(function (d) {
+            d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "")
+
+        })
+    }
+    function unHighLightSegment(d) {
+        segmentComponents=d.data.childs;
+        segmentComponents.forEach(function (d) {
+            d3.select(".C_"+d).style("stroke", "")
+
+        })
+    }
 
 }
 
@@ -438,21 +515,6 @@ function drawphlyogram(globalDataStructure,view){
 
 
 
-function highLightSegment(d)
-{
-    segmentComponents=d.data.childs;
-    segmentComponents.forEach(function (d) {
-        d3.select(".C_"+d).style("stroke", "steelblue")
-
-    })
-}
-function unHighLightSegment(d) {
-    segmentComponents=d.data.childs;
-    segmentComponents.forEach(function (d) {
-        d3.select(".C_"+d).style("stroke", "")
-
-    })
-}
 
 // adds each node as a group
 /*var node = g.selectAll(".node")

@@ -39,16 +39,22 @@ function checkbox_changed1() {
 
 function toggleView(para){
     if(para=="normal"){
-        $("#dendrogramviewlegend").css('display', 'none')
         $("#normal").css('background', '#337ab7')
         $("#symmetry").css('background', 'darkgrey')
+        $("#hybrid").css('background', 'darkgrey')
         changeView('Normal')
     }
     if(para=="symmetry"){
-        $("#dendrogramviewlegend").css('display', '')
         $("#symmetry").css('background', '#337ab7')
         $("#normal").css('background', 'darkgrey')
+        $("#hybrid").css('background', 'darkgrey')
         changeView('Symmetry')
+    }
+    if(para=="hybrid"){
+        $("#hybrid").css('background', '#337ab7')
+        $("#normal").css('background', 'darkgrey')
+        $("#symmetry").css('background', 'darkgrey')
+        changeView('Hybrid')
     }
 }
 
@@ -85,4 +91,21 @@ function toggleTree(para){
         $("#arcsR").css('background', '#337ab7')
 
     }
+}
+
+var checkBox=false
+function checkBoxChange(para){
+    if(!checkBox){
+        checkBox=true
+        addBloodFlowInSymmetry(checkBox)
+        $(".bloodFlowLegend").css('display', '')
+        $("#dendrogramviewlegend").css('display','none')
+    }
+    else{
+        checkBox=false
+        addBloodFlowInSymmetry(checkBox)
+        $(".bloodFlowLegend").css('display', 'none')
+        $("#dendrogramviewlegend").css('display','')
+    }
+
 }

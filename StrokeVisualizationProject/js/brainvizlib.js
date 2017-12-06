@@ -369,3 +369,42 @@ function extractSubtreeRectangular(treeDataStructure) {
     //console.log(arteryLabels)
 
 }
+
+function hybridViz(treeData,temptree){
+
+    //return treeData
+
+    treeData123 = treeData.children[0].children[0].children[0]
+    temp1 = treeData123.children[0]
+    temp2 = treeData123.children[1]
+    treeData123.children[0] = temp2
+    treeData123.children[1] = temp1
+    //treeData.children.push(temptree.children[0].children[0])
+
+    treetemp1 = treeData123.children[0]
+    child1 = treetemp1.children[0].children[1].children[0]
+    child2 = treetemp1.children[0].children[1].children[1]
+    treetemp1.children[0].children[1].children[0] = child2
+    treetemp1.children[0].children[1].children[1] = child1
+    treetemp2 = treeData123.children[1]
+    branch3 = temptree.children[0].children[0].children[1]
+    branch1 = temptree.children[0].children[1]
+    branch3 = temptree.children[0].children[0].children[1]
+
+    branch2 = {
+        name: temptree.children[0].name,
+        bloodFlow: temptree.children[0].bloodFlow,
+        length: temptree.children[0].length,
+        childs: temptree.children[0].childs,
+        children: [branch3, branch1]
+    }
+    temptree.children[0] = branch2
+    console.log(temptree)
+    console.log(treeData)
+
+    treeDatafinal = {name: "New Tree", children: [treetemp1, treetemp2, temptree]}
+    // bloodFlow = true
+    return treeDatafinal
+
+
+}
