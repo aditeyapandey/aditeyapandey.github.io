@@ -19,7 +19,7 @@ function drawBrainMap(globalData,viewSpec)
       var nodes = d3.hierarchy(treeData).descendants();
       var bloodFlow=globalData.fetchBloodFlowSymmetry()
 
-      console.log(treeData)
+      console.log(arteries)
 
       var margin = {top: 20, right: 20, bottom: 20, left: 20}
           , width = $('#brainmap').innerWidth() - margin.left - margin.right
@@ -155,7 +155,8 @@ function drawDendrogram(globalDataStructure,view) {
     var arteryLabels=globalDataStructure.fetchArteryLabels()
     var bloodFlow=globalDataStructure.fetchBloodFlowSymmetry()
     var hybridTreeData=globalDataStructure.fetchHybridData()
-    var hybrid=false
+    var arterylabelToPass=jQuery.extend(true, {}, arteryLabels);
+
 
     var temptree=treeData1
 
@@ -296,6 +297,7 @@ else{
 //             highLightSegment(d)
 //         });
 
+    var mainNodes=nodes;
     treemapVis(nodes)
     view="Symmetry"
     // setTimeout(function() {
@@ -383,11 +385,9 @@ else{
                 return radius(radiusSum/radiusLengths.length)
             })
             // .on("click", function(d){
-            //     selectAllChild(d);
+            //     treemapVis(createTree(d.data.type,arterylabelToPass))
+            //     //selectAllChild(d);
             //
-            // })
-            // .on("dblclick",function(d){
-            //     selectAllChild(d);
             // })
             .on("click", function (d) {
                 d3.selectAll("#linkFG").style("stroke", "darkgray")
@@ -398,9 +398,22 @@ else{
                 d3.selectAll("#linkFG").style("stroke", "")
                 d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
                 d3.selectAll("#pathBM").style("stroke", "")
-                d3.selectAll("#linkFGC").attr("id","pathBM").style("stroke", "")
+                d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
 
             });
+
+            // .on("mouseover", function (d) {
+            //     d3.selectAll("#linkFG").style("stroke", "darkgray")
+            //     d3.select(this).attr("id","linkFGC").style("stroke", "")
+            //     highLightSegment(d)
+            // })
+            // .on("mouseout", function (d) {
+            //     d3.selectAll("#linkFG").style("stroke", "")
+            //     d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
+            //     d3.selectAll("#pathBM").style("stroke", "")
+            //     d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
+            //
+            // });
 
         // update
         link
@@ -422,15 +435,13 @@ else{
         {
             treemapVis(d)
             console.log(selectedSegments)
-            globalDataStructure.changedataForArteries(selectedSegments)
-            drawBrainMap(globalDataStructure)
+            //drawBrainMap(globalDataStructure)
             toggleBranches=true
         }
          else
         {
             treemapVis(nodes)
-            globalDataStructure.resetdataForArteries();
-            drawBrainMap(globalDataStructure)
+            //drawBrainMap(globalDataStructure)
 
             toggleBranches=false
         }
@@ -452,6 +463,78 @@ else{
             d3.select(".C_"+d).style("stroke", "")
 
         })
+    }
+    function selectBrainBranchesByType(type1,type2){
+
+        var  tempNodes = treemap(mainNodes);
+        desc=tempNodes.descendants();
+        var allchilds=[]
+         desc.forEach(function(d){
+           if(d.data.type != undefined){
+               if(d.data.type==type1 || d.data.type==type2){
+                   childs=d.data.childs
+                   childs.forEach(function(d){
+                       allchilds.push(d)
+                   })
+               }
+           }
+         })
+
+        console.log(allchilds)
+
+        d3.selectAll("#pathBM").style("stroke", "darkgray")
+        allchilds.forEach(function (d) {
+            d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "")
+
+        })
+    }
+
+    function unselectBrainBranchesbyType()
+    {
+        d3.selectAll("#pathBM").style("stroke", "")
+        d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
+    }
+
+    function createTree(type,arteryLabels)
+    {
+        var selectedBranches=[]
+
+        if(type==3 || type ==4)
+        {
+            selectedBranches.push('LPCA')
+            selectedBranches.push('RPCA')
+            selectBrainBranchesByType(3,4)
+        }
+        else if(type==7 || type==6){
+            selectedBranches.push('LMCA')
+            selectedBranches.push('RMCA')
+            selectBrainBranchesByType(7,6)
+
+        }
+        else{
+            selectedBranches.push('LACA')
+            selectedBranches.push('RACA')
+            selectBrainBranchesByType(2,5)
+
+        }
+
+        if(!toggleBranches)
+        {
+            var treeData1 = {name: "Test", children: [arteryLabels[selectedBranches[0]], arteryLabels[selectedBranches[1]]]}
+            var nodes1 = d3.hierarchy(treeData1)
+            var nodes = treemap(nodes1);
+            toggleBranches=true
+            return nodes
+        }
+        else
+        {
+            toggleBranches=false
+            unselectBrainBranchesbyType()
+
+
+            return mainNodes
+        }
+
     }
 
 }
@@ -585,3 +668,4 @@ function colorSymmetry(type)
     return color(type)
 
 }
+

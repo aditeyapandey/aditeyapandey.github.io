@@ -140,33 +140,51 @@
     </div>
     <div style="padding-top:2%;padding-bottom: 2%">
     <h2>Tutorial</h2>
-    <h4>Analyze Blood Flow View</h4>
-    <p>This is the blood flow visualization of our tool. Brain and dendrogram views encode the flow of blood in the arteries. Saturation from red to orange shows the volume of blood in vessel. There are two view : Brain and Dendrogram. Dendrograms represent branching in brain arteries in an abstract way. Arteries where stroke is detected is highlighted in grey color.</p>
-    <img src="images/Screen1.png" alt="Mountain View">
-    <p> There are 3 views to look at 3D brain projection
-    <ol>
+    <h4>Stroke-Proof : Dashboard</h4>
+    <p> Dashboard is split up in two views. Brain view on the left and dendrogram view on the right. Brain view shows a 2D projection of arteries which carry blood to the brain. Dendrogram view is an abstract representation of the arteries and provides a visually less cluttered and more understandable branching within the brain arteries.</p>
+    <img src="images/Screen1.png" alt="Mountain View"><br/>
+        <p></p>
+    <h4>Categorical color scale</h4>
+        <img src="images/Screen9.png" alt="Mountain View"><br/>
+    <p>Categorical color code is used to highlight branches which supply blood to different parts of the brain. However, additional use of categorical color scale is for readability of the dendrogram. You can look at colors on the branches of dendrogram and look at corresponding color on the brain view. </p>
+
+        <h4>Stroke-Proof : Views</h4>
+        <h5>Brain view</h5>
+        <p> There are 3 views to look at 3D brain projection. You can switch the brain view using the button placed just beneath the brain.
+
+        <ol>
         <li>Back</li>
         <li>Top</li>
         <li>Lateral</li>
-    </ol>
-    <img src="images/Screen2.png" alt="Mountain View">
-    <img src="images/Screen3.png" alt="Mountain View">
-    <img src="images/Screen4.png" alt="Mountain View">
+        </ol>
+    <img src="images/Screen2.png" style="width: 33%" alt="Mountain View">
+    <img src="images/Screen3.png" style="width: 33%" alt="Mountain View">
+    <img src="images/Screen4.png" style="width: 33%" alt="Mountain View">
     </p>
-    <p> We support two tree diagrams which can be switched between using the buttons on dashboard :
-    <ol>
-        <li>Arc trees : They represent the branching but we don't encode the oringal length of arteries</li>
-        <li>Rectangular trees : Here we also represent the length of the arteries in addition to branching.</li>
-    </ol>
-    </p>
-    <img src="images/Screen5.png" alt="Mountain View">
-    <img src="images/Screen6.png" alt="Mountain View">
+        <h5>Dendrogram layout</h5>
+        <p> There are three dendrogram layouts; they can be switched using the buttons in the top panel.
+        <ol>
+            <li>Normal</li>
+            <li>Symmetry</li>
+            <li>Hybrid</li>
+        </ol>
+        <img src="images/Screen10.png" style="width: 33%" alt="Mountain View">
+        <img src="images/Screen11.png" style="width: 33%" alt="Mountain View">
+        <img src="images/Screen12.png" style="width: 33%" alt="Mountain View">
+        </p>
+
+        <h4>Stroke-Proof : Blood flow encoding</h4>
+        <p>
+            Our main task is showing blood flow in the arteries. We use a faint orange to dark red gradient color scale. Blood flow can be switched on using the checkbox at top right corner of the dendrogram view.
+        </p>
+        <p> A stroke can be identified by a sudden change in the gradient color scale.</p>
+        <img src="images/Screen13.png"  alt="Mountain View">
+        <img src="images/Screen14.png"  alt="Mountain View">
+        <img src="images/Screen15.png"  alt="Mountain View">
+
     </div>
 
-    <h4>Analyze Symmetry</h4>
-    <p>This is the symmetry view of our tool. Brain and dendrogram views the part of the brain arteries belong to. Categorical color code is used to highlight branches which supply blood to different parts of the brain. There are two view : Brain and Dendrogram. </p>
-    <img src="images/Screen8.png" alt="Mountain View">
-    <p> Go ahead and explore it yourself! </p>
+
 
     <div style="position: absolute;left: 50%;padding-top: 2%">
     <a href="./visualization.html" class="btn btn-primary btn-lg" style="background-color: darkred" role="button" aria-disabled="true" target="_blank">Start Exploring!</a>

@@ -25,13 +25,12 @@ var blockageOccured=false;
 
 function generateBloodFlowWithBlockage(treeStructure,branchData,startFlow,randomVal,arteries)
 {
-    console.log(randomVal)
 
       //  randomVal=147
     //randomVal=1383
     //randomVal=2978
     //randomVal=1531
-   // randomVal=1522
+   //randomVal=1522
     //randomVal=2989
     treeStructure.bloodFlow=startFlow;
     branchData.bloodFlow=startFlow;
