@@ -15,6 +15,7 @@ function drawMapfromInputAttribute(id,attribute) {
     var h = 400;
 
 
+    d3.select("#"+id).select("svg").remove()
 
 //Define map projection
     var projection = d3.geoAlbersUsa()

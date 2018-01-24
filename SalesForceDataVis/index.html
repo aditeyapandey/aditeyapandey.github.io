@@ -96,7 +96,7 @@
 
 			<div style="display:flex" >
 				<div style="width: 50%"  id="immigrationNext">
-					<h2 style="margin: auto">Immigration Ratio</h2>
+					<h2 style="margin: auto">Immigrants Distribution</h2>
 				</div>
 				<div style="width: 50%"  id="employment">
 					<h2 style="margin: auto">Unemployment Distribution</h2>
@@ -107,7 +107,45 @@
 				<p> (Hover over scatterplot to see the states on map) </p>
 			</div>
 		</div>
+	<div style="background-color: #ecdcdc">
+		<h2>Conclusion</h2>
+		<p> It is hard to conclude from this data that whether immigrants move to states which are doing well or the fact that states which have high immigrant population makes it economically better than others?</p>
+		<p> This data set has some other attributes, you can explore more spatial information using this visualizaion</p>
+		<select style="font-size: 16px" onchange="drawMapfromInputAttribute('explore',this.value)">
+			<option value="Hispanic">Hispanic</option>
+			<option value="Asian">Asian</option>
+			<option value="Black">Black</option>
+			<option value="Native">Native</option>
+			<option value="White">White</option>
+			<option value="Pacific">Pacific</option>
+			<option value="ChildPoverty">ChildPoverty</option>
+			<option value="Professional">Professional</option>
+			<option value="Service">Service</option>
+			<option value="Office">Office</option>
+			<option value="Construction">Construction</option>
+			<option value="Production">Production</option>
+			<option value="Drive">Drive</option>
+			<option value="Carpool">Carpool</option>
+			<option value="Transit">Transit</option>
+			<option value="Walk">Walk</option>
+			<option value="OtherTransp">OtherTransp</option>
+			<option value="WorkAtHome">WorkAtHome</option>
+			<option value="MeanCommute">MeanCommute</option>
+			<option value="PrivateWork">PrivateWork</option>
+			<option value="PublicWork">PublicWork</option>
+			<option value="SelfEmployed">SelfEmployed</option>
+			<option value="FamilyWork">FamilyWork</option>
 
+
+		</select>
+
+		<p>All measures are in %.</p>
+
+		<div id="explore">
+
+		</div>
+
+	</div>
 
 	</div>
 
@@ -118,6 +156,8 @@
 	<script>
 		drawMapfromInputAttribute("genderDistribution","Poverty")
         drawMapfromInputAttribute("employment","Unemployment")
+        drawMapfromInputAttribute("explore","Hispanic")
+
 	</script>
 
 	<script type="text/javascript" src="js/immigration.js"></script>
