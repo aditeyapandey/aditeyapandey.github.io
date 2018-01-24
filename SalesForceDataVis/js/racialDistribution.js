@@ -9,7 +9,7 @@
 
 function drawHistogram(dataset) {
 
-    w1 = 600;
+    w1 = document.getElementById("racialDistribution").offsetWidth;;
     h1= 350;
     var padding = 30;
 
@@ -105,8 +105,8 @@ function drawHistogram(dataset) {
     d3.select("#statemap").selectAll("path")
         .on("click", function (element) {
 
-            d3.sele
-
+            d3.select(".regionPlaceHolder").html("")
+            d3.select(".regionPlaceHolder").html(element.properties.name)
             //New values for dataset
             dataset=element.properties.stateWiseRace
             //Update all rects

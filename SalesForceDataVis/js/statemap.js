@@ -1,5 +1,5 @@
 //Width and height
-var w = 600;
+var w = document.getElementById("statemap").offsetWidth;
 var h = 400;
 
 //Define map projection

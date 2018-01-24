@@ -3,8 +3,8 @@
  */
 //Width and height
 
-scatterPlot()
-function scatterPlot() {
+
+function scatterPlot(id,attribute) {
 
 
     var w = 500;
@@ -38,7 +38,7 @@ function scatterPlot() {
 
         var stateImmigrationRatio={}
         Object.keys(stateImmigration).forEach(function (d) {
-            stateImmigrationRatio[d]=returnAvg(stateImmigration[d])
+            stateImmigrationRatio[d]=returnAvg(stateImmigration[d])*100
         })
 
         var statePoverty = {};
@@ -46,11 +46,11 @@ function scatterPlot() {
         var reformattedArray = data.map(function(obj) {
 
             if (obj.State in statePoverty){
-                statePoverty[obj.State].push(parseInt(obj.Poverty));
+                statePoverty[obj.State].push(parseInt(obj[attribute]));
             }
             else{
                 statePoverty[obj.State]=[]
-                statePoverty[obj.State].push( parseInt(obj.Poverty));
+                statePoverty[obj.State].push( parseInt(obj[attribute]));
             }
 
         });
@@ -103,7 +103,7 @@ function scatterPlot() {
 
 
     //Create SVG element
-            var svg = d3.select("#scatterimmiprov")
+            var svg = d3.select("#"+id)
                 .append("svg")
                 .attr("width", w-padding)
                 .attr("height", h);
@@ -122,19 +122,19 @@ function scatterPlot() {
             .attr("r", 4)
             .attr("fill","#238443")
             .on("mouseover",function (d) {
-                d3.selectAll("."+d[2]).style("stroke","black").style("stroke-width","3")
+                d3.selectAll("."+d[2].replace(/\s/g, '')).style("stroke","black").style("stroke-width","3")
 
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div .html("<b>"+ d[2] + "</b> <br/>" + "Poverty: "+d[0].toFixed(2)+"%" +"<br/>" +"Immigration: "+d[1].toFixed(2)+"%")
+                div .html("<b>"+ d[2] + "</b> <br/>" + attribute +": "+d[0].toFixed(2)+"%" +"<br/>" +"Immigration: "+d[1].toFixed(2)+"%")
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
 
 
             })
             .on("mouseout",function (d) {
-                d3.selectAll("."+d[2]).style("stroke","").style("stroke-width","0")
+                d3.selectAll("."+d[2].replace(/\s/g, '')).style("stroke","").style("stroke-width","0")
 
                 div.transition()
                     .duration(500)
@@ -161,7 +161,7 @@ function scatterPlot() {
                 "translate(" + (w/2) + " ," +
                 (h -padding/4) + ")")
             .style("text-anchor", "middle")
-            .text("Poverty in %");
+            .text(attribute+" in %");
 
         svg.append("text")
             .attr("transform", "rotate(-90)")
