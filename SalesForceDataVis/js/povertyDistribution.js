@@ -11,7 +11,7 @@ var div = d3.select("body").append("div")
     .style("opacity", 0);
 
 function drawMapfromInputAttribute(id,attribute) {
-    var w = 600;
+    var w = document.getElementById(id).offsetWidth;;
     var h = 400;
 
 

@@ -2,7 +2,7 @@
  * Created by aditeyapandey on 1/23/18.
  */
 function drawImmigrationChart(id) {
-    var w = 600;
+    var w = document.getElementById(id).offsetWidth;;
     var h = 400;
 
 //Defining the tooltip div
