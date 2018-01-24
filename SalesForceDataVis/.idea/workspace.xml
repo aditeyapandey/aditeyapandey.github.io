@@ -24,8 +24,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="108" column="208" lean-forward="false" selection-start-line="108" selection-start-column="208" selection-end-line="108" selection-end-column="208" />
+            <state relative-caret-position="105">
+              <caret line="108" column="255" lean-forward="false" selection-start-line="108" selection-start-column="255" selection-end-line="108" selection-end-column="255" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -77,7 +77,7 @@
       <file leaf-file-name="scatterplot.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/scatterplot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="2055">
               <caret line="163" column="28" lean-forward="false" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc;n#scatterPlot#0" expanded="false" />
@@ -317,12 +317,12 @@
       <updated>1516657514505</updated>
       <workItem from="1516657516762" duration="26714000" />
       <workItem from="1516731284264" duration="7911000" />
-      <workItem from="1516752491380" duration="8609000" />
+      <workItem from="1516752491380" duration="8948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43234000" />
+    <option name="totallyTimeSpent" value="43573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3360" y="170" width="1773" height="823" extended-state="0" />
@@ -573,16 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/scatterplot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="163" column="28" lean-forward="false" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc;n#scatterPlot#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/immigration.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1485">
@@ -602,10 +592,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/scatterplot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="163" column="28" lean-forward="false" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc;n#scatterPlot#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="108" column="208" lean-forward="false" selection-start-line="108" selection-start-column="208" selection-end-line="108" selection-end-column="208" />
+        <state relative-caret-position="105">
+          <caret line="108" column="255" lean-forward="false" selection-start-line="108" selection-start-column="255" selection-end-line="108" selection-end-column="255" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
