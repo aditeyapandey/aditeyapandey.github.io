@@ -21,10 +21,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="855">
               <caret line="103" column="28" lean-forward="false" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -74,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scatterplot.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scatterplot.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/scatterplot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2055">
-              <caret line="163" column="28" lean-forward="false" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
+            <state relative-caret-position="405">
+              <caret line="66" column="73" lean-forward="false" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
               <folding>
                 <element signature="n#!!doc;n#scatterPlot#0" expanded="false" />
               </folding>
@@ -153,10 +153,10 @@
         <option value="$PROJECT_DIR$/js/statemap.js" />
         <option value="$PROJECT_DIR$/js/racialDistribution.js" />
         <option value="$PROJECT_DIR$/js/scatterimmigrationpov.js" />
-        <option value="$PROJECT_DIR$/js/scatterplot.js" />
         <option value="$PROJECT_DIR$/js/povertyDistribution.js" />
         <option value="$PROJECT_DIR$/js/immigration.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/scatterplot.js" />
       </list>
     </option>
   </component>
@@ -331,12 +331,12 @@
       <updated>1516657514505</updated>
       <workItem from="1516657516762" duration="26714000" />
       <workItem from="1516731284264" duration="7911000" />
-      <workItem from="1516752491380" duration="9997000" />
+      <workItem from="1516752491380" duration="11236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44622000" />
+    <option name="totallyTimeSpent" value="45861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3360" y="170" width="1773" height="823" extended-state="0" />
@@ -567,16 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/scatterplot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2055">
-          <caret line="163" column="28" lean-forward="false" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc;n#scatterPlot#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/statemap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -618,7 +608,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="855">
           <caret line="103" column="28" lean-forward="false" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -643,6 +633,16 @@
             <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scatterplot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="66" column="73" lean-forward="false" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
+          <folding>
+            <element signature="n#!!doc;n#scatterPlot#0" expanded="false" />
           </folding>
         </state>
       </provider>

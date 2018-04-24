@@ -67,7 +67,7 @@ function scatterPlot(id,attribute) {
             dataset.push([statePovertyRatio[d],stateImmigrationRatio[d],d])
         })
 
-        console.log(dataset)
+        console.log(""+dataset)
 
         //Create scale functions
         var xScale = d3.scaleLinear()
