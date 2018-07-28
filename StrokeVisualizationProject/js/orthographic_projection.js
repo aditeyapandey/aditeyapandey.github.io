@@ -7,18 +7,35 @@ var viewspecs
 
 // Script to convert 3D projection to 2D projection ... orthographic projections.
 function initializeView(){
-promise=readdata()
+
+    var fileName
+    function abc () {
+        var url = document.location.href,
+            params = url.split('?')[1].split('&'),
+            data = {}, tmp;
+        for (var i = 0, l = params.length; i < l; i++) {
+            tmp = params[i].split('=');
+            data[tmp[0]] = tmp[1];
+        }
+        fileName=data.name;
+        console.log(fileName)
+    }
+abc()
+    console.log(fileName)
+promise=readdata(fileName)
 promise.then(function(data) {
 
+    //console.log(data)
+
     //Define projection and view, view options are Normal,Symmetry and projection options are : back,top
-    viewspecs=new viewSpec("back","Normal","arcsD")
+     viewspecs=new viewSpec("back","Normal","arcsD")
      view=viewspecs.getView();
      projection=viewspecs.getProjection();
 
 
     //  //Define the global data access structures at one place and access them whererever they are required
      globalDataStructures=new defineGlobalAccessDataStructures(data,projection)
-
+    //console.log(globalDataStructures)
 
     // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
       drawBrainMap(globalDataStructures,viewspecs)

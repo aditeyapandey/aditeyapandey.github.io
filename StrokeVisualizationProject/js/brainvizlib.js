@@ -1,6 +1,15 @@
 /**
  * Created by aditeyapandey on 11/14/17.
  */
+
+
+// var arteryParts= function (){
+//     return {'RACA':{part:2,condition:true},'RPCA':{part:3,condition:true},'LPCA':{part:4,condition:true},'LACA':{part:5,condition:true},"RMCA":{part:6,condition:true},"LMCA":{part:7,condition:true}}
+// }
+var arteryParts= function (){
+    return {'RACA':{part:2,condition:true},'RMCA':{part:3,condition:true},'LMCA':{part:4,condition:true},'LACA':{part:5,condition:true},"RPCA":{part:6,condition:true},"LPCA":{part:7,condition:true}}
+}
+
 var arteryLabelsArcs=arteryParts();
 var arteryLabels=arteryParts();
 
@@ -39,7 +48,7 @@ function getDataForScatterPlot(result,viewspecs)
         twoDpoint=getTwoDCoordinates(result[parseInt(pointsList[i])][viewspecs.x],result[parseInt(pointsList[i])][viewspecs.y])
         dataForScatterPlot.push(twoDpoint)
     }
-    //console.log(dataForScatterPlot)
+    // console.log(dataForScatterPlot)
     return dataForScatterPlot
 }
 
@@ -66,7 +75,9 @@ function getParentChildJson(result)
     treeDataStructure=getHierarchy(segments,treeData,1,result)
     branchDataStructure=getHierarchyBranchSet(segments,treeData,1,result)
 
-    //console.log(branchDataStructure)
+    // console.log("printing tree data")
+    // console.log(treeDataStructure)
+    // console.log(branchDataStructure)
 
     //Extracting the subtree for symmetry comparison
     extractSubtree(treeDataStructure)
@@ -77,6 +88,7 @@ function getParentChildJson(result)
     return [treeDataStructure,branchDataStructure,segments]
 }
 
+//Find segments loops through all the children of a node and finds the length or in other words all the reachable segments from the node and seperates out the two bifurcations of the nodes.
 function findSegments(node,Root,Child)
 {
     if(Segments[Root]==undefined){
@@ -122,6 +134,8 @@ function getHierarchy(segments,treeData,root,result)
     if(treeData.name== undefined){
         treeData={name:root}
     }
+
+
 
     //find children of all the root nodes
     childrenofRoot=segments[root]
@@ -185,6 +199,7 @@ function getHierarchy(segments,treeData,root,result)
 function getHierarchyBranchSet(segments,treeData,root,result)
 {
 
+    // Original function
     if(treeData.name== undefined){
         treeData={name:root}
     }
@@ -230,7 +245,7 @@ function getHierarchyBranchSet(segments,treeData,root,result)
             }
 
             treeData['branchset'].push({
-                name:"C"+i+" of "+root,
+                name:root,
                 length:subchildren.length,
                 childs:subchildren,
                 type : result[subchildren[0]].type
@@ -262,11 +277,13 @@ function getTwoDCoordinates(x,y){
 
 }
 
-
+//This function extracts the subtrees for all the six subtrees
 
 function extractSubtree(treeDataStructure) {
 
     var tree=treeDataStructure
+
+
 
     if(tree.children != undefined ){
 
@@ -372,8 +389,14 @@ function extractSubtreeRectangular(treeDataStructure) {
 
 function hybridViz(treeData,temptree){
 
-    //return treeData
+    return treeData
 
+
+   // return treeData
+
+
+
+    //Original tree data
     treeData123 = treeData.children[0].children[0].children[0]
     temp1 = treeData123.children[0]
     temp2 = treeData123.children[1]
@@ -399,8 +422,8 @@ function hybridViz(treeData,temptree){
         children: [branch3, branch1]
     }
     temptree.children[0] = branch2
-    console.log(temptree)
-    console.log(treeData)
+    // console.log(temptree)
+    // console.log(treeData)
 
     treeDatafinal = {name: "New Tree", children: [treetemp1, treetemp2, temptree]}
     // bloodFlow = true

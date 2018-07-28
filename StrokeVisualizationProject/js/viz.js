@@ -13,13 +13,12 @@ var selectedSegments=[]
 function drawBrainMap(globalData,viewSpec)
  {
       d3.select(".chart").remove()
-      var data= globalData.fetchDataForScatterPlot();
+      //var data= globalData.fetchDataForScatterPlot();
       var arteries=globalData.fetchDataForArteries();
       var treeData=globalData.fetchtreeData();
       var nodes = d3.hierarchy(treeData).descendants();
       var bloodFlow=globalData.fetchBloodFlowSymmetry()
 
-      console.log(arteries)
 
       var margin = {top: 20, right: 20, bottom: 20, left: 20}
           , width = $('#brainmap').innerWidth() - margin.left - margin.right
@@ -36,22 +35,22 @@ function drawBrainMap(globalData,viewSpec)
         radi=arteries.map(function(artery){
           return artery.radius
         })
-        console.log(radi)
-        console.log(d3.min(radi, function(d) { return d;}))
+
+        var minRadius= d3.min(radi, function(d) {return d; }) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
 
         var radius= d3.scaleLinear()
-                  .domain([d3.min(radi, function(d) { return d; }), d3.max(radi, function(d) { return d; })])
+                  .domain([minRadius, d3.max(radi, function(d) { return d; })])
                   .range([ 1, 10 ]);
 
-        var color=d3.scaleOrdinal().domain([0,2,3,4,5,6,7]).range(['#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02','#a6761d'])
+
+     var color=d3.scaleOrdinal().domain([0,2,3,4,5,6,7]).range(['#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02','#a6761d'])
 
  
 
          // Define the line
         var line = d3.line()
             .x(function(d) { return x(d[0]); })
-            .y(function(d) { return y(d[1]); });
-
+            .y(function(d) { return y(d[1]); })
 
           var chart = d3.select('#brainmap')
            .append('svg:svg')
@@ -157,6 +156,7 @@ function drawDendrogram(globalDataStructure,view) {
     var hybridTreeData=globalDataStructure.fetchHybridData()
     var arterylabelToPass=jQuery.extend(true, {}, arteryLabels);
 
+    //console.log(treeData);
 
     var temptree=treeData1
 
@@ -215,7 +215,7 @@ if(view =="Symmetry") {
 
         var nodes1 = d3.hierarchy(hybridTreeData)
 
-        nodes = treemap(nodes1);
+        // nodes = treemap(nodes1);
         // treeData = treeData.children[0].children[0].children[0]
         // temp1 = treeData.children[0]
         // temp2 = treeData.children[1]
@@ -245,7 +245,7 @@ if(view =="Symmetry") {
         // console.log(treeData)
         //
         // treeData = {name: "New Tree", children: [treetemp1, treetemp2, temptree]}
-        //bloodFlow = true
+        // bloodFlow = true
         // console.log(treeData)
     }
 else{
@@ -261,11 +261,18 @@ else{
 
 //Radius scale
     radi=result.map(function(result){
+
         return result.radius
     })
+
+
+
+    var minRadius= d3.min(radi, function(d) {return d; }) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
+
     var radius= d3.scaleLog()
-        .domain([d3.min(radi, function(d) { return d; }), d3.max(radi, function(d) { return d; })])
+        .domain([minRadius, d3.max(radi, function(d) { return d; })])
         .range([ 1, 8 ]);
+
 
 // Creating a toggle variable to control toggling of branches
     var toggleBranches=false;
@@ -324,7 +331,6 @@ else{
 
         })
 
-        console.log(descendants)
 
 
         var link = g.selectAll(".linkForeGround")
@@ -381,7 +387,6 @@ else{
                     }
 
                 })
-
                 return radius(radiusSum/radiusLengths.length)
             })
             // .on("click", function(d){
@@ -392,6 +397,7 @@ else{
             .on("click", function (d) {
                 d3.selectAll("#linkFG").style("stroke", "darkgray")
                 d3.select(this).attr("id","linkFGC").style("stroke", "")
+                console.log(d)
                 highLightSegment(d)
             })
             .on("dblclick", function (d) {
@@ -434,7 +440,6 @@ else{
         if(!toggleBranches)
         {
             treemapVis(d)
-            console.log(selectedSegments)
             //drawBrainMap(globalDataStructure)
             toggleBranches=true
         }
@@ -480,7 +485,6 @@ else{
            }
          })
 
-        console.log(allchilds)
 
         d3.selectAll("#pathBM").style("stroke", "darkgray")
         allchilds.forEach(function (d) {
@@ -545,12 +549,21 @@ function drawphlyogram(globalDataStructure,view){
 
     d3.select(".chartTree").remove()
 
-    var treeData1={}
+   // var treeData1={}
     var branchdata=globalDataStructure.fetchBranchData()
     var arteryLabels=globalDataStructure.fetchArteryLabelsRectangular()
 
-    console.log(branchdata)
-    console.log(arteryLabels)
+    //console.log(branchdata)
+    //Test Code
+    var tData=globalDataStructure.fetchCopyBranchData()
+
+   // console.log(tData)
+   // console.log(globalDataStructure.fetchCopyBranchData())
+    //branchdata=globalDataStructure.fetchCopyBranchData();
+    //
+
+    var testVar=globalDataStructure.fetchtreeData()
+
     if(view =="Symmetry") {
 
         leftSideB1 = {
@@ -582,8 +595,8 @@ function drawphlyogram(globalDataStructure,view){
     }
 
 
-
-     data=d3.phylogram.build('#dendrogram', treeData1, globalDataStructure,view,{
+    //When data goes to phyllogram function that does something wrong with the dataset
+     data=d3.phylogram.build('#dendrogram', globalDataStructure.treeData1, globalDataStructure,view,{
         width: $('#dendrogram').innerWidth(),
         height: 800,
         skipLabels: true,
@@ -662,10 +675,22 @@ function colorEncodingForBloodFlow(flow,depth)
         }
 
 }
+
+// marking of the arteries
+// 0=Basilar
+// 2=RACA
+// 3=RMCA
+// 4=LMCA
+// 5=LACA
+// 6=RPCA
+// 7=LPCA
+
 function colorSymmetry(type)
 {
-    var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7]).range(['#1b9e77', '#d95f02', '#7570b3', '#e7298a', '#66a61e', '#e6ab02', '#a6761d'])
+    var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7]).range(['#1b9e77', '#d95f02', '#e6ab02', '#a6761d', '#66a61e', '#7570b3', '#e7298a'])
     return color(type)
+
+    //'#1b9e77', '#d95f02', '#7570b3', '#e7298a', '#66a61e', '#e6ab02', '#a6761d'
 
 }
 

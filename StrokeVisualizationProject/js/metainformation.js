@@ -87,10 +87,10 @@ function viewSpec (projectionType,viewType)
     }
 }
 
-
-var arteryParts= function (){
-    return {'RACA':{part:2,condition:true},'RPCA':{part:3,condition:true},'LPCA':{part:4,condition:true},'LACA':{part:5,condition:true},"RMCA":{part:6,condition:true},"LMCA":{part:7,condition:true}}
-}
+//
+// var arteryParts= function (){
+//     return {'RACA':{part:2,condition:true},'RPCA':{part:3,condition:true},'LPCA':{part:4,condition:true},'LACA':{part:5,condition:true},"RMCA":{part:6,condition:true},"LMCA":{part:7,condition:true}}
+// }
 
 function defineGlobalAccessDataStructures (data,projection)
 {
@@ -107,7 +107,8 @@ function defineGlobalAccessDataStructures (data,projection)
     this.bloodFlowSymmetry=false
 
 
-    console.log(this.branchData)
+    // console.log(this.treeData)
+    // console.log(this.branchData)
 
     this.setDataforArteries=function(value){
         this.dataForArteries=value;
@@ -118,16 +119,32 @@ function defineGlobalAccessDataStructures (data,projection)
     //console.log(treeTransformation(this.treeData,this.treeData))
     //bloodFlowtemp=generateBloodFlowWithBlockageForNewView(this.treeData,1000,parseInt(randomElementNodeId),this.dataForArteries)
    // console.log(bloodFlowtemp)
+    var treeCopy = jQuery.extend(true, {}, this.treeData);
+    var branchCopy=jQuery.extend(true, {}, this.branchData);
     bloodFlow=generateBloodFlowWithBlockage(this.treeData,this.branchData,1000,parseInt(randomElementNodeId),this.dataForArteries)
+
+    //bloodFlow=generateBloodFlowWithBlockage(treeCopy,branchCopy,1000,parseInt(randomElementNodeId),this.dataForArteries)
+
+
     var treeData=bloodFlow[0]
     var temptree = jQuery.extend(true, {}, treeData);
     this.branchData=bloodFlow[2]
-    console.log(this.branchData)
+    // console.log(this.treeData)
+    // console.log(this.branchData)
     nodes = d3.hierarchy(this.treeData);
     bloodFlow1=testgenerateBloodFlowWithBlockage(nodes,32768,parseInt(randomElementNodeId),this.dataForArteries)
     this.dataForArteries=bloodFlow1[1]
     var abc=this.treeData;
 
+    //Test Code Start: Copying the branchdata so that it doesn't undergo any modification
+    var copyBranchSetData=jQuery.extend(true, {}, this.branchData);
+
+    this.fetchCopyBranchData=function(){
+        return copyBranchSetData
+    }
+
+
+    //Test Code End : Finished the test code
     this.hybridTreeData=hybridViz(temptree,temptree);
 
     this.fetchBloodFlowSymmetry=function(){
@@ -166,7 +183,6 @@ function defineGlobalAccessDataStructures (data,projection)
     this.fetchArteryLabelsRectangular=function(){
         return this.arteryLabelsRectangular;
     }
-
     this.setDataforArteries=function(value){
         this.dataForArteries=value;
     }
@@ -177,8 +193,7 @@ function defineGlobalAccessDataStructures (data,projection)
     this.changedataForArteries=function(nodes){
         // console.log(nodes)
         // console.log(this.dataForScatterPlot)
-        console.log(this.data[2])
-        console.log(this.dataForArteries)
+
 
 
         var filteringDatafomDataArteries=[]

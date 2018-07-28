@@ -275,9 +275,12 @@ if (!d3) { throw "d3 wasn't included!"};
                 return diagonal(d,i,h,w)})
             .attr("fill", "none")
             .attr("stroke", function(d){
-                console.log(d)
+                //console.log(d)
                 if(view=="Normal") {
-                    return colorEncodingForBloodFlow(d.source.bloodFlow,d.source.depth)
+
+                    return colorSymmetry(d.source.type)
+                  //This returns the blood flow encoding
+                   // return colorEncodingForBloodFlow(d.source.bloodFlow,d.source.depth)
                     // if (d.source.bloodFlow == undefined) {
                     //     return '#1b9e77'
                     // }

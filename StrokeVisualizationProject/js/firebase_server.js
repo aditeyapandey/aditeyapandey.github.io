@@ -16,18 +16,40 @@ var indexOfItem=0
 var datapoint
 
 //Reading data file from the server
-
-function readdata() {
+//This function is called in the orthographic_projection.js
+function readdata(param) {
 
     //BG0003
-datapoint=firebase.database().ref('/Points/BG0003_ColorCoded').once('value').then(function(snapshot) {
+datapoint=firebase.database().ref('/Points/'+param).once('value').then(function(snapshot) {
   //console.log(snapshot.val())
   return snapshot.val()
 })
 return datapoint
 }
 
-readdata()
+function updateData(param1,param2)
+{
+    console.log("coming")
+    firebase.database().ref('/Test/'+param1).update({booleanval:param2})
+}
+
+//Weird dataset
+//BG0014
+//BG0002 : width/radius not working
+//
+//readdata()
+
+function readAllData()
+{
+    datapoint=firebase.database().ref('/Test').once('value').then(function(snapshot)
+    {
+        console.log(snapshot.val())
+        return snapshot.val()
+    })
+    return datapoint
+}
+
+//readAllData()
 
 
 
@@ -41,12 +63,15 @@ function writeUserData(data,fileList,updateStep) {
 }
 
 
+
+
 //Generic write function
 
 function writeOneFile(data,filename){
 
 firebase.database().ref("Points/"+filename.split(".")[0]).set(data);
 }
+
 
 
 //Deleting all data under a reference from Firebase
@@ -102,6 +127,9 @@ firebase.database().ref("Points/"+filename.split(".")[0]).set(data);
 
 
 // getfileData_StoreFirebase("testdata/","test.swc")
+
+
+//Read the parameters from the URL of the website
 
 
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+        <!--External Lib-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="js/firebase_server.js"></script>
+
+</head>
+<body>
+<h3>List all the data files</h3>
+<script>
+    allData=readAllData();
+    allData.then(function(data) {
+        console.log(data)
+        dataArray=Object.keys(data)
+        dataArray.forEach(function(element){
+            console.log(data[element].booleanval)
+            if(data[element].booleanval) {
+                $('body').append('<li>' + '<a style="color:lightseagreen" href="./visualization.html?name=' + element + '" target="_blank">' + element + '</a>' + '</li>')
+                $('body').append('<button class="okButton" id="' + element + '" >Ok</button> <button class="NotokButton" id="' + element + '" >Not Ok</button>')
+
+            }
+            else{
+                $('body').append('<li>' + '<a style="color:maroon" href="./visualization.html?name=' + element + '" target="_blank">' + element + '</a>' + '</li>')
+                $('body').append('<button class="okButton" id="' + element + '" >Ok</button> <button class="NotokButton" id="' + element + '" >Not Ok</button>')
+
+            }
+        })
+
+        $(".okButton").click(function(){
+            console.log(this.id)
+            callUpdateData(this.id,true) });
+
+        $(".NotokButton").click(function(){
+            console.log(this.id)
+            callUpdateData(this.id,false) });
+    })
+
+
+
+    function callUpdateData(file,val)
+    {
+        console.log("Reaching here")
+        updateData(file,val)
+    }
+
+
+</script>
+
+</body>
+</html>
