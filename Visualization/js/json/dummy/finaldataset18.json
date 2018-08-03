@@ -1,0 +1,36 @@
+{
+  "rule": {
+    "ante": [
+      "Minor-Arterials_high",
+      "OffRoad_low",
+      "Residential_low",
+      "Segment_SPORTS",
+      "TotalMiles_low"
+    ],
+    "Rsupp": "600",
+    "conf": "2.25",
+    "supp": "72",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_low",
+          "Minor-Arterials_high",
+          "Mountainous_high",
+          "OffRoad_low",
+          "PassingPerYear_low",
+          "Residential_low",
+          "Segment_SPORTS",
+          "TotalMiles_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 13.89,
+        "lift": 2.57,
+        "confidence": 71,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      }
+    ]
+  }
+}

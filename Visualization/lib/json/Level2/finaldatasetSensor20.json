@@ -1,0 +1,98 @@
+{
+  "rule": {
+    "id": 20,
+    "confidence": 70.0,
+    "support": 2.25,
+    "lift": 1.63,
+    "name": [
+      "Collectors_high",
+      "Highways_medium",
+      "OffRoad_low",
+      "WOTPerYear_high"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 72.7272727273,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Residential_low",
+          "TotalMiles_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 13.51,
+        "lift": 2.4,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 60
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "overlap": 80
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Residential_low",
+          "PassingPerYear_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 13.51,
+        "lift": 2.4,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 60
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "overlap": 40
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "TotalMiles_low",
+          "Flatlands_medium"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 13.51,
+        "lift": 2.4,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "overlap": 80
+          },
+          {
+            "source": 2,
+            "target": 1,
+            "overlap": 40
+          }
+        ]
+      }
+    ]
+  }
+}

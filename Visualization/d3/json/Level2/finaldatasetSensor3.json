@@ -1,0 +1,66 @@
+{
+  "rule": {
+    "id": 3,
+    "confidence": 74.0,
+    "support": 6.43,
+    "lift": 1.5,
+    "name": [
+      "APP_a",
+      "CT_a",
+      "EGROT_b",
+      "OT_c",
+      "SBS_a"
+    ],
+    "consequent": "CoolT_high",
+    "coverage": 48.9361702128,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "AAT_b"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 51.0,
+        "support": 13.12,
+        "lift": 1.74,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 28
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "CP_b",
+          "EMT_a",
+          "ERT_c",
+          "ES_b",
+          "GPSS_b",
+          "TOT_b"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 47.0588235294,
+        "support": 5.0,
+        "lift": 1.6020025031,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 28
+          }
+        ]
+      }
+    ]
+  }
+}

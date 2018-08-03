@@ -1,0 +1,331 @@
+[
+  {
+    "Features": "AAT",
+    "Unit": "Fahrenheit",
+    "Low": [
+      "10.4",
+      "36.5",
+      "41.9",
+      "52.7",
+      "63.5",
+      "74.3",
+      "107.6"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "ECT",
+    "Unit": "Fahrenheit",
+    "Low": [
+      "35.6",
+      "202.1",
+      "209.3",
+      "212.9",
+      "214.25",
+      "216.5",
+      "257"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "ERT",
+    "Unit": "Minutes",
+    "Low": [
+      "35.6",
+      "203.45",
+      "205.25",
+      "208.85",
+      "210.65",
+      "214.7",
+      "242.6"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "EOT",
+    "Unit": "Fahrenheit",
+    "Low": [
+      "0.138",
+      "12.472",
+      "34.715",
+      "60.709",
+      "99.37",
+      "182.969",
+      "979.7"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "GDC",
+    "Unit": " Percentage",
+    "Low": [
+      "6.2777",
+      "26.241",
+      "31.965",
+      "35.167",
+      "38.286",
+      "42.539",
+      "100.001"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "IOT",
+    "Unit": "Minutes",
+    "Low": [
+      "0",
+      "5.5",
+      "21.5",
+      "41.5",
+      "82.5",
+      "751.5",
+      "1158"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "ATG",
+    "Unit": "Fahrenheit",
+    "Low": [
+      "-69.912",
+      "-1.977",
+      "-0.935",
+      "-0.198",
+      "2.112",
+      "43.121",
+      "389.97"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "RPM",
+    "Unit": "Foot pound",
+    "Low": [
+      "-29.69",
+      "6.122",
+      "7.8",
+      "8.482",
+      "10.507",
+      "43.258",
+      "390.317"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "LAT",
+    "Unit": "rpm",
+    "Low": [
+      "-8.54",
+      "-0.013",
+      "0.006",
+      "0.023",
+      "0.045",
+      "0.148",
+      "5.54"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "LON",
+    "Unit": "metre per second square",
+    "Low": [
+      "-4.991",
+      "-0.252",
+      "-0.086",
+      "-0.017",
+      "0.003",
+      "0.087",
+      "3.906"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "TBP",
+    "Unit": "metre per second square",
+    "Low": [
+      "-0.98",
+      "2.08",
+      "2.265",
+      "2.515",
+      "2.918",
+      "5.437",
+      "76.25"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "CRT",
+    "Unit": "percentage",
+    "Low": [
+      "1",
+      "433.5",
+      "1144.5",
+      "2197",
+      "3846.5",
+      "7142",
+      "45819"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "CUG",
+    "Unit": "secs",
+    "Low": [
+      "0",
+      "1",
+      "3",
+      "4",
+      "5",
+      "12",
+      "13"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "MPH",
+    "Unit": "Current Gear",
+    "Low": [
+      "0",
+      "-0.111",
+      "118.1"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "a",
+      "b"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "TFT",
+    "Unit": "",
+    "Low": [
+      "209.3",
+      "212.45",
+      "244.4"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "low",
+      "high"
+    ],
+    "category": "Continous"
+  }
+]

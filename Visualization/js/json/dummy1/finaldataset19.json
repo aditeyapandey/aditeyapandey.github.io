@@ -1,0 +1,89 @@
+{
+  "rule": {
+    "ante": [
+      "Foot-Hills_low",
+      "Mountainous_low",
+      "OffRoad_low",
+      "Residential_high",
+      "Rolling-Hills_low",
+      "TotalMiles_low",
+      "Unpaved_low"
+    ],
+    "Rsupp": "600",
+    "conf": "2.25",
+    "supp": "70",
+    "lift": "1.63",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_low",
+          "Flatlands_high",
+          "Foot-Hills_low",
+          "HCSPerYear_medium",
+          "Highways_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "Residential_high",
+          "Rolling-Hills_low",
+          "TotalMiles_low",
+          "Unpaved_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.81,
+        "lift": 2.69,
+        "confidence": 80,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      },
+      {
+        "id": 2,
+        "name": [
+          "Flatlands_high",
+          "Foot-Hills_low",
+          "HCSPerYear_low",
+          "Highways_medium",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_medium",
+          "Residential_high",
+          "Rolling-Hills_low",
+          "TotalMiles_low",
+          "Unpaved_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 8.11,
+        "lift": 3.36,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      },
+      {
+        "id": 3,
+        "name": [
+          "Flatlands_high",
+          "Foot-Hills_low",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Residential_high",
+          "Rolling-Hills_low",
+          "Segment_SPORTS",
+          "TotalMiles_low",
+          "Unpaved_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 8.11,
+        "lift": 2.52,
+        "confidence": 75,
+        "ninety5th": 9.2,
+        "group": 2,
+        "edges": []
+      }
+    ]
+  }
+}

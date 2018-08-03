@@ -1,0 +1,92 @@
+{
+  "rule": {
+    "id": 8,
+    "confidence": 70.0,
+    "support": 2.69,
+    "lift": 1.63,
+    "name": [
+      "HCSPerYear_high",
+      "Highways_medium",
+      "OffRoad_low",
+      "Unpaved_low",
+      "WOTPerYear_high"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 0.0,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_medium",
+          "PassingPerYear_high",
+          "Rolling-Hills_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 11.36,
+        "lift": 2.42,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 50
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "overlap": 25
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Minor-Arterials_medium",
+          "PassingPerYear_high",
+          "Residential_medium"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 80.0,
+        "support": 9.09,
+        "lift": 2.71,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 50
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "Minor-Arterials_high",
+          "Mountainous_low",
+          "Residential_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 66.0,
+        "support": 9.09,
+        "lift": 2.26,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "overlap": 25
+          }
+        ]
+      }
+    ]
+  }
+}

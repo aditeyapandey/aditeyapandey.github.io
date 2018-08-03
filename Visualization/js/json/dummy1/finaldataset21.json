@@ -1,0 +1,45 @@
+{
+  "rule": {
+    "ante": [
+      "Collectors_low",
+      "Mountainous_high",
+      "Residential_low",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "2.17",
+    "supp": "71",
+    "lift": "1.65",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Minor-Arterials_high",
+          "Rolling-Hills_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 11.43,
+        "lift": 3.5,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      },
+      {
+        "id": 2,
+        "name": [
+          "Highways_high",
+          "MilesPerYear_high",
+          "PassingPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 11.43,
+        "lift": 3.5,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      }
+    ]
+  }
+}

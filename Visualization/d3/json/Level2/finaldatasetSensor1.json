@@ -1,0 +1,134 @@
+{
+  "rule": {
+    "id": 1,
+    "confidence": 76.0,
+    "support": 14.41,
+    "lift": 1.54,
+    "name": [
+      "EGROT_c",
+      "EMT_c",
+      "SBS_a"
+    ],
+    "consequent": "CoolT_high",
+    "coverage": 91.4285714286,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "APP_a",
+          "CF_c",
+          "FTS_c",
+          "OT_b",
+          "FT_c"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 42.8571428571,
+        "support": 13.9534883721,
+        "lift": 1.8428571429,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 46
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "overlap": 26
+          },
+          {
+            "source": 0,
+            "target": 3,
+            "overlap": 24
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "APP_a",
+          "CF_c",
+          "FTS_c",
+          "TF_c",
+          "TOT_b"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 47.7611940299,
+        "support": 10.6312292359,
+        "lift": 2.0537313433,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 46
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "overlap": 28
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "APP_a",
+          "OT_b",
+          "CP_b",
+          "CT_b"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 37.7358490566,
+        "support": 6.6445182724,
+        "lift": 1.6226415094,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "overlap": 26
+          },
+          {
+            "source": 2,
+            "target": 1,
+            "overlap": 28
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": [
+          "APP_a",
+          "OT_b",
+          "CP_b",
+          "TOT_c",
+          "VS_c"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 43.75,
+        "support": 4.6511627907,
+        "lift": 1.88125,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 3,
+            "target": 0,
+            "overlap": 24
+          }
+        ]
+      }
+    ]
+  }
+}

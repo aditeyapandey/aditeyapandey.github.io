@@ -1,0 +1,99 @@
+{
+  "rule": {
+    "ante": [
+      "HCSPerYear_high",
+      "Highways_medium",
+      "OffRoad_low",
+      "Unpaved_low",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "2.69",
+    "supp": "70",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_medium",
+          "HCSPerYear_high",
+          "Highways_medium",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Rolling-Hills_low",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 11.36,
+        "lift": 2.42,
+        "confidence": 71,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 50
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "olapVal": 25
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "HCSPerYear_high",
+          "Highways_medium",
+          "Minor-Arterials_medium",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Residential_medium",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.09,
+        "lift": 2.71,
+        "confidence": 80,
+        "ninety5th": 9.25,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 50
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "HCSPerYear_high",
+          "Highways_medium",
+          "Minor-Arterials_high",
+          "Mountainous_low",
+          "OffRoad_low",
+          "Residential_low",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.09,
+        "lift": 2.26,
+        "confidence": 66,
+        "ninety5th": 9.25,
+        "group": 2,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "olapVal": 25
+          }
+        ]
+      }
+    ]
+  }
+}

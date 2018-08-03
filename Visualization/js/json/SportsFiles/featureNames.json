@@ -1,0 +1,23 @@
+{
+  "Names": [
+    "Highways",
+    "Collectors",
+    "Residential",
+    "Unpaved",
+    "OffRoad",
+    "Flatlands",
+    "Rolling-Hills",
+    "Foot-Hills",
+    "Mountainous",
+    "BackdownPerYear",
+    "BackupPerYear",
+    "HCSPerYear",
+    "MilesPerYear",
+    "PassingPerYear",
+    "WOTPerYear",
+    "Segment",
+    "SportsMode",
+    "Minor-Arterials",
+    "TotalMiles"
+  ]
+}

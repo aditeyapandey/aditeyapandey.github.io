@@ -1,9 +1,8 @@
 body {
     color: #333;
     font-family: "museo-sans", "Helvetica Neue", serif;
-    font-size: 16px;
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 200;
     line-height: 1.625;
     margin: 0;
 }
@@ -273,6 +272,17 @@ body > h1 {
     font-size: 4rem;
     text-align: center;
 }
+
+a{
+    color:sienna;
+}
+a:hover{
+    color:black;
+}
+
+article p {
+    margin-left:1%;
+}
 article {
     margin: 1rem;
     -ms-flex: 1 0 0px;
@@ -288,23 +298,26 @@ article.breaking {
 article img {
     width: 100%; height: auto;
 }
-article h1, article h2, article h3 { font-family: Oswald, serif; }
 article h1 {
     font-size: 2rem;
     line-height: 1.3;
 }
-article h2, article h3 {
-    font-size: 1.2rem;
-    text-align: right;
-    line-height: 1.3;
-    margin: .3rem 0;
-    font-weight: 300;
-}
-article h3 {
-    font-size: 1.1rem;
-}
+/*article h2, article h3 {*/
+    /*font-size: 1.2rem;*/
+    /*text-align: right;*/
+    /*line-height: 1.3;*/
+    /*margin: .3rem 0;*/
+    /*font-weight: 300;*/
+/*}*/
+/*article h3 {*/
+    /*font-size: 1.1rem;*/
+/*}*/
 article p {
     line-height: 1.6;
+}
+article{
+    border: solid;
+    border-color: #e4e4e4
 }
 @media screen and (max-width: 750px) {
     body > h1 { font-size: 3rem; }
@@ -313,4 +326,28 @@ article p {
         -webkit-box-orient: vertical;
         flex-direction: column;
     }
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
 }

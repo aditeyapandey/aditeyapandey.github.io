@@ -1,0 +1,37 @@
+{
+  "rule": {
+    "id": 18,
+    "confidence": 72.0,
+    "support": 2.25,
+    "lift": 1.67,
+    "name": [
+      "Minor-Arterials_high",
+      "OffRoad_low",
+      "Residential_low",
+      "Segment_SPORTS",
+      "TotalMiles_low"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 50.0,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_low",
+          "Mountainous_high",
+          "PassingPerYear_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 13.89,
+        "lift": 2.57,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      }
+    ]
+  }
+}

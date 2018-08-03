@@ -1,0 +1,35 @@
+{
+  "rule": {
+    "id": 5,
+    "confidence": 82.0,
+    "support": 2.86,
+    "lift": 1.91,
+    "name": [
+      "HCSPerYear_high",
+      "Residential_high",
+      "WOTPerYear_high"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 0.0,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_low",
+          "Mountainous_high",
+          "Unpaved_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 100.0,
+        "support": 7.5,
+        "lift": 5.71,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      }
+    ]
+  }
+}

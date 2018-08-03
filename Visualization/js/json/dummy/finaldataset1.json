@@ -1,0 +1,61 @@
+{
+  "rule": {
+    "ante": [
+      "HCSPerYear_high",
+      "PassingPerYear_medium",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "3.47",
+    "supp": "72",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Foot-Hills_medium",
+          "HCSPerYear_high",
+          "MilesPerYear_high",
+          "PassingPerYear_medium",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.91,
+        "lift": 2.44,
+        "confidence": 66,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 60
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "HCSPerYear_high",
+          "MilesPerYear_high",
+          "Mountainous_high",
+          "PassingPerYear_medium",
+          "TotalMiles_high",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.09,
+        "lift": 2.62,
+        "confidence": 71,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 60
+          }
+        ]
+      }
+    ]
+  }
+}

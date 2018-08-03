@@ -1,0 +1,95 @@
+{
+  "rule": {
+    "id": 13,
+    "confidence": 70.0,
+    "support": 2.43,
+    "lift": 1.62,
+    "name": [
+      "MilesPerYear_low",
+      "Mountainous_low",
+      "OffRoad_low",
+      "Rolling-Hills_high",
+      "Segment_SPORTS"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 0.0,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "HCSPerYear_low",
+          "Highways_medium",
+          "Minor-Arterials_high",
+          "Unpaved_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 12.5,
+        "lift": 2.38,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 50
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Highways_medium",
+          "Minor-Arterials_high",
+          "PassingPerYear_low",
+          "Unpaved_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 80.0,
+        "support": 10.0,
+        "lift": 2.67,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 50
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "overlap": 50
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "Flatlands_low",
+          "HCSPerYear_medium",
+          "Highways_medium",
+          "Unpaved_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 66.0,
+        "support": 10.0,
+        "lift": 2.22,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 2,
+            "target": 1,
+            "overlap": 50
+          }
+        ]
+      }
+    ]
+  }
+}

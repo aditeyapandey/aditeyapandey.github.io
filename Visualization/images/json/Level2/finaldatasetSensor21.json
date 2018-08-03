@@ -1,0 +1,51 @@
+{
+  "rule": {
+    "id": 21,
+    "confidence": 71.0,
+    "support": 2.17,
+    "lift": 1.65,
+    "name": [
+      "Collectors_low",
+      "Mountainous_high",
+      "Residential_low",
+      "WOTPerYear_high"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 80.0,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Minor-Arterials_high",
+          "Rolling-Hills_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 100.0,
+        "support": 11.43,
+        "lift": 3.5,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      },
+      {
+        "id": 2,
+        "name": [
+          "Highways_high",
+          "MilesPerYear_high",
+          "PassingPerYear_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 100.0,
+        "support": 11.43,
+        "lift": 3.5,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      }
+    ]
+  }
+}

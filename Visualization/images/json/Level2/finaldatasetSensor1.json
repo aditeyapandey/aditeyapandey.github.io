@@ -1,0 +1,62 @@
+{
+  "rule": {
+    "id": 1,
+    "confidence": 72.0,
+    "support": 3.47,
+    "lift": 1.68,
+    "name": [
+      "HCSPerYear_high",
+      "PassingPerYear_medium",
+      "WOTPerYear_high"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 53.3333333333,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Foot-Hills_medium",
+          "MilesPerYear_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 66.0,
+        "support": 10.91,
+        "lift": 2.44,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 60
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "MilesPerYear_high",
+          "Mountainous_high",
+          "TotalMiles_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 9.09,
+        "lift": 2.62,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 60
+          }
+        ]
+      }
+    ]
+  }
+}

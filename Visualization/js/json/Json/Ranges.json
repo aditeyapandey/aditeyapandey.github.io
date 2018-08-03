@@ -1,0 +1,277 @@
+[
+  {
+    "Features": "WOTPerYear",
+    "Unit": "Event (count)",
+    "Low": [
+      "0",
+      "0.5",
+      "13",
+      "3650"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Unpaved",
+    "Unit": "",
+    "Low": [
+      "0",
+      "0.5",
+      "90"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "Low",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Rolling-Hills",
+    "Unit": "Grade (%)",
+    "Low": [
+      "0",
+      "11",
+      "31.5",
+      "100"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Residential",
+    "Unit": "RoadType (%) ",
+    "Low": [
+      "0",
+      "11",
+      "25.5",
+      "100"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "PassingPerYear",
+    "Unit": "Event (count)",
+    "Low": [
+      "0",
+      "56.1",
+      "534.2",
+      "36500"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "OffRoad",
+    "Unit": "",
+    "Low": [
+      "0",
+      "0.5",
+      "20.5"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "Low",
+      "",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Mountainous",
+    "Unit": "Grade (%)",
+    "Low": [
+      "0",
+      "0.5",
+      "1.5",
+      "85"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Minor-Arterials",
+    "Unit": "RoadType (%) ",
+    "Low": [
+      "0",
+      "11",
+      "26.5",
+      "98"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "MilesPerYear",
+    "Unit": "Miles/Year",
+    "Low": [
+      "0",
+      "10125",
+      "14250",
+      "300000"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Highways",
+    "Unit": "RoadType (%) ",
+    "Low": [
+      "0",
+      "20.5",
+      "42",
+      "100"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "HCSPerYear",
+    "Unit": "Event (count)",
+    "Low": [
+      "0",
+      "2.5",
+      "13.5",
+      "3650"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Foot-Hills",
+    "Unit": "Grade (%)",
+    "Low": [
+      "0",
+      "0.5",
+      "11",
+      "100"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Flatland",
+    "Unit": "Grade (%)",
+    "Low": [
+      "0",
+      "52",
+      "81",
+      "100"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "Collectors",
+    "Unit": "RoadType (%) ",
+    "Low": [
+      "0",
+      "10.5",
+      "20.5",
+      "95"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "BackupPerYear",
+    "Unit": "",
+    "Low": [
+      "0",
+      "0.5",
+      "2190"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "Low",
+      "High"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "BackdownPerYear",
+    "Unit": "",
+    "Low": [
+      "0",
+      "0.5",
+      "2190"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "Low",
+      "High"
+    ],
+    "category": "Continous"
+  }, {
+    "Features":"Segment",
+    "Unit":"Percentage(%)",
+    "Low":["0","50","100"] 
+  },
+{
+    "Features":"SportsMode",
+    "Unit":"Percentage(%)",
+    "Low":["0","11","100"] 
+  }
+
+]

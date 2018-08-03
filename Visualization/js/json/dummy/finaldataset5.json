@@ -1,0 +1,32 @@
+{
+  "rule": {
+    "ante": [
+      "HCSPerYear_high",
+      "Residential_high",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "2.86",
+    "supp": "82",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_low",
+          "HCSPerYear_high",
+          "Mountainous_high",
+          "Residential_high",
+          "Unpaved_high",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 7.5,
+        "lift": 5.71,
+        "confidence": 100,
+        "ninety5th": 9.5,
+        "group": 2,
+        "edges": []
+      }
+    ]
+  }
+}

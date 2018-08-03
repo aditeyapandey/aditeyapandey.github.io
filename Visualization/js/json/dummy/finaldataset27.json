@@ -1,0 +1,105 @@
+{
+  "rule": {
+    "ante": [
+      "PassingPerYear_medium",
+      "Rolling-Hills_medium",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "1.91",
+    "supp": "70",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_medium",
+          "HCSPerYear_medium",
+          "PassingPerYear_medium",
+          "Rolling-Hills_medium",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 12.9,
+        "lift": 2.3,
+        "confidence": 66,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 66
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "olapVal": 33
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Flatlands_medium",
+          "Foot-Hills_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_medium",
+          "Rolling-Hills_medium",
+          "TotalMiles_high",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.68,
+        "lift": 3.44,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 66
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "olapVal": 33
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "Flatlands_medium",
+          "MilesPerYear_low",
+          "Minor-Arterials_high",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_medium",
+          "Rolling-Hills_medium",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.68,
+        "lift": 2.58,
+        "confidence": 75,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "olapVal": 33
+          },
+          {
+            "source": 2,
+            "target": 1,
+            "olapVal": 33
+          }
+        ]
+      }
+    ]
+  }
+}

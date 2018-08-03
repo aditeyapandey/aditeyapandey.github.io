@@ -1,0 +1,35 @@
+{
+  "rule": {
+    "id": 2,
+    "confidence": 72.0,
+    "support": 35.06,
+    "lift": 1.5,
+    "name": [
+      "gill-attachment_f",
+      "population_v",
+      "veil-color_w",
+      "veil-type_p"
+    ],
+    "consequent": "Class_p",
+    "coverage": 96.3503649635,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "ring-number_o",
+          "stalk-surface-above-ring_s"
+        ],
+        "consequent": "Class_e",
+        "confidence": 47.6534296029,
+        "support": 26.7748478702,
+        "lift": 1.7148277952,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      }
+    ]
+  }
+}

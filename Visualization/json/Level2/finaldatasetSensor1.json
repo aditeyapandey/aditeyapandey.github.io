@@ -1,0 +1,64 @@
+{
+  "rule": {
+    "id": 1,
+    "confidence": 72.0,
+    "support": 40.42,
+    "lift": 1.5,
+    "name": [
+      "bruises_f",
+      "veil-color_w",
+      "veil-type_p"
+    ],
+    "consequent": "Class_p",
+    "coverage": 100.0,
+    "classProb": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "gill-attachment_f",
+          "odor_n"
+        ],
+        "consequent": "Class_e",
+        "confidence": 97.0,
+        "support": 27.79,
+        "lift": 3.51,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 60
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "gill-attachment_f",
+          "ring-number_o",
+          "ring-type_e",
+          "stalk-color-below-ring_w",
+          "stalk-shape_t"
+        ],
+        "consequent": "Class_e",
+        "confidence": 47.0588235294,
+        "support": 16.8865435356,
+        "lift": 1.6932241251,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 60
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "rule": {
+    "id": 0,
+    "confidence": 0.0,
+    "support": 0.0,
+    "lift": 0.0,
+    "coverage": 25.0,
+    "classPercentile": 25.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "ERT_f"
+        ],
+        "consequent": "TFT_high",
+        "confidence": 77.0,
+        "support": 11.6,
+        "lift": 4.76,
+        "coverage": 97.0254191455,
+        "classPercentile": 8178.0,
+        "ninety5th": 0.0,
+        "edges": []
+      }
+    ]
+  }
+}

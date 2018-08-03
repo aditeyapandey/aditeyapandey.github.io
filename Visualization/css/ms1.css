@@ -1,0 +1,472 @@
+body {
+margin: 0;
+padding: 0;
+	 line-height: 1.5em;
+	 font-family: Verdana, Geneva, sans-serif;
+	 font-size: 11px;
+background:  white;
+}
+div{
+position: absolute;
+width: 500px;
+}
+      div p{
+margin: 0;
+	font-family: sans-serif;
+	font-size: 11px;
+	line-height: 12px;}
+	
+	.bar {
+				left: 120px; 
+				width: 18px;
+				height: 1px;	/* Gets overriden by D3-assigned height below */
+				margin: 0px;
+				 padding: 3px;
+				background-color: white;
+				 -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 0px 0px 00px rgba(0, 0, 0, 0.4);
+	 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+	 			border-style:solid;
+				border-color:black;
+				border-width:1px;
+			}
+				.barno {
+				left: 120px; 
+				width: 80px;
+				height: auto;	/* Gets overriden by D3-assigned height below */
+				margin: 0px;
+				 padding: 3px;
+				background-color: #BBDCFD;
+				 -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 0px 0px 00px rgba(0, 0, 0, 0.4);
+	 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+			}
+			
+				.barnoo {
+				left: 120px; 
+				width: 80px;
+				height: auto;	/* Gets overriden by D3-assigned height below */
+				margin: 0px;
+				 padding: 3px;
+				background-color: #FFB3B3;
+				 -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 0px 0px 00px rgba(0, 0, 0, 0.4);
+	 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+			}
+			.barone {
+				left: 0px; 
+				width: 0px;
+				height: 3px;	/* Gets overriden by D3-assigned height below */
+				margin: 0px;
+				 padding: 3px;
+				background-color: teal;
+				 -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 0px 0px 00px rgba(0, 0, 0, 0.4);
+	 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+	 		
+			}
+				.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+			
+	  #tooltip0,#tooltip1,#tooltip2,#tooltip3,#tooltip4,#tooltip5,#tooltip6,#tooltip7,#tooltip8,#tooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#tooltip0.hidden,#tooltip1.hidden,#tooltip2.hidden,#tooltip3.hidden,#tooltip4.hidden,#tooltip5.hidden,#tooltip6.hidden,#tooltip7.hidden,#tooltip8.hidden,#tooltip9.hidden  {
+display: none;
+}
+
+#tooltip0,#tooltip1,#tooltip2,#tooltip3,#tooltip4,#tooltip5,#tooltip6,#tooltip7,#tooltip8,#tooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+	  #onetooltip0,#onetooltip1,#onetooltip2,#onetooltip3,#onetooltip4,#onetooltip5,#onetooltip6,#onetooltip7,#onetooltip8,#onetooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#onetooltip0.hidden,#onetooltip1.hidden,#onetooltip2.hidden,#onetooltip3.hidden,#onetooltip4.hidden,#onetooltip5.hidden,#onetooltip6.hidden,#onetooltip7.hidden,#onetooltip8.hidden,#onetooltip9.hidden  {
+display: none;
+}
+
+#onetooltip0,#onetooltip1,#onetooltip2,#onetooltip3,#onetooltip4,#onetooltip5,#onetooltip6,#onetooltip7,#onetooltip8,#onetooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+	  #twotooltip0,#twotooltip1,#twotooltip2,#twotooltip3,#twotooltip4,#twotooltip5,#twotooltip6,#twotooltip7,#twotooltip8,#twotooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#twotooltip0.hidden,#twotooltip1.hidden,#twotooltip2.hidden,#twotooltip3.hidden,#twotooltip4.hidden,#twotooltip5.hidden,#twotooltip6.hidden,#twotooltip7.hidden,#twotooltip8.hidden,#twotooltip9.hidden  {
+display: none;
+}
+
+#twotooltip0,#twotooltip1,#twotooltip2,#twotooltip3,#twotooltip4,#twotooltip5,#twotooltip6,#twotooltip7,#twotooltip8,#twotooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+
+	  #threetooltip0,#threetooltip1,#threetooltip2,#threetooltip3,#threetooltip4,#threetooltip5,#threetooltip6,#threetooltip7,#threetooltip8,#threetooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#threetooltip0.hidden,#threetooltip1.hidden,#threetooltip2.hidden,#threetooltip3.hidden,#threetooltip4.hidden,#threetooltip5.hidden,#threetooltip6.hidden,#threetooltip7.hidden,#threetooltip8.hidden,#threetooltip9.hidden  {
+display: none;
+}
+
+#threetooltip0,#threetooltip1,#threetooltip2,#threetooltip3,#threetooltip4,#threetooltip5,#threetooltip6,#threetooltip7,#threetooltip8,#threetooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+	  #ktooltip0,#ktooltip1,#ktooltip2,#ktooltip3,#ktooltip4,#ktooltip5,#ktooltip6,#ktooltip7,#ktooltip8,#ktooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#ktooltip0.hidden,#ktooltip1.hidden,#ktooltip2.hidden,#ktooltip3.hidden,#ktooltip4.hidden,#ktooltip5.hidden,#ktooltip6.hidden,#ktooltip7.hidden,#ktooltip8.hidden,#ktooltip9.hidden  {
+display: none;
+}
+
+#ktooltip0,#ktooltip1,#ktooltip2,#ktooltip3,#ktooltip4,#ktooltip5,#ktooltip6,#ktooltip7,#ktooltip8,#ktooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+	  #onektooltip0,#onektooltip1,#onektooltip2,#onektooltip3,#onektooltip4,#onektooltip5,#onektooltip6,#onektooltip7,#onektooltip8,#onektooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#onektooltip0.hidden,#onektooltip1.hidden,#onektooltip2.hidden,#onektooltip3.hidden,#onektooltip4.hidden,#onektooltip5.hidden,#onektooltip6.hidden,#onektooltip7.hidden,#onektooltip8.hidden,#onektooltip9.hidden  {
+display: none;
+}
+
+#onektooltip0,#onektooltip1,#onektooltip2,#onektooltip3,#onektooltip4,#onektooltip5,#onektooltip6,#onektooltip7,#onektooltip8,#onektooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+	  #twoktooltip0,#twoktooltip1,#twoktooltip2,#twoktooltip3,#twoktooltip4,#twoktooltip5,#twoktooltip6,#twoktooltip7,#twoktooltip8,#twoktooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#twoktooltip0.hidden,#twoktooltip1.hidden,#twoktooltip2.hidden,#twoktooltip3.hidden,#twoktooltip4.hidden,#twoktooltip5.hidden,#twoktooltip6.hidden,#twoktooltip7.hidden,#twoktooltip8.hidden,#twoktooltip9.hidden  {
+display: none;
+}
+
+#twoktooltip0,#twoktooltip1,#twoktooltip2,#twoktooltip3,#twoktooltip4,#twoktooltip5,#twoktooltip6,#twoktooltip7,#twoktooltip8,#twoktooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+
+	  #threektooltip0,#threektooltip1,#threektooltip2,#threektooltip3,#threektooltip4,#threektooltip5,#threektooltip6,#threektooltip7,#threektooltip8,#threektooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#threektooltip0.hidden,#threektooltip1.hidden,#threektooltip2.hidden,#threektooltip3.hidden,#threektooltip4.hidden,#threektooltip5.hidden,#threektooltip6.hidden,#threektooltip7.hidden,#threektooltip8.hidden,#threektooltip9.hidden  {
+display: none;
+}
+
+#threektooltip0,#threektooltip1,#threektooltip2,#threektooltip3,#threektooltip4,#threektooltip5,#threektooltip6,#threektooltip7,#threektooltip8,#threektooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+
+
+	  .tooltips{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #BBDCFD;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+	}
+
+.tooltips,#abc p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+img {
+    border: none;
+    margin-left: 20px;
+}
+
+#ntooltip0,#ntooltip1,#ntooltip2,#ntooltip3,#ntooltip4,#ntooltip5,#ntooltip6,#ntooltip7,#ntooltip8,#ntooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#ntooltip0.hidden,#ntooltip1.hidden,#ntooltip2.hidden,#ntooltip3.hidden,#ntooltip4.hidden,#ntooltip5.hidden,#ntooltip6.hidden,#ntooltip7.hidden,#ntooltip8.hidden,#ntooltip9.hidden  {
+display: none;
+}
+
+#ntooltip0,#ntooltip1,#ntooltip2,#ntooltip3,#ntooltip4,#ntooltip5,#ntooltip6,#ntooltip7,#ntooltip8,#ntooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+#onentooltip0,#onentooltip1,#onentooltip2,#onentooltip3,#onentooltip4,#onentooltip5,#onentooltip6,#onentooltip7,#onentooltip8,#onentooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#onentooltip0.hidden,#onentooltip1.hidden,#onentooltip2.hidden,#onentooltip3.hidden,#onentooltip4.hidden,#onentooltip5.hidden,#onentooltip6.hidden,#onentooltip7.hidden,#onentooltip8.hidden,#onentooltip9.hidden  {
+display: none;
+}
+
+#onentooltip0,#onentooltip1,#onentooltip2,#onentooltip3,#onentooltip4,#onentooltip5,#onentooltip6,#onentooltip7,#onentooltip8,#onentooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+#twontooltip0,#twontooltip1,#twontooltip2,#twontooltip3,#twontooltip4,#twontooltip5,#twontooltip6,#twontooltip7,#twontooltip8,#twontooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#twontooltip0.hidden,#twontooltip1.hidden,#twontooltip2.hidden,#twontooltip3.hidden,#twontooltip4.hidden,#twontooltip5.hidden,#twontooltip6.hidden,#twontooltip7.hidden,#twontooltip8.hidden,#twontooltip9.hidden  {
+display: none;
+}
+
+#twontooltip0,#twontooltip1,#twontooltip2,#twontooltip3,#twontooltip4,#twontooltip5,#twontooltip6,#twontooltip7,#twontooltip8,#twontooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+#threentooltip0,#threentooltip1,#threentooltip2,#threentooltip3,#threentooltip4,#threentooltip5,#threentooltip6,#threentooltip7,#threentooltip8,#threentooltip9{
+position: absolute;
+width: 175px;
+height: auto;
+padding: 10px;
+	 background-color: #FFB3B3;
+	 -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
+	 -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	 pointer-events: none;
+fill: #000;
+      fill-opacity: .7;
+opacity:0.7;
+	}
+
+#threentooltip0.hidden,#threentooltip1.hidden,#threentooltip2.hidden,#threentooltip3.hidden,#threentooltip4.hidden,#threentooltip5.hidden,#threentooltip6.hidden,#threentooltip7.hidden,#threentooltip8.hidden,#threentooltip9.hidden  {
+display: none;
+}
+
+#threentooltip0,#threentooltip1,#threentooltip2,#threentooltip3,#threentooltip4,#threentooltip5,#threentooltip6,#threentooltip7,#threentooltip8,#threentooltip9 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+

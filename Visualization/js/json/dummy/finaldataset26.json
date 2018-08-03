@@ -1,0 +1,114 @@
+{
+  "rule": {
+    "ante": [
+      "HCSPerYear_high",
+      "Mountainous_low",
+      "OffRoad_low",
+      "Rolling-Hills_low",
+      "Unpaved_low",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "1.91",
+    "supp": "73",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_high",
+          "HCSPerYear_high",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Residential_low",
+          "Rolling-Hills_low",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 16.67,
+        "lift": 2.68,
+        "confidence": 71,
+        "ninety5th": 9.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 100
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "olapVal": 75
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Flatlands_high",
+          "HCSPerYear_high",
+          "Minor-Arterials_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Residential_low",
+          "Rolling-Hills_low",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 13.33,
+        "lift": 3.0,
+        "confidence": 80,
+        "ninety5th": 8.65,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 100
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "olapVal": 75
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "HCSPerYear_high",
+          "Minor-Arterials_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Rolling-Hills_low",
+          "TotalMiles_high",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 13.33,
+        "lift": 2.5,
+        "confidence": 66,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "olapVal": 75
+          },
+          {
+            "source": 2,
+            "target": 1,
+            "olapVal": 75
+          }
+        ]
+      }
+    ]
+  }
+}

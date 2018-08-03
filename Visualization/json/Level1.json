@@ -1,0 +1,58 @@
+{
+  "rule": {
+    "id": 0,
+    "confidence": 0.0,
+    "support": 0.0,
+    "lift": 0.0,
+    "coverage": 92.6455566905,
+    "classProb": 48.2028557361,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "bruises_f",
+          "veil-color_w",
+          "veil-type_p"
+        ],
+        "consequent": "Class_p",
+        "confidence": 72.0,
+        "support": 40.42,
+        "lift": 1.5,
+        "coverage": 100.0,
+        "classPercentile": 4548.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 87
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "gill-attachment_f",
+          "population_v",
+          "veil-color_w",
+          "veil-type_p"
+        ],
+        "consequent": "Class_p",
+        "confidence": 72.0,
+        "support": 35.06,
+        "lift": 1.5,
+        "coverage": 96.3503649635,
+        "classPercentile": 3944.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 87
+          }
+        ]
+      }
+    ]
+  }
+}

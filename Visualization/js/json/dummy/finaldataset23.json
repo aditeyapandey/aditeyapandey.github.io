@@ -1,0 +1,49 @@
+{
+  "rule": {
+    "ante": [
+      "Flatlands_medium",
+      "HCSPerYear_high",
+      "Minor-Arterials_low",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "1.99",
+    "supp": "74",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_medium",
+          "HCSPerYear_high",
+          "Minor-Arterials_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 12.9,
+        "lift": 2.58,
+        "confidence": 66,
+        "ninety5th": 9.25,
+        "group": 2,
+        "edges": []
+      },
+      {
+        "id": 2,
+        "name": [
+          "Foot-Hills_medium",
+          "Mountainous_high",
+          "Rolling-Hills_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.68,
+        "lift": 3.88,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      }
+    ]
+  }
+}

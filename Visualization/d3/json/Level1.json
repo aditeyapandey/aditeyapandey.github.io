@@ -1,0 +1,112 @@
+{
+  "rule": {
+    "id": 0,
+    "confidence": 0.0,
+    "support": 0.0,
+    "lift": 0.0,
+    "coverage": 54.2606516291,
+    "classPercentile": 49.7816593886,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "EGROT_c",
+          "EMT_c",
+          "SBS_a"
+        ],
+        "consequent": "CoolT_high",
+        "confidence": 76.0,
+        "support": 14.41,
+        "lift": 1.54,
+        "coverage": 91.4285714286,
+        "classPercentile": 301.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 21
+          },
+          {
+            "source": 0,
+            "target": 3,
+            "overlap": 76
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "CF_b",
+          "EGROT_c",
+          "SBS_a"
+        ],
+        "consequent": "CoolT_high",
+        "confidence": 74.0,
+        "support": 6.49,
+        "lift": 1.49,
+        "coverage": 86.1111111111,
+        "classPercentile": 140.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 21
+          },
+          {
+            "source": 1,
+            "target": 3,
+            "overlap": 20
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "APP_a",
+          "CT_a",
+          "EGROT_b",
+          "OT_c",
+          "SBS_a"
+        ],
+        "consequent": "CoolT_high",
+        "confidence": 74.0,
+        "support": 6.43,
+        "lift": 1.5,
+        "coverage": 48.9361702128,
+        "classPercentile": 160.0,
+        "ninety5th": 0.0,
+        "edges": []
+      },
+      {
+        "id": 4,
+        "name": [
+          "EGROT_c",
+          "GPSS_a",
+          "SBS_a"
+        ],
+        "consequent": "CoolT_high",
+        "confidence": 85.0,
+        "support": 5.99,
+        "lift": 1.72,
+        "coverage": 93.75,
+        "classPercentile": 112.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 3,
+            "target": 0,
+            "overlap": 76
+          },
+          {
+            "source": 3,
+            "target": 1,
+            "overlap": 20
+          }
+        ]
+      }
+    ]
+  }
+}

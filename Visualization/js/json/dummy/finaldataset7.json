@@ -1,0 +1,88 @@
+{
+  "rule": {
+    "ante": [
+      "PassingPerYear_high",
+      "Rolling-Hills_high",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "2.69",
+    "supp": "70",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_low",
+          "MilesPerYear_high",
+          "PassingPerYear_high",
+          "Rolling-Hills_high",
+          "Unpaved_high",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.09,
+        "lift": 2.71,
+        "confidence": 80,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 25
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Minor-Arterials_high",
+          "PassingPerYear_high",
+          "Residential_low",
+          "Rolling-Hills_high",
+          "Unpaved_high",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 9.09,
+        "lift": 2.26,
+        "confidence": 66,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 25
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "olapVal": 33
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "Minor-Arterials_high",
+          "Mountainous_high",
+          "OffRoad_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 6.82,
+        "lift": 3.38,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 2,
+            "target": 1,
+            "olapVal": 33
+          }
+        ]
+      }
+    ]
+  }
+}

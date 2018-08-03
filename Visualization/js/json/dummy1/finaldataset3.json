@@ -1,0 +1,81 @@
+{
+  "rule": {
+    "ante": [
+      "HCSPerYear_high",
+      "Segment_SPORTS",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "3.12",
+    "supp": "75",
+    "lift": "1.74",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "HCSPerYear_high",
+          "Highways_high",
+          "Minor-Arterials_low",
+          "OffRoad_low",
+          "Segment_SPORTS",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.42,
+        "lift": 3.33,
+        "confidence": 83,
+        "ninety5th": 5.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 80
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Collectors_low",
+          "HCSPerYear_high",
+          "Highways_high",
+          "OffRoad_low",
+          "Segment_SPORTS",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.42,
+        "lift": 3.33,
+        "confidence": 83,
+        "ninety5th": 4.6,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 80
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "Foot-Hills_medium",
+          "HCSPerYear_high",
+          "MilesPerYear_high",
+          "Residential_low",
+          "Segment_SPORTS",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 8.33,
+        "lift": 4.0,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      }
+    ]
+  }
+}

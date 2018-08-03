@@ -1,0 +1,138 @@
+{
+  "rule": {
+    "id": 1,
+    "confidence": 77.0,
+    "support": 11.6,
+    "lift": 4.76,
+    "name": [
+      "ERT_f"
+    ],
+    "consequent": "TFT_high",
+    "coverage": 97.0254191455,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "MPH_b"
+        ],
+        "consequent": "TFT_low",
+        "confidence": 93.0,
+        "support": 14.66,
+        "lift": 4.14,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 43
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "overlap": 73
+          },
+          {
+            "source": 0,
+            "target": 3,
+            "overlap": 80
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "CUG_a"
+        ],
+        "consequent": "TFT_low",
+        "confidence": 93.0,
+        "support": 12.58,
+        "lift": 4.14,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 43
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "overlap": 50
+          },
+          {
+            "source": 1,
+            "target": 3,
+            "overlap": 43
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "EOT_a"
+        ],
+        "consequent": "TFT_low",
+        "confidence": 48.4615384615,
+        "support": 3.8517975055,
+        "lift": 2.14342056,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "overlap": 73
+          },
+          {
+            "source": 2,
+            "target": 1,
+            "overlap": 50
+          },
+          {
+            "source": 2,
+            "target": 3,
+            "overlap": 36
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": [
+          "AAT_f",
+          "ECT_f"
+        ],
+        "consequent": "TFT_low",
+        "confidence": 47.1337579618,
+        "support": 2.7146001467,
+        "lift": 2.0846937405,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 3,
+            "target": 0,
+            "overlap": 80
+          },
+          {
+            "source": 3,
+            "target": 1,
+            "overlap": 43
+          },
+          {
+            "source": 3,
+            "target": 2,
+            "overlap": 36
+          }
+        ]
+      }
+    ]
+  }
+}

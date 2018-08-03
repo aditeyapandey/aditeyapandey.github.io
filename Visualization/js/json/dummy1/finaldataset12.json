@@ -1,0 +1,70 @@
+{
+  "rule": {
+    "ante": [
+      "Highways_low",
+      "Mountainous_low",
+      "OffRoad_low",
+      "Segment_SPORTS",
+      "TotalMiles_low"
+    ],
+    "Rsupp": "600",
+    "conf": "2.43",
+    "supp": "70",
+    "lift": "1.62",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Highways_low",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Segment_SPORTS",
+          "TotalMiles_low",
+          "Unpaved_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 15.0,
+        "lift": 2.22,
+        "confidence": 66,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 33
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "HCSPerYear_low",
+          "Highways_low",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "Rolling-Hills_low",
+          "Segment_SPORTS",
+          "TotalMiles_low",
+          "Unpaved_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 15.0,
+        "lift": 2.22,
+        "confidence": 66,
+        "ninety5th": 8.75,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 33
+          }
+        ]
+      }
+    ]
+  }
+}

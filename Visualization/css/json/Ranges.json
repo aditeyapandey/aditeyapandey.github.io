@@ -1,0 +1,533 @@
+[
+  {
+    "Features": "cap-shape",
+    "FfullNames": "cap-shape",
+    "Unit": "shape",
+    "Low": [
+      "o",
+      "bell\u003db",
+      "conical\u003dc",
+      "convex\u003dx",
+      "flat\u003df",
+      "knobbed\u003dk",
+      "sunken\u003ds"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "b",
+      "c",
+      "x",
+      "f",
+      "k",
+      "s"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "Cap-surface",
+    "FfullNames": "Cap-surface",
+    "Unit": "surface",
+    "Low": [
+      "oo",
+      "fibrous\u003df",
+      "grooves\u003dg",
+      "scaly\u003dy",
+      "smooth\u003ds"
+    ],
+    "noOfRanges": 4,
+    "rangeNames": [
+      "f",
+      "g",
+      "y",
+      "s"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "cap-color",
+    "FfullNames": "cap-color",
+    "Unit": "color",
+    "Low": [
+      "o",
+      "brown\u003dn",
+      "buff\u003db",
+      "cinnamon\u003dc",
+      "gray\u003dg",
+      "green\u003dr",
+      "pink\u003dp",
+      "purple\u003du",
+      "red\u003de",
+      "white\u003dw",
+      "yellow\u003dy"
+    ],
+    "noOfRanges": 10,
+    "rangeNames": [
+      "n",
+      "b",
+      "c",
+      "g",
+      "r",
+      "p",
+      "u",
+      "e",
+      "w",
+      "y"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "bruises",
+    "FfullNames": "bruises",
+    "Unit": "true/false",
+    "Low": [
+      "o",
+      "bruises\u003dt",
+      "no\u003df"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "t",
+      "f"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "odor",
+    "FfullNames": "odor",
+    "Unit": "odor",
+    "Low": [
+      "o",
+      "almond\u003da",
+      "anise\u003dl",
+      "creosote\u003dc",
+      "fishy\u003dy",
+      "foul\u003df",
+      "musty\u003dm",
+      "none\u003dn",
+      "pungent\u003dp",
+      "spicy\u003ds"
+    ],
+    "noOfRanges": 9,
+    "rangeNames": [
+      "a",
+      "l",
+      "c",
+      "y",
+      "f",
+      "m",
+      "n",
+      "p",
+      "s"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "gill-attachment",
+    "FfullNames": "gill-attachment",
+    "Unit": "attachment",
+    "Low": [
+      "o",
+      "attached\u003da",
+      "descending\u003dd",
+      "free\u003df",
+      "notched\u003dn"
+    ],
+    "noOfRanges": 4,
+    "rangeNames": [
+      "a",
+      "d",
+      "f",
+      "n"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "gill-spacing",
+    "FfullNames": "gill-spacing",
+    "Unit": "spacing",
+    "Low": [
+      "o",
+      "close\u003dc",
+      "crowded\u003dw",
+      "distant\u003dd"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "c",
+      "w",
+      "d"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "gill-size",
+    "FfullNames": "gill-size",
+    "Unit": "size",
+    "Low": [
+      "o",
+      "broad\u003db",
+      "narrow\u003dn"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "b",
+      "n"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "gill-color",
+    "FfullNames": "gill-color",
+    "Unit": "color",
+    "Low": [
+      "o",
+      "black\u003dk",
+      "brown\u003dn",
+      "buff\u003db",
+      "chocolate\u003dh",
+      "gray\u003dg",
+      "green\u003dr",
+      "orange\u003do",
+      "pink\u003dp",
+      "purple\u003du",
+      "red\u003de",
+      "white\u003dw",
+      "yellow\u003dy"
+    ],
+    "noOfRanges": 12,
+    "rangeNames": [
+      "k",
+      "n",
+      "b",
+      "h",
+      "g",
+      "r",
+      "o",
+      "p",
+      "u",
+      "e",
+      "w",
+      "y"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "stalk-shape",
+    "FfullNames": "stalk-shape",
+    "Unit": "shape",
+    "Low": [
+      "o",
+      "enlarging\u003de",
+      "tapering\u003dt"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "e",
+      "t"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "stalk-root",
+    "FfullNames": "stalk-root",
+    "Unit": "type",
+    "Low": [
+      "o",
+      "bulbous\u003db",
+      "club\u003dc",
+      "cup\u003du",
+      "equal\u003de",
+      "rhizomorphs\u003dz",
+      "rooted\u003dr",
+      "missing\u003d?"
+    ],
+    "noOfRanges": 7,
+    "rangeNames": [
+      "b",
+      "c",
+      "u",
+      "e",
+      "z",
+      "r",
+      "?"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "stalk-surface-above-ring",
+    "FfullNames": "stalk-surface-above-ring",
+    "Unit": "surfacetype",
+    "Low": [
+      "o",
+      "fibrous\u003df",
+      "scaly\u003dy",
+      "silky\u003dk",
+      "smooth\u003ds"
+    ],
+    "noOfRanges": 4,
+    "rangeNames": [
+      "f",
+      "y",
+      "k",
+      "s"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "stalk-surface-below-ring",
+    "FfullNames": "stalk-surface-below-ring",
+    "Unit": "surfacetype",
+    "Low": [
+      "o",
+      "fibrous\u003df",
+      "scaly\u003dy",
+      "silky\u003dk",
+      "smooth\u003ds"
+    ],
+    "noOfRanges": 4,
+    "rangeNames": [
+      "f",
+      "y",
+      "k",
+      "s"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "stalk-color-above-ring",
+    "FfullNames": "stalk-color-above-ring",
+    "Unit": "color",
+    "Low": [
+      "o",
+      "brown\u003dn",
+      "buff\u003db",
+      "cinnamon\u003dc",
+      "gray\u003dg",
+      "orange\u003do",
+      "pink\u003dp",
+      "red\u003de",
+      "white\u003dw",
+      "yellow\u003dy"
+    ],
+    "noOfRanges": 9,
+    "rangeNames": [
+      "n",
+      "b",
+      "c",
+      "g",
+      "o",
+      "p",
+      "e",
+      "w",
+      "y"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "stalk-color-below-ring",
+    "FfullNames": "stalk-color-below-ring",
+    "Unit": "color",
+    "Low": [
+      "o",
+      "brown\u003dn",
+      "buff\u003db",
+      "cinnamon\u003dc",
+      "gray\u003dg",
+      "orange\u003do",
+      "pink\u003dp",
+      "red\u003de",
+      "white\u003dw",
+      "yellow\u003dy"
+    ],
+    "noOfRanges": 9,
+    "rangeNames": [
+      "n",
+      "b",
+      "c",
+      "g",
+      "o",
+      "p",
+      "e",
+      "w",
+      "y"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "veil-type",
+    "FfullNames": "veil-type",
+    "Unit": "type",
+    "Low": [
+      "o",
+      "partial\u003dp",
+      "universal\u003du"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "p",
+      "u"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "veil-color",
+    "FfullNames": "veil-color",
+    "Unit": "color",
+    "Low": [
+      "o",
+      "brown\u003dn",
+      "orange\u003do",
+      "white\u003dw",
+      "yellow\u003dy"
+    ],
+    "noOfRanges": 4,
+    "rangeNames": [
+      "n",
+      "o",
+      "w",
+      "y"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "ring-number",
+    "FfullNames": "ring-number",
+    "Unit": "number",
+    "Low": [
+      "o",
+      "none\u003dn",
+      "one\u003do"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "n",
+      "o",
+      "t"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "ring-type",
+    "FfullNames": "ring-type",
+    "Unit": "type",
+    "Low": [
+      "o",
+      "cobwebby\u003dc",
+      "evanescent\u003de",
+      "flaring\u003df",
+      "large\u003dl",
+      "none\u003dn",
+      "pendant\u003dp",
+      "sheathing\u003ds",
+      "zone\u003dz"
+    ],
+    "noOfRanges": 8,
+    "rangeNames": [
+      "c",
+      "e",
+      "f",
+      "l",
+      "n",
+      "p",
+      "s",
+      "z"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "spore-print-color",
+    "FfullNames": "spore-print-color",
+    "Unit": "color",
+    "Low": [
+      "o",
+      "black\u003dk",
+      "brown\u003dn",
+      "buff\u003db",
+      "chocolate\u003dh",
+      "green\u003dr",
+      "orange\u003do",
+      "purple\u003du",
+      "white\u003dw",
+      "yellow\u003dy"
+    ],
+    "noOfRanges": 9,
+    "rangeNames": [
+      "k",
+      "n",
+      "b",
+      "h",
+      "r",
+      "o",
+      "u",
+      "w",
+      "y"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "population",
+    "FfullNames": "population",
+    "Unit": "size",
+    "Low": [
+      "o",
+      "abundant\u003da",
+      "clustered\u003dc",
+      "numerous\u003dn",
+      "scattered\u003ds",
+      "several\u003dv",
+      "solitary\u003dy"
+    ],
+    "noOfRanges": 6,
+    "rangeNames": [
+      "a",
+      "c",
+      "n",
+      "s",
+      "v",
+      "y"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "habitat",
+    "FfullNames": "habitat",
+    "Unit": "type",
+    "Low": [
+      "o",
+      "grasses\u003dg",
+      "leaves\u003dl",
+      "meadows\u003dm",
+      "paths\u003dp",
+      "urban\u003du",
+      "waste\u003dw",
+      "woods\u003dd"
+    ],
+    "noOfRanges": 7,
+    "rangeNames": [
+      "g",
+      "l",
+      "m",
+      "p",
+      "u",
+      "w",
+      "d"
+    ],
+    "category": "Discrete"
+  },
+  {
+    "Features": "Class",
+    "FfullNames": "Class",
+    "Unit": "",
+    "Low": [
+      "o",
+      "poisonous\u003dp",
+      "edible\u003de"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "p",
+      "e"
+    ],
+    "category": "Discrete"
+  }
+]

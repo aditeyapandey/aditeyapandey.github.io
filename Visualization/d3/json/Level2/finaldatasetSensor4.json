@@ -1,0 +1,73 @@
+{
+  "rule": {
+    "id": 4,
+    "confidence": 85.0,
+    "support": 5.99,
+    "lift": 1.72,
+    "name": [
+      "EGROT_c",
+      "GPSS_a",
+      "SBS_a"
+    ],
+    "consequent": "CoolT_high",
+    "coverage": 93.75,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "AAT_c",
+          "CP_a",
+          "ERT_a",
+          "ES_a",
+          "OT_a",
+          "TOT_a",
+          "VS_a"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 34.2857142857,
+        "support": 10.7142857143,
+        "lift": 2.4,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      },
+      {
+        "id": 2,
+        "name": [
+          "CP_a",
+          "EMT_b",
+          "FT_c",
+          "OP_c",
+          "TOT_a"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 50.0,
+        "support": 2.6785714286,
+        "lift": 3.5,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      },
+      {
+        "id": 3,
+        "name": [
+          "CP_a",
+          "FTS_b",
+          "FT_a"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 42.8571428571,
+        "support": 2.6785714286,
+        "lift": 3.0,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      }
+    ]
+  }
+}

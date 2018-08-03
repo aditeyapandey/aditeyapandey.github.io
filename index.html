@@ -16,11 +16,15 @@
         <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
 
         <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123060269-1"></script>
         <script>
-        
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-
-
+            gtag('config', 'UA-123060269-1');
 
         </script> 
 
@@ -44,9 +48,8 @@
         <!-- Add your site or application content here -->
         <div id="maincontent">
         <div id="name">
-        <h2>Aditeya Pandey</h2>
-
-        <p>My hindi name : अद्वितीय पांडेय</p>
+        <h2 style="-webkit-margin-before: 2em">Aditeya Pandey</h2>
+            <p style="-webkit-margin-before: -1em"> <a href="https://www.ccis.northeastern.edu/people/aditeya-pandey/">PhD Student at Northeastern</a></p>
         </div>
         <div id="information" style="margin-left:5%;display: flex;">
             <div style="width:50%">
@@ -54,7 +57,7 @@
             </div>
             <div style="margin-left:2%;width:45%">
             <div>
-            <p> PhD Student at Northeastern University. I leverage the power of Information Visualization to solve data-driven problems in Medical Science, Digital Humanities, and Machine Learning. </p>
+            <p> I am interested in the visualization and analysis of hierarchical and network datasets, developing visual analytics tools for insight discovery in data science, and quantitative – qualitative evaluation of visualization interfaces. </p>
 
             <a class="button" href=".#researchproj" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
                 Explore my work!
@@ -90,31 +93,71 @@
 
             </div>
         </div>
-            <div id="researchproj">
-            <h4>Recent research projects</h4>
-            <section>
-                <article class="breaking">
-                    <img src="img/Picture1.png" alt="Photograph of a flying saucer over the US Capitol building">
-                    <h1>Rediscovering the Refugee Scholar of Nazi Era</h1>
-                    <h2><a href="https://www.smithsonianmag.com/history/forgotten-women-scientists-who-fled-holocaust-united-states-180967166/#dkevHs5KkvuDxIOU.01">SmithSonian Magzine.</a></h2>
-                    <h3> <a href="https://www.northeastern.edu/refugeescholars/home">Website</a></h3>
-                    <p>The Rediscovering the Refugee Scholars project is a research effort by Northeastern University faculty and graduate students in Jewish Studies, Journalism, Public History, and Computer Science to retrace the forgotten career and life pathways of a group of scholars who attempted to flee Nazi persecution in the 1930s and 1940s.</p>
-                </article>
-                <article>
-                    <img src="img/BG04-ColorCoded.CNG.gif" alt="Photograph of a Bigfoot">
-                    <h1>Stroke-Proof </h1>
-                    <h2><a href="https://aditeyapandey.github.io/StrokeVisualizationProject/">Project Website</a></h2>
-                    <p> Stroke-Proof is a tool for visualizing blood flow in the brain arteries. We use effective color coding and anatomical similarity to enable accurate detection of stroke in arteries.
-                </article>
-                <article>
-                    <img src="img/EuroVA2014.png" alt="Photograph of an alligator emerging from an open manhole cover">
-                    <h1>Interactively Visualizing Summaries of Rules and Exceptions</h1>
-                    <h2><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=whUXI9AAAAAJ&citation_for_view=whUXI9AAAAAJ:u-x6o8ySG0sC">EuroVA 2014</a></h2>
-                    <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this
-                        paper we describe an interactive visualization scheme for rules and their exceptions.</p>
+            <div id="researchproj" style="font-size:16px;">
+            <h1>Projects</h1>
+              <section >
+              <article>
+                  <img src="img/TeaserV7.svg" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
+                  <h3> <a title="click to learn more"  href="cerebrovis.html"> CerebroVis : Visualization of Arteries in Human Brain
+                  </a>  </h3>
+                  <p> Arteries in the brain form a network of blood flow. In this work we present a novel network visualization method to look at cerebrovascular arteries. </p>
+              </article>
 
-                </article>
-            </section>
+                  <article style="border: solid; border-color: #e4e4e4">
+                      <img src="img/teaser.png" alt="Photograph of a flying saucer over the US Capitol building">
+                      <h3> <a title="click to learn more"  href="picpen.html">Picture Penguin : A Multi-Faceted Mobile Photo Navigation System </a></h3>
+                      <p> Picture Penguin, a novel personal photo navigation system that enables search and filtering through linked and combined views of temporal, geospatial, and photo content information.</p>
+
+                  </article>
+                  <article>
+                      <img src="img/TeaserEval.png"  alt="Photograph of a flying saucer over the US Capitol building">
+                      <h3 style="-webkit-margin-before: 0.5em"> Glyph Evaluation for Probabilistic Categorization </h3>
+                      <p> In this project we conduct a quantitative evaluation of four glyph designs on Amazon's Mechanical Turk platform. The objective of this study is to understand the difference in human perception when performing a categorization task with different glyph designs. </p>
+
+                  </article>
+              </section>
+                <section>
+                    <article>
+                        <img src="img/EuroVA2014.png" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
+                        <h3> <a href="RuleVis.html">Interactively Visualizing Summaries of Rules and Exceptions</a> </h3>
+                        <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this work we present a novel hierarchical view of the rules and exceptions in a bubble layout.</p>
+                    </article>
+                  <article>
+                      <img src="img/Picture1.png" alt="Photograph of a flying saucer over the US Capitol building">
+
+                      <h3> <a href="RefugeeScholar.html"> Rediscovering the Refugee Scholars of the Nazi Era </a> </h3>
+                      <p> A story-line visualization which highlights the struggle of European women scholars to find employment in United States during the Nazi government. </p>
+                  </article>
+                  <article>
+                      <!--<img src="img/tumor.jpg" alt="Photograph of a flying saucer over the US Capitol building">-->
+                      <h3>Predicting Survival of Patients suffering with Glioblastoma</h3>
+                      <p> In this work we use machine learning to predict the survival of patients suffereing with Glioblastoma (Grade 4) tumor. Our results show in addition to size of tumor the variation in the white matter intensity may also be a strong indicator of the time of survival of each patient.</p>
+                  </article>
+
+              </section>
+                <!--<section>-->
+                <!--<article class="breaking">-->
+                    <!--<img src="img/Picture1.png" alt="Photograph of a flying saucer over the US Capitol building">-->
+                    <!--<h1>Rediscovering the Refugee Scholar of Nazi Era</h1>-->
+                    <!--<h2><a href="https://www.smithsonianmag.com/history/forgotten-women-scientists-who-fled-holocaust-united-states-180967166/#dkevHs5KkvuDxIOU.01">SmithSonian Magzine.</a></h2>-->
+                    <!--<h3> <a href="https://www.northeastern.edu/refugeescholars/home">Website</a></h3>-->
+                    <!--<p>The Rediscovering the Refugee Scholars project is a research effort by Northeastern University faculty and graduate students in Jewish Studies, Journalism, Public History, and Computer Science to retrace the forgotten career and life pathways of a group of scholars who attempted to flee Nazi persecution in the 1930s and 1940s.</p>-->
+                <!--</article>-->
+                <!--<article>-->
+                    <!--<img src="img/BG04-ColorCoded.CNG.gif" alt="Photograph of a Bigfoot">-->
+                    <!--<h1>Stroke-Proof </h1>-->
+                    <!--<h2><a href="https://aditeyapandey.github.io/StrokeVisualizationProject/">Project Website</a></h2>-->
+                    <!--<p> Stroke-Proof is a tool for visualizing blood flow in the brain arteries. We use effective color coding and anatomical similarity to enable accurate detection of stroke in arteries.-->
+                <!--</article>-->
+                <!--<article>-->
+                    <!--<img src="img/EuroVA2014.png" alt="Photograph of an alligator emerging from an open manhole cover">-->
+                    <!--<h1>Interactively Visualizing Summaries of Rules and Exceptions</h1>-->
+                    <!--<h2><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=whUXI9AAAAAJ&citation_for_view=whUXI9AAAAAJ:u-x6o8ySG0sC">EuroVA 2014</a></h2>-->
+                    <!--<p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this-->
+                        <!--paper we describe an interactive visualization scheme for rules and their exceptions.</p>-->
+
+                <!--</article>-->
+            <!--</section>-->
             </div>
 
         <!--<div id="projects">-->
@@ -152,6 +195,63 @@
 
         <!--</div>-->
 
+            <div class="publications">
+                <h1>Publications</h1>
+                <button class="collapsible">CerebroVis: Topology- and Constraint-based Network Layout for Visualization of Cerebrovascular Arteries</button>
+                <div class="content">
+
+                    <p>Aditeya Pandey, Harsh Shukla, Geoffrey S. Young, Lei Qin, Cody Dunne and Michelle Borkin. CerebroVis: Topology- and Constraint-based Network Layout for Visualization of Cerebrovascular Arteries (Poster at IEEE Vis 2018)
+
+
+                    </p>
+
+                    <p>   <b>Abstract</b>: Blood circulation to the human brain is provided through a network of cerebral arteries. A blockage or leakage of an artery in this system may be due to diseases such as a stroke or aneurysm. To identify and diagnose these conditions, doctors obtain and examine  CTA or MRA radiological images. The doctor’s diagnostic tasks include examination of artery branches for abnormalities and identification of paths of abnormal flow from a deformed artery. These tasks are in actuality the network analysis tasks of browsing and path  following. In this work, we introduce the definition of the cerebral artery system as a network. This framing allowed us to develop a novel network representation of the cerebrovascular arteries. The layout uses a topology- and constraint-based technique to present the structure  intuitively and preserve the spatial context. Experts validated the layout design, and robustness is demonstrated through testing with 56 MRA datasets.
+                    </p>
+
+                </div>
+                <button class="collapsible">Maximizing Resolvable Items: A Mantra for Mobile Data Visualization</button>
+                <div class="content">
+
+                    <p> Michail Schwab, Aditeya Pandey and Michelle A. Borkin. Maximizing Resolvable Items: A Mantra of Mobile Visualization. (2018).
+                      <p>   <b>Abstract</b>:  Mobile data visualization is becoming more and more common, but only few guidelines for their design exist. In this paper, we describe the design process of taking a pan and zoom-based linear timeline from a desktop visualization to the mobile platform by turning it into a static and elliptical timeline with a draggable handle for selection. The lessons we learned are general design principles for mobile data visualization: 1. Interaction should be simple, directly manipulate one object, and avoid two-finger gestures. 2. Linked and coordinated views are challenging, but beneficial if context is maintained. 3. Overview first, details later. 4. Because of display size and the fat finger problem, the number of items that can be reached with one interaction is low by default, and needs to be carefully considered and improved for effective navigation. We provide a framework to aid future design processes for mobile visualization.
+                    </p>
+
+                </div>
+                <button class="collapsible">Visual Bayesian fusion to navigate a data lakes</button>
+                <div class="content">
+
+                    <p>K. Singh et al., "Visual Bayesian fusion to navigate a data lake," 2016 19th International Conference on Information Fusion (FUSION)</p>
+
+                    <p><b>Abstract</b>:The evolution from traditional business intelligence to big data analytics has witnessed the emergence of `Data Lakes’ in which data is ingested in raw form rather than into traditional data warehouses. With the increasing availability of many more pieces of information about each entity of interest, e.g., a customer, often from diverse sources (social-media, mobility, internet-of-things), fusing, visualizing and deriving insights from such data pose a number of challenges: First, disparate datasets often lack a natural join key. Next, datasets may describe measures at different levels of granularity, e.g., individual vs. aggregate data, and finally, different datasets may be derived from physically distinct populations. Moreover, once data has been fused, queries are often an inefficient and inaccurate mechanism to derive insight from high-dimensional data. In this paper we describe iFuse, a data-fusion based visual analytics platform for navigating a data lake to derive insights. We rely on Bayesian graphical models to provide useful rudder with which to fuse and analyze disparate islands of data in a systematic manner. Our platform allows for rich interactive visualizations, querying and keyword-based search within and across datasets or models, as well as intuitive visual interfaces for value-imputation or model-based predictions. We illustrate the use of our platform in multiple scenarios, including two public data challenges as well as a real-life industry use-case involving the probabilistic fusion of datasets that lack a natural join-key.
+
+                    </p>
+
+                </div>
+                <button class="collapsible">Interactive Visual Analysis of Temporal Text Data</button>
+                <div class="content">
+                    <p>Aditeya Pandey, Kunal Ranjan, Geetika Sharma, and Lipika Dey. 2015. Interactive Visual Analysis of Temporal Text Data. In Proceedings of the 8th International Symposium on Visual Information Communication and Interaction (VINCI '15)</p>
+                    <p><b>Abstract</b>This paper presents a novel interactive visualization technique that helps in gathering insights from large volumes of text generated through dyadic communications. The emphasis is specifically on showing content evolution and modification with passage of time. The challenge lies in presenting not only the content as a stand-alone but also understand how the present is related to the past. For example analyzing large volumes of emails can show how communication among a set of people have progressed or evolved over time, may be along with the roles of the communicators. It can also show how the content has changed or evolved. In order to depict the changes, the email repositories are first clustered using a novel algorithm. The clusters are further time-stamped and correlated. User-insights are provided through visualization of these clusters. Results of implementation over two different datasets are presented.</p>
+                </div>
+                <button class="collapsible">Multi-sensor visual analytics supported by machine-learning models</button>
+                <div class="content">
+                <p>G. Sharma, G. Shroff, A. Pandey, B. Singh, G. Sehgal, K. Paneri,and P. Agarwal, “Multi-sensor visual analytics supported by machine-learning models,” in ICDM Workshop on Data Analytics meets Visual Analytics, 2015
+                </p>
+                <p><b>Abstract</b>: Machines, such as engines, vehicles, or even aircraft, go through extensive controlled trials during their development. Each machine is typically instrumented with hundreds of sensors that produce voluminous time-series data. Engineers analyze suchdata to improve their understanding of how machines are used in practice, which in turn helps them in taking design decisions. Most often they study operational profiles various sensors fora given day of operation using histograms, or examine time-series from multiple sensors together. However, when confrontedwith data from dozens of sensors, over many years of operation, they are challenged by the large number of histograms toanalyze, and the sheer length of time-series’ to explore. Traditional approaches such as hierarchical histograms, time-series semantic zooming etc. often cannot cope with the volume of data encountered in practice. We augment basic data visualizations such as histograms, heat-maps and basic time-series visualizations with machine-learning models that aid in summarizing, querying, searching, and interactively linking visualizations derived fromlarge volumes of multi-sensor data. In this paper we describe our machine-learning augmented approach to visual analytics in thecontext of its actual use in practice for answering questions ofinterest to engineers analyzing large-scale multi-sensor data.
+                </p>
+
+                </div>
+                <button class="collapsible">Interactively visualizing rule exception summaries</button>
+                <div class="content">
+
+                    <p>G. Sharma, G. Shroff, A. Pandey, P. Agarwal, and A. Srinivasan, “Interactively visualizing rule exception summaries,” in Proceedings of the EuroGraphics Workshop on Visual Analytics, 2014</p>
+                    <p><b>Abstract</b>: Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this paper we describe an interactive visualization scheme for rules and their exceptions. Our visual encoding is based on principles for creating perceptually effective visualizations from literature. Our visualization scheme presents an overview first, allows semantic zooming and then shows details on demand using established principles of interactive visualization. We assume that rules and exceptions have been mined and summarized using available techniques; however our visualization is applicable for more general rule hierarchies as well. We illustrate our visualization using rules and exceptions extracted from real customer surveys as well as on rule sets derived from past literature.
+
+                    </p>
+
+                </div>
+
+            </div>
+
             <div class="site-inner" id="timeline-embed" style="width: 100%; height: 600px">
            <!--  <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1Xr08pZVlN6yfI4GqmPrxfQ_afIPT8BAwRMG4roqcw_s&font=Default&lang=en&initial_zoom=1&scale_factor=1
             &height=650' width='100%' height='100%' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe> -->
@@ -175,27 +275,38 @@
                            document.getElementById("maincontent").style.marginRight="2%"
                            document.getElementById("timeline-embed").style.marginTop="5%"
 
-
-
                        }    
-                        if(screenWidth<600)
-                      {
-
-                           document.getElementById("maincontent").style.marginTop="30%"
-                            document.getElementById("information").style.display="none"
-                            document.getElementById("information-mobile").style.display=""
-                           document.getElementById("timeline-embed").style.marginTop="10%"
-
-
-                       }  
+//                        if(screenWidth<600)
+//                      {
+//
+//                           document.getElementById("maincontent").style.marginTop="30%"
+//                            document.getElementById("information").style.display="none"
+//                            document.getElementById("information-mobile").style.display=""
+//                           document.getElementById("timeline-embed").style.marginTop="10%"
+//
+//
+//                       }
 
                     function displayTimeline(){
 
                         
 
-                    }              
+                    }
 
-               
+                  var coll = document.getElementsByClassName("collapsible");
+                  var i;
+
+                  for (i = 0; i < coll.length; i++) {
+                      coll[i].addEventListener("click", function() {
+                          this.classList.toggle("active");
+                          var content = this.nextElementSibling;
+                          if (content.style.maxHeight){
+                              content.style.maxHeight = null;
+                          } else {
+                              content.style.maxHeight = content.scrollHeight + "px";
+                          }
+                      });
+                  }
         </script>
         </div>
     

@@ -1,0 +1,75 @@
+{
+  "rule": {
+    "id": 19,
+    "confidence": 70.0,
+    "support": 2.25,
+    "lift": 1.63,
+    "name": [
+      "Foot-Hills_low",
+      "Mountainous_low",
+      "OffRoad_low",
+      "Residential_high",
+      "Rolling-Hills_low",
+      "TotalMiles_low",
+      "Unpaved_low"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 90.9090909091,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_low",
+          "Flatlands_high",
+          "HCSPerYear_medium",
+          "Highways_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 80.0,
+        "support": 10.81,
+        "lift": 2.69,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      },
+      {
+        "id": 2,
+        "name": [
+          "Flatlands_high",
+          "HCSPerYear_low",
+          "Highways_medium",
+          "MilesPerYear_low",
+          "PassingPerYear_medium"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 100.0,
+        "support": 8.11,
+        "lift": 3.36,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      },
+      {
+        "id": 3,
+        "name": [
+          "Flatlands_high",
+          "MilesPerYear_low",
+          "PassingPerYear_high",
+          "Segment_SPORTS"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 75.0,
+        "support": 8.11,
+        "lift": 2.52,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": []
+      }
+    ]
+  }
+}

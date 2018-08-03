@@ -1,0 +1,336 @@
+[
+  {
+    "Features": "AAT",
+    "FfullNames": "Ambient_Air_Tmptr",
+    "Unit": "Deg_C",
+    "Low": [
+      "-7.4",
+      "-6.45",
+      "-3.35",
+      "26.2"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "CF",
+    "FfullNames": "Charge_Flow",
+    "Unit": "kg/min",
+    "Low": [
+      "3.52",
+      "14.38",
+      "16.495",
+      "36.63"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "CT",
+    "FfullNames": "Charge_Tmptr",
+    "Unit": "Deg_C",
+    "Low": [
+      "2.62",
+      "19.745",
+      "21.615",
+      "36.32"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "OT",
+    "FfullNames": "Oil_Temperature",
+    "Unit": "Deg_C",
+    "Low": [
+      "82.969",
+      "96.348",
+      "98.938",
+      "99.758"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "ERT",
+    "FfullNames": "ECM_Run_Time",
+    "Unit": "s",
+    "Low": [
+      "10475721.6",
+      "10476260.1",
+      "10476807.1",
+      "10477354.6"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "EGROT",
+    "FfullNames": "EGR_Orifice_Tmptr",
+    "Unit": "Deg_C",
+    "Low": [
+      "59.43",
+      "81.225",
+      "82.535",
+      "97.32"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "ES",
+    "FfullNames": "Engine_Speed",
+    "Unit": "RPM",
+    "Low": [
+      "674.9",
+      "1311.35",
+      "1315.7",
+      "1561.9"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "EMT",
+    "FfullNames": "Exhaust_Metal_Tmptr",
+    "Unit": "Deg_C",
+    "Low": [
+      "83.64",
+      "371.16",
+      "391.43",
+      "503.92"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "FTS",
+    "FfullNames": "Filtered_Turbo_Speed",
+    "Unit": "KRPM",
+    "Low": [
+      "27.9",
+      "52.45",
+      "60.65",
+      "101.8"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "FT",
+    "FfullNames": "Friction_Torque",
+    "Unit": "N_m",
+    "Low": [
+      "131",
+      "184.688",
+      "185.312",
+      "218.25"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "OP",
+    "FfullNames": "Oil_Pressure",
+    "Unit": "kPa_G",
+    "Low": [
+      "163.81",
+      "258.395",
+      "260.455",
+      "286.44"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "TF",
+    "FfullNames": "Total_Fueling",
+    "Unit": "mg/stroke",
+    "Low": [
+      "0",
+      "95.235",
+      "116.03",
+      "275.25"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "TOT",
+    "FfullNames": "Turbine_Out_Tmptr",
+    "Unit": "Deg_C",
+    "Low": [
+      "107.5",
+      "302.245",
+      "311.425",
+      "350.79"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "VS",
+    "FfullNames": "Vehicle_Speed",
+    "Unit": "km/hr",
+    "Low": [
+      "0",
+      "94.335",
+      "94.525",
+      "105.63"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "GPSS",
+    "FfullNames": "GPS_Speed",
+    "Unit": "knots",
+    "Low": [
+      "0",
+      "50.65",
+      "50.95",
+      "56.8"
+    ],
+    "noOfRanges": 3,
+    "rangeNames": [
+      "a",
+      "b",
+      "c"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "APP",
+    "FfullNames": "Accelerator_Pedal_Position",
+    "Unit": "%",
+    "Low": [
+      "0",
+      "0.19",
+      "100"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "a",
+      "b"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "CP",
+    "FfullNames": "Coolant_Pressure",
+    "Unit": "kPa_G",
+    "Low": [
+      "716.03",
+      "770.765",
+      "770.88"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "a",
+      "b"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "CoolT",
+    "FfullNames": "Coolant_Temperature",
+    "Unit": "Deg_C",
+    "Low": [
+      "75.898",
+      "82.98",
+      "86.875"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "low",
+      "high"
+    ],
+    "category": "Continous"
+  },
+  {
+    "Features": "SBS",
+    "FfullNames": "Service_Brake_Switch",
+    "Unit": "None",
+    "Low": [
+      "0",
+      "0.5",
+      "1"
+    ],
+    "noOfRanges": 2,
+    "rangeNames": [
+      "a",
+      "b"
+    ],
+    "category": "Continous"
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "rule": {
+    "ante": [
+      "Foot-Hills_low",
+      "HCSPerYear_high",
+      "MilesPerYear_low",
+      "OffRoad_low"
+    ],
+    "Rsupp": "600",
+    "conf": "2.52",
+    "supp": "78",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Foot-Hills_low",
+          "HCSPerYear_high",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "Segment_A-E",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.81,
+        "lift": 3.7,
+        "confidence": 80,
+        "ninety5th": 4.550000000000001,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 75
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "olapVal": 75
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Flatlands_medium",
+          "Foot-Hills_low",
+          "HCSPerYear_high",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "Segment_A-E",
+          "Unpaved_low"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.81,
+        "lift": 3.7,
+        "confidence": 80,
+        "ninety5th": 4.550000000000001,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 75
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "olapVal": 75
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "Flatlands_medium",
+          "Foot-Hills_low",
+          "HCSPerYear_high",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "Residential_low",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.81,
+        "lift": 3.7,
+        "confidence": 80,
+        "ninety5th": 9.25,
+        "group": 2,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "olapVal": 75
+          },
+          {
+            "source": 2,
+            "target": 1,
+            "olapVal": 75
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "rule": {
+    "id": 6,
+    "confidence": 72.0,
+    "support": 2.69,
+    "lift": 1.67,
+    "name": [
+      "Foot-Hills_low",
+      "Minor-Arterials_high",
+      "OffRoad_low",
+      "Segment_SPORTS"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 0.0,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_low",
+          "TotalMiles_medium",
+          "Unpaved_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 75.0,
+        "support": 13.95,
+        "lift": 2.69,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 50
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Collectors_low",
+          "MilesPerYear_low",
+          "Unpaved_low",
+          "WOTPerYear_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 80.0,
+        "support": 9.3,
+        "lift": 2.87,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 50
+          }
+        ]
+      }
+    ]
+  }
+}

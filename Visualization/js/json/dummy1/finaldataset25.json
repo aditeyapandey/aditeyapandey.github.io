@@ -1,0 +1,31 @@
+{
+  "rule": {
+    "ante": [
+      "Highways_medium",
+      "Mountainous_low",
+      "OffRoad_low",
+      "PassingPerYear_low",
+      "TotalMiles_low"
+    ],
+    "Rsupp": "600",
+    "conf": "1.99",
+    "supp": "71",
+    "lift": "1.66",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_low",
+          "Rolling-Hills_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 15.63,
+        "lift": 3.56,
+        "confidence": 100,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": []
+      }
+    ]
+  }
+}

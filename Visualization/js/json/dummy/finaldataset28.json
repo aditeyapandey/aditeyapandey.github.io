@@ -1,0 +1,72 @@
+{
+  "rule": {
+    "ante": [
+      "Highways_medium",
+      "Mountainous_low",
+      "OffRoad_low",
+      "Rolling-Hills_low",
+      "Unpaved_low",
+      "WOTPerYear_high"
+    ],
+    "Rsupp": "600",
+    "conf": "1.82",
+    "supp": "70",
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Collectors_medium",
+          "Highways_medium",
+          "MilesPerYear_low",
+          "Mountainous_low",
+          "OffRoad_low",
+          "Residential_medium",
+          "Rolling-Hills_low",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 16.67,
+        "lift": 2.78,
+        "confidence": 83,
+        "ninety5th": 10.0,
+        "group": 2,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "olapVal": 33
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Flatlands_high",
+          "Highways_medium",
+          "Mountainous_low",
+          "OffRoad_low",
+          "PassingPerYear_high",
+          "Rolling-Hills_low",
+          "Segment_SPORTS",
+          "TotalMiles_medium",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "cons": "SportsMode_low",
+        "supp": 10.0,
+        "lift": 3.33,
+        "confidence": 100,
+        "ninety5th": 9.5,
+        "group": 2,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "olapVal": 33
+          }
+        ]
+      }
+    ]
+  }
+}

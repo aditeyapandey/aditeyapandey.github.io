@@ -1,0 +1,68 @@
+{
+  "rule": {
+    "id": 2,
+    "confidence": 74.0,
+    "support": 6.49,
+    "lift": 1.49,
+    "name": [
+      "CF_b",
+      "EGROT_c",
+      "SBS_a"
+    ],
+    "consequent": "CoolT_high",
+    "coverage": 86.1111111111,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "OP_c",
+          "VS_c"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 50.0,
+        "support": 20.7142857143,
+        "lift": 1.9444444444,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 3
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "APP_a",
+          "CP_b",
+          "CT_b",
+          "EMT_c",
+          "ERT_b",
+          "FTS_b",
+          "GPSS_b",
+          "OT_b",
+          "TOT_c"
+        ],
+        "consequent": "CoolT_low",
+        "confidence": 50.0,
+        "support": 2.1428571429,
+        "lift": 1.9444444444,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 3
+          }
+        ]
+      }
+    ]
+  }
+}

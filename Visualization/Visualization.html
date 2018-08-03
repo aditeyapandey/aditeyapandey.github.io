@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EIF Fusion Workbench - Rule Visualization</title>
+    <script type="text/javascript" src="d3/d3.v3.js"></script>
+    <link rel="stylesheet" href="css/d3.slider.css" />
+    <link rel="stylesheet" type="text/css" href="css/sports.css">
+
+
+
+    <style>
+
+        .wrapper > div {
+            margin: 35px 0;
+        }
+
+        #slider8 {
+            height: 250px;
+        }
+
+        #slider9 {
+            height: 250px;
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+<table WIDTH="100%" border="0" style="margin-top:10px">
+    <tr>
+        <td rowspan="3" width="10%"><img src="images/EIF-V1.png" width="100"></td>
+        <td width="40%" style="font-family: arial; color: rgb(78, 132, 196); font-size: 50px;">
+            <strong>Fusion Workbench</strong></td>
+        <td rowspan="3" colspan="3" width="100%" style="font-size: 14px">
+            <p>
+                <strong>Plug-ins</strong>
+                <br>
+                1. Stream Fusion
+                <br>
+                2. Data Harmonization
+                <br>
+                3. IntelliMine
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="SFver" align="left" style="font-size: 14px"><a
+                href="/FusionTool/files/VersionLog.txt" target="_blank">Version 0.3</a></td>
+    </tr>
+    <tr>
+        <td class="iLab" align="left" style="font-size: 14px">TCS Innovation Labs, Delhi</td>
+    </tr>
+</table>
+<h1 align="center" id="header" style="margin-top:20px"></h1>
+
+<!--<div id="donut" data-donut="43" style="width:auto"  >-->
+<!--<h3 align="center">Support of SportsMode_High Rules is <span style="color:red">43%</span> of Whole Data</h3>
+<h3 align="center">Coverage of SportsMode_High Rules <span style="color:red">50.80%</span></h3>-->
+<h3 align="center" id="hmain"></h3>
+<h3 align="center" id="hmain1"></h3>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="d3/d3.v3.js"></script>
+<script>
+    var duration   = 500,
+            transition = 200;
+
+    drawDonutChart(
+            '#donut',
+            $('#donut').data('donut'),
+            180,
+            180,
+            ".35em"
+    );
+
+    function drawDonutChart(element, percent, width, height, text_y) {
+        width = typeof width !== 'undefined' ? width : 290;
+        height = typeof height !== 'undefined' ? height : 290;
+        text_y = typeof text_y !== 'undefined' ? text_y : "-.10em";
+
+        var dataset = {
+                    lower: calcPercent(0),
+                    upper: calcPercent(percent)
+                },
+                radius = Math.min(width, height) / 2,
+                pie = d3.layout.pie().sort(null),
+                format = d3.format(".0%");
+
+        var arc = d3.svg.arc()
+                .innerRadius(radius - 20)
+                .outerRadius(radius);
+
+        var svg = d3.select(element).append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        var path = svg.selectAll("path")
+                .data(pie(dataset.lower))
+                .enter().append("path")
+                .attr("class", function(d, i) { return "color" + i })
+                .attr("d", arc)
+                .each(function(d) { this._current = d; }); // store the initial values
+
+        var text = svg.append("text")
+                .attr("text-anchor", "middle")
+                .attr("dy", text_y)
+
+        if (typeof(percent) === "string") {
+            text.text(percent);
+        }
+        else {
+            var progress = 0;
+            var timeout = setTimeout(function () {
+                clearTimeout(timeout);
+                path = path.data(pie(dataset.upper)); // update the data
+                path.transition().duration(duration).attrTween("d", function (a) {
+                    // Store the displayed angles in _current.
+                    // Then, interpolate from _current to the new angles.
+                    // During the transition, _current is updated in-place by d3.interpolate.
+                    var i  = d3.interpolate(this._current, a);
+                    var i2 = d3.interpolate(progress, percent)
+                    this._current = i(0);
+                    return function(t) {
+                        text.text( format(i2(t) / 100) );
+                        return arc(i(t));
+                    };
+                }); // redraw the arcs
+            }, 200);
+        }
+    };
+
+    function calcPercent(percent) {
+        return [percent, 100-percent];
+    };
+
+</script>
+
+<script type="text/javascript">
+
+//To get the  GET query from the browser.
+function getParam( name )
+{
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( window.location.href );
+    if( results == null )
+        return "";
+    else
+        return results[1];
+}
+var filename1="newdatasort3.json"
+var filename=getParam( 'rules' );
+var data;
+var edgeCount=0//Keep a count of total number of edges that exist in the dataset
+var arr_edgeCount=[]//an array to store the starting edge from each node
+var nodeArray=[]
+var rangeData;
+var colorArray=[];
+var colorArray1=[];
+var namesArray=[]
+var colorjson=d3.json("json/featureNames.json",function(colorjson){
+    console.log(colorjson.Names);
+    var h=0;
+    var s=60;
+    var v=60;
+
+    function hsvToRgb(h, s, v) {
+        var r, g, b;
+
+        var i = Math.floor(h * 6);
+        var f = h * 6 - i;
+        var p = v * (1 - s);
+        var q = v * (1 - f * s);
+        var t = v * (1 - (1 - f) * s);
+
+        switch (i % 6) {
+            case 0: r = v, g = t, b = p; break;
+            case 1: r = q, g = v, b = p; break;
+            case 2: r = p, g = v, b = t; break;
+            case 3: r = p, g = q, b = v; break;
+            case 4: r = t, g = p, b = v; break;
+            case 5: r = v, g = p, b = q; break;
+        }
+
+        return [ r * 255, g * 255, b * 255 ];
+    }
+
+    console.log(arr);
+    for(var i=0;i<colorjson.Names.length;i++)
+    {
+        if(i<5)
+        {
+            h=20;
+            s=Math.random();
+            if(s<0.50){s=s+0.50;}
+            v=Math.random();
+            if(v<0.50){v=v+0.50;}
+        }
+        if(i>4 && i<9)
+        {
+            h=60;
+            s=Math.random();
+            if(s<0.50){s=s+0.50;}
+            v=Math.random();
+            if(v<0.50){v=v+0.50;}
+        }
+        if(i>8)
+        {
+            h=h+20;
+            s=Math.random();
+            if(s<0.50){s=s+0.50;}
+            v=Math.random();
+            if(v<0.50){v=v+0.50;}
+        }
+        var arr=hsvToRgb((h/360),(s),(v));
+        namesArray.push(colorjson.Names[i]);
+        colorArray.push("rgb("+Math.round(arr[0])+","+Math.round(arr[1])+","+Math.round(arr[2])+")")
+        //  s=s+20;
+
+    }
+//console.log(namesArray);
+//console.log(colorArray);
+//alert(colorArray);
+    colorArray1=["rgb(243,132,77)","rgb(139,54,11)","rgb(217,141,103)","rgb(177,87,43)","rgb(195,113,72)","rgb(235,235,77)","rgb(178,178,60)","rgb(181,181,84)","rgb(130,130,19)","rgb(115,169,61)","rgb(6,238,6)","rgb(13,153,83)","rgb(23,153,153)","rgb(12,117,223)","rgb(47,47,137)","rgb(23,111,155)", "rgb(0,175,0)", "rgb(79,79,225)","rgb(116,28,98)","rgb(165,42,42)","rgb(255,215,0)","rgb(127,255,0)","rgb(0,255,255)","rgb(75,0,130)","rgb(216,191,216)","rgb(128,128,0)","rgb(0,255,0)","rgb(100,149,237)","rbg(127,255,212)","rgb(255,165,0)","rgb(188,143,143)","rgb(119,136,153)","rgb(221,160,221)","rgb(65,105,225)","rgb(240,255,240)"];
+    for(var i=0;i<namesArray.length;i++)
+    {
+        console.log(namesArray[i]+colorArray1[i]);
+    }
+
+})
+
+
+//Reading the range json file
+var json1=d3.json("json/Ranges.json",function(json1){
+    rangeData=json1;
+
+    //console.log(rangeData[0].Features);
+});
+var json= d3.json("json/Level1.json", function(json){
+    data=json;
+    //alert(rangeData[0].Low);
+    //document.write("<h3 align='center'>Coverage of SportsMode_High Rules <span style='color:red'>"+data.rule.coverage+"</span></h3>")
+    d3.select("#header").html("Rules => "+data.rule.nodes[0].consequent)
+    d3.select("#hmain").html("Coverage of "+data.rule.nodes[0].consequent+" Rules <span style='color:red'>"+data.rule.coverage+"%</span>")
+    d3.select("#hmain1").html("Class Probabilty of "+data.rule.nodes[0].consequent+" is <span style='color:red'>"+data.rule.classPercentile+"%</span>")
+
+    //d3.select.("#hmain1").html("<h3 align='center'>Class Probability of "+data.rule.nodes[0].consequent+" is <span style='color:red'>"+data.rule.coverage+"</span></h3>")
+    console.log(data.rule.nodes[0].name);
+    //console.log(json['']);
+    console.log()
+    var intersection=-1;
+    var width = 1280;
+    var height = 800;
+    var centerX=width/2;
+    var centerY=height/2.5;
+    // Addition1: Creating an adjacency matrix from the json dataset for finding out all the nodes connected to each other
+    for(var i=0;i<data.rule.nodes.length;i++)
+    {
+        arr_edgeCount[i]=edgeCount;//calculating the total number of edges
+        edgeCount=edgeCount+data.rule.nodes[i].edges.length;//finding the starting edge for each node
+
+        nodeArray[i]=[]
+        for(var j=0;j<data.rule.nodes.length;j++)
+        {
+            nodeArray[i][j]=0;
+        }
+    }
+
+    var max_support=0;
+    var min_support=0;
+    for(var i=0;i<data.rule.nodes.length;i++)
+    {
+
+        for(var j=0;j<data.rule.nodes[i].edges.length;j++)
+        {
+            console.log(data.rule.nodes[i].edges[j].source+"  "+data.rule.nodes[i].edges[j].target);
+
+            console.log("eedge length is"+data.rule.nodes[i].edges.length)
+
+            if(data.rule.nodes[i].edges.length>0)
+            {
+
+                var temp=	data.rule.nodes[i].edges[j].target
+                console.log(temp);
+                nodeArray[i][temp]=1;
+                nodeArray[temp][i]=1;
+            }
+
+        }
+        max_support=Math.max(max_support,data.rule.nodes[i].support);
+        min_support=Math.min(min_support,data.rule.nodes[i].support);
+    }
+//alert(max_support);
+//alert(min_support);
+    var support_scale=d3.scale.linear().domain([min_support,max_support]).range([1,5]);
+//alert(support_scale(2));
+//defining the colors for array so that they can referred by the color scale
+    var arrayFeature=["BackdownPerYear","BackupPerYear","Collectors","Flatland","Foot-Hills","HCSPerYear","HighWays",
+        "MilesPerYear","Mountainous","Off-road","PassingPerYear","Residential","Rolling Hills",  "Unpaved",
+        "WOTPerYear"]
+    var arrayColor=["rgb(57,59,121)","#9c9ede","#bcbd22","#bd9e39","#843c39",
+        "#e7969c","#ce6dbd","rgb(23,190,207)","#2ca02c","#3182bd",
+        "#fd8d3c","#d62728 ","#bcbd22","#9edae5","#d6616b"
+    ]
+
+
+
+    var colorScale=d3.scale.ordinal()
+            .domain(namesArray)
+            .range(colorArray1);
+//Putting in names of all the features in an array to highlight all the similar ones
+
+    var allFeatures=[];
+    for (var j=0;j<data.rule.nodes.length;j++)
+    {
+        for(var i=0;i<data.rule.nodes[j].name.length;i++)
+        {
+            var name=data.rule.nodes[j].name[i];
+            var result=data.rule.nodes[j].name[i].split("_")
+            allFeatures.push(result[0]);
+        }
+    }
+
+
+
+//var textL="<font color=red>L</font><font color=green>M</font><font color=blue>H</font>&nbsp;";
+    var textL="&nbsp;"
+
+//Main rule tooltip ends here
+//Tooltips for exceptions
+
+    for(var i=0;i<=data.rule.nodes.length;i++)
+    {
+        d3.select("body").append("div").attr("class","hidden").attr("id","tooltip"+i);
+    }
+
+//Tooltips for paths
+    for(var i=0;i<=data.rule.nodes.length;i++)
+    {
+        d3.select("body").append("div").attr("class","hidden").attr("id","ntooltip"+i)
+    }
+
+    for(var i=0;i<=data.rule.nodes.length;i++)
+    {
+        d3.select("#ntooltip"+i).append("span").attr("id","value").text("hello");
+    }
+
+
+    for(var i=0;i<data.rule.nodes.length;i++)
+    {
+        d3.select("#tooltip"+i).text("Support:"+data.rule.nodes[i].support+"%") .style("color", "red").style("font-size","10px");
+    }
+
+
+    for(var i=0;i<=data.rule.nodes.length;i++){
+
+        if(i<data.rule.nodes.length)
+        {
+            d3.select("#tooltip"+i).append("p")
+                    .style("font-size","12px")
+                    .style("text-align","right")
+                    .html(textL);
+            for(var j=0;j<data.rule.nodes[i].name.length;j++)
+            {
+                var anteName=data.rule.nodes[i].name[j];
+                var result=anteName.split("_");
+                console.log(result[1][0]);
+                var feature=result[0]+" ("+result[1][0]+")"
+                d3.select("#tooltip"+i).append("p").style("color", "black").text(feature);
+                var d=d3.select("#tooltip"+i).append("div").attr("class","bar").style("left","155px").style("top",44+(12*j)+"px");
+                var d1=d3.select("#tooltip"+i).append("div").attr("class","bar").style("left","155px").style("top",44+(12*j)+"px")
+                        .style("background-color",colorScale(result[0])).style("width",function(){
+                            if(anteName.indexOf("_low")!=-1){return "18px";}
+                            else if(anteName.indexOf("_medium")!=-1){return "18x";}
+                            else {return "18x";}
+                        })
+
+            }
+            var kk=data.rule.nodes[i].name.length;
+            var conf=data.rule.nodes[i].confidence;
+            var lift=data.rule.nodes[i].lift;
+            var cons1=data.rule.nodes[i].consequent.split("_");
+            var cons=cons1[0]+"("+cons1[1][0]+")";
+        }
+        var textl1="Confidence:"+conf+"% <br/>Lift :"+lift+"%";
+        d3.select("#tooltip"+i).append("div").attr("class","barnoo").style("left","60px").style("width","auto").style("top",44+(12*kk)-2+"px").html(textl1);
+        d3.select("#tooltip"+i).append("img").
+                attr("src","images/arrow.png")
+                .attr("width","20px")
+                .attr("height","40px");
+
+        d3.select("#tooltip"+i).append("p").style("color", "black").text(cons);
+    }
+//Exceptions tooltips ends here
+// alert(arrayColor);
+    var zoom = d3.behavior.zoom()
+            .scaleExtent([1, 4])
+            .on("zoom", zoomed);
+
+
+    var canvas = d3.select("body").append("svg")//selecting the canvas
+            .attr("width", width)
+            .attr("height", height)
+            .attr("id","svg_element")
+            .attr("transform", "translate(0," + 100 + ")")
+    //.call(zoom);
+
+
+    var datasetFeatures1=[];
+    var globaltemp=0;
+    var noExceps= json.rule.nodes.length;//finding out the number of exceptions
+    var rule = canvas.datum(json).append("g");//
+    var mainCircle=rule.append("circle")
+            .attr("cx", centerX)
+            .attr("cy", centerY)
+            .attr("r", function(d){return 0;})//Give radius to the main rule
+            .attr("stroke", "#2ca02c")//outline color
+            .attr("fill-opacity", 0.15) /*function(d){return d.rule.Rconf/10;})*///This gives oapcity based on confidence value
+            .attr("fill", "#2ca02c")//inside color
+    var centresX = [];
+    var centresY = [];
+
+    var centresX1=[];
+    var centresY1=[];
+    var exRadial1=1500/4;
+
+    var div = 360/noExceps;
+    for (var i =0;i<noExceps;i++){
+
+        var x = width/2+ Math.cos(i*div*Math.PI/180)*exRadial1;
+        var y = height/2.5+ Math.sin(i*div*Math.PI/180)*exRadial1;
+
+        centresX1.push(x);
+        centresY1.push(y);
+
+    }
+
+
+    if(json.rule.nodes.length>1)
+    {
+        var exRadial =  900/4;//form a new group of elements******giving the size of radial
+        //This method gives progressive radius to
+
+        var div = 360/noExceps;
+        for (var i =0;i<noExceps;i++){
+
+            var x = width/2+ Math.cos(i*div*Math.PI/180)*exRadial;
+            var y = height/2.5+ Math.sin(i*div*Math.PI/180)*exRadial;
+
+            centresX.push(x);
+            centresY.push(y);
+
+        }
+    }
+    else
+    {
+        for(var i=0;i<1;i++)
+        {
+            if(i%2==0)
+            {
+                var x=width/2+(30);
+                var y=height/2.5;
+            }
+            else
+            {
+                var x=width/2-(30);
+                var y=height/2;
+            }
+            centresX.push(x);
+            centresY.push(y);
+
+        }
+
+    }
+
+    excep = canvas.append("g");
+    var textG= excep.selectAll("g").data(json.rule.nodes)
+            .enter()
+            .append("g");
+
+    var excep1 = canvas.append("g").attr("id","edges");
+    var lineG= excep1.selectAll("g").data(json.rule.nodes)
+            .enter()
+            .append("g");
+
+    var excep3 = canvas.append("g");
+    var circleE= excep3.selectAll("g").data(json.rule.nodes)
+            .enter()
+            .append("g");
+
+    var excep2 = canvas.append("g").attr("id","circles");
+
+    var circleG= excep2.selectAll("g");
+    /*.data(json.rule.nodes)
+     .enter()
+     .append("g");*/
+
+
+
+
+
+    //This method appends text to the right place
+    var edgeArray=[];
+    //Drawing the lines here
+    var j=0;
+    lineG.selectAll("line").data(function(d){ return d.edges;}).enter().append("line")
+            .attr("x1", function(d){return centresX[d.source];})
+            .attr("y1", function(d){return centresY[d.source];})
+            .attr("x2", function(d){return centresX[d.target];})
+            .attr("y2", function(d){return centresY[d.target];})
+            .attr("id", function(d, i) {
+                var src=d.source;
+                var tgt=d.target;
+                var identity="idline_"+j;
+
+                edgeArray.push([identity,src,tgt]);
+
+                return ("idline_" + j++)})
+            .style("stroke", "rgb(100,100, 100)")
+            .style("stroke-width", function(d){return d.overlap/20;})//olap value is the width
+            .append("title")
+            .text(function(d) {
+                return "Overlap % b/w the exceptions is " + d.overlap+"%";
+            })
+            .attr("font-size","20px");
+//Function to higlight connecting edges
+    function selectEdge( i)
+    {
+
+        for(var m=0;m<edgeCount;m++)
+        {
+            canvas.select("#idline_"+m).attr("opacity",0);
+            /*if(edgeArray[m][1]==i || edgeArray[m][2]==i)
+             {
+             canvas.select("#idline_"+m).attr("opacity",0);
+             }*/
+        }
+
+        for(var j=0;j<data.rule.nodes[i].edges.length;j++)
+        {
+            var temp=arr_edgeCount[i]+j;
+            canvas.select("#idline_"+temp).style("stroke", "rgb(31, 119, 180)").attr("opacity",1);
+        }
+    }
+//function to deselect the the selected edges
+    function deSelectEdge(i)
+    {
+
+        for(var m=0;m<edgeCount;m++)
+        {
+            canvas.select("#idline_"+m).attr("opacity",1);
+        }
+        for(var j=0;j<data.rule.nodes[i].edges.length;j++)
+        {                             var temp=arr_edgeCount[i]+j
+            canvas.select("#idline_"+temp).style("stroke", "rgb(100,100, 100)")
+        }
+    }
+    function isinsamequad(i,j)
+    {
+
+        if(i<=centerX && j<=centerX)
+        {
+
+            return true;
+        }
+        else{
+
+            return false;
+        }
+    }
+//function to position the divs tooltips of the exceptions
+    function tooltip(i)
+    {
+
+        var xPosition=centresX1[i];
+        var yPosition=centresY1[i];
+        //var scale=15;
+        //var x=400;
+        if(centresY[i]>centerY)
+        {
+            if(centresX[i]>centerX){
+                xPosition=xPosition+50;
+                yPosition=yPosition+50;
+
+            }
+            else if(centresX[i]==centerX){ yPosition=yPosition+50;
+                xPosition=xPosition-100;}
+            else if(centresX[i]<centerX)
+            {
+
+                var distance=Math.abs(centresY[i]-centresY[i-1]);
+
+                if(distance<60 && (isinsamequad(centresX[i],centresX[i-1])))
+                {
+                    xPosition=xPosition-220
+                    yPosition=centresY[i-1]-100;
+                }
+                else{
+                    xPosition=xPosition-220
+                    yPosition=yPosition+50;
+                }
+            }
+        }
+        else if(centresY[i]<centerY)
+        {
+            if(centresX[i]>centerX)
+            {
+                xPosition=xPosition+50;
+                yPosition=yPosition-120;
+            }
+            else if(centresX[i]==centerX){ yPosition=yPosition-150;
+                xPosition=xPosition-220}
+            else if(centresX[i]<centerX)
+            {
+                xPosition=xPosition-220;
+                yPosition=yPosition-120;
+            }
+        }
+        else if(centresY[i]==centerY){if(centresX[i]>centerX)
+        {
+            xPosition=xPosition+50;
+            yPosition=yPosition-50;
+        }
+        else if(centresX[i]<centerX)
+        {
+            xPosition=xPosition-220;
+            yPosition=yPosition-50;
+        }
+        }
+
+
+        d3.select("#tooltip"+i)
+                .style("left",centresX1[i]-90 + "px")
+                .style("top", centresY1[i]+150+ "px");
+        var e = document.getElementById('tooltip'+i);
+        var w = document.defaultView.getComputedStyle(e,null).getPropertyValue("top");
+        var index=w.indexOf("p");
+        w=w.substring(0,(index-1))
+        //alert(w);
+        /*if(intersection==-1)
+        {
+            d3.select("#tooltip"+i).classed("hidden", false);
+        }
+        else{
+            //alert(intersection);
+            //alert(w);
+            //	alert(intersection-w);
+            if(Math.abs(intersection-w)<100)
+            {
+                console.log("i am here")
+                d3.select("#tooltip"+i).classed("hidden", false);
+                if(Math.abs(intersection-w)<50){
+                    d3.select("#tooltip"+i).transition().duration(1000)
+                            .style("left",(xPosition+160) + "px")
+                            .style("top", (yPosition+50+190) + "px");
+                }
+                else{
+                    d3.select("#tooltip"+i).transition().duration(1000)
+                            .style("left",(xPosition+100) + "px")
+                            .style("top", (yPosition+50+190) + "px");}
+                //alert("hello");
+
+            }
+            else
+            {
+
+            }
+        }*/
+        d3.select("#tooltip"+i).classed("hidden", false);
+        intersection=w;
+    }
+
+    function pathtooltip(i,obj,featureName,result,fname)
+    {
+
+        var xPosition=centresX[i];
+        var yPosition=centresY[i];
+        //var scale=15;
+        //var x=400;
+        if(centresY[i]>centerY)
+        {
+            if(centresX[i]>centerX){
+                xPosition=xPosition+50;
+                yPosition=yPosition;
+
+            }
+            else if(centresX[i]==centerX){ yPosition=yPosition+50;
+                xPosition=xPosition-100;}
+            else if(centresX[i]<centerX)
+            {
+
+                var distance=Math.abs(centresY[i]-centresY[i-1]);
+
+                if(distance<60 && (isinsamequad(centresX[i],centresX[i-1])))
+                {
+                    xPosition=xPosition-220
+                    yPosition=centresY[i-1]-50;
+                }
+                else{
+                    xPosition=xPosition-220
+                    yPosition=yPosition+50;
+                }
+            }
+        }
+        else if(centresY[i]<centerY)
+        {
+            if(centresX[i]>centerX)
+            {
+                xPosition=xPosition+50;
+                yPosition=yPosition-30;
+            }
+            else if(centresX[i]==centerX){ yPosition=yPosition-60;
+                xPosition=xPosition-50}
+            else if(centresX[i]<centerX)
+            {
+                xPosition=xPosition-220;
+                yPosition=yPosition-30;
+            }
+        }
+        else if(centresY[i]==centerY){if(centresX[i]>centerX)
+        {
+            xPosition=xPosition+50;
+            yPosition=yPosition;
+        }
+        else if(centresX[i]<centerX)
+        {
+            xPosition=xPosition-220;
+            yPosition=yPosition;
+        }
+        }
+
+
+        d3.select("#ntooltip"+i)
+                .style("left",xPosition + "px")
+                .style("top", yPosition + "px")
+                .select("#value")
+                .html(fname);
+
+        var d=d3.select("#ntooltip"+i).append("div").attr("class","bar").style("left","155px").style("top","16px");
+        var d1=d3.select("#ntooltip"+i).append("div").attr("class","bar").style("left","155px").style("top","16px").style("background-color",colorScale(featureName)).style("width",function(){
+            if(result=="low"){return "3px";}
+            else if(result=="medium"){return "9px";}
+            else {return "12x";}
+        });
+//
+        d3.select("#ntooltip"+i).classed("hidden", false);
+
+    }
+//Function to deselect tooltip from the browser
+    function deSelecttooltip(i)
+    {
+
+        d3.select("#tooltip"+i).classed("hidden", true);
+    }
+    function deSelectpathtooltip(i)
+    {
+        d3.select("#ntooltip"+i).classed("hidden", true);
+    }
+//inserting the dummy circle for stroke width
+
+    circleE.append("circle")
+            .attr("cx",function(d,i){return centresX[i];})
+            .attr("cy",function(d,i){return centresY[i];})
+            .attr("r", function(d){
+                var r=support_scale( d.support);
+                r=r*5;
+                r++;
+                r++;
+                console.log(d.support+1);
+                return r;})
+            .attr("stroke", "rgb(31, 119, 180)")
+            .attr("stroke-width", "0px")
+            .attr("fill-opacity", function(d){return 0;})
+            .attr("fill", "rgb(31, 119, 180)")
+            .attr("id", function(d, i) { return ("idlabel_" + i)})//Addition 2 :adding an additional id attribute to extract circles individually
+
+
+
+//Inserting pie charts inside the main rule
+    var outerRadius = 30;
+    var arc=d3.svg.arc()
+            .innerRadius(0);
+    //.outerRadius(30);
+    var confidence=[]
+    var indexedPieData=[];
+    var pie =d3.layout.pie();
+    var dataset=[];
+    var datasetFeatures=[];
+    var tempvar=0
+    var nodeLength=data.rule.nodes.length-1;
+    for (var j=0;j<data.rule.nodes.length;j++){
+
+        var col=[];
+        console.log(j+"st node")
+        for(var i=0;i<data.rule.nodes[j].name.length;i++)
+        {
+            dataset.push(1);
+            var stringFeature=data.rule.nodes[j].name[i];
+            var result=stringFeature.split("_");
+            if(datasetFeatures.indexOf(result[0])==-1)
+            {
+                datasetFeatures.push(result[0]);
+            }
+            console.log(data.rule.nodes[j].name[i]+" hahaha "+colorScale(result[0]) )
+            col.push(colorScale(result[0]));
+
+        }
+        confidence.push(data.rule.nodes[j].conf);
+        var pieChart = pie(dataset);
+        for (var k=0; k<pieChart.length;k++){
+            indexedPieData.push([pieChart[k],j,col[k],tempvar]);
+        }
+        dataset=[];
+        tempvar++;
+    }
+    var clicked="false";
+    console.log(indexedPieData);
+    datasetFeatures.sort();
+    confidence.sort();
+    var datasetFeatures1=[]
+    var globaltemp=0;
+    var selected="false";
+    var arcCount=0//THis variable is being used for the purpose of counting the number of arcs present in each node
+//Set up groups
+    var temp_Arc=0;
+    var arcs = circleG.select("g.arc").data(indexedPieData)
+            .enter()
+            .append("g")
+            .attr("class", function(d,i){ return "arc_"+i})
+            .attr("id",function(d,i){ return "arc_"+d[1]})
+            .attr("transform", function(d){return "translate(" + (centresX[d[1]]) + "," + (centresY[d[1]]) + ")"})
+            .on("click",function(d,i){
+                window.open('mv2.html?rules=finaldatasetSensor'+(d[3]+1)+'.json','_blank');
+            })
+        /*.on("mouseup",function(d,i){
+         var featureName=allFeatures[i];
+
+         var tempVar=0;
+         for (var j=0;j<data.rule.nodes.length;j++)
+         {
+         for(var i=0;i<data.rule.nodes[j].name.length;i++)
+         {
+         var name=data.rule.nodes[j].name[i];
+         var result=data.rule.nodes[j].name[i].split("_")
+         if(result[0]==featureName)
+         {
+         canvas.selectAll("#path_"+tempVar).attr("stroke", "black").attr("stroke-width", 0)
+         }
+         tempVar++;
+         }
+         }
+         d3.select("#idlabel_"+d[3]).style("stroke-width", 0).attr("fill", "rgb(31, 119, 180)");
+         //canvas.selectAll("#arc_"+d[3]).attr("stroke-width", 1).attr("stroke", "black");;
+         deSelecttooltip(d[3]);
+         for(var j=0;j<data.rule.nodes.length;j++)
+         {
+         if(nodeArray[d[3]][j]!=1 && d[3]!=j)
+         {
+         //canvas.selectAll("#arc_"+j).attr("opacity",1);
+         //canvas.selectAll("#arc_"+j).attr("stroke-width", 1).attr("stroke", "black");
+         }
+         else if(nodeArray[d[3]][j]==1 )
+         {
+         d3.select("#idlabel_"+j).style("stroke-width", 0).attr("fill", "rgb(31, 119, 180)");
+         deSelecttooltip(j);
+         }
+         }
+         deSelectEdge(d[3]);
+
+         d3.select("#l1").remove();
+         d3.select("#l2").remove();
+         for(var h=0;h<globaltemp;h++)
+         {
+         d3.select("#tlmh"+h).remove();
+         d3.select("#trange"+h).remove();
+         }
+         d3.select("#features").remove();
+         d3.select("#unit").remove();
+         })*/
+            .on("mouseover",function(d,i){
+                var featureName=allFeatures[i];
+
+                var tempVar=0;
+                for (var j=0;j<data.rule.nodes.length;j++)
+                {
+                    for(var i=0;i<data.rule.nodes[j].name.length;i++)
+                    {
+                        var name=data.rule.nodes[j].name[i];
+                        var result=data.rule.nodes[j].name[i].split("_")
+                        if(result[0]==featureName)
+                        {
+                            canvas.selectAll("#path_"+tempVar).attr("stroke", "black").attr("stroke-width", 0)
+                            deSelectpathtooltip(j);
+                        }
+                        tempVar++;
+                    }
+                }
+
+                d3.select("#idlabel_"+d[3]).style("stroke-width", 4).attr("fill", "rgb(225,0,0)").attr("stroke","red")
+                datasetFeatures1=[];
+                globaltemp=0;
+                //var lengthVar=i%d[3]
+                // alert(lengthVar);
+                //console.log(i);
+                //console.log(d[3])
+                //canvas.selectAll("#arc_"+d[3]).attr("stroke", "red").attr("stroke-width", 4.5)
+                var obj=d3.mouse(document.getElementById("svg_element"));
+                if(zoomed=="false"){
+                    tooltip(d[3])
+
+                }
+                else if(zoomed=="true")
+                {
+                    tooltipZoomed(d[3],scale,obj);
+
+                }
+                for(var v=0;v<data.rule.nodes[d[3]].name.length;v++)
+                {
+                    var stringFeature=data.rule.nodes[d[3]].name[v];
+                    var result=stringFeature.split("_");
+                    if(datasetFeatures1.indexOf(result[0])==-1)
+                    {
+                        datasetFeatures1.push(result[0]);
+                        globaltemp++;
+                    }
+                }
+
+
+                for(var j=0;j<data.rule.nodes.length;j++)
+                {
+                    if(nodeArray[d[3]][j]!=1 && d[3]!=j)
+                    {
+                        //canvas.selectAll("#arc_"+j).attr("opacity",0);
+                        //canvas.selectAll("#arc_"+j).attr("stroke", "red").attr("stroke-width", 4.5)
+                    }
+                    else if(nodeArray[d[3]][j]==1 )
+                    {
+                        for(var v=0;v<data.rule.nodes[j].name.length;v++)
+                        {
+                            var stringFeature=data.rule.nodes[j].name[v];
+                            var result=stringFeature.split("_");
+                            if(datasetFeatures1.indexOf(result[0])==-1)
+                            {
+                                datasetFeatures1.push(result[0]);
+                                globaltemp++;
+                            }
+                        }
+                        if(zoomed=="false")
+                        {
+                            d3.select("#idlabel_"+j).style("stroke-width", 4).attr("fill", "rgb(225,0,0)")
+                            tooltip(j)
+
+                        }
+
+
+                        else if(zoomed=="true")
+                        {
+                            console.log(d3.select("#arc_"+j).node().getBoundingClientRect())
+                            var tempbj=d3.select("#arc_"+j).node().getBoundingClientRect();
+                            var obj=[];
+                            obj[0]=tempbj.left;
+                            obj[1]=tempbj.top;
+                            tooltipZoomed(j,scale,obj);
+                        }
+
+                    }
+                }
+
+                selectEdge(d[3]);
+                var obj=d3.mouse(document.getElementById("svg_element"));
+
+                console.log(obj[0]);
+
+                //globaltemp=datsetFeatures1.length;
+                datasetFeatures1.sort();
+                //alert(datasetFeatures1);
+                //legend();
+                clicked="true";
+            })
+            .on("mouseout",function(d,i){
+                var featureName=allFeatures[i];
+                intersection=-1;
+                var tempVar=0;
+                for (var j=0;j<data.rule.nodes.length;j++)
+                {
+                    for(var i=0;i<data.rule.nodes[j].name.length;i++)
+                    {
+                        var name=data.rule.nodes[j].name[i];
+                        var result=data.rule.nodes[j].name[i].split("_")
+                        if(result[0]==featureName)
+                        {
+                            canvas.selectAll("#path_"+tempVar).attr("stroke", "black").attr("stroke-width", 0)
+                        }
+                        tempVar++;
+                    }
+                }
+                d3.select("#idlabel_"+d[3]).style("stroke-width", 0).attr("fill", "rgb(31, 119, 180)").attr("stroke", "rgb(31, 119, 180)");
+                //canvas.selectAll("#arc_"+d[3]).attr("stroke-width", 1).attr("stroke", "black");;
+                deSelecttooltip(d[3]);
+                for(var j=0;j<data.rule.nodes.length;j++)
+                {
+                    if(nodeArray[d[3]][j]!=1 && d[3]!=j)
+                    {
+                        //canvas.selectAll("#arc_"+j).attr("opacity",1);
+                        //canvas.selectAll("#arc_"+j).attr("stroke-width", 1).attr("stroke", "black");
+                    }
+                    else if(nodeArray[d[3]][j]==1 )
+                    {
+                        d3.select("#idlabel_"+j).style("stroke-width", 0).attr("fill", "rgb(31, 119, 180)");
+                        deSelecttooltip(j);
+                    }
+                }
+                deSelectEdge(d[3]);
+
+                d3.select("#l1").remove();
+                d3.select("#l2").remove();
+                for(var h=0;h<globaltemp;h++)
+                {
+                    d3.select("#tlmh"+h).remove();
+                    d3.select("#trange"+h).remove();
+                }
+                d3.select("#features").remove();
+                d3.select("#unit").remove();
+                clicked="false";
+            });
+    //simple ordinal scale
+    var value=confidence[nodeLength];
+    var confScale=d3.scale.linear()
+            .domain([0,data.rule.Rconf])
+            .range([0,1])
+    var rect=document.getElementById("circles");
+    rectObject=rect.getBoundingClientRect();
+    console.log(rectObject);
+
+
+    //Draw arc paths
+    arcs.append("path")
+            .attr("fill", function(d, i) {
+                return d[2];
+            })
+            .attr("id",function(d,i){return "path_"+i;})
+            .attr("fill-opacity", function(d){return confScale(data.rule.nodes[d[3]].conf)})
+            .attr("d", function(d,i){
+
+                var r=support_scale(data.rule.nodes[d[3]].support);
+                r=r*5;
+                arc.outerRadius(r);
+                return arc(d[0]);});
+
+
+
+//console.log(d3.select("#arc_2").node().getBoundingClientRect());
+    var scale=1;
+    var arrayTooltip=["Low","Medium","High"];
+    var zoomCenterX=0;
+    var zoomCenterY=0;
+    var zoomed="false";
+    function zoomed() {
+        zoomed="true"
+        var x=(512*d3.event.scale)+d3.event.translate[0];
+        var y=(400*d3.event.scale)+d3.event.translate[1];
+        var data=[];
+        data.push(x);
+        data.push(y);
+        zoomCenterX=x;
+        zoomCenterY=y;
+        d3.select("#chart1").attr("transform", "translate(" + data + ")scale(" + d3.event.scale + ")");
+        d3.select("#circles").attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        d3.select("#edges").attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+
+        scale=d3.event.scale;
+        if(d3.event.scale==1)
+        {
+            zoomed="false";
+            scale=1;
+        }
+    }
+
+
+
+});
+
+</script>
+
+</body>
+</body>
+</html>    
+

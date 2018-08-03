@@ -1,0 +1,63 @@
+{
+  "rule": {
+    "id": 2,
+    "confidence": 74.0,
+    "support": 3.21,
+    "lift": 1.71,
+    "name": [
+      "HCSPerYear_high",
+      "MilesPerYear_medium",
+      "WOTPerYear_high"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 53.8461538462,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "OffRoad_low",
+          "Rolling-Hills_high",
+          "TotalMiles_medium"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 100.0,
+        "support": 8.0,
+        "lift": 3.85,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 25
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Highways_low",
+          "Mountainous_low",
+          "Residential_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 100.0,
+        "support": 8.0,
+        "lift": 3.85,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 25
+          }
+        ]
+      }
+    ]
+  }
+}

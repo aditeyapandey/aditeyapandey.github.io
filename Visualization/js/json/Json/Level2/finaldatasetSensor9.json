@@ -1,0 +1,105 @@
+{
+  "rule": {
+    "id": 9,
+    "confidence": 78.0,
+    "support": 2.52,
+    "lift": 1.81,
+    "name": [
+      "Foot-Hills_low",
+      "HCSPerYear_high",
+      "MilesPerYear_low",
+      "OffRoad_low"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 0.0,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Mountainous_low",
+          "Segment_A-E",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 80.0,
+        "support": 10.81,
+        "lift": 3.7,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 75
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "overlap": 75
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Flatlands_medium",
+          "Mountainous_low",
+          "Segment_A-E",
+          "Unpaved_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 80.0,
+        "support": 10.81,
+        "lift": 3.7,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 75
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "overlap": 75
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": [
+          "Flatlands_medium",
+          "Mountainous_low",
+          "Residential_low",
+          "Unpaved_low",
+          "WOTPerYear_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 80.0,
+        "support": 10.81,
+        "lift": 3.7,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 2,
+            "target": 0,
+            "overlap": 75
+          },
+          {
+            "source": 2,
+            "target": 1,
+            "overlap": 75
+          }
+        ]
+      }
+    ]
+  }
+}

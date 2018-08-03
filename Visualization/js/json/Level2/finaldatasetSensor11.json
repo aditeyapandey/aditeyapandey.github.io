@@ -1,0 +1,65 @@
+{
+  "rule": {
+    "id": 11,
+    "confidence": 71.0,
+    "support": 2.43,
+    "lift": 1.66,
+    "name": [
+      "Collectors_medium",
+      "HCSPerYear_high",
+      "OffRoad_low",
+      "WOTPerYear_high"
+    ],
+    "consequent": "SportsMode_high",
+    "coverage": 81.8181818182,
+    "classPercentile": 0.0,
+    "ninety5th": 0.0,
+    "nodes": [
+      {
+        "id": 1,
+        "name": [
+          "Flatlands_low",
+          "Foot-Hills_high",
+          "Mountainous_high"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 100.0,
+        "support": 12.82,
+        "lift": 3.55,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 0,
+            "target": 1,
+            "overlap": 20
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": [
+          "Highways_medium",
+          "PassingPerYear_high",
+          "Rolling-Hills_low",
+          "Unpaved_low"
+        ],
+        "consequent": "SportsMode_low",
+        "confidence": 71.0,
+        "support": 12.82,
+        "lift": 2.53,
+        "coverage": 0.0,
+        "classPercentile": 0.0,
+        "ninety5th": 0.0,
+        "edges": [
+          {
+            "source": 1,
+            "target": 0,
+            "overlap": 20
+          }
+        ]
+      }
+    ]
+  }
+}
