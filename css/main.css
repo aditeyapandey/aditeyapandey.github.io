@@ -1,0 +1,353 @@
+body {
+    color: #333;
+    font-family: "museo-sans", "Helvetica Neue", serif;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.625;
+    margin: 0;
+}
+.site-container {
+
+    overflow: hidden;
+    position: relative;
+}
+
+.site-container:before {
+    background: #111;
+    height: 10px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.site-container:after {
+    background: #111;
+    height: 10px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.wrap {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.site-inner {
+    clear: both;
+    position: relative;
+}
+
+
+
+.site-header {
+    height: 70px;
+    position: relative;
+    width: 100%;
+}
+
+.site-header .wrap {
+    max-width: none;
+    padding: 30px 35px 0;
+}
+
+.title-area {
+    float: left;
+    width: 21px;
+}
+
+.site-title > a {
+    background-image: url(images/logo-small.png);
+    background-size: 100%;
+    border: none;
+    display: block;
+    height: 23px;
+    margin: 5px 0;
+    width: 21px;
+}
+
+.site-description,
+.site-title {
+    display: block;
+    line-height: 0;
+    margin: 0;
+    text-indent: -9999px;
+}
+
+.nav-right {
+    position: absolute;
+    right: 30px;
+    top: 18px;
+}
+
+.nav-right a.link {
+    border-bottom: 2px solid #fff;
+    color: #666;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px;
+    position: relative;
+    top: -6px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-right a.link:hover {
+    border-bottom: 2px solid #333;
+    color: #333;
+}
+
+.nav-right .button {
+    background: none;
+    border: none;
+    color: #aaa;
+    display: inline-block;
+    font-size: 20px;
+    height: 40px;
+    line-height: 1;
+    overflow: hidden;
+    padding: 11px 8px 8px;
+    width: 37px;
+}
+
+.nav-right a.icon-twitter-square,
+.nav-right a.icon-facebook-square {
+    font-size: 23px;
+    position: relative;
+    top: 7px;
+    width: 32px;
+}
+
+.nav-right a.icon-twitter-square {
+    margin-left: 10px;
+}
+
+.nav-right a.icon-facebook-square {
+    margin-right: 2px;
+}
+
+.nav-right .button:before {
+    margin-right: 20px;
+}
+
+.nav-right .button:hover {
+    color: #111;
+}
+
+/* Nav */
+.site-header .header-widget-area,
+#search-box {
+    background: rgba(0,0,0,0.85);
+    display: none;
+    height: 100%;
+    left: 0px;
+    padding: 10%;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 999;
+}
+
+.site-header .header-widget-area .icon-remove,
+#search-box .icon-remove {
+    background: none;
+    border: none;
+    font-size: 25px;
+    overflow: hidden;
+    line-height: 1;
+    padding: 10px 10px 7px;
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    width: 45px;
+}
+
+.site-header .header-widget-area .icon-remove:before,
+#search-box .icon-remove:before {
+    margin-right: 10px;
+}
+
+.site-header .header-widget-area .icon-remove:hover,
+#search-box .icon-remove:hover {
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+.site-header .header-widget-area {
+    text-align: center;
+}
+
+.site-header .header-widget-area a {
+    border: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 42px;
+    padding: 1% 0;
+    position: relative;
+    text-align: center;
+}
+
+.site-header .header-widget-area a:after {
+    border-bottom: 4px solid #fff;
+    bottom: 0px;
+    content: '';
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    width: 0px;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+.site-header .header-widget-area a:hover:after {
+    width: 100%;
+}
+
+
+/* Search box */
+#search-box p {
+    color: #fff;
+    font-style: italic;
+    margin: 0 0 20px;
+}
+
+#search-box input[type=submit] {
+    display: none;
+}
+
+#search-box input[type=search] {
+    background: none;
+    border: none;
+    border-bottom: 2px solid #666;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+#search-box input[type=search]:focus {
+    border-bottom: 2px solid #fff;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+
+section { display: flex; }
+body > h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+a{
+    color:sienna;
+}
+a:hover{
+    color:black;
+}
+
+article p {
+    margin-left:1%;
+}
+article {
+    margin: 1rem;
+    -ms-flex: 1 0 0px;
+    flex: 1;
+    /* shortcut for "flex-grow: 1". Note that it MUST be a unitless value to work; defined with a unit (e.g. flex: 1px) the shortcut would alter the flex-basis property. */
+}
+article.breaking {
+    -ms-flex-grow: 2;
+    flex: 2;
+    /* shortcut for "flex-grow: 2" */
+}
+
+article img {
+    width: 100%; height: auto;
+}
+article h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+}
+/*article h2, article h3 {*/
+/*font-size: 1.2rem;*/
+/*text-align: right;*/
+/*line-height: 1.3;*/
+/*margin: .3rem 0;*/
+/*font-weight: 300;*/
+/*}*/
+/*article h3 {*/
+/*font-size: 1.1rem;*/
+/*}*/
+article p {
+    line-height: 1.6;
+}
+article{
+    border: solid;
+    border-color: #e4e4e4
+}
+@media screen and (max-width: 750px) {
+    body > h1 { font-size: 3rem; }
+    section {
+        -ms-flex-direction: column;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+    }
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
