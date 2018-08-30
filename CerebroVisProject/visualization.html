@@ -1,0 +1,183 @@
+<html >
+<head>
+    <title>Stroke-Proof</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- External Libraries -->
+    <script src="http://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- Interal Libraries -->
+    <script>
+
+    </script>
+    <script src="js/firebase_server.js"></script>
+    <script src="js/metainformation.js"></script>
+    <script src="js/arteryLabels.js"></script>
+    <script src="js/brainvizlib.js"></script>
+    <script src="js/shark_viewer.js"></script>
+
+
+
+
+    <script src="js/d3.phylogram.js"></script>
+    <script src="js/viz.js"></script>
+    <script src="js/bloodFlowGeneration.js"></script>
+    <script src="js/orthographic_projection.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <script src="js/honeyComb.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/toggle.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.2/foundation-flex.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,300' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css" />
+    <link href="css/style.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="preload"><img src="http://i.imgur.com/KUJoe.gif">
+</div>
+
+<!--<section id="bodies">-->
+    <!--<nav class="navbar navbar-inverse">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="#">Stroke-Proof</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
+<!--<div id="togglers">-->
+    <!--<div class="switch-div" id="switchtab">-->
+        <!--<label class="switch">-->
+            <!--<input type="checkbox" unchecked id="chbx" onchange="checkbox_changed()">-->
+            <!--<span class="slider round"></span>-->
+        <!--</label>-->
+    <!--</div>-->
+    <!--<h4 id="switcher1" style="float: right; margin-bottom: -1.5%; padding-right: 5%">Make Arcs Symmetrical</h4>-->
+
+    <!--<div class="switch-div" id="switchtab1">-->
+        <!--<label class="switch">-->
+            <!--<input type="checkbox" unchecked id="chbx1" onchange="checkbox_changed1()">-->
+            <!--<span class="slider round"></span>-->
+        <!--</label>-->
+    <!--</div>-->
+    <!--<h4 id="switcher" style="float: right; margin-bottom: -1.5%; padding-right: 5%">Make Dendogram Symmetrical</h4>-->
+
+
+
+    <!--</div>-->
+
+<div class="menubar" style="display:flex" >
+    <div class="left-panel" style="width: 25%;font-size: xx-large;display:box">
+        <b> Isosurface Projection</b>
+    </div>
+    <div class="right-panel" style="width: 75%;font-size: xx-large;display:box;padding-left: 30.5%">
+        <b>CerebroVis</b>
+    <!--<div id="viewButtons" style="padding-left: 37.5%">-->
+        <!--<button type="button" id="normal" style="background: #337ab7;height: auto; padding: 2%;color: white;"  onclick="toggleView('normal')"><b>Original</b></button>-->
+        <!--<button type="button" id="symmetry" style="background: darkgrey;height: auto; padding: 2%;color: white;"  onclick="toggleView('symmetry')"><b>Symmetry</b></button>-->
+        <!--<button type="button" id="hybrid" style="background: darkgrey;height: auto; padding: 2%;color: white;"  onclick="toggleView('hybrid')"><b>Hybrid</b></button>-->
+
+    <!--</div>-->
+    </div>
+
+</div>
+
+
+<div class="dashboard" style="display: flex;color:black;height: 90%" >
+
+    <div class="left-panel" style="width: 25%">
+        <div class="bloodFlowLegend" style="display:none;padding-left: 25%;padding-top: 1%"> <b> LBV</b> <img src="images/OrRd.png" alt="Smiley face" style="height:20px;width: 50%"> <b>HBV</b>
+        </div>
+        <div  id="brainmap" ></div>
+        <div id="brainviewbuttons" style="padding-left: 25%">
+        <button type="button" id="top" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('top')"><b>Top</b></button>
+        <button type="button" id="back" class="btn btn-primary" style="background: #337ab7" onclick="toggleBrainView('back')"><b>Back</b></button>
+        <button type="button" id="lateral" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('lateral')"><b>Lateral</b></button>
+        </div>
+        <div id="testSegment">
+
+        </div>
+
+
+
+    </div>
+    <div class="right-panel" style="width: 75%">
+
+
+        <div class="bloodFlowLegend" style="display: none;padding-left: 25%"> <b>Low Blood Vol</b> <img src="images/OrRd.png" alt="Smiley face" style="height:20px;width: 50%"> <b>High Blood Vol</b>
+        </div>
+
+
+        <div id="dendrogramviewlegend" style="padding-top: 2%;margin-left: 25%;font-weight: bold">
+            <span style="background-color:lightseagreen ;color: white;padding: 1%">Left - MCA</span>
+            <span style="background-color:slateblue ;color: white;padding: 1%">Left - ACA</span>
+            <span style="background-color:forestgreen ;color: white;padding: 1%">Left - PCA</span>
+            <span style="background-color:gold ;color: white;padding: 1%">Right - PCA</span>
+            <span style="background-color:darkblue ;color: white;padding: 1%">Right - ACA</span>
+            <span style="background-color:#B22222 ;color: white;padding: 1%">Right - MCA</span>
+
+        </div>
+
+
+
+        <div  id="dendrogram"></div>
+
+        <!--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000px" height="563px" viewBox="-0.0397412 -0.0759271 1000.08 563.152" preserveAspectRatio="xMidYMid meet" ><rect id="svgEditorBackground" x="0" y="0" width="1000" height="563" style="fill:none; stroke: none;"/><path d="M284.061920166,378.8022155762c11.495818421500019,15.117791044599983,11.495818421500019,60.8507758499,0,75.96856689449999s-83.22354855109998,-18.58939262529998,-99.9038848877,0s-17.279047696799978,69.47990214379996,-1.040664672799977,88.45657348629999" style="stroke:lightcoral;fill:none;stroke-width:10px;" id="e2_curveS3" transform="matrix(1 0 0 1 1.04067 -15.61)"/><path d="M715.9380754341078,384.00554274810776c11.495818421499962,15.117791044599983,11.495818421499962,60.8507758499,0,75.96856689449999s-83.22354855109995,-18.58939262529998,-99.90388488769997,0s-17.279047696800035,69.47990214380008,-1.0406646728000624,88.45657348629999" style="stroke:lightcoral;fill:none;stroke-width:10px;" id="e8_curveS3" transform="matrix(-0.931881 0 0 1 1369.92 -21.854)"/><path d="M463.44347672742805,359.029574861729a103.920714,103.920714,0,0,0,20.42620903967196,39.54528650607102" style="fill:none;stroke:#FFA5F0;stroke-width:5px;" id="e3_circleArc" transform="matrix(1.12 0 0 1 -56.0836 0)"/><path d="M309.00200746464446,359.0295748613078a51.70751,51.70751,0,0,0,15.609981515699985,39.545286506399975" style="fill:none;stroke:#C894FF;stroke-width:5px;" id="e4_circleArc" transform="matrix(-0.8816 0 0 1 781.843 0)"/><path d="M484.9103512015,395.4528650647a267.3130186639,267.3130186639,0,0,1,-1.0406654344000117,112.39186691309999" style="fill:none;stroke:sandybrown;stroke-width:10px;" id="e5_circleArc" transform="matrix(1 0 0 1 5.20333 1.04067)"/><path d="M297.5905730129,400.6561922366a201.8059692792,201.8059692792,0,0,0,173.79112754160002,-20.8133086876" style="fill:none;stroke:cornflowerblue;stroke-width:5px;" id="e6_circleArc"/><path d="M505.72365988910195,380.8835489833334a330.17605,330.17605,0,0,0,187.31977818856916,-4.162661737525752" style="fill:none;stroke:cornflowerblue;stroke-width:5px;" id="e7_circleArc"/><text style="fill:black;font-family:Arial;font-size:40px;font-style:normal;font-weight:bold;" x="852.265" y="299.712" id="e7_texte" transform="matrix(1.03789 -0.0021724 0.0021724 1.03789 -91.7375 72.917)" dy="" dx="">L</text><text style="fill:black;font-family:Arial;font-size:40px;font-style:normal;font-weight:bold;" x="172.818" y="316.696" id="e2_texte" transform="matrix(1.03789 -0.0021724 0.0021724 1.03789 -37.6229 61.4697)" dy="" dx="">R</text><path d="M472.4223659889,373.5988909427a24.985457,24.985457,0,0,1,36.423290203299985,-1.0406654344000117" style="fill:none;stroke:black;stroke-width:3px;stroke-dasharray:2px;" id="e8_circleArc"/></svg>-->
+
+        <!--<div id="dendrogramviewButtons" style="padding-left: 40%">-->
+
+        <!--<button type="button" id="arcsR" class="btn btn-primary" style="background: darkgray " onclick="toggleTree('arcsR')">Rectangle Dendrogram</button>-->
+        <!--<button type="button" id="arcsD" class="btn btn-primary"  style="background: #337ab7" onclick="toggleTree('arcsD')">Arc Dendrogram</button>-->
+        <!--</div>-->
+
+
+        <div id="dendrogramviewlegend1" style="padding-top: -20%;margin-left: 25%;font-weight: bold">
+            <span style="background-color:lightcoral ;color: white;padding: 1%">Internal Carotid Arteries</span>
+            <span style="background-color:sandybrown ;color: white;padding: 1%">Basilar Artery</span>
+            <span style="background-color:cornflowerblue ;color: white;padding: 1%">Posterior Communicating Artery</span>
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+    <!--<div class="container-viz" style="display: flex">-->
+        <!--&lt;!&ndash;<div  id="brainmap" style="width: 20%"></div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div id="texts" class="br-view"></div></div>&ndash;&gt;-->
+        <!--<!-div  id="dendrogram" style="width: 80%"></div>&ndash;&gt;-->
+<!--</div>-<-->
+
+
+    <!--<div class="btn-style" id="buttons">-->
+        <!--<button type="button" class="btn btn-primary" onclick="changeProjection('top')"><b>Top</b></button>-->
+        <!--<button type="button" class="btn btn-primary" onclick="changeProjection('back')"><b>Back</b></button>-->
+        <!--<button type="button" class="btn btn-primary" onclick="changeProjection('lateral')"><b>Lateral</b></button>-->
+    <!--</div>-->
+
+    <!--<div class="btn-style1" id="buttons1">-->
+        <!--<button type="button" class="btn btn-success" onclick="changeTree('arcsR');symmetryToggleR();">Change Tree to Rectangle</button>-->
+        <!--<button type="button" class="btn btn-success" onclick="changeTree('arcsD');symmetryToggleD();">Change Tree to Arcs</button>-->
+        <!--<button type="button" class="btn btn-info" onclick="changeView('back','Symmetry','arcsR')">Change Symmetry for Rectangular</button>-->
+    <!--</div>-->
+
+
+<!--</section>-->
+</body>
+</html>
