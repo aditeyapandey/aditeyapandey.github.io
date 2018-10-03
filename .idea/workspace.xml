@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cfb7848-39f5-4741-a8d9-6b874f9c216d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CerebroVisProject/Tutorial.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CerebroVisProject/index.html" afterPath="$PROJECT_DIR$/CerebroVisProject/index.html" />
     </list>
@@ -97,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/CerebroVisProject/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="18" column="74" lean-forward="false" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
+              <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -180,8 +179,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1160" />
-    <option name="y" value="90" />
+    <option name="x" value="1171" />
+    <option name="y" value="86" />
     <option name="width" value="1682" />
     <option name="height" value="1022" />
   </component>
@@ -350,7 +349,7 @@
       <workItem from="1534617530882" duration="539000" />
       <workItem from="1535594721727" duration="2157000" />
       <workItem from="1535736095470" duration="1461000" />
-      <workItem from="1538430219658" duration="16189000" />
+      <workItem from="1538430219658" duration="16281000" />
     </task>
     <task id="LOCAL-00001" summary="Adding cerebrovisproject&#10;">
       <created>1534255362425</created>
@@ -377,10 +376,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58800000" />
+    <option name="totallyTimeSpent" value="58892000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1160" y="90" width="1682" height="1022" extended-state="0" />
+    <frame x="1171" y="86" width="1682" height="1022" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -806,7 +805,7 @@
     <entry file="file://$PROJECT_DIR$/CerebroVisProject/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="74" lean-forward="false" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
+          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
           <folding />
         </state>
       </provider>
