@@ -26,7 +26,24 @@
 
             gtag('config', 'UA-123060269-1');
 
-        </script> 
+            var slideIndex = 1;
+            function currentSlide(n){
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+//                if (n > slides.length) {slideIndex = 1}
+//                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[n-1].style.display = "block";
+                dots[n-1].className += " active";
+            }
+
+        </script>
 
 
     </head>
@@ -37,27 +54,58 @@
         <div class="title-area"><p class="site-title" itemprop="headline">
 
             <div class="nav-right">
-                <a class="link" href="https://drive.google.com/file/d/0BwnGj5qD7BpXd1huckR2X0hqVVk/view?usp=sharing">Resume</a>
+                <a class="link" href="https://drive.google.com/file/d/0BwnGj5qD7BpXRFprbUw3QkRlWGpfalBjVVF3VVNYcXZ2eE5R/view?usp=sharing">Resume</a>
                 <a href=https://www.linkedin.com/in/aditeya-pandey-24195727/" class="link">Linkedin</a>
                 <a href="https://github.com/aditeyapandey" class="link">Github</a>
-                <a href="mailto:aditeyapandey@gmail.com" class="link" target="_top">Contact</a>
+                <!--<a href="mailto:aditeyapandey@gmail.com" class="link" target="_top">Contact</a>-->
         </div>
 
 
         </div>
+
         <!-- Add your site or application content here -->
         <div id="maincontent">
-        <div id="name">
-        <h2 style="-webkit-margin-before: 2em">Aditeya Pandey</h2>
-            <p style="-webkit-margin-before: -1em"> <a href="https://www.ccis.northeastern.edu/people/aditeya-pandey/">PhD Student at Northeastern</a></p>
-        </div>
-        <div id="information" style="margin-left:5%;display: flex;">
-            <div style="width:50%">
-            <img style="max-width:100%;max-height:100%;" src="img/AP.png">
+            <div id="name">
+                <h2 style="-webkit-margin-before: 2em">Aditeya Pandey</h2>
+
+                <p style="-webkit-margin-before: -1em"> <a href="https://www.ccis.northeastern.edu/people/aditeya-pandey/">PhD Student at Northeastern</a> <a href="mailto:aditeyapandey@gmail.com" class="link" target="_top"><i class="fa fa-envelope" aria-hidden="true"></i></a> </p>
             </div>
-            <div style="margin-left:2%;width:45%">
+
+            <div id="information" style="margin-left:5%;display: flex;">
+            <section class="mainHeaderSection">
+            <article>
+
+            <img style="max-width:100%;max-height:100%;" src="img/AP.png">
+
+                <!--News slide show underneath the image of main photo-->
+                <div class="slideshow-container">
+                    <div class="newsContainer">
+                        <span> <u>News</u> </span>
+                    <div id="s1" class="mySlides mySlideActive">
+                        CerebroVis awarded Best Poster Award at IEEE Vis 2018!
+                    </div>
+
+                    <div id="s2" class="mySlides mySlideInactive">
+                        Submitted our recent work done in collaboration with the School of Psychology(Northeastern University) to CHI 2019.
+                    </div>
+
+                    <div id="s3" class="mySlides mySlideInactive">
+                     Will be at Vis 2018 in Berlin from Oct 21-26.
+                    </div>
+                </div>
+                    <div class="dot-container">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+            </article>
+            <article>
             <div>
-            <p> I am interested in the visualization and analysis of hierarchical and network datasets, developing visual analytics tools for insight discovery in data science, and quantitative – qualitative evaluation of visualization interfaces. </p>
+
+                <p> <b>Short-term Goal:</b> Develop a novel visualization tool to support the diagnosis of cerebrovascular diseases like Stroke and Aneurysms.</p>
+                <p> <b>Long-term Goal:</b> Work on interdisciplinary projects with the focus on the design and development of 'contextually' aware and 'user-centered' data visualization tools.</p>
+                <p> <b>Research Interests:</b> Visualization and analysis of hierarchical and network datasets, developing visual analytics tools for exploratory data analysis, and quantitative – qualitative evaluation of visualization interfaces. </p>
 
             <a class="button" href=".#researchproj" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
                 Projects
@@ -70,72 +118,84 @@
                     Timeline
 
                 </a>
-
-
             </div>
-            </div>
+            </article>
+            </section>
         </div>
-        <div id="information-mobile" style="display: none">
-            <div>
-            <img style="max-width:100%;max-height:100%;" src="img/AP.png">
-            </div>
-            <div style="margin-left:2%">
-            <div>
-            <p>PhD Student at Northeastern University. I leverage the power of Information Visualization to solve data-driven problems in Medical Science, Digital Humanities, and Machine Learning. </p>
 
-            <a class="button" href=".#researchproj" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
-                Explore my work!
+        <!-- Content for mobile site -->
 
-            </a>
+        <!--<div id="information-mobile" style="display: none">-->
+            <!--<div>-->
+            <!--<img style="max-width:100%;max-height:100%;" src="img/AP.png">-->
+            <!--</div>-->
+            <!--<div style="margin-left:2%">-->
+            <!--<div>-->
+            <!--<p>PhD Student at Northeastern University. I leverage the power of Information Visualization to solve data-driven problems in Medical Science, Digital Humanities, and Machine Learning. </p>-->
 
-                <a class="button" href=".#timeline-embed" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
-                    Timeline
+            <!--<a class="button" href=".#researchproj" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">-->
+                <!--Explore my work!-->
+            <!--</a>-->
+           <!--<a class="button" href=".#timeline-embed" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">-->
+                    <!--Timeline-->
+          <!--</a>-->
 
-                </a>
+            <!--</div>-->
 
-            </div>
+            <!--</div>-->
+        <!--</div>-->
 
-            </div>
-        </div>
             <div id="researchproj" style="font-size:20px;">
             <h1>Projects</h1>
               <section >
-              <article>
-                  <img src="img/TeaserV7.svg" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
-                  <h3> <a title="click to learn more"  href="cerebrovis.html"> CerebroVis : Visualization of Arteries in Human Brain
-                  </a>  </h3>
-                  <p> Arteries in the brain form a network of blood flow. In this work we present a novel network visualization method to look at cerebrovascular arteries. </p>
-              </article>
+                  <article>
+                      <div class="sectionContent">
+                          <img src="img/TeaserV7.svg" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
+                          <h3> <a title="click to learn more"  href="cerebrovis.html"> CerebroVis : Visualization of Arteries in Human Brain
+                          </a>  </h3>
+                          <p> Arteries in the brain form a network of blood flow. In this work we present a novel network visualization method to look at cerebrovascular arteries. </p>
+                      </div>
+                  </article>
 
                   <article style="border: solid; border-color: #e4e4e4">
+                     <div class="sectionContent">
                       <img src="img/Teaser.png" alt="Photograph of a flying saucer over the US Capitol building">
                       <h3> <a title="click to learn more"  href="picpen.html">Picture Penguin : A Multi-Faceted Mobile Photo Navigation System </a></h3>
                       <p> Picture Penguin, a novel personal photo navigation system that enables search and filtering through linked and combined views of temporal, geospatial, and photo content information.</p>
-
+                     </div>
                   </article>
-                  <article>
-                      <img src="img/TeaserEval.png"  alt="Photograph of a flying saucer over the US Capitol building">
-                      <h3 style="-webkit-margin-before: 0.5em"> Glyph Evaluation for Probabilistic Categorization </h3>
-                      <p> In this project we conduct a quantitative evaluation of four glyph designs on Amazon's Mechanical Turk platform. The objective of this study is to understand the difference in human perception when performing a categorization task with different glyph designs. </p>
 
+                  <article>
+                      <div class="sectionContent">
+                          <img src="img/TeaserEval.png"  alt="Photograph of a flying saucer over the US Capitol building">
+                          <h3 style="-webkit-margin-before: 0.5em"> Glyph Evaluation for Probabilistic Categorization </h3>
+                          <p> In this project we conduct a quantitative evaluation of four glyph designs on Amazon's Mechanical Turk platform. The objective of this study is to understand the difference in human perception when performing a categorization task with different glyph designs. </p>
+                      </div>
                   </article>
               </section>
                 <section>
                     <article>
-                        <img src="img/EuroVA2014.png" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
-                        <h3> <a href="RuleVis.html">Interactively Visualizing Summaries of Rules and Exceptions</a> </h3>
-                        <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this work we present a novel hierarchical view of the rules and exceptions in a bubble layout.</p>
+                        <div class="sectionContent">
+                            <img src="img/EuroVA2014.png" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
+                            <h3> <a href="RuleVis.html">Interactively Visualizing Summaries of Rules and Exceptions</a> </h3>
+                            <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this work we present a novel hierarchical view of the rules and exceptions in a bubble layout.</p>
+                        </div>
                     </article>
                   <article>
-                      <img src="img/Picture1.png" alt="Photograph of a flying saucer over the US Capitol building">
-
-                      <h3> <a href="RefugeeScholar.html"> Rediscovering the Refugee Scholars of the Nazi Era </a> </h3>
-                      <p> A story-line visualization which highlights the struggle of European women scholars to find employment in United States during the Nazi government. </p>
+                      <div class="sectionContent">
+                          <img src="img/Picture1.png" alt="Photograph of a flying saucer over the US Capitol building">
+                          <h3> <a href="RefugeeScholar.html"> Rediscovering the Refugee Scholars of the Nazi Era </a> </h3>
+                          <p> A story-line visualization which highlights the struggle of European women scholars to find employment in United States during the Nazi government. </p>
+                      </div>
                   </article>
                   <article>
-                      <!--<img src="img/tumor.jpg" alt="Photograph of a flying saucer over the US Capitol building">-->
-                      <h3>Predicting Survival of Patients suffering with Glioblastoma</h3>
-                      <p> In this work we use machine learning to predict the survival of patients suffereing with Glioblastoma (Grade 4) tumor. Our results show in addition to size of tumor the variation in the white matter intensity may also be a strong indicator of the time of survival of each patient.</p>
+
+                      <div class="sectionContent">
+                          <!--<img src="img/tumor.jpg" alt="Photograph of a flying saucer over the US Capitol building">-->
+                          <h3>Predicting Survival of Patients suffering with Glioblastoma</h3>
+                          <p> In this work we use machine learning to predict the survival of patients suffereing with Glioblastoma (Grade 4) tumor. Our results show in addition to size of tumor the variation in the white matter intensity may also be a strong indicator of the time of survival of each patient.</p>
+                      </div>
+
                   </article>
 
               </section>

@@ -79,9 +79,9 @@ body {
 }
 
 .nav-right {
-    position: absolute;
-    right: 30px;
-    top: 18px;
+    position:absolute;
+    top:18px;
+    right:30px;
 }
 
 .nav-right a.link {
@@ -317,7 +317,8 @@ article p {
 }
 article{
     border: solid;
-    border-color: #e4e4e4
+    border-color: #e4e4e4;
+    margin:2px;
 }
 @media screen and (max-width: 750px) {
     body > h1 { font-size: 3rem; }
@@ -326,6 +327,10 @@ article{
         -webkit-box-orient: vertical;
         flex-direction: column;
     }
+}
+.mainHeaderSection article{
+    border: none;
+
 }
 
 .collapsible {
@@ -350,4 +355,55 @@ article{
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
+}
+
+.sectionContent{
+    margin:2%;
+}
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    background: #f1f1f1f1;
+}
+.newsContainer{
+    margin:2%
+}
+.mySlideInactive{
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    float: right;
+    /*top: 90%;*/
+    /*width: auto;*/
+    /*margin-top: -30px;*/
+    /*padding: 16px;*/
+    /*color: #888;*/
+    /*font-weight: bold;*/
+    /*font-size: 20px;*/
+    /*border-radius: 0 3px 3px 0;*/
+    /*user-select: none;*/
+}
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+    padding: 5px;
+    background: #ddd;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: #717171;
 }
