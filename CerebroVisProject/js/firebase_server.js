@@ -18,11 +18,9 @@ var datapoint
 //Reading data file from the server
 //This function is called in the orthographic_projection.js
 function readdata(param) {
-
     //BG0003
-datapoint=firebase.database().ref('/Points/'+param).once('value').then(function(snapshot) {
-  //console.log(snapshot.val())
-  return snapshot.val()
+   datapoint=firebase.database().ref('/Points/'+param).once('value').then(function(snapshot) {
+   return snapshot.val()
 })
 return datapoint
 }

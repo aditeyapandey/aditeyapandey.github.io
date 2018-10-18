@@ -80,7 +80,7 @@
     <div class="left-panel" style="width: 25%;font-size: xx-large;display:box">
         <b> Isosurface Projection</b>
     </div>
-    <div class="right-panel" style="width: 75%;font-size: xx-large;display:box;padding-left: 30.5%">
+    <div class="right-panel" style="width: 75%;font-size: xx-large;display:box">
         <b>CerebroVis</b>
     <!--<div id="viewButtons" style="padding-left: 37.5%">-->
         <!--<button type="button" id="normal" style="background: #337ab7;height: auto; padding: 2%;color: white;"  onclick="toggleView('normal')"><b>Original</b></button>-->
@@ -99,14 +99,38 @@
         <div class="bloodFlowLegend" style="display:none;padding-left: 25%;padding-top: 1%"> <b> LBV</b> <img src="images/OrRd.png" alt="Smiley face" style="height:20px;width: 50%"> <b>HBV</b>
         </div>
         <div  id="brainmap" ></div>
+
         <div id="brainviewbuttons" style="padding-left: 25%">
         <button type="button" id="top" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('top')"><b>Top</b></button>
         <button type="button" id="back" class="btn btn-primary" style="background: #337ab7" onclick="toggleBrainView('back')"><b>Back</b></button>
         <button type="button" id="lateral" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('lateral')"><b>Lateral</b></button>
         </div>
-        <div id="testSegment">
+
+
+        <div class="legend" >
+
+            <h4 style="text-align: center"> Legend</h4>
+
+        <div id="dendrogramviewlegend" style="padding-top: 2%;font-weight: bold">
+        <span style="background-color:lightseagreen ;color: white;padding: 1%">Left-MCA</span>
+        <span style="background-color:slateblue ;color: white;padding: 1%">Left-ACA</span>
+        <span style="background-color:forestgreen ;color: white;padding: 1%">Left-PCA</span>
+            <br><br>
+        <span style="background-color:gold ;color: white;padding: 1%">Right-PCA</span>
+        <span style="background-color:darkblue ;color: white;padding: 1%">Right-ACA</span>
+        <span style="background-color:#B22222 ;color: white;padding: 1%">Right-MCA</span>
+            <br><br>
+        </div>
+
+
+        <div id="dendrogramviewlegend1" style="padding-top: 2%;font-weight: bold">
+        <span style="background-color:lightcoral ;color: white;padding: 1%">Internal Carotid Arteries</span> <br> <br>
+        <span style="background-color:sandybrown ;color: white;padding: 1%">Basilar Artery</span> <br> <br>
+        <span style="background-color:cornflowerblue ;color: white;padding: 1%">Posterior Communicating Artery</span>
+        </div>
 
         </div>
+
 
 
 
@@ -114,19 +138,26 @@
     <div class="right-panel" style="width: 75%">
 
 
-        <div class="bloodFlowLegend" style="display: none;padding-left: 25%"> <b>Low Blood Vol</b> <img src="images/OrRd.png" alt="Smiley face" style="height:20px;width: 50%"> <b>High Blood Vol</b>
-        </div>
+        <!--Commenting out all the legend-->
+        <!--<div class="bloodFlowLegend" style="display: none;padding-left: 25%"> <b>Low Blood Vol</b> <img src="images/OrRd.png" alt="Smiley face" style="height:20px;width: 50%"> <b>High Blood Vol</b>-->
+        <!--</div>-->
 
 
-        <div id="dendrogramviewlegend" style="padding-top: 2%;margin-left: 25%;font-weight: bold">
-            <span style="background-color:lightseagreen ;color: white;padding: 1%">Left - MCA</span>
-            <span style="background-color:slateblue ;color: white;padding: 1%">Left - ACA</span>
-            <span style="background-color:forestgreen ;color: white;padding: 1%">Left - PCA</span>
-            <span style="background-color:gold ;color: white;padding: 1%">Right - PCA</span>
-            <span style="background-color:darkblue ;color: white;padding: 1%">Right - ACA</span>
-            <span style="background-color:#B22222 ;color: white;padding: 1%">Right - MCA</span>
+        <!--<div id="dendrogramviewlegend" style="padding-top: 2%;margin-left: 25%;font-weight: bold">-->
+            <!--<span style="background-color:lightseagreen ;color: white;padding: 1%">Left - MCA</span>-->
+            <!--<span style="background-color:slateblue ;color: white;padding: 1%">Left - ACA</span>-->
+            <!--<span style="background-color:forestgreen ;color: white;padding: 1%">Left - PCA</span>-->
+            <!--<span style="background-color:gold ;color: white;padding: 1%">Right - PCA</span>-->
+            <!--<span style="background-color:darkblue ;color: white;padding: 1%">Right - ACA</span>-->
+            <!--<span style="background-color:#B22222 ;color: white;padding: 1%">Right - MCA</span>-->
 
-        </div>
+        <!--</div>-->
+
+        <!--<div id="dendrogramviewlegend1" style="padding-top: 2%;margin-left: 25%;font-weight: bold">-->
+            <!--<span style="background-color:lightcoral ;color: white;padding: 1%">Internal Carotid Arteries</span>-->
+            <!--<span style="background-color:sandybrown ;color: white;padding: 1%">Basilar Artery</span>-->
+            <!--<span style="background-color:cornflowerblue ;color: white;padding: 1%">Posterior Communicating Artery</span>-->
+        <!--</div>-->
 
 
 
@@ -141,11 +172,7 @@
         <!--</div>-->
 
 
-        <div id="dendrogramviewlegend1" style="padding-top: -20%;margin-left: 25%;font-weight: bold">
-            <span style="background-color:lightcoral ;color: white;padding: 1%">Internal Carotid Arteries</span>
-            <span style="background-color:sandybrown ;color: white;padding: 1%">Basilar Artery</span>
-            <span style="background-color:cornflowerblue ;color: white;padding: 1%">Posterior Communicating Artery</span>
-        </div>
+
 
 
     </div>

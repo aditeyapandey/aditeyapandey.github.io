@@ -228,6 +228,8 @@ footer {
     left: 50%;}
 
 .dashboard{
+    padding-left: 2%;
+    padding-right: 2%;
 }
 .right-panel{
     border-style: solid;
@@ -236,13 +238,22 @@ footer {
 .left-panel{
     border-style: solid;
     border-color: black;
-
 }
 
 .menubar{
+    padding-left: 2%;
+    padding-right: 2%;
     color: black;
+    text-align: center;
 
 }
 .LogoContainer{
     font-size: 20px;
+}
+
+.legend{
+    margin: 5%;
+    padding: 2%;
+    border-style: solid;
+    border-color: black;
 }
