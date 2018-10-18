@@ -9,6 +9,7 @@ Two way linking datastructures for visualization
 //Global Variables
 var selectedSegments=[]
 
+//ToDo: Persist the selection across brain view
 
 function drawBrainMap(globalData,viewSpec)
  {
@@ -65,7 +66,7 @@ function drawBrainMap(globalData,viewSpec)
             .x(function(d) { return x(d[0]); })
             .y(function(d) { return y(d[1]); })
 
-          var chart = d3.select('#brainmap')
+        var chart = d3.select('#brainmap')
            .append('svg:svg')
            .attr('width', width + margin.right + margin.left)
            .attr('height', height + margin.top + margin.bottom)
@@ -103,8 +104,7 @@ function drawBrainMap(globalData,viewSpec)
                 .attr("id","pathBM")
               //  .attr("stroke","steelblue")
               .attr("stroke", function(){
-                  if(bloodFlow) {
-                      return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
+                  if(bloodFlow) {return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
                       // if (arteries[index].bloodFlow == undefined) {
                       //     return '#1b9e77'
                       // }
@@ -113,9 +113,6 @@ function drawBrainMap(globalData,viewSpec)
                       // }
                   }
                   else{
-                        //var PC1array=[148, 149, 150, 151, 152, 153, 154, 155, 156,36, 37, 38, 39, 40, 41, 42];
-
-                     //var PC1array = [1809, 1810, 1811, 1812, 1813, 1814, 1815, 1816,1817,1818]
 
                       var PC1array=leftPCA.concat(rightPCA)
                       if(PC1array.indexOf(index)!=-1){
@@ -200,9 +197,8 @@ function drawDendrogram(globalDataStructure,view) {
     var arterylabelToPass=jQuery.extend(true, {}, arteryLabels);
     var treeData2=globalDataStructure.fetchBasilar()
 
-
-
-    //console.log(treeData);
+    var globalTempStrokeWidth=-1;
+    var valueofMaxRadius
 
     var temptree=treeData1
 
@@ -214,9 +210,9 @@ function drawDendrogram(globalDataStructure,view) {
 
 
 // set the dimensions and margins of the diagram
-    var margin = {top: 50, right: 90, bottom: 250, left: 90},
+    var margin = {top: 20, right: 90, bottom: 250, left: 90},
         width = $('#dendrogram').innerWidth() - margin.left - margin.right,
-        height = 800 - margin.top - margin.bottom;
+        height = (3/4)*($('#dendrogram').innerWidth()) - margin.top - margin.bottom;
 
 
 // declares a tree layout and assigns the size
@@ -325,7 +321,11 @@ else{
 
     var minRadius= d3.min(radi, function(d) {return d; }) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
 
-    var radius= d3.scaleLog().domain([minRadius, d3.max(radi, function(d) { return d; })]).range([ 1, 11 ]);
+    var radius= d3.scaleLog().domain([minRadius, (valueofMaxRadius = d3.max(radi, function(d) { return d; }))]).range([ 1, 11 ]);
+
+    //Assiging max radius to the variable to give user equal ability to select each artery
+    valueofMaxRadius=radius(valueofMaxRadius);
+
 
 // End Width of the arteries
 
@@ -455,20 +455,23 @@ else{
                 d3.selectAll("#pathBM").style("stroke", "")
                 d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
 
-            });
+            })
+            .on("mouseover", function (d) {
+                //Store the stroke width in a global variable
+                globalTempStrokeWidth = d3.select(this).attr("stroke-width");
+                console.log(Math.log(globalTempStrokeWidth))
+                //Magnify the stroke width
+                d3.select(this).attr("stroke-width", valueofMaxRadius-2);
 
-            // .on("mouseover", function (d) {
-            //     d3.selectAll("#linkFG").style("stroke", "darkgray")
-            //     d3.select(this).attr("id","linkFGC").style("stroke", "")
-            //     highLightSegment(d)
-            // })
-            // .on("mouseout", function (d) {
-            //     d3.selectAll("#linkFG").style("stroke", "")
-            //     d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
-            //     d3.selectAll("#pathBM").style("stroke", "")
-            //     d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
-            //
-            // });
+            })
+            .on("mouseout", function (d) {
+
+                 //bring the stroke width to normal
+                d3.select(this).attr("stroke-width", globalTempStrokeWidth);
+                //unset the value in global value
+                globalTempStrokeWidth=-1
+
+            });
 
         // update
         link
@@ -486,7 +489,7 @@ else{
 
     }
 
-
+//Todo: The template layout needs to be fixed!
     function templateDrawing(g,globalDataStructure)
     {
 
