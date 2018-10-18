@@ -90,7 +90,7 @@ function drawBrainMap(globalData,viewSpec)
            // .attr('class', 'main axis date')
            // .call(xAxis);
 
-        //We are going to append paths one at a time and create an animation to view the transition
+        ////We are going to append paths one at a time and create an animation to view the transition
         //viewSpec.getView()=="Normal"
           index=0
 
