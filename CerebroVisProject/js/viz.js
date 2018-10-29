@@ -10,6 +10,9 @@ Two way linking datastructures for visualization
 var selectedSegments=[]
 
 //ToDo: Persist the selection across brain view
+//ToDo: Create a system diagram for CerevroVis
+//This is short term fix for projection, the real fix should go through the loop of setting global variables
+var globalHighlightedSegment=null;
 
 function drawBrainMap(globalData,viewSpec)
  {
@@ -150,7 +153,7 @@ function drawBrainMap(globalData,viewSpec)
               drawArteries(index)
               }
               else{
-                //alert("done")
+                //return "success"
               }
             });
 
@@ -160,23 +163,29 @@ function drawBrainMap(globalData,viewSpec)
              d3.select(".C_"+d).attr("stroke","sandybrown").attr("opacity",1)
          })
 
+         if(globalHighlightedSegment){
+             highLightSegment(globalHighlightedSegment)}
      }
 
-            drawArteries(index)
 
-     //The first line is hardcoded
-
+     drawArteries(index);
 
 
 
-            // draw the y axis
-           //  var yAxis = d3.axisLeft(y)
-           //
-           //
-           //  main.append('g')
-           // .attr('transform', 'translate(0,0)')
-           // .attr('class', 'main axis date')
-           // .call(yAxis);
+     // var promise1 = new Promise(function(resolve, reject) {
+     //     if(val=="success"){
+     //         resolve('Success!');
+     //
+     //     }
+     // });
+     //
+     // promise1.then(function(value) {
+     //     console.log(value);
+     //     // expected output: "Success!"
+     // });
+
+     // Checking if a component is already highlighted
+
 
 }
 
@@ -447,9 +456,12 @@ else{
             .on("click", function (d) {
                 d3.selectAll("#linkFG").style("stroke", "darkgray")
                 d3.select(this).attr("id","linkFGC").style("stroke", "")
+                //set the global variable to not null to record the change
+                globalHighlightedSegment=d;
                 highLightSegment(d)
             })
             .on("dblclick", function (d) {
+                globalHighlightedSegment=null;
                 d3.selectAll("#linkFG").style("stroke", "")
                 d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
                 d3.selectAll("#pathBM").style("stroke", "")
@@ -691,7 +703,6 @@ else{
         segmentComponents=d.data.childs;
         segmentComponents.forEach(function (d) {
             d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "")
-
         })
     }
     function unHighLightSegment(d) {
@@ -775,7 +786,23 @@ else{
 
 }
 
+function highLightSegment(d)
+{
+    d3.selectAll("#pathBM").style("stroke", "darkgray")
 
+    segmentComponents=d.data.childs;
+    segmentComponents.forEach(function (d) {
+        d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "")
+    })
+}
+
+function unHighLightSegment(d) {
+    segmentComponents=d.data.childs;
+    segmentComponents.forEach(function (d) {
+        d3.select(".C_"+d).style("stroke", "")
+
+    })
+}
 
 function drawphlyogram(globalDataStructure,view){
 

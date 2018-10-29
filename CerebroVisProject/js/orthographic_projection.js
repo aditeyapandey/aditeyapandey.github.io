@@ -66,6 +66,8 @@ function changeTree(treeType){
 
 
 //This function should be called for changing the brain projection, just pass the projection as brainview variable and it will work, den
+//Brain projection needs to be overloaded to persist the resistance
+
 function changeProjection(brainView){
 
     var data=globalDataStructures.fetchData()
