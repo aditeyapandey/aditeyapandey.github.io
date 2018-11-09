@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "question": "In which year does an epidemic break out in Critanro?",
+    "answer": 912,
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 2,
+    "question": "What happens in 992?",
+    "answer": "tax hike",
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 3,
+    "question": "When is Mary's second doctor appointment?",
+    "answer": "1-Oct",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 4,
+    "question": "What is due on 2/11?",
+    "answer": "HCI Exam",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 5,
+    "question": "Find the date for the second new moon?",
+    "answer": "8-Oct",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 6,
+    "question": "When does the first waxing crescent occur?",
+    "answer": "13-Sep",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 7,
+    "question": "Where is John visiting for Spring break?",
+    "answer": "Mexico",
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 8,
+    "question": "What happened in Aug 2018?",
+    "answer": "John Married",
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "Spiral.png"
+  },
+  {
+    "id": 9,
+    "question": "In which year does an epidemic break out in Critanro?",
+    "answer": 912,
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "Circle.png"
+  },
+  {
+    "id": 10,
+    "question": "What happens in 992?",
+    "answer": "tax hike",
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "Circle.png"
+  },
+  {
+    "id": 11,
+    "question": "When is Mary's second doctor appointment?",
+    "answer": "1-Oct",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "Circle.png"
+  },
+  {
+    "id": 12,
+    "question": "What is due on 2/11?",
+    "answer": "HCI Exam",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "Circle.png"
+  },
+  {
+    "id": 13,
+    "question": "Find the date for the second new moon?",
+    "answer": "8-Oct",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "Circle.png"
+  },
+  {
+    "id": 14,
+    "question": "When does the first waxing crescent occur?",
+    "answer": "13-Sep",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "Circle.png"
+  },
+  {
+    "id": 15,
+    "question": "Where is John visiting for Spring break?",
+    "answer": "Mexico",
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "Circle.png"
+  },
+  {
+    "id": 16,
+    "question": "What happened in Aug 2018?",
+    "answer": "John Married",
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "Circle.png"
+  },
+  {
+    "id": 17,
+    "question": "In which year does an epidemic break out in Critanro?",
+    "answer": 912,
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "Linear.png"
+  },
+  {
+    "id": 18,
+    "question": "What happens in 992?",
+    "answer": "tax hike",
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "Linear.png"
+  },
+  {
+    "id": 19,
+    "question": "When is Marys second doctor appointment?",
+    "answer": "1-Oct",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "Linear.png"
+  },
+  {
+    "id": 20,
+    "question": "What is due on 2/11?",
+    "answer": "HCI Exam",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "Linear.png"
+  },
+  {
+    "id": 21,
+    "question": "Find the date for the second new moon?",
+    "answer": "8-Oct",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "Linear.png"
+  },
+  {
+    "id": 22,
+    "question": "When does the first waxing crescent occur?",
+    "answer": "13-Sep",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "Linear.png"
+  },
+  {
+    "id": 23,
+    "question": "Where is John visiting for Spring break?",
+    "answer": "Mexico",
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "Linear.png"
+  },
+  {
+    "id": 24,
+    "question": "What happened in Aug 2018?",
+    "answer": "John Married",
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "Linear.png"
+  }
+]
