@@ -1,57 +1,57 @@
 [
   {
     "id": 1,
-    "question": "In which year does an epidemic break out in Critanro?",
-    "answer": 912,
+    "question": "In which year does agriculture improve in Critanro?",
+    "answer": 940,
     "visualEncoding": "spiral",
     "recurrent": "FALSE",
     "family": "History",
-    "file": "Spiral.png"
+    "file": "HistorySpiral.png"
   },
   {
     "id": 2,
-    "question": "What happens in 992?",
-    "answer": "tax hike",
+    "question": "Name the person executed in the year 1001?",
+    "answer": "Tatr",
     "visualEncoding": "spiral",
     "recurrent": "FALSE",
     "family": "History",
-    "file": "Spiral.png"
+    "file": "HistorySpiral.png"
   },
   {
     "id": 3,
-    "question": "When is Mary's second doctor appointment?",
-    "answer": "1-Oct",
+    "question": "At what time does the person start exercising on Monday?",
+    "answer": "18:00",
     "visualEncoding": "spiral",
     "recurrent": "TRUE",
     "family": "Schedule",
-    "file": "Spiral.png"
+    "file": "ScheduleSpiral.png"
   },
   {
     "id": 4,
-    "question": "What is due on 2/11?",
-    "answer": "HCI Exam",
+    "question": "What does the person do between 14:45 to 15:45 on Monday?",
+    "answer": "Meeting",
     "visualEncoding": "spiral",
     "recurrent": "TRUE",
     "family": "Schedule",
-    "file": "Spiral.png"
+    "file": "ScheduleSpiral.png"
   },
   {
     "id": 5,
-    "question": "Find the date for the second new moon?",
-    "answer": "8-Oct",
+    "question": "Find the date when the first waxing gibbous occurs.",
+    "answer": "20-Sep",
     "visualEncoding": "spiral",
     "recurrent": "TRUE",
     "family": "Lunar",
-    "file": "Spiral.png"
+    "file": "LunarSpiral.png"
   },
   {
     "id": 6,
-    "question": "When does the first waxing crescent occur?",
-    "answer": "13-Sep",
+    "question": "What was the state of the moon on 10/24?",
+    "answer": "Full Moon",
     "visualEncoding": "spiral",
     "recurrent": "TRUE",
     "family": "Lunar",
-    "file": "Spiral.png"
+    "file": "LunarSpiral.png"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "visualEncoding": "spiral",
     "recurrent": "FALSE",
     "family": "Schedule_NR",
-    "file": "Spiral.png"
+    "file": "NR_ScheduleSpiral.png"
   },
   {
     "id": 8,
@@ -69,61 +69,61 @@
     "visualEncoding": "spiral",
     "recurrent": "FALSE",
     "family": "Schedule_NR",
-    "file": "Spiral.png"
+    "file": "NR_ScheduleSpiral.png"
   },
   {
     "id": 9,
-    "question": "In which year does an epidemic break out in Critanro?",
-    "answer": 912,
+    "question": "In which year does Rastolnik take the throne?",
+    "answer": 985,
     "visualEncoding": "circle",
     "recurrent": "FALSE",
     "family": "History",
-    "file": "Circle.png"
+    "file": "HistoryCircle.png"
   },
   {
     "id": 10,
-    "question": "What happens in 992?",
-    "answer": "tax hike",
+    "question": "What major event occurs in the year 1050?",
+    "answer": "Economic Depression",
     "visualEncoding": "circle",
     "recurrent": "FALSE",
     "family": "History",
-    "file": "Circle.png"
+    "file": "HistoryCircle.png"
   },
   {
     "id": 11,
-    "question": "When is Mary's second doctor appointment?",
-    "answer": "1-Oct",
+    "question": "At what time does the class end on Friday?",
+    "answer": "17:05",
     "visualEncoding": "circle",
     "recurrent": "TRUE",
     "family": "Schedule",
-    "file": "Circle.png"
+    "file": "ScheduleCircle.png"
   },
   {
     "id": 12,
-    "question": "What is due on 2/11?",
-    "answer": "HCI Exam",
+    "question": "What does the person do between 18:00 to 20:00 on Wednesday?",
+    "answer": "Exercise",
     "visualEncoding": "circle",
     "recurrent": "TRUE",
     "family": "Schedule",
-    "file": "Circle.png"
+    "file": "ScheduleCircle.png"
   },
   {
     "id": 13,
-    "question": "Find the date for the second new moon?",
+    "question": "Find the date when the second waning gibbous occurs.",
     "answer": "8-Oct",
     "visualEncoding": "circle",
     "recurrent": "TRUE",
     "family": "Lunar",
-    "file": "Circle.png"
+    "file": "LunarCircle.png"
   },
   {
     "id": 14,
-    "question": "When does the first waxing crescent occur?",
-    "answer": "13-Sep",
+    "question": "Which stage was the moon on 11/03?",
+    "answer": "Waning crescent",
     "visualEncoding": "circle",
     "recurrent": "TRUE",
     "family": "Lunar",
-    "file": "Circle.png"
+    "file": "LunarCircle.png"
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "visualEncoding": "circle",
     "recurrent": "FALSE",
     "family": "Schedule_NR",
-    "file": "Circle.png"
+    "file": "NR_ScheduleCircle.png"
   },
   {
     "id": 16,
@@ -141,61 +141,61 @@
     "visualEncoding": "circle",
     "recurrent": "FALSE",
     "family": "Schedule_NR",
-    "file": "Circle.png"
+    "file": "NR_ScheduleCircle.png"
   },
   {
     "id": 17,
-    "question": "In which year does an epidemic break out in Critanro?",
-    "answer": 912,
+    "question": "In which year does socialism rise in Critanro?",
+    "answer": 1028,
     "visualEncoding": "linear",
     "recurrent": "FALSE",
     "family": "History",
-    "file": "Linear.png"
+    "file": "HistoryLinear.png"
   },
   {
     "id": 18,
-    "question": "What happens in 992?",
-    "answer": "tax hike",
+    "question": "What happened in the year 990?",
+    "answer": "Tax Hike",
     "visualEncoding": "linear",
     "recurrent": "FALSE",
     "family": "History",
-    "file": "Linear.png"
+    "file": "HistoryLinear.png"
   },
   {
     "id": 19,
-    "question": "When is Marys second doctor appointment?",
-    "answer": "1-Oct",
+    "question": "At what time does the person start having lunch on Wednesday?",
+    "answer": "12:00",
     "visualEncoding": "linear",
     "recurrent": "TRUE",
     "family": "Schedule",
-    "file": "Linear.png"
+    "file": "ScheduleLinear.png"
   },
   {
     "id": 20,
-    "question": "What is due on 2/11?",
-    "answer": "HCI Exam",
+    "question": "What does the person do between 14:00 to 15:00 on Sunday?",
+    "answer": "Lunch",
     "visualEncoding": "linear",
     "recurrent": "TRUE",
     "family": "Schedule",
-    "file": "Linear.png"
+    "file": "ScheduleLinear.png"
   },
   {
     "id": 21,
-    "question": "Find the date for the second new moon?",
-    "answer": "8-Oct",
+    "question": "In which date does the moon reach its second waxing crescent?",
+    "answer": "12-Oct",
     "visualEncoding": "linear",
     "recurrent": "TRUE",
     "family": "Lunar",
-    "file": "Linear.png"
+    "file": "LunarLinear.png"
   },
   {
     "id": 22,
-    "question": "When does the first waxing crescent occur?",
-    "answer": "13-Sep",
+    "question": "What was the state of the moon on 10/02?",
+    "answer": "Last Quarter",
     "visualEncoding": "linear",
     "recurrent": "TRUE",
     "family": "Lunar",
-    "file": "Linear.png"
+    "file": "LunarLinear.png"
   },
   {
     "id": 23,
@@ -204,7 +204,7 @@
     "visualEncoding": "linear",
     "recurrent": "FALSE",
     "family": "Schedule_NR",
-    "file": "Linear.png"
+    "file": "NR_ScheduleLinear.png"
   },
   {
     "id": 24,
@@ -213,6 +213,6 @@
     "visualEncoding": "linear",
     "recurrent": "FALSE",
     "family": "Schedule_NR",
-    "file": "Linear.png"
+    "file": "NR_ScheduleLinear.png"
   }
 ]
