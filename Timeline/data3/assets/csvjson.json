@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "question": "In which year does agriculture improve in Critanro?",
+    "answer": 940,
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "HistoryLinear.png"
+  },
+  {
+    "id": 2,
+    "question": "Name the person executed in the year 1001?",
+    "answer": "Tatr",
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "HistoryLinear.png"
+  },
+  {
+    "id": 3,
+    "question": "At what time does the person start exercising on Monday?",
+    "answer": "18:00",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "ScheduleLinear.png"
+  },
+  {
+    "id": 4,
+    "question": "What does the person do between 14:45 to 15:45 on Monday?",
+    "answer": "Meeting",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "ScheduleLinear.png"
+  },
+  {
+    "id": 5,
+    "question": "Find the date when the first waxing gibbous occurs.",
+    "answer": "20-Sep",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "LunarLinear.png"
+  },
+  {
+    "id": 6,
+    "question": "What was the state of the moon on 10/24?",
+    "answer": "Full Moon",
+    "visualEncoding": "linear",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "LunarLinear.png"
+  },
+  {
+    "id": 7,
+    "question": "What time is the presentation practice start on Tuesday?",
+    "answer": "13:00",
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "NR_ScheduleLinear.png"
+  },
+  {
+    "id": 8,
+    "question": "What day of the week is the Social Hour?",
+    "answer": "Friday",
+    "visualEncoding": "linear",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "NR_ScheduleLinear.png"
+  },
+  {
+    "id": 9,
+    "question": "In which year does Rastolnik take the throne?",
+    "answer": 985,
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "HistorySpiral.png"
+  },
+  {
+    "id": 10,
+    "question": "What major event occurs in the year 1050?",
+    "answer": "Economic Depression",
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "HistorySpiral.png"
+  },
+  {
+    "id": 11,
+    "question": "At what time does the class end on Friday?",
+    "answer": "17:05",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "ScheduleSpiral.png"
+  },
+  {
+    "id": 12,
+    "question": "What does the person do between 18:00 to 20:00 on Wednesday?",
+    "answer": "Exercise",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "ScheduleSpiral.png"
+  },
+  {
+    "id": 13,
+    "question": "Find the date when the second waning gibbous occurs.",
+    "answer": "8-Oct",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "LunarSpiral.png"
+  },
+  {
+    "id": 14,
+    "question": "Which stage was the moon on 11/03?",
+    "answer": "Waning crescent",
+    "visualEncoding": "spiral",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "LunarSpiral.png"
+  },
+  {
+    "id": 15,
+    "question": "What day of the week is the movie night?",
+    "answer": "Sunday",
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "NR_ScheduleSpiral.png"
+  },
+  {
+    "id": 16,
+    "question": "What time does the Halloween Party start on Wednesday?",
+    "answer": "18:00",
+    "visualEncoding": "spiral",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "NR_ScheduleSpiral.png"
+  },
+  {
+    "id": 17,
+    "question": "In which year does socialism rise in Critanro?",
+    "answer": 1028,
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "HistoryCircle.png"
+  },
+  {
+    "id": 18,
+    "question": "What happened in the year 990?",
+    "answer": "Tax Hike",
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "History",
+    "file": "HistoryCircle.png"
+  },
+  {
+    "id": 19,
+    "question": "At what time does the person start having lunch on Wednesday?",
+    "answer": "12:00",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "ScheduleCircle.png"
+  },
+  {
+    "id": 20,
+    "question": "What does the person do between 14:00 to 15:00 on Sunday?",
+    "answer": "Lunch",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Schedule",
+    "file": "ScheduleCircle.png"
+  },
+  {
+    "id": 21,
+    "question": "In which date does the moon reach its second waxing crescent?",
+    "answer": "12-Oct",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "LunarCircle.png"
+  },
+  {
+    "id": 22,
+    "question": "What was the state of the moon on 10/02?",
+    "answer": "Last Quarter",
+    "visualEncoding": "circle",
+    "recurrent": "TRUE",
+    "family": "Lunar",
+    "file": "LunarCircle.png"
+  },
+  {
+    "id": 23,
+    "question": "What day is the Algorithms Homework Due?",
+    "answer": "Tuesday",
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "NR_ScheduleCircle.png"
+  },
+  {
+    "id": 24,
+    "question": "What is the plan for Saturday 10/6 at 10:00?",
+    "answer": "Pick a friend",
+    "visualEncoding": "circle",
+    "recurrent": "FALSE",
+    "family": "Schedule_NR",
+    "file": "NR_ScheduleCircle.png"
+  }
+]

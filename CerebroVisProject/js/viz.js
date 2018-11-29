@@ -14,181 +14,343 @@ var selectedSegments=[]
 //This is short term fix for projection, the real fix should go through the loop of setting global variables
 var globalHighlightedSegment=null;
 
+
+
+
+
 function drawBrainMap(globalData,viewSpec)
- {
-      d3.select(".chart").remove()
-      //var data= globalData.fetchDataForScatterPlot();
-      var arteries=globalData.fetchDataForArteries();
-      var treeData=globalData.fetchtreeData();
-      var nodes = d3.hierarchy(treeData).descendants();
-      var bloodFlow=globalData.fetchBloodFlowSymmetry()
-      var basilarBranchids=globalData.fetchBasilarBranchid();
+{
+    d3.select(".chart").remove()
 
-     var leftPCA=globalData.fetchLeftPCA()
-     var rightPCA=globalData.fetchRightPCA()
+    const arteries = globalData.fetchDataForArteries();
+
+    const treeData = globalData.fetchtreeData();
 
 
-     // var basilar=[145, 146, 147,46,47]
+    var bloodFlow=globalData.fetchBloodFlowSymmetry()
+    var basilarBranchids=globalData.fetchBasilarBranchid();
 
-
-     // basilar.forEach(function(d){
-     //     basilarBranchids.push(d)
-     // })
+    const leftPCA=globalData.fetchLeftPCA()
+    const rightPCA=globalData.fetchRightPCA()
 
 
 
-      var margin = {top: 20, right: 20, bottom: 20, left: 20}
-          , width = $('#brainmap').innerWidth() - margin.left - margin.right
-          , height = $('#brainmap').innerWidth() - margin.top - margin.bottom;
+    var margin = {top: 20, right: 20, bottom: 20, left: 20}
+        , width = $('#brainmap').innerWidth() - margin.left - margin.right
+        , height = $('#brainmap').innerWidth() - margin.top - margin.bottom;
 
-        var x = d3.scaleLinear()
-                  .domain([d3.min(arteries, function(d) { return d.x1; }), d3.max(arteries, function(d) { return d.x2 })])
-                  .range([ 0, width ]);
+    var x = d3.scaleLinear()
+        .domain([d3.min(arteries, function(d) { return d.x1; }), d3.max(arteries, function(d) { return d.x2 })])
+        .range([ 0, width ]);
 
-        var y = d3.scaleLinear()
-                .domain([d3.min(arteries, function(d) { return d.y1; }), d3.max(arteries, function(d) { return d.y1; })])
-                .range([ height, 0 ]);
+    var y = d3.scaleLinear()
+        .domain([d3.min(arteries, function(d) { return d.y1; }), d3.max(arteries, function(d) { return d.y1; })])
+        .range([ height, 0 ]);
 
-        radi=arteries.map(function(artery){
-          return artery.radius
-        })
+    radi=arteries.map(function(artery){
+        return artery.radius
+    })
 
-        var minRadius= d3.min(radi, function(d) {return d; }) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
+    var minRadius= d3.min(radi, function(d) {return d; }) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
 
-        var radius= d3.scaleLinear()
-                  .domain([minRadius, d3.max(radi, function(d) { return d; })])
-                  .range([ 1, 10 ]);
-
-
-     var color=d3.scaleOrdinal().domain([0,2,3,4,5,6,7]).range(['#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02','#a6761d'])
-
- 
-
-         // Define the line
-        var line = d3.line()
-            .x(function(d) { return x(d[0]); })
-            .y(function(d) { return y(d[1]); })
-
-        var chart = d3.select('#brainmap')
-           .append('svg:svg')
-           .attr('width', width + margin.right + margin.left)
-           .attr('height', height + margin.top + margin.bottom)
-           .attr('class', 'chart')
-
-            var main = chart.append('g')
-           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-           .attr('width', width)
-           .attr('height', height)
-           .attr('class', 'main')
-
-            // draw the x axis
-           //  var xAxis = d3.axisBottom(x)
-           //
-           //   // svg.append("path")
-           //   //    .attr("class", "line")
-           //   //    .attr("d", valueline(data));
-           //
-           //  main.append('g')
-           // .attr('transform', 'translate(0,' + height + ')')
-           // .attr('class', 'main axis date')
-           // .call(xAxis);
-
-        ////We are going to append paths one at a time and create an animation to view the transition
-        //viewSpec.getView()=="Normal"
-          index=0
+    var radius= d3.scaleLinear()
+        .domain([minRadius, d3.max(radi, function(d) { return d; })])
+        .range([ 1, 10 ]);
 
 
-     function drawArteries(index){
-            data=[[arteries[index].x1,arteries[index].y1],[arteries[index].x2,arteries[index].y2]]
-            path=main.append("path")
+    var color=d3.scaleOrdinal().domain([0,2,3,4,5,6,7]).range(['#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02','#a6761d'])
+
+
+
+    // Define the line
+    var line = d3.line()
+        .x(function(d) { return x(d[0]); })
+        .y(function(d) { return y(d[1]); })
+
+    var chart = d3.select('#brainmap')
+        .append('svg:svg')
+        .attr('width', width + margin.right + margin.left)
+        .attr('height', height + margin.top + margin.bottom)
+        .attr('class', 'chart')
+
+    var main = chart.append('g')
+        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('class', 'main')
+
+
+    ////We are going to append paths one at a time and create an animation to view the transition
+    let index=0
+
+
+    function drawArteries(index){
+        data=[[arteries[index].x1,arteries[index].y1],[arteries[index].x2,arteries[index].y2]]
+        path=main.append("path")
             .datum(data)
-              .attr("fill", "none")
-                .attr("class","C_"+arteries[index].nodeid)
-                .attr("id","pathBM")
-              //  .attr("stroke","steelblue")
-              .attr("stroke", function(){
-                  if(bloodFlow) {return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
-                      // if (arteries[index].bloodFlow == undefined) {
-                      //     return '#1b9e77'
-                      // }
-                      // else {
-                      //     return d3.interpolateRdYlBu(arteries[index].bloodFlow / (15000 / (Math.pow(2, arteries[index].depth))))
-                      // }
-                  }
-                  else{
+            .attr("fill", "none")
+            .attr("class","C_"+arteries[index].nodeid)
+            .attr("id","pathBM")
+            //  .attr("stroke","steelblue")
+            .attr("stroke", function(){
+                if(bloodFlow) {return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
+                    // if (arteries[index].bloodFlow == undefined) {
+                    //     return '#1b9e77'
+                    // }
+                    // else {
+                    //     return d3.interpolateRdYlBu(arteries[index].bloodFlow / (15000 / (Math.pow(2, arteries[index].depth))))
+                    // }
+                }
+                else{
 
-                      var PC1array=leftPCA.concat(rightPCA)
-                      if(PC1array.indexOf(index)!=-1){
-                            return "cornflowerblue"
-                        }
-                           return colorSymmetry(arteries[index].type)
-                       }
-                      //return color(arteries[index].type)
-                  })
+                    var PC1array=leftPCA.concat(rightPCA)
+                    if(PC1array.indexOf(index)!=-1){
+                        return "cornflowerblue"
+                    }
+                    return colorSymmetry(arteries[index].type)
+                }
+                //return color(arteries[index].type)
+            })
 
-               .attr("stroke-width", function(){return radius(arteries[index].radius)})
-              //   .attr("opacity",function(){
-              //       if(arteries[index].type==2 ||arteries[index].type==3||arteries[index].type==4||arteries[index].type==5||arteries[index].type==6||arteries[index].type==7){
-              //           return 0
-              //       }
-              //       else{
-              //           return 1
-              //       }
-              //           })
-              .attr("d", line);
+            .attr("stroke-width", function(){return radius(arteries[index].radius)})
+            .attr("d", line);
 
-                var totalLength = path.node().getTotalLength();
+        var totalLength = path.node().getTotalLength();
 
-          // Set Properties of Dash Array and Dash Offset and initiate Transition
-             path
-              .attr("stroke-dasharray", totalLength + " " + totalLength)
-              .attr("stroke-dashoffset", totalLength)
-              .transition() // Call Transition Method
-              .duration(0) // Set Duration timing (ms)
-              .ease(d3.easeLinear) // Set Easing option
-              .attr("stroke-dashoffset", 0)
-              .on("end", function(){
-              index=index+1;
-              if(index!=arteries.length){
-              drawArteries(index)
-              }
-              else{
-                //return "success"
-              }
+        // Set Properties of Dash Array and Dash Offset and initiate Transition
+        path
+            .attr("stroke-dasharray", totalLength + " " + totalLength)
+            .attr("stroke-dashoffset", totalLength)
+            .transition() // Call Transition Method
+            .duration(0) // Set Duration timing (ms)
+            .ease(d3.easeLinear) // Set Easing option
+            .attr("stroke-dashoffset", 0)
+            .on("end", function(){
+                index=index+1;
+                if(index!=arteries.length){
+                    drawArteries(index)
+                }
+                else{
+                    //return "success"
+                }
             });
 
 
 
-         basilarBranchids.forEach(function(d){
-             d3.select(".C_"+d).attr("stroke","sandybrown").attr("opacity",1)
-         })
+        basilarBranchids.forEach(function(d){
+            d3.select(".C_"+d).attr("stroke","sandybrown").attr("opacity",1)
+        })
 
-         if(globalHighlightedSegment){
-             highLightSegment(globalHighlightedSegment)}
-     }
-
-
-     drawArteries(index);
+        if(globalHighlightedSegment){
+            highLightSegment(globalHighlightedSegment)}
+    }
 
 
-
-     // var promise1 = new Promise(function(resolve, reject) {
-     //     if(val=="success"){
-     //         resolve('Success!');
-     //
-     //     }
-     // });
-     //
-     // promise1.then(function(value) {
-     //     console.log(value);
-     //     // expected output: "Success!"
-     // });
-
-     // Checking if a component is already highlighted
+    drawArteries(index);
 
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function drawBrainMap(globalData,viewSpec)
+//  {
+//       d3.select(".chart").remove()
+//       //var data= globalData.fetchDataForScatterPlot();
+//       var arteries=globalData.fetchDataForArteries();
+//       var treeData=globalData.fetchtreeData();
+//       var nodes = d3.hierarchy(treeData).descendants();
+//       var bloodFlow=globalData.fetchBloodFlowSymmetry()
+//       var basilarBranchids=globalData.fetchBasilarBranchid();
+//
+//      var leftPCA=globalData.fetchLeftPCA()
+//      var rightPCA=globalData.fetchRightPCA()
+//
+//
+//      // var basilar=[145, 146, 147,46,47]
+//
+//
+//      // basilar.forEach(function(d){
+//      //     basilarBranchids.push(d)
+//      // })
+//
+//
+//
+//       var margin = {top: 20, right: 20, bottom: 20, left: 20}
+//           , width = $('#brainmap').innerWidth() - margin.left - margin.right
+//           , height = $('#brainmap').innerWidth() - margin.top - margin.bottom;
+//
+//         var x = d3.scaleLinear()
+//                   .domain([d3.min(arteries, function(d) { return d.x1; }), d3.max(arteries, function(d) { return d.x2 })])
+//                   .range([ 0, width ]);
+//
+//         var y = d3.scaleLinear()
+//                 .domain([d3.min(arteries, function(d) { return d.y1; }), d3.max(arteries, function(d) { return d.y1; })])
+//                 .range([ height, 0 ]);
+//
+//         radi=arteries.map(function(artery){
+//           return artery.radius
+//         })
+//
+//         var minRadius= d3.min(radi, function(d) {return d; }) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
+//
+//         var radius= d3.scaleLinear()
+//                   .domain([minRadius, d3.max(radi, function(d) { return d; })])
+//                   .range([ 1, 10 ]);
+//
+//
+//      var color=d3.scaleOrdinal().domain([0,2,3,4,5,6,7]).range(['#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02','#a6761d'])
+//
+//
+//
+//          // Define the line
+//         var line = d3.line()
+//             .x(function(d) { return x(d[0]); })
+//             .y(function(d) { return y(d[1]); })
+//
+//         var chart = d3.select('#brainmap')
+//            .append('svg:svg')
+//            .attr('width', width + margin.right + margin.left)
+//            .attr('height', height + margin.top + margin.bottom)
+//            .attr('class', 'chart')
+//
+//             var main = chart.append('g')
+//            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+//            .attr('width', width)
+//            .attr('height', height)
+//            .attr('class', 'main')
+//
+//             // draw the x axis
+//            //  var xAxis = d3.axisBottom(x)
+//            //
+//            //   // svg.append("path")
+//            //   //    .attr("class", "line")
+//            //   //    .attr("d", valueline(data));
+//            //
+//            //  main.append('g')
+//            // .attr('transform', 'translate(0,' + height + ')')
+//            // .attr('class', 'main axis date')
+//            // .call(xAxis);
+//
+//         ////We are going to append paths one at a time and create an animation to view the transition
+//         //viewSpec.getView()=="Normal"
+//           index=0
+//
+//
+//      function drawArteries(index){
+//             data=[[arteries[index].x1,arteries[index].y1],[arteries[index].x2,arteries[index].y2]]
+//             path=main.append("path")
+//             .datum(data)
+//               .attr("fill", "none")
+//                 .attr("class","C_"+arteries[index].nodeid)
+//                 .attr("id","pathBM")
+//               //  .attr("stroke","steelblue")
+//               .attr("stroke", function(){
+//                   if(bloodFlow) {return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
+//                       // if (arteries[index].bloodFlow == undefined) {
+//                       //     return '#1b9e77'
+//                       // }
+//                       // else {
+//                       //     return d3.interpolateRdYlBu(arteries[index].bloodFlow / (15000 / (Math.pow(2, arteries[index].depth))))
+//                       // }
+//                   }
+//                   else{
+//
+//                       var PC1array=leftPCA.concat(rightPCA)
+//                       if(PC1array.indexOf(index)!=-1){
+//                             return "cornflowerblue"
+//                         }
+//                            return colorSymmetry(arteries[index].type)
+//                        }
+//                       //return color(arteries[index].type)
+//                   })
+//
+//                .attr("stroke-width", function(){return radius(arteries[index].radius)})
+//               //   .attr("opacity",function(){
+//               //       if(arteries[index].type==2 ||arteries[index].type==3||arteries[index].type==4||arteries[index].type==5||arteries[index].type==6||arteries[index].type==7){
+//               //           return 0
+//               //       }
+//               //       else{
+//               //           return 1
+//               //       }
+//               //           })
+//               .attr("d", line);
+//
+//                 var totalLength = path.node().getTotalLength();
+//
+//           // Set Properties of Dash Array and Dash Offset and initiate Transition
+//              path
+//               .attr("stroke-dasharray", totalLength + " " + totalLength)
+//               .attr("stroke-dashoffset", totalLength)
+//               .transition() // Call Transition Method
+//               .duration(0) // Set Duration timing (ms)
+//               .ease(d3.easeLinear) // Set Easing option
+//               .attr("stroke-dashoffset", 0)
+//               .on("end", function(){
+//               index=index+1;
+//               if(index!=arteries.length){
+//               drawArteries(index)
+//               }
+//               else{
+//                 //return "success"
+//               }
+//             });
+//
+//
+//
+//          basilarBranchids.forEach(function(d){
+//              d3.select(".C_"+d).attr("stroke","sandybrown").attr("opacity",1)
+//          })
+//
+//          if(globalHighlightedSegment){
+//              highLightSegment(globalHighlightedSegment)}
+//      }
+//
+//
+//      drawArteries(index);
+//
+//
+//
+//      // var promise1 = new Promise(function(resolve, reject) {
+//      //     if(val=="success"){
+//      //         resolve('Success!');
+//      //
+//      //     }
+//      // });
+//      //
+//      // promise1.then(function(value) {
+//      //     console.log(value);
+//      //     // expected output: "Success!"
+//      // });
+//
+//      // Checking if a component is already highlighted
+//
+//
+// }
+//
 
 
 function drawDendrogram(globalDataStructure,view) {
@@ -314,8 +476,6 @@ else{
     nodes.children[3].sort(function(a, b) { return a.height - b.height  });
 
     nodes1=d3.hierarchy(treeData2)
-
-
 }
 
 //Color scale
@@ -344,9 +504,9 @@ else{
 
 // Toggle ends here
 
-// append the svg obgect to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
+    // append the svg obgect to the body of the page
+    // appends a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
     var svg = d3.select("#dendrogram").append("svg").attr("class","chartTree").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom)
 
     g1= svg.append("g")
@@ -355,6 +515,7 @@ else{
 
 
     var mainNodes=nodes;
+    console.log(nodes)
     treemapVis(nodes)
     view="Symmetry"
 
@@ -364,6 +525,8 @@ else{
         selectedSegments=[]
 
         var  nodesInFn = treemap(nodes);
+
+        console.log(nodesInFn)
 
         if(nodesInFn.descendants().length==1)
         {
@@ -375,12 +538,14 @@ else{
 
         }
 
+        console.log(descendants)
+
         //Selecting the segments to highlight branches in brain
         descendants.forEach(function(d){
             findSegmentsInnTree(d)
-
         })
 
+        console.log(descendants)
 
         g.append("path").attr("id","anteriorComm")
 
