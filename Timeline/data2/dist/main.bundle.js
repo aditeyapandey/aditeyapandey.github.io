@@ -173,7 +173,7 @@ var AppComponent = (function () {
             _this.questions = response;
             if (_this.testingParameter) {
                 // this.randomizedQuestionOrder=[3, 23, 11, 18, 5, 10, 24, 4, 16, 12, 17, 13, 2, 20, 6, 15, 19, 8, 21, 1, 7, 14, 9, 22]
-                _this.randomizedQuestionOrder = [8, 23, 11, 18, 5, 10, 24, 4, 16, 12, 17, 13, 2, 20, 6, 15, 19, 8, 21, 1, 7, 14, 9, 22];
+                _this.randomizedQuestionOrder = [19, 4, 2, 9, 6, 24, 20, 15, 1, 21, 23, 3, 13, 22, 7, 5, 10, 17, 8, 11, 14, 18, 16, 12];
                 _this.imgName = _this.questions[_this.randomizedQuestionOrder[_this.currentQuestionCounter] - 1].file;
                 //this.imgName="index.png"
             }
@@ -246,7 +246,7 @@ var AppComponent = (function () {
         this.userResponseLocalVar = new __WEBPACK_IMPORTED_MODULE_2__models_userResponse_model__["a" /* UserResponse */]();
         this.userResponseLocalVar.name = this.userIdentifier;
         //Step 1: Record the time and also do it when the the survey is initiated
-        this.userResponseLocalVar.endTime = this.time;
+        this.userResponseLocalVar.endTime = new Date();
         this.userResponseLocalVar.startTime = this.startTime;
         console.log((this.userResponseLocalVar.endTime.getTime() - this.userResponseLocalVar.startTime.getTime()));
         console.log(((this.userResponseLocalVar.endTime.getTime() - this.userResponseLocalVar.startTime.getTime()) / 1000));
@@ -258,6 +258,9 @@ var AppComponent = (function () {
         //this.userResponseLocalVar.timelineQuestionId=this.questions[this.currentQuestionCounter].id
         //Test
         this.userResponseLocalVar.timelineQuestionId = this.questions[this.randomizedQuestionOrder[this.currentQuestionCounter] - 1].id;
+        //Recording the visual enocding
+        this.userResponseLocalVar.visualEncoding = this.questions[this.randomizedQuestionOrder[this.currentQuestionCounter] - 1].visualEncoding;
+        this.userResponseLocalVar.family = this.questions[this.randomizedQuestionOrder[this.currentQuestionCounter] - 1].family;
         //Step 4: Cross checking the data stored
         console.log(this.userResponseLocalVar);
         this.userResponseFinalData.push(this.userResponseLocalVar);
@@ -317,7 +320,7 @@ var AppComponent = (function () {
         this.data.getClock().subscribe(function (time) {
             _this.time = time;
             if (!_this.startTimeFirstTimeDefine) {
-                _this.startTime = time;
+                _this.startTime = new Date();
                 console.log(_this.startTime);
                 _this.startTimeFirstTimeDefine = true;
             }
