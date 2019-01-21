@@ -20,7 +20,7 @@ function initializeView(){
         fileName=data.name;
     }
     dataFileName()
-    promise=readdata(fileName)
+    promise=readdata(fileName);
     promise.then(function(data) {
 
     //console.log(data)
@@ -33,36 +33,21 @@ function initializeView(){
 
     //  //Define the global data access structures at one place and access them whererever they are required
      globalDataStructures=new defineGlobalAccessDataStructures(data,projection)
-    //console.log(globalDataStructures)
 
-    // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
-      drawBrainMap(globalDataStructures,viewspecs)
-    //
-    //  //  //Drawing dendrograms
-     drawDendrogram(globalDataStructures,view)
-   //
-   // // //Rectangular Dendogram
-  //drawphlyogram(globalDataStructures,view)
+     drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1, globalDataStructures.fetchArteryStorageByIndex())
+     drawLabelsBrainMap("back","brainmap","#252525")
 
-});
+    //Drawing dendrograms
+    drawDendrogram(globalDataStructures,view)
+
+    //Testing the arcs in the main visualization area
+
+    //drawBrainMap(globalDataStructures,viewspecs, 'dendrogram', globalDataStructures.fetchDataForCOW(), globalDataStructures.fetchArteryWidth(),3)
+
+    });
 }
 
-//This function should be called for switching between arc and rectangular dendorgrams, for arc dendogram treetype=arcsD and for rectangular dendrogram treetype=arcsR , it will always load normal view of dendograms
 
-function changeTree(treeType){
-
-    viewspecs.setTreeView(treeType)
-
-    if(treeType=="arcsD"){
-        drawDendrogram(globalDataStructures,viewspecs.getView())
-    }
-    else{
-        drawphlyogram(globalDataStructures,viewspecs.getView())
-    }
-
-    // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
-
-}
 
 
 //This function should be called for changing the brain projection, just pass the projection as brainview variable and it will work, den
@@ -70,57 +55,54 @@ function changeTree(treeType){
 
 function changeProjection(brainView){
 
-    var data=globalDataStructures.fetchData()
+    var data=globalDataStructures.fetchData();
+
     viewspecs.setProjection(brainView)
 
     globalDataStructures.changeProjection(data,viewspecs.getProjection())
 
-    // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
-    drawBrainMap(globalDataStructures,viewspecs)
-}
-
-//This function should be called for switching between normal and symmetry view for both arc and rectangular dendorgrams, dendogramView=Symmetry and for arc dendogram treetype=arcsD and for rectangular dendrogram treetype=arcsR
-function changeView(dendrogramView){
-    if(dendrogramView=="Hybrid"){
-        //globalDataStructures.setBloodBlowSymmetry(true)
-    }
-
-    var data=globalDataStructures.fetchData()
-
-    viewspecs.setViewMode(dendrogramView)
-
-    // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
-    if(viewspecs.getTreeView()=="arcsD"){
-        drawDendrogram(globalDataStructures,viewspecs.getView())
-        drawBrainMap(globalDataStructures,viewspecs)
-
-    }
-    else{
-        drawphlyogram(globalDataStructures,viewspecs.getView())
-        drawBrainMap(globalDataStructures,viewspecs)
-
-    }
+    drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1,globalDataStructures.fetchArteryStorageByIndex())
+    drawLabelsBrainMap(brainView,"brainmap","#252525")
 
 }
+
+
 
 function addBloodFlowInSymmetry(val){
 
-    globalDataStructures.setBloodBlowSymmetry(val)
-
-    console.log("addflow")
+    globalDataStructures.setBloodBlowSymmetry(val);
 
     if(viewspecs.getTreeView()=="arcsD"){
-        drawDendrogram(globalDataStructures,viewspecs.getView())
-        drawBrainMap(globalDataStructures,viewspecs)
+        drawDendrogram(globalDataStructures,viewspecs.getView());
+        drawBrainMap(globalDataStructures,viewspecs);
 
     }
     else{
-        drawphlyogram(globalDataStructures,viewspecs.getView())
-         drawBrainMap(globalDataStructures,viewspecs)
-
+        drawphlyogram(globalDataStructures,viewspecs.getView());
+        drawBrainMap(globalDataStructures,viewspecs);
     }
 
 }
 
 
 initializeView()
+
+//This function will console the inner width of the dengrogram
+//Placing a hook on the resize event, this function will listen for all onresize event
+
+//Input Null
+//Description: Draws the BrainVisualization and Dendrogram Visualization
+function resizeVis(){
+    // Haven't resized in 100ms!
+    drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1, globalDataStructures.fetchArteryStorageByIndex())
+    drawLabelsBrainMap(viewspecs.getProjectionType(),"brainmap","#252525")
+    drawDendrogram(globalDataStructures,view)
+}
+
+//Description Waits for the user to stop resizing the screen and then calls a method
+let createTimeout;
+window.onresize = function(){
+    clearTimeout(createTimeout);
+    createTimeout = setTimeout(resizeVis, 100);
+};
+

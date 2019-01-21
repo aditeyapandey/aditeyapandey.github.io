@@ -14,34 +14,43 @@ var arteryParts= function (){
 var arteryLabelsArcs=arteryParts();
 var arteryLabels=arteryParts();
 var testFindCOWArteries=arteryParts();
-var globarTreeSampleForCOW={}
+var globarTreeSampleForCOW={};
 
+//Artery Width Storage Dictionary
+arteryWidth = {};
+
+//Store all the arteries indexed by their node id
+arteryStorageByIndex = {};
+
+
+//
 
 
 function getDataforArteries(result,viewspecs)
 {
-    pointsList=getKeys(result)
-    var arteries=[]
+    pointsList=getKeys(result);
+    var arteries=[];
     for (var i=0;i<pointsList.length;i++){
         if(result[parseInt(pointsList[i])]['parent']==-1){
-            parent=result[parseInt(pointsList[i])]['parent']
+            parent=result[parseInt(pointsList[i])]['parent'];
             //When parent is -1 then we have no parent, so skip this node
         }
         else{
             //Draw a line from parent to child
-            parent=result[parseInt(pointsList[i])]['parent']
-            x1=result[parent][viewspecs.x]
-            y1=result[parent][viewspecs.y]
-            x2=result[parseInt(pointsList[i])][viewspecs.x]
-            y2=result[parseInt(pointsList[i])][viewspecs.y]
-            width=result[parseInt(pointsList[i])]['radius']
-            nodeid=parseInt(pointsList[i])
-            type = result[parseInt(pointsList[i])]['type']
-            artery={"nodeid":nodeid,"parent":parent,"x1":x1,"y1":y1,"x2":x2,"y2":y2,"radius":width,'type':type}
-            arteries.push(artery)
+            parent=result[parseInt(pointsList[i])]['parent'];
+            x1=result[parent][viewspecs.x];
+            y1=result[parent][viewspecs.y];
+            x2=result[parseInt(pointsList[i])][viewspecs.x];
+            y2=result[parseInt(pointsList[i])][viewspecs.y];
+            width=result[parseInt(pointsList[i])]['radius'];
+            nodeid=parseInt(pointsList[i]);
+            type = result[parseInt(pointsList[i])]['type'];
+            artery={"nodeid":nodeid,"parent":parent,"x1":x1,"y1":y1,"x2":x2,"y2":y2,"radius":width,'type':type};
+            arteryStorageByIndex[nodeid] = {"nodeid":nodeid,"parent":parent,"x1":x1,"y1":y1,"x2":x2,"y2":y2,"radius":width,'type':type};
+            arteries.push(artery);
         }
     }
-    return arteries
+    return arteries;
 }
 
 function getDataForScatterPlot(result,viewspecs)
@@ -76,15 +85,17 @@ function getParentChildJson(result)
 
     //This piece of code uses a depth first search to find all the parts of an artery and then creates a dictionary with root of the artery as the key
     segments=findSegments(node,-1,1)
+
     var treeData={}
     var treeDataCOW={}
-    //console.log(result)
+
     treeDataStructure=getHierarchy(segments,treeData,1,result)
     branchDataStructure=getHierarchyBranchSet(segments,treeData,1,result)
+
     testData=getHierarchyCOW(segments,treeDataCOW,1,result)
     labelCOWarteries(treeDataStructure)
 
-    return [visualizationData,branchDataStructure,segments,basilarData,basilarBranchids,leftICAChildElements,rightICAChildElements,leftPCA,rightPCA]
+    return [visualizationData,branchDataStructure,segments,basilarData,basilarBranchids,leftICAChildElements,rightICAChildElements,leftPCA,rightPCA,arteryWidth,arteryStorageByIndex]
 }
 
 //Find segments loops through all the children of a node and finds the length or in other words all the reachable segments from the node and seperates out the two bifurcations of the nodes.
@@ -126,8 +137,8 @@ function findSegments(node,Root,Child)
     }
 
     return Segments
-
 }
+
 function getHierarchy(segments,treeData,root,result)
 {
 
@@ -147,7 +158,7 @@ function getHierarchy(segments,treeData,root,result)
             size:childrenofRoot.length,
             childs:childrenofRoot,
             type:0
-        })
+        });
 
 
         for (var i=0;i<childrenofRoot.length;i++){
@@ -158,8 +169,8 @@ function getHierarchy(segments,treeData,root,result)
     }
 
     else{
-        var parts=childrenofRoot.indexOf(-999)
-        var children=childrenofRoot
+        var parts=childrenofRoot.indexOf(-999);
+        var children=childrenofRoot;
         var countofBreaks=childrenofRoot.reduce(function(a, e, i) {
             if (e === -999)
                 a.push(i);
@@ -170,6 +181,7 @@ function getHierarchy(segments,treeData,root,result)
         for(var i=0;i<countofBreaks.length+1;i++)
         {
             var subchildren=[]
+
             if(i==0){
                 subchildren=children.slice(0,parts)
             }
@@ -179,7 +191,10 @@ function getHierarchy(segments,treeData,root,result)
 
             //function to compute true radius
             radi=computeRadius(subchildren,result)
-
+            //Store the radius for each element
+            storeArteryWidthPerElement(subchildren,radi)
+            //Store the average xyz coordinates for each segment
+            storeAvgArteryCoord(subchildren,result)
 
             treeData['children'].push({
                 name:root,
@@ -203,6 +218,8 @@ function getHierarchy(segments,treeData,root,result)
     return treeData
 }
 
+//This function takes a list of items and the complete data as input and calculates the average width of the artery
+//Returns the average width of the artery
 function computeRadius(data,result)
 {
     if(data == undefined){
@@ -226,6 +243,44 @@ function computeRadius(data,result)
 
     })
     return(radiusSum/radiusLengths.length)
+}
+
+//This function populates a global index to store the  average radius computed previously for each element in the data
+//Returns null
+function storeArteryWidthPerElement(segments,radius)
+{
+    segments.forEach(function(d)
+    {
+        arteryWidth[d]=radius
+    })
+}
+
+//This function stores the average the xyz coordinates of a the artery, by using an average of the coordinates from all the segments
+//Input: Segment list, Input data in SWC format(also known as result in the function)
+//Output: Stores the results from the artery in a global array
+function storeAvgArteryCoord (segments, data)
+{
+    let xyzList=[]
+    segments.forEach(function(d){
+        xyzList.push([data[d].x,data[d].y,data[d].z])
+    })
+    let avgXYZ = computeAverage(xyzList)
+    segments.forEach(function(d){
+        arteryStorageByIndex[d]['averageXYZ'] = avgXYZ
+    })
+}
+
+//This function returns the average x,y,z for a set of coordinates
+//Input: List of [x,y,z] points
+//Output: A single tuple [x,y,z]
+function computeAverage(list)
+{
+    const averageX = list.reduce((sume, el) => sume + el[0], 0) / list.length;
+    const averageY = list.reduce((sume, el) => sume + el[1], 0) / list.length;
+    const averageZ = list.reduce((sume, el) => sume + el[2], 0) / list.length;
+
+    return [averageX,averageY,averageZ]
+
 }
 
 function getHierarchyCOW(segments,treeDataCOW,root,result)

@@ -27,7 +27,7 @@
 function viewSpec (projectionType,viewType)
 {
 
-    this.viewMode="Normal"
+    this.viewMode="Normal";
     if (viewType=="Symmetry"){
         this.viewMode="Symmetry"
     }
@@ -38,52 +38,56 @@ function viewSpec (projectionType,viewType)
         this.viewMode="Hybrid"
     }
 
-    this.projection={x:"x",y:"y"}
+    this.projection={x:"x",y:"y"};
+    this.projectionType= projectionType;
 
     if (projectionType=="back"){
 
         this.projection={x:"x",y:"y"}
     }
     else if(projectionType=="lateral"){
-        this.projection={x:"z",y:"y"}
+        this.projection={x:"z",y:"y"};
 
     }
     else if(projectionType=="top"){
-        this.projection={x:"x",y:"z"}
+        this.projection={x:"y",y:"z"};
     }
     this.getView = function() {
-        return this.viewMode
+        return this.viewMode;
     };
     this.getProjection=function(){
-        return this.projection
-    }
+        return this.projection;
+    };
+    this.getProjectionType = function ()
+    {
+        return this.projectionType;
+    };
 
     this.setViewMode=function(view){
         this.viewMode=view
-    }
+    };
 
     this.setProjection=function(projectionVal){
 
-        if (projectionVal=="back"){
+        this.projectionType = projectionVal;
 
-            this.projection={x:"x",y:"y"}
+        if (projectionVal=="back"){
+            this.projection={x:"x",y:"y"};
         }
         else if(projectionVal=="lateral"){
-            this.projection={x:"z",y:"y"}
-
+            this.projection={x:"z",y:"y"};
         }
         else if(projectionVal=="top"){
-            this.projection={x:"x",y:"z"}
+            this.projection={x:"x",y:"z"};
         }
+    };
 
-
-    }
-    this.treeView="arcsD"
+    this.treeView="arcsD";
     this.getTreeView = function() {
-        return this.treeView
+        return this.treeView;
     };
     this.setTreeView=function(tree){
-        this.treeView=tree
+        this.treeView=tree;
     }
 }
 
@@ -95,22 +99,25 @@ function viewSpec (projectionType,viewType)
 function defineGlobalAccessDataStructures (data,projection)
 {
     this.data=data
-    this.dataForScatterPlot=getDataForScatterPlot(data,projection);
-    this.dataForArteries=getDataforArteries(data,projection);
-    this.hierarchyData=getParentChildJson(data)
-    this.treeData=this.hierarchyData[0]
-    this.branchData=this.hierarchyData[1]
-    this.segments=this.hierarchyData[2]
-    this.basilar=this.hierarchyData[3]
-    this.basilarbranchids= this.hierarchyData[4]
-    this.leftICChildNodes= this.hierarchyData[5]
+    this.dataForScatterPlot = getDataForScatterPlot(data,projection);
+    this.dataForArteries = getDataforArteries(data,projection);
+    this.dataForCOW =  getDataforCOW(data,projection)
+    this.hierarchyData = getParentChildJson(data)
+    this.treeData = this.hierarchyData[0]
+    this.branchData = this.hierarchyData[1]
+    this.segments = this.hierarchyData[2]
+    this.basilar = this.hierarchyData[3]
+    this.basilarbranchids = this.hierarchyData[4]
+    this.leftICChildNodes = this.hierarchyData[5]
     this.rightICChildNodes = this.hierarchyData[6]
     this.leftPCA = this.hierarchyData[7]
     this.rightPCA = this.hierarchyData[8]
-    this.nodeId=getKeys(this.segments)
-    this.arteryLabels=arteryLabelsArcs;
-    this.arteryLabelsRectangular=arteryLabels;
-    this.bloodFlowSymmetry=false
+    this.arteryWidth = this.hierarchyData[9]
+    this.arteryStorageByIndex = this.hierarchyData[10]
+    this.nodeId = getKeys(this.segments)
+    this.arteryLabels = arteryLabelsArcs;
+    this.arteryLabelsRectangular = arteryLabels;
+    this.bloodFlowSymmetry = false
 
 
     // console.log(this.treeData)
@@ -166,6 +173,10 @@ function defineGlobalAccessDataStructures (data,projection)
     return this.dataForArteries
     }
 
+    this.fetchDataForCOW = function (){
+        return this.dataForCOW
+    }
+
     this.fetchhierarchyData=function(){
         return this.hierarchyData
     }
@@ -207,6 +218,13 @@ function defineGlobalAccessDataStructures (data,projection)
     this.fetchHybridData=function(value){
         return this.hybridTreeData
     }
+    this.fetchArteryWidth = function(){
+        return this.arteryWidth
+    };
+    this.fetchArteryStorageByIndex = function()
+    {
+      return this.arteryStorageByIndex
+    };
 
     this.changedataForArteries=function(nodes){
         // console.log(nodes)

@@ -24,8 +24,6 @@ var globalFirstPCAArtery
 var globalSecondPCA
 var globalSecondArteryPCA
 
-
-
 var basilarBranchesParent
 var basilarBranch
 var storeRadius=[]
@@ -60,6 +58,8 @@ function labelCOWarteries(data)
     globalFirstIC=getDatafromFirstIC[0]
     arrayOfRecords=getDatafromFirstIC[1]
     globalFirstIC['childArray']=data.children[arrayOfRecords[0]].children[0]
+
+    console.log(globalFirstIC)
 
 
     //Step 2 : This method recursively finds second IC (whenever find a particular segment one can use the recursive code)
@@ -388,6 +388,7 @@ function fixMCA(firstIC,secondIC)
         //First get both the children
         var children = firstIC.children[firstDefined].children[0].children
 
+
         if(children[0].type ==3 )
         {
             var temp= firstIC.children[firstDefined].children[0].children[0]
@@ -624,6 +625,8 @@ function createDataforPCA()
 
     //The direction of PCA's are dependent on the direction of IC's
     var firstPCA
+    console.log("test log")
+    console.log(globalFirstIC.direction)
     if(globalFirstIC.direction=="left")
     {
         firstPCA={
@@ -642,8 +645,10 @@ function createDataforPCA()
     }
 
 
-    var secondPCA
+    var secondPCA;
 
+    console.log("test log")
+    console.log(globalSecondIC.direction)
     if(globalSecondIC.direction=="left")
     {
         secondPCA={
@@ -683,6 +688,9 @@ function createDataforPCA()
             children:[firstPCA,secondPCA]
         }
     }
+
+    console.log(visualizationData)
+
 }
 
 
@@ -693,42 +701,79 @@ function createDataforPCA()
 function newTemplate()
 {
     if(globalFirstIC.direction=="left")
-    {
-        arraytoStoreChildValsFirstPCA.push(globalFirstIC['childArray'])
-        arraytoStoreChildValsFirstPCA.push(globalFirstPCA)
-    }
-    else
-    {
-        arraytoStoreChildValsFirstPCA.push(globalFirstPCA)
-        arraytoStoreChildValsFirstPCA.push(globalFirstIC['childArray'])
-    }
-    if(globalSecondIC.direction=="left")
-    {
-        arraytoStoreChildValsSecondPCA.push(globalSecondIC['childArray'])
-        arraytoStoreChildValsSecondPCA.push(globalSecondPCA)
 
+    {
+        console.log(globalFirstIC['childArray'])
+
+        console.log(globalFirstIC['childArray']['children']);
+        console.log(globalFirstIC['childArray']['children']);
+        let temp = globalFirstIC['childArray']['children'][1]
+        globalFirstIC['childArray']['children'][1] = globalFirstIC['childArray']['children'][0];
+        globalFirstIC['childArray']['children'][0] = temp
+        console.log(globalFirstIC['childArray']['children']);
+
+        console.log(globalFirstPCA)
+
+        arraytoStoreChildValsFirstPCA.push(globalFirstIC['childArray']);
+        arraytoStoreChildValsFirstPCA.push(globalFirstPCA);
     }
     else
     {
+        console.log(globalFirstIC['childArray']['children']);
+        let temp = globalFirstIC['childArray']['children'][0]
+        globalFirstIC['childArray']['children'][0] = globalFirstIC['childArray']['children'][1];
+        globalFirstIC['childArray']['children'][1] = temp
+        arraytoStoreChildValsFirstPCA.push(globalFirstPCA)
+        arraytoStoreChildValsFirstPCA.push(globalFirstIC['childArray'])
+    }
+    if(globalSecondIC.direction=="left")
+    {
+        console.log(globalSecondIC['childArray']['children']);
+        console.log(globalSecondIC['childArray']['children']);
+        let temp = globalSecondIC['childArray']['children'][0]
+        globalSecondIC['childArray']['children'][0] = globalSecondIC['childArray']['children'][1];
+        globalSecondIC['childArray']['children'][1] = temp
+        console.log(globalSecondIC['childArray']['children']);
+
+        arraytoStoreChildValsSecondPCA.push(globalSecondIC['childArray'])
+        arraytoStoreChildValsSecondPCA.push(globalSecondPCA)
+    }
+    else
+    {
+        console.log(globalSecondIC['childArray']['children']);
+        let temp = globalSecondIC['childArray']['children'][0]
+        globalSecondIC['childArray']['children'][0] = globalSecondIC['childArray']['children'][1];
+        globalSecondIC['childArray']['children'][1] = temp
+        console.log(globalSecondIC['childArray']['children']);
         arraytoStoreChildValsSecondPCA.push(globalSecondPCA)
         arraytoStoreChildValsSecondPCA.push(globalSecondIC['childArray'])
     }
     if(globalSecondIC.direction=="left")
     {
         //This code is for template
-        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[0])
-        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[1])
-        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[0])
-        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[1])
+        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[0]);
+        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[1]);
+        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[0]);
+        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[1]);
     }
     else
     {
         //This code is for template
-        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[0])
-        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[1])
-        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[0])
-        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[1])
+        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[0]);
+        arraytoStoreChildVals.push(arraytoStoreChildValsFirstPCA[1]);
+        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[0]);
+        arraytoStoreChildVals.push(arraytoStoreChildValsSecondPCA[1]);
     }
+
+    //This switching of data ensures that left and right side of the brain are exchanged
+    let temparraytoStoreChildVals = arraytoStoreChildVals[0];
+    arraytoStoreChildVals[0] = arraytoStoreChildVals[3];
+    arraytoStoreChildVals[3] = temparraytoStoreChildVals;
+
+    temparraytoStoreChildVals = arraytoStoreChildVals[1];
+    arraytoStoreChildVals[1] = arraytoStoreChildVals[2];
+    arraytoStoreChildVals[2] = temparraytoStoreChildVals;
+
 
     //temp addition to check for Basilar arteries
 
@@ -737,6 +782,10 @@ function newTemplate()
         type:0,
         children:arraytoStoreChildVals
     }
+
+
+
+    console.log(visualizationData)
 
 }
 
