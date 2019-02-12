@@ -81,31 +81,56 @@ if(para=="top"){
 }
 function toggleTree(para){
     if(para=="arcsD"){
-        changeTree(para)
-        $("#arcsD").css('background', '#337ab7')
-        $("#arcsR").css('background', 'darkgrey')
+        changeTree(para);
+        $("#arcsD").css('background', '#337ab7');
+        $("#arcsR").css('background', 'darkgrey');
     }
     if(para=="arcsR"){
         changeTree(para)
-        $("#arcsD").css('background', 'darkgrey')
-        $("#arcsR").css('background', '#337ab7')
+        $("#arcsD").css('background', 'darkgrey');
+        $("#arcsR").css('background', '#337ab7');
 
     }
 }
 
-var checkBox=false
+let checkBox=false;
 function checkBoxChange(para){
     if(!checkBox){
-        checkBox=true
-        addBloodFlowInSymmetry(checkBox)
-        $(".bloodFlowLegend").css('display', '')
-        $("#dendrogramviewlegend").css('display','none')
+        checkBox=true;
+        addBloodFlowInSymmetry(checkBox);
+        $(".bloodFlowLegend").css('display', '');
+        $('.right-panel').css('background-color',"#333");
+        $('.left-panel').css('background-color',"#333");
+
+        // $("#dendrogramviewlegend").css('display','none');
+        // $("#dendrogramviewlegend1").css('display','none');
+
     }
     else{
-        checkBox=false
-        addBloodFlowInSymmetry(checkBox)
-        $(".bloodFlowLegend").css('display', 'none')
-        $("#dendrogramviewlegend").css('display','')
+        checkBox=false;
+        addBloodFlowInSymmetry(checkBox);
+        $(".bloodFlowLegend").css('display', 'none');
+        $('.right-panel').css('background-color',"rgba(13, 1, 28, 0.04)");
+        $('.left-panel').css('background-color',"rgba(1, 32, 53, 0.1)");
+        // $("#dendrogramviewlegend").css('display','');
+        // $("#dendrogramviewlegend1").css('display','');
     }
 
+}
+
+let legendCheckBox = true;
+
+//Desc: This function should toggle
+function checkBoxChangeLegend()
+{
+    if(legendCheckBox){
+        legendCheckBox = false;
+        $("#dendrogramviewlegend").css('display','none');
+        $("#dendrogramviewlegend1").css('display','none');
+    }
+    else{
+        legendCheckBox = true;
+        $("#dendrogramviewlegend").css('display','');
+        $("#dendrogramviewlegend1").css('display','');
+    }
 }

@@ -3,7 +3,7 @@
     <title>Stroke-Proof</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
     <!-- External Libraries -->
@@ -12,6 +12,8 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.easypz.io/easypz.latest.min.js"></script>
+
 
 
     <!-- Interal Libraries -->
@@ -32,7 +34,7 @@
     <script src="js/toggle.js"></script>
     <script src="js/BeizerCurve.js"></script>
     <script src="js/circleofwillis.js"></script>
-
+    <script src="js/clustering.js"></script>
 
 
     <!--Stylesheets-->
@@ -45,11 +47,16 @@
 </div>
 
 <div class="menubar" style="display:flex" >
-    <div class="left-panel" style="width: 25%;font-size: xx-large;">
+    <div class="left-panel">
         <b> Isosurface Projection</b>
     </div>
-    <div class="right-panel" style="width: 75%;font-size: xx-large">
+    <div class="right-panel" >
         <b>CerebroVis</b>
+        <span class="metaData" id="metaContainer">
+        <span id="metaInformationID">  </span>
+        <span id="metaInformationAge">  </span>
+        <span id="metaInformationSex">  </span>
+        </span>
     <!--<div id="viewButtons" style="padding-left: 37.5%">-->
         <!--<button type="button" id="normal" style="background: #337ab7;height: auto; padding: 2%;color: white;"  onclick="toggleView('normal')"><b>Original</b></button>-->
         <!--<button type="button" id="symmetry" style="background: darkgrey;height: auto; padding: 2%;color: white;"  onclick="toggleView('symmetry')"><b>Symmetry</b></button>-->
@@ -61,7 +68,8 @@
 </div>
 
 
-<div class="dashboard" style="display: flex;color:black;height: 90%" >
+<div class="dashboard" style="display: flex;"  >
+    <!--style="display: flex;color:black;height: 90%"-->
 
     <div class="left-panel" style="width: 25%">
         <div class="bloodFlowLegend" style="display:none;padding-left: 25%;padding-top: 1%"> <b> LBV</b> <img src="images/OrRd.png" alt="Smiley face" style="height:20px;width: 50%"> <b>HBV</b>
@@ -69,15 +77,19 @@
         <div  id="brainmap" ></div>
 
         <div id="brainviewbuttons" style="padding-left: 25%">
-        <button type="button" id="top" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('top')"><b>Top</b></button>
-        <button type="button" id="back" class="btn btn-primary" style="background: #337ab7" onclick="toggleBrainView('back')"><b>Back</b></button>
-        <button type="button" id="lateral" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('lateral')"><b>Lateral</b></button>
+        <button type="button" id="top" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('top')"><b>Axial</b></button>
+        <button type="button" id="back" class="btn btn-primary" style="background: #337ab7" onclick="toggleBrainView('back')"><b>Coronal</b></button>
+        <button type="button" id="lateral" class="btn btn-primary" style="background: darkgrey"  onclick="toggleBrainView('lateral')"><b>Sagittal</b></button>
         </div>
 
 
         <div class="legend" >
+            <label class="switch">
+                <input type="checkbox" onchange="checkBoxChangeLegend()" checked>
+                <span class="slider round"></span>
+            </label>
 
-            <h4 style="text-align: center"> Legend</h4>
+            <h2 style="text-align: center"> Legend</h2>
 
         <div id="dendrogramviewlegend" style="padding-top: 2%;font-weight: bold">
         <span style="background-color:lightseagreen ;color: white;padding: 1%">Left-MCA</span>
@@ -92,6 +104,7 @@
 
 
         <div id="dendrogramviewlegend1" style="padding-top: 2%;font-weight: bold">
+
         <span style="background-color:lightcoral ;color: white;padding: 1%">Internal Carotid Arteries</span> <br> <br>
         <span style="background-color:sandybrown ;color: white;padding: 1%">Basilar Artery</span> <br> <br>
         <span style="background-color:cornflowerblue ;color: white;padding: 1%">Posterior Communicating Artery</span>
@@ -99,9 +112,16 @@
 
         </div>
 
+        <div class="bloodflow">
 
+            <label class="switch">
+                <input type="checkbox" onchange="checkBoxChange()">
+                <span class="slider round"></span>
+            </label>
 
+            <h2 style="text-align: center"> Blood Flow </h2>
 
+        </div>
     </div>
     <div class="right-panel" style="width: 75%">
 

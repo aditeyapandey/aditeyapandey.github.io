@@ -28,6 +28,7 @@ arteryStorageByIndex = {};
 
 function getDataforArteries(result,viewspecs)
 {
+    console.log(result)
     pointsList=getKeys(result);
     var arteries=[];
     for (var i=0;i<pointsList.length;i++){
@@ -44,9 +45,10 @@ function getDataforArteries(result,viewspecs)
             y2=result[parseInt(pointsList[i])][viewspecs.y];
             width=result[parseInt(pointsList[i])]['radius'];
             nodeid=parseInt(pointsList[i]);
+            z = result[parent]['z'];
             type = result[parseInt(pointsList[i])]['type'];
             artery={"nodeid":nodeid,"parent":parent,"x1":x1,"y1":y1,"x2":x2,"y2":y2,"radius":width,'type':type};
-            arteryStorageByIndex[nodeid] = {"nodeid":nodeid,"parent":parent,"x1":x1,"y1":y1,"x2":x2,"y2":y2,"radius":width,'type':type};
+            arteryStorageByIndex[nodeid] = {"nodeid":nodeid,"parent":parent,"x1":x1,"y1":y1,"x2":x2,"y2":y2,z:z,"radius":width,'type':type};
             arteries.push(artery);
         }
     }
@@ -379,7 +381,7 @@ function getHierarchyBranchSet(segments,treeData,root,result)
 
         for (var i=0;i<childrenofRoot.length;i++){
             if(segments[childrenofRoot[i]] != undefined){
-                getHierarchyBranchSet(segments,treeData.branchset[0],childrenofRoot[i],result)
+                getHierarchyBranchSet(segments,treeData.branchset[0],childrenofRoot[i],result);
             }
         }
     }
@@ -398,10 +400,10 @@ function getHierarchyBranchSet(segments,treeData,root,result)
         {
             var subchildren=[]
             if(i==0){
-                subchildren=children.slice(0,parts)
+                subchildren=children.slice(0,parts);
             }
             else{
-                subchildren=children.slice(parts+1,children.length)
+                subchildren=children.slice(parts+1,children.length);
             }
 
             treeData['branchset'].push({
@@ -424,16 +426,43 @@ function getHierarchyBranchSet(segments,treeData,root,result)
 
 function getKeys(dataobj)
 {
-    return Object.keys(dataobj)
+    return Object.keys(dataobj);
 }
 
 
 function getTwoDCoordinates(x,y){
-    u=x
-    v=y
+    u=x;
+    v=y;
 
-    return [u,v]
+    return [u,v];
 
+}
+
+
+//Function: Creates a 2d array of points and then runs the clustering algorithm
+//Input: IC child nodes and artery storage
+//Output: Set of clusters
+function clusterNodes(ICNodes, arteryStorage)
+{
+    console.log(ICNodes.length)
+    let clusteringData=[];
+    console.log(arteryStorage)
+    ICNodes.forEach(function(d){
+        let x = arteryStorage[d].x1;
+        let y = arteryStorage[d].y1;
+        clusteringData.push([x,y]);
+    })
+
+    //Difference points
+    let anotherClusteringData = [];
+    for (i=0;i<clusteringData.length-1;i++)
+    {
+        let x = Math.abs(clusteringData[i][0] - clusteringData[i+1][0]);
+        let y = Math.abs(clusteringData[i][1] - clusteringData[i+1][1]);
+        anotherClusteringData.push([x,y]);
+    }
+
+     return getClusters(anotherClusteringData,5);
 }
 
 //This function extracts the subtrees for all the six subtrees
@@ -672,46 +701,46 @@ var globalTest={}
 
 //}
 
-function hybridViz(treeData,temptree){
-
-    return treeData
-
-
-   // return treeData
-    //Original tree data
-    treeData123 = treeData.children[0].children[0].children[0]
-    temp1 = treeData123.children[0]
-    temp2 = treeData123.children[1]
-    treeData123.children[0] = temp2
-    treeData123.children[1] = temp1
-    //treeData.children.push(temptree.children[0].children[0])
-
-    treetemp1 = treeData123.children[0]
-    child1 = treetemp1.children[0].children[1].children[0]
-    child2 = treetemp1.children[0].children[1].children[1]
-    treetemp1.children[0].children[1].children[0] = child2
-    treetemp1.children[0].children[1].children[1] = child1
-    treetemp2 = treeData123.children[1]
-    branch3 = temptree.children[0].children[0].children[1]
-    branch1 = temptree.children[0].children[1]
-    branch3 = temptree.children[0].children[0].children[1]
-
-    branch2 = {
-        name: temptree.children[0].name,
-        bloodFlow: temptree.children[0].bloodFlow,
-        length: temptree.children[0].length,
-        childs: temptree.children[0].childs,
-        children: [branch3, branch1]
-    }
-    temptree.children[0] = branch2
-    // console.log(temptree)
-    // console.log(treeData)
-
-    treeDatafinal = {name: "New Tree", children: [treetemp1, treetemp2, temptree]}
-    // bloodFlow = true
-    return treeDatafinal
-
-
-}
+// function hybridViz(treeData,temptree){
+//
+//     return treeData
+//
+//
+//    // return treeData
+//     //Original tree data
+//     treeData123 = treeData.children[0].children[0].children[0]
+//     temp1 = treeData123.children[0]
+//     temp2 = treeData123.children[1]
+//     treeData123.children[0] = temp2
+//     treeData123.children[1] = temp1
+//     //treeData.children.push(temptree.children[0].children[0])
+//
+//     treetemp1 = treeData123.children[0]
+//     child1 = treetemp1.children[0].children[1].children[0]
+//     child2 = treetemp1.children[0].children[1].children[1]
+//     treetemp1.children[0].children[1].children[0] = child2
+//     treetemp1.children[0].children[1].children[1] = child1
+//     treetemp2 = treeData123.children[1]
+//     branch3 = temptree.children[0].children[0].children[1]
+//     branch1 = temptree.children[0].children[1]
+//     branch3 = temptree.children[0].children[0].children[1]
+//
+//     branch2 = {
+//         name: temptree.children[0].name,
+//         bloodFlow: temptree.children[0].bloodFlow,
+//         length: temptree.children[0].length,
+//         childs: temptree.children[0].childs,
+//         children: [branch3, branch1]
+//     }
+//     temptree.children[0] = branch2
+//     // console.log(temptree)
+//     // console.log(treeData)
+//
+//     treeDatafinal = {name: "New Tree", children: [treetemp1, treetemp2, temptree]}
+//     // bloodFlow = true
+//     return treeDatafinal
+//
+//
+// }
 
 

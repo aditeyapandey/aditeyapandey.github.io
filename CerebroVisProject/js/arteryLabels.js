@@ -59,7 +59,7 @@ function labelCOWarteries(data)
     arrayOfRecords=getDatafromFirstIC[1]
     globalFirstIC['childArray']=data.children[arrayOfRecords[0]].children[0]
 
-    console.log(globalFirstIC)
+    //console.log(globalFirstIC)
 
 
     //Step 2 : This method recursively finds second IC (whenever find a particular segment one can use the recursive code)
@@ -253,7 +253,7 @@ function findFirstIC(data){
         data.children[arrayOfRecords[0]].children=data.children[arrayOfRecords[0]].children.slice(0,1)
     }
 
-    console.log(data)
+    //console.log(data)
 
 
     return [data,arrayOfRecords]
@@ -625,8 +625,8 @@ function createDataforPCA()
 
     //The direction of PCA's are dependent on the direction of IC's
     var firstPCA
-    console.log("test log")
-    console.log(globalFirstIC.direction)
+    ///console.log("test log")
+   // console.log(globalFirstIC.direction)
     if(globalFirstIC.direction=="left")
     {
         firstPCA={
@@ -647,8 +647,8 @@ function createDataforPCA()
 
     var secondPCA;
 
-    console.log("test log")
-    console.log(globalSecondIC.direction)
+    //console.log("test log")
+    //console.log(globalSecondIC.direction)
     if(globalSecondIC.direction=="left")
     {
         secondPCA={
@@ -689,7 +689,7 @@ function createDataforPCA()
         }
     }
 
-    console.log(visualizationData)
+    //console.log(visualizationData)
 
 }
 
@@ -703,23 +703,23 @@ function newTemplate()
     if(globalFirstIC.direction=="left")
 
     {
-        console.log(globalFirstIC['childArray'])
+        //console.log(globalFirstIC['childArray'])
 
-        console.log(globalFirstIC['childArray']['children']);
-        console.log(globalFirstIC['childArray']['children']);
+       // console.log(globalFirstIC['childArray']['children']);
+        //console.log(globalFirstIC['childArray']['children']);
         let temp = globalFirstIC['childArray']['children'][1]
         globalFirstIC['childArray']['children'][1] = globalFirstIC['childArray']['children'][0];
         globalFirstIC['childArray']['children'][0] = temp
-        console.log(globalFirstIC['childArray']['children']);
+       // console.log(globalFirstIC['childArray']['children']);
 
-        console.log(globalFirstPCA)
+        //console.log(globalFirstPCA)
 
         arraytoStoreChildValsFirstPCA.push(globalFirstIC['childArray']);
         arraytoStoreChildValsFirstPCA.push(globalFirstPCA);
     }
     else
     {
-        console.log(globalFirstIC['childArray']['children']);
+        //console.log(globalFirstIC['childArray']['children']);
         let temp = globalFirstIC['childArray']['children'][0]
         globalFirstIC['childArray']['children'][0] = globalFirstIC['childArray']['children'][1];
         globalFirstIC['childArray']['children'][1] = temp
@@ -728,23 +728,23 @@ function newTemplate()
     }
     if(globalSecondIC.direction=="left")
     {
-        console.log(globalSecondIC['childArray']['children']);
-        console.log(globalSecondIC['childArray']['children']);
+       // console.log(globalSecondIC['childArray']['children']);
+       // console.log(globalSecondIC['childArray']['children']);
         let temp = globalSecondIC['childArray']['children'][0]
         globalSecondIC['childArray']['children'][0] = globalSecondIC['childArray']['children'][1];
         globalSecondIC['childArray']['children'][1] = temp
-        console.log(globalSecondIC['childArray']['children']);
+        //console.log(globalSecondIC['childArray']['children']);
 
         arraytoStoreChildValsSecondPCA.push(globalSecondIC['childArray'])
         arraytoStoreChildValsSecondPCA.push(globalSecondPCA)
     }
     else
     {
-        console.log(globalSecondIC['childArray']['children']);
+        //console.log(globalSecondIC['childArray']['children']);
         let temp = globalSecondIC['childArray']['children'][0]
         globalSecondIC['childArray']['children'][0] = globalSecondIC['childArray']['children'][1];
         globalSecondIC['childArray']['children'][1] = temp
-        console.log(globalSecondIC['childArray']['children']);
+       // console.log(globalSecondIC['childArray']['children']);
         arraytoStoreChildValsSecondPCA.push(globalSecondPCA)
         arraytoStoreChildValsSecondPCA.push(globalSecondIC['childArray'])
     }
@@ -785,7 +785,7 @@ function newTemplate()
 
 
 
-    console.log(visualizationData)
+    //console.log(visualizationData)
 
 }
 

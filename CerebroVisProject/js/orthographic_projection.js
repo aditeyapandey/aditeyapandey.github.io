@@ -1,14 +1,20 @@
 
 //Global Variables
-var Segments={}
-var globalDataStructures
-var data1
-var viewspecs
+let Segments={};
+let globalDataStructures;
+let data1;
+let viewspecs;
+
+//The solution for maintaining global projection
+let evaluation = true;
+let stenosis = false;
+let stenosisArray = []
+
 
 // Script to convert 3D projection to 2D projection ... orthographic projections.
 function initializeView(){
 
-    var fileName
+    var fileName;
     function dataFileName() {
         var url = document.location.href,
             params = url.split('?')[1].split('&'),
@@ -19,32 +25,93 @@ function initializeView(){
         }
         fileName=data.name;
     }
-    dataFileName()
+    dataFileName();
+
+    //Reads the scan data from the firebase server
     promise=readdata(fileName);
-    promise.then(function(data) {
 
-    //console.log(data)
+    //Reads data from the metadata file
+    readMetaData(fileName.split("_")[0]);
 
-    //Define projection and view, view options are Normal,Symmetry and projection options are : back,top
-     viewspecs=new viewSpec("back","Normal","arcsD")
-     view=viewspecs.getView();
-     projection=viewspecs.getProjection();
+    //This block will set the evaluation parameter
+    evaluation = false;
+    stenosis = true;
+    let abnormailityLocation;
+    if(stenosis){
+        abnormailityLocation = readStenosisData(fileName.split("_")[0]);
+    }
+    else{
+        abnormailityLocation = readAneurysmData(fileName.split("_")[0]);
+    }
 
 
-    //  //Define the global data access structures at one place and access them whererever they are required
-     globalDataStructures=new defineGlobalAccessDataStructures(data,projection)
 
-     drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1, globalDataStructures.fetchArteryStorageByIndex())
-     drawLabelsBrainMap("back","brainmap","#252525")
+    //console.log(stenosisLocation)
 
-    //Drawing dendrograms
-    drawDendrogram(globalDataStructures,view)
+    // The stenosis condition is designed for checking if there is an evaluation condition to evaluate
+    if(evaluation) {
+        abnormailityLocation.then(function (r1) {
 
-    //Testing the arcs in the main visualization area
+            let condition = stenosis ? "stenosis":"aneurysm"
+            stenosisArray = r1["Arteries"].split("-").map(function(d){return parseInt(d)});
 
-    //drawBrainMap(globalDataStructures,viewspecs, 'dendrogram', globalDataStructures.fetchDataForCOW(), globalDataStructures.fetchArteryWidth(),3)
+            promise.then(function (data) {
 
-    });
+                //Define projection and view, view options are Normal,Symmetry and projection options are : back,top
+                viewspecs = new viewSpec("back", "Normal", "arcsD");
+                view = viewspecs.getView();
+                projection = viewspecs.getProjection();
+
+
+                //  //Define the global data access structures at one place and access them whererever they are required
+                globalDataStructures = new defineGlobalAccessDataStructures(data, projection);
+
+
+                //First gather the clustering information and then send it to
+                //let clusteringData = clusterNodes(globalDataStructures.fetchRightICChildNodes(),globalDataStructures.fetchArteryStorageByIndex());
+
+                drawBrainMap(globalDataStructures, viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(), 1, globalDataStructures.fetchArteryStorageByIndex(),stenosisArray,condition)
+                drawLabelsBrainMap("back", "brainmap", "#252525");
+
+                //Drawing dendrograms
+                drawDendrogram(globalDataStructures, view,stenosisArray,condition);
+
+                //Testing the arcs in the main visualization area
+
+                //drawBrainMap(globalDataStructures,viewspecs, 'dendrogram', globalDataStructures.fetchDataForCOW(), globalDataStructures.fetchArteryWidth(),3)
+
+            });
+
+        })
+    }
+    else {
+        promise.then(function (data) {
+            //Define projection and view, view options are Normal,Symmetry and projection options are : back,top
+            viewspecs = new viewSpec("back", "Normal", "arcsD")
+            view = viewspecs.getView();
+            projection = viewspecs.getProjection();
+
+
+            //  //Define the global data access structures at one place and access them whererever they are required
+            globalDataStructures = new defineGlobalAccessDataStructures(data, projection);
+
+
+            //First gather the clustering information and then send it to
+            //let clusteringData = clusterNodes(globalDataStructures.fetchRightICChildNodes(),globalDataStructures.fetchArteryStorageByIndex());
+
+            drawBrainMap(globalDataStructures, viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(), 1, globalDataStructures.fetchArteryStorageByIndex());
+            drawLabelsBrainMap("back", "brainmap", "#252525");
+
+            //Drawing dendrograms
+            drawDendrogram(globalDataStructures, view);
+
+            //Testing the arcs in the main visualization area
+
+            //drawBrainMap(globalDataStructures,viewspecs, 'dendrogram', globalDataStructures.fetchDataForCOW(), globalDataStructures.fetchArteryWidth(),3)
+
+        });
+
+    }
 }
 
 
@@ -55,14 +122,25 @@ function initializeView(){
 
 function changeProjection(brainView){
 
+
     var data=globalDataStructures.fetchData();
 
     viewspecs.setProjection(brainView)
 
     globalDataStructures.changeProjection(data,viewspecs.getProjection())
 
-    drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1,globalDataStructures.fetchArteryStorageByIndex())
-    drawLabelsBrainMap(brainView,"brainmap","#252525")
+
+    if(evaluation){
+        let condition = stenosis ? "stenosis":"aneurysm";
+        drawBrainMap(globalDataStructures, viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(), 1, globalDataStructures.fetchArteryStorageByIndex(),stenosisArray,condition)
+        drawLabelsBrainMap(brainView,"brainmap","#252525");
+
+    }
+    else{
+        drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1,globalDataStructures.fetchArteryStorageByIndex())
+        drawLabelsBrainMap(brainView,"brainmap","#252525");
+    }
+
 
 }
 
@@ -72,20 +150,14 @@ function addBloodFlowInSymmetry(val){
 
     globalDataStructures.setBloodBlowSymmetry(val);
 
-    if(viewspecs.getTreeView()=="arcsD"){
-        drawDendrogram(globalDataStructures,viewspecs.getView());
-        drawBrainMap(globalDataStructures,viewspecs);
-
-    }
-    else{
-        drawphlyogram(globalDataStructures,viewspecs.getView());
-        drawBrainMap(globalDataStructures,viewspecs);
-    }
+    drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1, globalDataStructures.fetchArteryStorageByIndex())
+    drawLabelsBrainMap(viewspecs.getProjectionType(),"brainmap","#252525")
+    drawDendrogram(globalDataStructures,view)
 
 }
 
 
-initializeView()
+initializeView();
 
 //This function will console the inner width of the dengrogram
 //Placing a hook on the resize event, this function will listen for all onresize event

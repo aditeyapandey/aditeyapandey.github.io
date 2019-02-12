@@ -17,10 +17,9 @@ function generateBloodFlow(treeStructure,startFlow)
         return treeStructure
     }
 
-
     return treeStructure
-
 }
+
 var blockageOccured=false;
 
 function generateBloodFlowWithBlockage(treeStructure,branchData,startFlow,randomVal,arteries)
@@ -90,40 +89,66 @@ function generateBloodFlowWithBlockageForNewView(treeStructure,startFlow,randomV
 {
 
     treeStructure.bloodFlow=startFlow;
-    var blockageFound= false;
-    var presentAsChild=false;
+    var blockageFound = false;
+    var presentAsChild = false;
     if(treeStructure.childs != undefined){
         if(treeStructure.childs.indexOf(randomVal) !=-1){
-            presentAsChild=true
+            presentAsChild=true;
         }
         treeStructure.childs.forEach(function(d){
             if(arteries[d] != undefined){
-                arteries[d].bloodFlow=startFlow
+
+                arteries[d].bloodFlow=startFlow;
+               // console.log(arteries[d])
             }
 
         })
     }
     if((treeStructure.name == randomVal || presentAsChild) && !blockageOccured )
     {
-        blockageFound=true
-
-        blockageOccured=true
+        blockageFound=true;
+        blockageOccured=true;
     }
     if(treeStructure.children != undefined){
-        for(var i=0;i<treeStructure.children.length;i++){
-            if(blockageFound){
-                treeStructure.children[i]=generateBloodFlowWithBlockageForNewView(treeStructure.children[i],startFlow/2-((startFlow/4)*Math.random()),randomVal,arteries)[0]
 
-            }else{
-                if(treeStructure.type == 0){
-                    flow=startFlow
+        for(var i=0;i<treeStructure.children.length;i++) {
+            if (blockageFound) {
+                //flow=0
+                flow = startFlow / 3 - ((startFlow / 4) * Math.random())
+                // if(treeStructure.type == 0){
+                //     flow=startFlow-(10*Math.random())
+                // }
+                // else{
+                //     flow=startFlow-((startFlow/4)*Math.random())
+                // }
+                treeStructure.children[i] = generateBloodFlowWithBlockageForNewView(treeStructure.children[i], flow, randomVal, arteries)[0]
+
+            } else {
+                if (treeStructure.type == 0) {
+                    flow = startFlow - (10 * Math.random())
                 }
-                else{
-                    flow=startFlow-((startFlow/2)*Math.random())
+                else {
+                    flow = startFlow - ((startFlow / 4) * Math.random())
                 }
-                treeStructure.children[i]=generateBloodFlowWithBlockageForNewView(treeStructure.children[i],flow,randomVal,arteries)[0]
+                treeStructure.children[i] = generateBloodFlowWithBlockageForNewView(treeStructure.children[i], flow, randomVal, arteries)[0]
             }
         }
+
+
+        // for(var i=0;i<treeStructure.children.length;i++){
+        //     if(blockageFound){
+        //         treeStructure.children[i]=generateBloodFlowWithBlockageForNewView(treeStructure.children[i],startFlow/2-((startFlow/4)*Math.random()),randomVal,arteries)[0]
+        //
+        //     }else{
+        //         if(treeStructure.type == 0){
+        //             flow=startFlow;
+        //         }
+        //         else{
+        //             flow=startFlow-((startFlow/2)*Math.random())
+        //         }
+        //         treeStructure.children[i]=generateBloodFlowWithBlockageForNewView(treeStructure.children[i],flow,randomVal,arteries)[0];
+        //     }
+        // }
     }
     else{
         // globalDataStructures.setDataforArteries(arteries)
@@ -147,16 +172,16 @@ function testgenerateBloodFlowWithBlockage(treeStructure,startFlow,randomVal,art
         }
         treeStructure.data.childs.forEach(function(d){
             if(arteries[d] != undefined){
-                arteries[d].depth=treeStructure.depth
+                arteries[d].depth=1
+                //arteries[d].depth=treeStructure.depth
             }
 
         })
     }
     if((treeStructure.name == randomVal || presentAsChild) && !blockageOccured )
     {
-        blockageFound=true
-
-        blockageOccured=true
+        blockageFound=true;
+        blockageOccured=true;
     }
     if(treeStructure.children != undefined){
         for(var i=0;i<treeStructure.children.length;i++){
@@ -172,7 +197,5 @@ function testgenerateBloodFlowWithBlockage(treeStructure,startFlow,randomVal,art
         // globalDataStructures.setDataforArteries(arteries)
         return [treeStructure,arteries]
     }
-
     return [treeStructure,arteries]
-
 }

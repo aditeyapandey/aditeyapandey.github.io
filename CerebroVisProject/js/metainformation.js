@@ -130,28 +130,12 @@ function defineGlobalAccessDataStructures (data,projection)
     var randomElementNodeId=this.nodeId[(Math.random() * this.nodeId.length) | 0]
     //this.treeData = treeTransformation(this.treeData,this.treeData)
     //console.log(treeTransformation(this.treeData,this.treeData))
-    //bloodFlowtemp=generateBloodFlowWithBlockageForNewView(this.treeData,1000,parseInt(randomElementNodeId),this.dataForArteries)
-   // console.log(bloodFlowtemp)
+    bloodFlowtemp=generateBloodFlowWithBlockageForNewView(this.treeData,1000,parseInt(randomElementNodeId),this.dataForArteries)
+
     var treeCopy = jQuery.extend(true, {}, this.treeData);
     var branchCopy=jQuery.extend(true, {}, this.branchData);
 
-
-    // NOTE This code breaks when the extraction of individual branches are implemented in the brainviz lib.
-
-    // bloodFlow=generateBloodFlowWithBlockage(this.treeData,this.branchData,1000,parseInt(randomElementNodeId),this.dataForArteries)
-    // var treeData=bloodFlow[0]
-    // var temptree = jQuery.extend(true, {}, treeData);
-    // this.branchData=bloodFlow[2]
-
-
-    nodes = d3.hierarchy(this.treeData);
-    bloodFlow1=testgenerateBloodFlowWithBlockage(nodes,32768,parseInt(randomElementNodeId),this.dataForArteries)
-    this.dataForArteries=bloodFlow1[1]
-    var abc=this.treeData;
-
-
-    // NOTE this was commented because the previous note
-    // this.hybridTreeData=hybridViz(temptree,temptree);
+    let nodes = d3.hierarchy(this.treeData);
 
     this.fetchBloodFlowSymmetry=function(){
         return this.bloodFlowSymmetry

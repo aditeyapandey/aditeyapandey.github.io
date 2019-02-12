@@ -25,10 +25,103 @@ function readdata(param) {
 return datapoint
 }
 
+//Input: Filename appended with color code
+//Output: ID, Gender, Sex
+async function readMetaData(fileName) {
+
+    let promise = new Promise((resolve, reject) => {
+
+        d3.csv("data/metadata.csv",function(data){
+            let objectData = convertArrayToObj(data, "PID");
+            resolve(objectData[fileName])
+        })
+
+        //  setTimeout(() => resolve("done!"), 1000)
+    });
+
+    let result = await promise; // wait till the promise resolves (*)
+
+    populateMetaData(result)
+}
+
+
+//Desc: Converts an array of objects to objects
+// Input: Array, objectId
+//Output: Dictionary indexed on the
+
+function convertArrayToObj(array, objId)
+{
+    let objFinal = {};
+
+    array.forEach(function(d){
+
+        var index = d[objId]
+        objFinal[index] = d;
+        // objFinal[objId] = d;
+
+    })
+
+    return objFinal;
+}
+
+//Desc: Loading MetaData into the correct span
+//Input: result from metadata function
+function populateMetaData(result)
+{
+    let id = document.getElementById('metaInformationID');
+    id.innerHTML = "PID: "+result["PID"];
+    let age = document.getElementById('metaInformationAge');
+    age.innerHTML = "Age: "+result["Age"];
+    let sex = document.getElementById('metaInformationSex');
+    sex.innerHTML = "Sex: "+result["Gender"];
+}
+
 function updateData(param1,param2)
 {
     console.log("coming")
     firebase.database().ref('/Test/'+param1).update({booleanval:param2})
+}
+
+//Desc: Reading stenosis data, for evaluation
+//Input: FileName
+//Output: Stenosis Data
+async function readStenosisData(fileName)
+{
+    let promise = new Promise((resolve, reject) => {
+
+        d3.csv("data/Stenosis.csv",function(data){
+            let objectData = convertArrayToObj(data, "File");
+            resolve(objectData[fileName]);
+        });
+    });
+
+    let result
+
+    if( result = await promise){
+        return result
+    }; // wait till the promise resolves (*)
+
+}
+
+//Desc: Reading aneurysm data, for evaluation
+//Input: FileName
+//Output: Stenosis Data
+async function readAneurysmData(fileName)
+{
+    let promise = new Promise((resolve, reject) => {
+
+        d3.csv("data/Aneurysm.csv",function(data){
+            let objectData = convertArrayToObj(data, "File");
+            resolve(objectData[fileName]);
+        });
+    });
+
+    let result
+
+    if( result = await promise){
+        return result
+    }; // wait till the promise resolves (*)
+
 }
 
 //Weird dataset

@@ -21,7 +21,7 @@ let globalHighlightedSegment=[];
 //Input: visualization div id, Artery data, arteryWidth,scaleFactor:ScaleFactor is 1 for the original brainview and it changes to 2 for cerebroVis, arteries indexed by Nodeid
 //Returns: Null
 //Renders: Path in the div that was passed
-function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inputArteryWidth, scaleFactor, arteryStorageByIndex)
+function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inputArteryWidth, scaleFactor, arteryStorageByIndex,stenosisArray = [], condtion)
 {
     d3.select('#'+visualizationId).select(".chart").remove();
 
@@ -32,18 +32,17 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
     const arteries = inputArteryData;
     const arteryWidth = inputArteryWidth;
     const arteryIndex = arteryStorageByIndex;
-
     const treeData = globalData.fetchtreeData();
 
 
-    var bloodFlow = globalData.fetchBloodFlowSymmetry();
-    var basilarBranchids = globalData.fetchBasilarBranchid();
+    let bloodFlow = globalData.fetchBloodFlowSymmetry();
+    let basilarBranchids = globalData.fetchBasilarBranchid();
 
     const leftPCA = globalData.fetchLeftPCA();
     const rightPCA = globalData.fetchRightPCA();
 
     const leftICChildNode = globalData.fetchLeftICChildNodes();
-    console.log(leftICChildNode)
+    console.log(stenosisArray)
     const rightICChildNodes = globalData.fetchRightICChildNodes();
 
     var margin = {top: 20, right: 20, bottom: 20, left: 20}
@@ -65,9 +64,11 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
 
     var minRadius= d3.min(radi, function(d) {return d;}) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
 
-    var radius= d3.scaleLog()
+    var radius= d3.scalePow()
         .domain([minRadius, d3.max(radi, function(d) { return d; })])
-        .range([ 1, 8 ]);
+        .range([ 1, 8 ])
+        .exponent(0.6);
+
 
 
     var color=d3.scaleOrdinal().domain([0,2,3,4,5,6,7]).range(['#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02','#a6761d'])
@@ -105,11 +106,13 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
             .attr("id","pathBM")
             //  .attr("stroke","steelblue")
             .attr("stroke", function(){
-                if(bloodFlow) {return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
+                if(bloodFlow) {
+                    return colorEncodingForBloodFlow(arteries[index].bloodFlow , arteries[index].depth)
                     // if (arteries[index].bloodFlow == undefined) {
                     //     return '#1b9e77'
                     // }
                     // else {
+                    //
                     //     return d3.interpolateRdYlBu(arteries[index].bloodFlow / (15000 / (Math.pow(2, arteries[index].depth))))
                     // }
                 }
@@ -124,7 +127,25 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
                 //return color(arteries[index].type)
             })
 
-            .attr("stroke-width", function(){return radius(arteryWidth[arteries[index].nodeid])})
+            .attr("stroke-width", function(){
+
+               if(stenosisArray.indexOf(arteries[index].nodeid) != -1){
+                   if(condtion=="stenosis"){
+                       return 1;
+                   }
+                   else{
+                       return 10;
+                   }
+
+               }
+               else
+                {
+                return radius(arteryWidth[arteries[index].nodeid]);
+
+            }
+
+
+                })
            // .attr("stroke-width", function(){return radius(0.5)})
             .attr("d", line);
 
@@ -151,7 +172,7 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
     }
 
     //For loop draws the arteries one segment at a time
-    console.log(arteries)
+    console.log(arteries);
     for (let i=0;i < arteries.length; i++)
     {
         drawArteries(i);
@@ -160,61 +181,25 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
 
 
     //This code block colors the basilar branches in the projection to yellow
-    let basilarBranchCoordsList=[]
-
-    basilarBranchids.forEach(function(d){
-        //basilarBranchCoordsList.push([x(arteries[d].x1),y(arteries[d].y1)])
-        d3.select(".C_"+d).attr("stroke","sandybrown").attr("opacity",1)
-    })
+    let basilarBranchCoordsList=[];
 
 
 
+    //This part needs to change when bloodflow is being shown
+    if(!bloodFlow){
+        basilarBranchids.forEach(function(d){
+            //basilarBranchCoordsList.push([x(arteries[d].x1),y(arteries[d].y1)])
+            d3.select(".C_"+d).attr("stroke","sandybrown").attr("opacity",1)
+        });
 
-    //Beizer Curve Drawing Code
-    // rightICChildNodes.forEach(function(d,i){
-    //
-    //     if(i<40){
-    //         basilarBranchCoordsList.push([x(arteryIndex[d].x1), y(arteryIndex[d].y1)])}
-    // });
-    //
-    // // let maxDistance = 0;
-    // // let maxId = -1;
-    // // for(let i=0;i<basilarBranchCoordsList.length-1;i++)
-    // // {
-    // //
-    // //         let xDist = Math.abs(basilarBranchCoordsList[i][0] - basilarBranchCoordsList[i+1][0]);
-    // //         let yDist = Math.abs(basilarBranchCoordsList[i][1] - basilarBranchCoordsList[i+1][1]);
-    // //         let distance = Math.sqrt( xDist*xDist + yDist*yDist );
-    // //
-    // //         distance > maxDistance ? (maxDistance = distance, maxId = i) : maxDistance = maxDistance;
-    // // }
-    // //
-    // // console.log(maxId);
-    //
-    //
-    // let array = getRandom(basilarBranchCoordsList,20)
-    //
-    // array.sort(function(a,b){
-    //     return (a[1] - b[1])
-    // })
-    //
-    // function getRandom(arr, n) {
-    //     var result = new Array(n),
-    //         len = arr.length,
-    //         taken = new Array(len);
-    //     if (n > len)
-    //         throw new RangeError("getRandom: more elements taken than available");
-    //     while (n--) {
-    //         var x = Math.floor(Math.random() * len);
-    //         result[n] = arr[x in taken ? taken[x] : x];
-    //         taken[x] = --len in taken ? taken[len] : len;
-    //     }
-    //     return result;
-    // }
-    //
-    //
-    //
-    // //Testing the Beizer Curve creation
+    }
+
+
+
+
+
+    // array = [[120,200],[120,260],[190,250],[190,300]]
+    // // //Testing the Beizer Curve creation
     // main.append("path")
     //    .datum(array)
     //    .attr("class","secondaryPath")
@@ -223,7 +208,7 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
     //    .attr("fill","none")
     //    .attr("d",d3.line()
     //        .x(function(d) { return d[0]; })
-    //        .y(function(d) { return d[1]; }).curve(d3.curveCardinalOpen.tension(0.5)));
+    //        .y(function(d) { return d[1]; }).curve(d3.curveBasis));
 
     //This if block checks if there is a segment highlighted and it will render based on the highlighted segment
     if(globalHighlightedSegment.length > 0){
@@ -248,7 +233,7 @@ function drawLabelsBrainMap(view,visualizationId,color){
 
     let projectionLabelStore = {back:back, top:top, lateral: lateral};
 
-    //Whenever the function is called check if the labels exists, if they do clear it
+    //Whenever the function is called check i0.f the labels exists, if they do clear it
     d3.selectAll(".labelBrainMap").remove();
 
     //Draw new labels
@@ -276,7 +261,7 @@ function findSegmentsInnTree(nodes)
 function colorEncodingForBloodFlow(flow,depth)
 {
         if (flow == undefined) {
-            return '#1b9e77'
+            return d3.interpolateOrRd(1000)
         }
         else {
             if(flow==0){return "darkgrey"}
@@ -300,6 +285,7 @@ function colorEncodingForBloodFlow(flow,depth)
 
 function colorSymmetry(type)
 {
+
     var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7]).range(['lightcoral', 'darkblue', '#B22222', 'lightseagreen', 'slateblue', 'gold', 'forestgreen'])
     return color(type)
 
@@ -309,7 +295,7 @@ function colorSymmetry(type)
 
 
 //Original drawDengrogram Function with commented out section for drawing template
-function drawDendrogram(globalDataStructure,view) {
+function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) {
 
 
     d3.select(".chartTree").remove()
@@ -351,11 +337,24 @@ function drawDendrogram(globalDataStructure,view) {
 
     nodes = d3.hierarchy(treeData);
 
+    // This step computes the stats and displays it on the console
+    // calculateStats( nodes.children[0].children[0],"LeftMCA");
+    // calculateStats( nodes.children[3].children[1],"RightMCA");
+    //
+    // calculateStats( nodes.children[0].children[1],"LeftACA");
+    // calculateStats( nodes.children[3].children[0],"RightACA");
+    //
+    // calculateStats( nodes.children[1],"LeftPCA");
+    // calculateStats( nodes.children[2],"RightPCA");
+    //
+    // consoleStats(nodes.children[0].children[0], nodes.children[0].children[1],  nodes.children[1], nodes.children[3].children[1], nodes.children[3].children[0] ,nodes.children[2]);
+
 
     //This step sorts two branches based on the distance from the parent. The idea is to make the inner branch closer to the circle of willis.
     //The current technique just compares the distance from
 
     //Children [0] and Children [1] are names for the ACA and MCA
+
     nodes.children[0].children[0].sort(function(a, b)
     {
             return coordinatesDefintion(arteryIndex,a,b,nodes.children[0].children[0])
@@ -389,6 +388,7 @@ function drawDendrogram(globalDataStructure,view) {
     nodes.children[3].children[1].sort(function(a, b)
     {
 
+
         return coordinatesDefintion(arteryIndex,a,b, nodes.children[3].children[1])
 
     });
@@ -409,6 +409,12 @@ function drawDendrogram(globalDataStructure,view) {
     var minRadius= d3.min(radi, function(d) {return d; }) == 0 ? 0.3 : d3.min(radi, function(d) {return d; })
 
     var radius= d3.scaleLog().domain([minRadius, (valueofMaxRadius = d3.max(radi, function(d) { return d; }))]).range([ 1, 11 ]);
+
+    //
+    // var radius= d3.scalePow()
+    //     .domain([minRadius, d3.max(radi, function(d) { return d; })])
+    //     .range([ 1, 20 ])
+    //     .exponent(0.6);
 
     //Assiging max radius to the variable to give user equal ability to select each artery
     valueofMaxRadius=radius(valueofMaxRadius);
@@ -501,16 +507,27 @@ function drawDendrogram(globalDataStructure,view) {
             })
             .attr("stroke-width", function(d){
 
+                if(d.data.childs.equals(stenosisArray)){
+                    if(condition=="stenosis"){
+                        return 1;
+                    }
+                    else{
+                        return 10;
+                    }
+
+                }
+
                 return radius(d.data.radius)
 
             })
             .on("click", function (d) {
-                d3.selectAll("#linkFG").style("stroke", "darkgray")
-                d3.select(this).attr("id","linkFGC").style("stroke", "")
+                console.log(d);
+                d3.selectAll("#linkFG").style("stroke", "darkgray");
+                d3.select(this).attr("id","linkFGC").style("stroke", "");
                 //set the global variable to not null to record the change
                 globalHighlightedSegment.push(d);
-                console.log(globalHighlightedSegment)
-                highLightSegment(d)
+                console.log(globalHighlightedSegment);
+                highLightSegment(d);
             })
             .on("dblclick", function (d) {
                 globalHighlightedSegment=[];
@@ -523,7 +540,7 @@ function drawDendrogram(globalDataStructure,view) {
             .on("mouseover", function (d) {
                 //Store the stroke width in a global variable
                 globalTempStrokeWidth = d3.select(this).attr("stroke-width");
-                console.log(Math.log(globalTempStrokeWidth))
+                //console.log(Math.log(globalTempStrokeWidth))
                 //Magnify the stroke width
                 d3.select(this).attr("stroke-width", valueofMaxRadius-2);
 
@@ -555,24 +572,28 @@ function drawDendrogram(globalDataStructure,view) {
     function templateDrawing(g,globalDataStructure)
     {
 
-        var leftICChildNodes=globalDataStructure.fetchLeftICChildNodes()
-        var rightICChildNodes=globalDataStructure.fetchRightICChildNodes()
-        var leftPCA=globalDataStructure.fetchLeftPCA()
-        var rightPCA=globalDataStructure.fetchRightPCA()
+        //First define the maximum height of the template : max height of the template is 1/4 of the main node
+        let element = g.node();
+        let templateHeight = element.getBoundingClientRect().width/5;
+
+        var leftICChildNodes=globalDataStructure.fetchLeftICChildNodes();
+        var rightICChildNodes=globalDataStructure.fetchRightICChildNodes();
+        var leftPCA=globalDataStructure.fetchLeftPCA();
+        var rightPCA=globalDataStructure.fetchRightPCA();
 
         //Template drawing
-        var withMxycordsofLeftCart1
-        var secondxycordsofLeftCart1
-        var withMxycordsofRightCart2
-        var secondxycordsofLeftCart2
-        var basilarCoordinates
-        var connectingArtery1x
-        var connectingaretry1terminal
-        var connectingArtery2x
-        var startCoordsX
-        var startCoordsY
-        var startCoordsXC2
-        var startCoordsYC2
+        var withMxycordsofLeftCart1;
+        var secondxycordsofLeftCart1;
+        var withMxycordsofRightCart2;
+        var secondxycordsofLeftCart2;
+        var basilarCoordinates;
+        var connectingArtery1x;
+        var connectingaretry1terminal;
+        var connectingArtery2x;
+        var startCoordsX;
+        var startCoordsY;
+        var startCoordsXC2;
+        var startCoordsYC2;
 
         //Connecting arteries coordinates
         var connecting1terminalx
@@ -659,7 +680,8 @@ function drawDendrogram(globalDataStructure,view) {
             d3.selectAll("#linkFG").style("stroke", "darkgray")
             d3.select(this).attr("id","linkFGC").style("stroke", "")
             highLightSegment(d)
-        }).on("dblclick", function (d) {
+            })
+            .on("dblclick", function (d) {
             d3.selectAll("#linkFG").style("stroke", "")
             d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
             d3.selectAll("#pathBM").style("stroke", "")
@@ -674,59 +696,79 @@ function drawDendrogram(globalDataStructure,view) {
             d.data={}
             d.data.childs=rightPCA
             // d.data.childs=[  38, 39, 40, 41, 42, 43, 44]
-            d3.selectAll("#linkFG").style("stroke", "darkgray")
-            d3.select(this).attr("id","linkFGC").style("stroke", "")
+            d3.selectAll("#linkFG").style("stroke", "darkgray");
+            d3.select(this).attr("id","linkFGC").style("stroke", "");
             console.log()
             highLightSegment(d)
-        }).on("dblclick", function (d) {
-            d3.selectAll("#linkFG").style("stroke", "")
-            d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
-            d3.selectAll("#pathBM").style("stroke", "")
-            d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
+             })
+            .on("dblclick", function (d) {
+            d3.selectAll("#linkFG").style("stroke", "");
+            d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "");
+            d3.selectAll("#pathBM").style("stroke", "");
+            d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "");
 
         });
 
         d3.select("#anteriorComm").attr("d",anteriorCommunicatingArtery).attr("stroke","silver").attr("stroke-width", 5).attr("fill", "none").style("opacity","0.7").style("stroke-dasharray","2px")
 
 
-        //Left IC data should go here
-        g.append("path").attr("class", "linkForeGround")
-            .attr("id","linkFG").attr("d", leftCarotid)
-            .attr("stroke", "lightcoral").attr("stroke-width", 10).attr("fill", "none").on("click",function(){
-            var d={}
-            d.data={}
-            d.data.childs=leftICChildNodes
-            // d.data.childs=[157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193,194,195]
-
-            d3.selectAll("#linkFG").style("stroke", "darkgray")
-            d3.select(this).attr("id","linkFGC").style("stroke", "")
-            highLightSegment(d)
-        }).on("dblclick", function (d) {
-            d3.selectAll("#linkFG").style("stroke", "")
-            d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
-            d3.selectAll("#pathBM").style("stroke", "")
-            d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
-
-        });
-
-        //Right IC data should go here
-        g.append("path").attr("d",rightCarotid).attr("class", "linkForeGround").attr("id","linkFG")
-            .attr("stroke", "lightcoral").attr("stroke-width", 10).attr("fill", "none").on("click",function(){
-                console.log("rightCarotid")
-                var d={}
-                d.data={}
-                d.data.childs=rightICChildNodes
-
-                 d3.selectAll("#linkFG").style("stroke", "darkgray")
-                 d3.select(this).attr("id","linkFGC").style("stroke", "")
+        //Code for the creation of carotids
+        array = findAnchorPointsForCOW(leftICChildNodes.length,"left",[parseFloat(connectingArtery1x),secondxycordsofLeftCart1],templateHeight)
+        console.log(array)
+        // //Testing the Beizer Curve creation
+        g.append("path")
+           .datum(array)
+           .attr("id","linkFG")
+           .attr("class","secondaryPath")
+           .attr("stroke","lightcoral")
+           .attr("stroke-width",10)
+           .attr("fill","none")
+           .attr("d",d3.line()
+               .x(function(d) { return d[0]; })
+               .y(function(d) { return d[1]; }).curve(d3.curveBasis))
+            .on("click",function(){
+                var d={};
+                d.data={};
+                d.data.childs=rightICChildNodes;
+                d3.selectAll("#linkFG").style("stroke", "darkgray");
+                d3.select(this).attr("id","linkFGC").style("stroke", "");
                 highLightSegment(d)
-            }).on("dblclick", function (d) {
-            d3.selectAll("#linkFG").style("stroke", "")
-            d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
-            d3.selectAll("#pathBM").style("stroke", "")
-            d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
+            })
+            .on("dblclick", function (d) {
+                d3.selectAll("#linkFG").style("stroke", "");
+                d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "");
+                d3.selectAll("#pathBM").style("stroke", "");
+                d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "");
+            });
 
-        });
+
+        array = findAnchorPointsForCOW(leftICChildNodes.length,"right",[parseFloat(connectingArtery2x),secondxycordsofLeftCart2],templateHeight)
+        console.log(array);
+        // //Testing the Beizer Curve creation
+        g.append("path")
+            .datum(array)
+            .attr("id","linkFG")
+            .attr("class","secondaryPath")
+            .attr("stroke","lightcoral")
+            .attr("stroke-width",10)
+            .attr("fill","none")
+            .attr("d",d3.line()
+                .x(function(d) { return d[0]; })
+                .y(function(d) { return d[1]; }).curve(d3.curveBasis))
+            .on("click",function(){
+                var d={};
+                d.data={};
+                d.data.childs=leftICChildNodes;
+                d3.selectAll("#linkFG").style("stroke", "darkgray");
+                d3.select(this).attr("id","linkFGC").style("stroke", "");
+                highLightSegment(d)
+            })
+            .on("dblclick", function (d) {
+                d3.selectAll("#linkFG").style("stroke", "");
+                d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "");
+                d3.selectAll("#pathBM").style("stroke", "");
+                d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "");
+            });
 
     }
 
@@ -823,17 +865,17 @@ function drawDendrogram(globalDataStructure,view) {
 
 function highLightSegment(d)
 {
-    d3.selectAll("#pathBM").style("stroke", "darkgray")
+    d3.selectAll("#pathBM").style("stroke", "darkgray").style("opacity","0.1")
 
     segmentComponents=d.data.childs;
     segmentComponents.forEach(function (d) {
-        d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "")
+        d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "").style("opacity","1")
     })
 }
 function unHighLightSegment(d) {
     segmentComponents=d.data.childs;
     segmentComponents.forEach(function (d) {
-        d3.select(".C_"+d).style("stroke", "")
+        d3.select(".C_"+d).style("stroke", "").style("opacity","1")
 
     })
 }
@@ -854,6 +896,129 @@ function distance(x1,x2,y1,y2)
     let b = y1 - y2;
     return Math.sqrt( a*a + b*b );
 }
+
+
+//Description: Returns the anchor points for the circle of willis branches
+//Input: the length of the segment, direction of the IC, starting point of the IC, template height
+//Output: Coordinates to draw a path
+function findAnchorPointsForCOW(input, direction, startPoint,height)
+{
+    //console.log("test log")
+    // Divison by 50 is based on the number of segments in the data\
+    // The max segments in the carotids are around 50, if they go above 50 then they need to be adjusted in the algorithm
+
+    let scale = (val) => {return val*(height/(input+Math.floor(input/2)))};
+    let arrayCoordinateList = [];
+
+
+    //Figure out the direction
+    //If Left use a different set of calculation
+    if(direction=="left" )
+    {
+                //This part will be executed always
+                let height25 = scale(input);
+                let x = startPoint[0];
+                let y = startPoint[1];
+                arrayCoordinateList = [[x,y],[x,y+height25/2],[x,y+height25]];
+
+
+        //This part will execute when the length of the array is more than 25 but less than 35
+        let x35;
+        if(input>25)
+        {
+            let height35 = scale(input-10)
+            arrayCoordinateList.push([x-height35,y+height25+10]) // The 10 here is a static number which needs to be a factor of the screen size
+            x35  = x-height35;
+        }
+
+        if(input>37)
+        {
+            let height50 = scale(input-15);
+            arrayCoordinateList.push([x35,y+height25+10+height50])
+        }
+
+    }
+    else
+    {
+        //This part will be executed always
+        let height25 = scale(input);
+        let x = startPoint[0];
+        let y = startPoint[1];
+        arrayCoordinateList = [[x,y],[x,y+height25/2],[x,y+height25]];
+
+
+        //This part will execute when the length of the array is more than 25 but less than 35
+        let x35;
+        if(input>25)
+        {
+            let height35 = scale(input-10);
+            arrayCoordinateList.push([x+height35,y+height25+10]); // The 10 here is a static number which needs to be a factor of the screen size
+            x35  = x+height35;
+        }
+
+        if(input>37)
+        {
+            let height50 = scale(input-15);
+            arrayCoordinateList.push([x35,y+height25+10+height50]);
+        }
+
+    }
+
+    //Else use a different set of calculation
+
+    return arrayCoordinateList
+}
+
+
+//Function: Displaying stats about the tree subparts
+//Input: tree data, label
+//Output: present the data to represent
+function  calculateStats(data, label)
+{
+
+   console.log( label+": " +  (data.descendants().length - data.leaves().length) );
+   console.log( label+" Height: " +  data.height );
+   console.log( label+" B/L: " +  ((data.descendants().length- data.leaves().length) /data.leaves().length) );
+}
+
+function consoleStats(lmca,laca,lpca,rmca,raca,rpca)
+{
+    console.log([(lmca.descendants().length - lmca.leaves().length),((laca.descendants().length - laca.leaves().length)),(lpca.descendants().length - lpca.leaves().length),(rmca.descendants().length - rmca.leaves().length), (raca.descendants().length - raca.leaves().length), (rpca.descendants().length - rpca.leaves().length)]);
+}
+
+
+//Checking if arrays are equal
+// Warn if overriding existing method
+if(Array.prototype.equals)
+    console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");
+// attach the .equals method to Array's prototype to call it on any array
+Array.prototype.equals = function (array) {
+    // if the other array is a falsy value, return
+    if (!array)
+        return false;
+
+    // compare lengths - can save a lot of time
+    if (this.length != array.length)
+        return false;
+
+    for (var i = 0, l=this.length; i < l; i++) {
+        // Check if we have nested arrays
+        if (this[i] instanceof Array && array[i] instanceof Array) {
+            // recurse into the nested arrays
+            if (!this[i].equals(array[i]))
+                return false;
+        }
+        else if (this[i] != array[i]) {
+            // Warning - two different object instances will never be equal: {x:20} != {x:20}
+            return false;
+        }
+    }
+    return true;
+}
+// Hide method from for-in loops
+Object.defineProperty(Array.prototype, "equals", {enumerable: false});
+
+
 
 // function drawBrainMap(globalData,viewSpec)
 //  {
