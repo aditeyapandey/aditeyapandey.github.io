@@ -81,8 +81,7 @@ function initializeView(){
                 //drawBrainMap(globalDataStructures,viewspecs, 'dendrogram', globalDataStructures.fetchDataForCOW(), globalDataStructures.fetchArteryWidth(),3)
 
             });
-
-        })
+        });
     }
     else {
         promise.then(function (data) {

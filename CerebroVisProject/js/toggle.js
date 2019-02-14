@@ -101,9 +101,7 @@ function checkBoxChange(para){
         $(".bloodFlowLegend").css('display', '');
         $('.right-panel').css('background-color',"#333");
         $('.left-panel').css('background-color',"#333");
-
-        // $("#dendrogramviewlegend").css('display','none');
-        // $("#dendrogramviewlegend1").css('display','none');
+        $('body').css("color","white");
 
     }
     else{
@@ -112,8 +110,7 @@ function checkBoxChange(para){
         $(".bloodFlowLegend").css('display', 'none');
         $('.right-panel').css('background-color',"rgba(13, 1, 28, 0.04)");
         $('.left-panel').css('background-color',"rgba(1, 32, 53, 0.1)");
-        // $("#dendrogramviewlegend").css('display','');
-        // $("#dendrogramviewlegend1").css('display','');
+        $('body').css("color","black");
     }
 
 }

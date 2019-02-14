@@ -120,7 +120,7 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
 
                     var PC1array=leftPCA.concat(rightPCA)
                     if(PC1array.indexOf(index)!=-1){
-                        return "cornflowerblue"
+                        return colorSymmetry(8)
                     }
                     return colorSymmetry(arteries[index].type)
                 }
@@ -141,10 +141,7 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
                else
                 {
                 return radius(arteryWidth[arteries[index].nodeid]);
-
-            }
-
-
+                }
                 })
            // .attr("stroke-width", function(){return radius(0.5)})
             .attr("d", line);
@@ -189,7 +186,7 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
     if(!bloodFlow){
         basilarBranchids.forEach(function(d){
             //basilarBranchCoordsList.push([x(arteries[d].x1),y(arteries[d].y1)])
-            d3.select(".C_"+d).attr("stroke","sandybrown").attr("opacity",1)
+            d3.select(".C_"+d).attr("stroke","#d95f02").attr("opacity",1)
         });
 
     }
@@ -286,7 +283,8 @@ function colorEncodingForBloodFlow(flow,depth)
 function colorSymmetry(type)
 {
 
-    var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7]).range(['lightcoral', 'darkblue', '#B22222', 'lightseagreen', 'slateblue', 'gold', 'forestgreen'])
+    //var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7]).range(['lightcoral', 'darkblue', '#B22222', 'lightseagreen', 'slateblue', 'gold', 'forestgreen'])
+    var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7,8,9]).range(['#7570b3', '#bf812d', '#8c510a', '#01665e', '#35978f', '#dfc27d', '#80cdc1','#B22222', '#d95f02' ])
     return color(type)
 
     //'#1b9e77', '#d95f02', '#7570b3', '#e7298a', '#66a61e', '#e6ab02', '#a6761d'
@@ -492,6 +490,7 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
                     // }
                 }
                 else{
+                    //return "gray";
                    return colorSymmetry(d.data.type)
                    // return color(d.data.type)
                  }
@@ -506,7 +505,6 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
                 }
             })
             .attr("stroke-width", function(d){
-
                 if(d.data.childs.equals(stenosisArray)){
                     if(condition=="stenosis"){
                         return 1;
@@ -516,9 +514,7 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
                     }
 
                 }
-
-                return radius(d.data.radius)
-
+                return radius(d.data.radius);
             })
             .on("click", function (d) {
                 console.log(d);
@@ -533,7 +529,7 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
                 globalHighlightedSegment=[];
                 d3.selectAll("#linkFG").style("stroke", "")
                 d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
-                d3.selectAll("#pathBM").style("stroke", "")
+                d3.selectAll("#pathBM").style("stroke", "").style("opacity","1");
                 d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
 
             })
@@ -580,6 +576,9 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
         var rightICChildNodes=globalDataStructure.fetchRightICChildNodes();
         var leftPCA=globalDataStructure.fetchLeftPCA();
         var rightPCA=globalDataStructure.fetchRightPCA();
+
+        let bloodFlow=globalDataStructure.fetchBloodFlowSymmetry()
+
 
         //Template drawing
         var withMxycordsofLeftCart1;
@@ -666,16 +665,34 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
 
 
         g.append("path").attr("class", "linkForeGround")
-            .attr("id","linkFG").attr("d",basilar).attr("stroke","sandybrown").attr("stroke-width", 10).attr("fill", "none")
+            .attr("id","linkFG").attr("d",basilar)
+            .attr("stroke",function(d){
+                if(bloodFlow){
+                    return "rgb(127, 0, 0)"
+                }
+            else{
+                    return colorSymmetry(9)
+                }
+                })
+            .attr("stroke-width", 10).attr("fill", "none")
 
 
         g.append("path").attr("class", "linkForeGround")
             .attr("id","linkFG")
-            .attr("d",c1artery).attr("stroke","cornflowerblue").attr("stroke-width", 5).attr("fill", "none").on("click",function(){
+            .attr("d",c1artery)
+            .attr("stroke",function(d){
+                if(bloodFlow){
+                    return "rgb(127, 0, 0)"
+                }
+                else{
+                    return colorSymmetry(8);
+                }
+            })
+            .attr("stroke-width", 5).attr("fill", "none").on("click",function(){
             console.log("left PCA")
             var d={}
             d.data={}
-            d.data.childs=leftPCA
+            d.data.childs=rightPCA
             //d.data.childs=[148, 149, 150, 151, 152, 153, 154, 155, 156]
             d3.selectAll("#linkFG").style("stroke", "darkgray")
             d3.select(this).attr("id","linkFGC").style("stroke", "")
@@ -684,17 +701,26 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
             .on("dblclick", function (d) {
             d3.selectAll("#linkFG").style("stroke", "")
             d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "")
-            d3.selectAll("#pathBM").style("stroke", "")
+            d3.selectAll("#pathBM").style("stroke", "").style("opacity","1");;
             d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "")
 
         });
 
         g.append("path").attr("class", "linkForeGround")
-            .attr("id","linkFG").attr("d",c2artery).attr("stroke","cornflowerblue").attr("stroke-width", 5).attr("fill", "none").on("click",function(){
-                console.log("Right PCA")
+            .attr("id","linkFG").attr("d",c2artery)
+            .attr("stroke",function(d){
+                if(bloodFlow){
+                    return "rgb(127, 0, 0)"
+                }
+                else{
+                    return colorSymmetry(8);
+                }
+            })
+            .attr("stroke-width", 5).attr("fill", "none")
+            .on("click",function(){
             var d={}
             d.data={}
-            d.data.childs=rightPCA
+            d.data.childs=leftPCA
             // d.data.childs=[  38, 39, 40, 41, 42, 43, 44]
             d3.selectAll("#linkFG").style("stroke", "darkgray");
             d3.select(this).attr("id","linkFGC").style("stroke", "");
@@ -704,7 +730,7 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
             .on("dblclick", function (d) {
             d3.selectAll("#linkFG").style("stroke", "");
             d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "");
-            d3.selectAll("#pathBM").style("stroke", "");
+            d3.selectAll("#pathBM").style("stroke", "").style("opacity","1");
             d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "");
 
         });
@@ -718,9 +744,17 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
         // //Testing the Beizer Curve creation
         g.append("path")
            .datum(array)
+            .attr("class", "linkForeGround")
            .attr("id","linkFG")
            .attr("class","secondaryPath")
-           .attr("stroke","lightcoral")
+            .attr("stroke",function(d){
+                if(bloodFlow){
+                    return "rgb(127, 0, 0)"
+                }
+                else{
+                    return colorSymmetry(0)
+                }
+            })
            .attr("stroke-width",10)
            .attr("fill","none")
            .attr("d",d3.line()
@@ -737,7 +771,7 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
             .on("dblclick", function (d) {
                 d3.selectAll("#linkFG").style("stroke", "");
                 d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "");
-                d3.selectAll("#pathBM").style("stroke", "");
+                d3.selectAll("#pathBM").style("stroke", "").style("opacity","1");;
                 d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "");
             });
 
@@ -747,9 +781,17 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
         // //Testing the Beizer Curve creation
         g.append("path")
             .datum(array)
+            .attr("class", "linkForeGround")
             .attr("id","linkFG")
             .attr("class","secondaryPath")
-            .attr("stroke","lightcoral")
+            .attr("stroke",function(d){
+                if(bloodFlow){
+                    return "rgb(127, 0, 0)"
+                }
+                else{
+                    return colorSymmetry(0)
+                }
+            })
             .attr("stroke-width",10)
             .attr("fill","none")
             .attr("d",d3.line()
@@ -766,7 +808,7 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
             .on("dblclick", function (d) {
                 d3.selectAll("#linkFG").style("stroke", "");
                 d3.selectAll("#linkFGC").attr("id","linkFG").style("stroke", "");
-                d3.selectAll("#pathBM").style("stroke", "");
+                d3.selectAll("#pathBM").style("stroke", "").style("opacity","1");;
                 d3.selectAll("#pathBMC").attr("id","pathBM").style("stroke", "");
             });
 
@@ -865,18 +907,18 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
 
 function highLightSegment(d)
 {
-    d3.selectAll("#pathBM").style("stroke", "darkgray").style("opacity","0.1")
-
+    d3.selectAll("#pathBM").style("stroke", "darkgray").style("opacity","0.1");
     segmentComponents=d.data.childs;
     segmentComponents.forEach(function (d) {
-        d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "").style("opacity","1")
+        d3.select(".C_"+d).attr("id","pathBMC").style("stroke", "").style("opacity","1");
     })
 }
+
 function unHighLightSegment(d) {
     segmentComponents=d.data.childs;
-    segmentComponents.forEach(function (d) {
-        d3.select(".C_"+d).style("stroke", "").style("opacity","1")
-
+    segmentComponents.forEach(function (d)
+    {
+        d3.select(".C_"+d).style("stroke", "").style("opacity","1");
     })
 }
 
@@ -926,15 +968,15 @@ function findAnchorPointsForCOW(input, direction, startPoint,height)
         let x35;
         if(input>25)
         {
-            let height35 = scale(input-10)
-            arrayCoordinateList.push([x-height35,y+height25+10]) // The 10 here is a static number which needs to be a factor of the screen size
+            let height35 = scale(input-10);
+            arrayCoordinateList.push([x-height35,y+height25+10]); // The 10 here is a static number which needs to be a factor of the screen size
             x35  = x-height35;
         }
 
         if(input>37)
         {
             let height50 = scale(input-15);
-            arrayCoordinateList.push([x35,y+height25+10+height50])
+            arrayCoordinateList.push([x35,y+height25+10+height50]);
         }
 
     }
