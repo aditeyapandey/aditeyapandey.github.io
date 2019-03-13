@@ -64,6 +64,13 @@ if(para=="top"){
     $("#top").css('background', '#337ab7')
     $("#back").css('background', 'darkgrey')
     $("#lateral").css('background', 'darkgrey')
+
+    if(mipsToggle){
+        $('path').css('stroke','darkgray');
+        d3.selectAll('#pathBM').attr('opacity','1');
+
+
+    }
 }
     if(para=="back"){
         changeProjection(para)
@@ -71,13 +78,25 @@ if(para=="top"){
         $("#top").css('background', 'darkgrey')
         $("#back").css('background', '#337ab7')
         $("#lateral").css('background', 'darkgrey')
+        if(mipsToggle){
+            $('path').css('stroke','darkgray');
+            d3.selectAll('#pathBM').attr('opacity','1');
+
+
+        }
     }
     if(para=="lateral"){
         changeProjection(para)
         $("#top").css('background', 'darkgrey')
         $("#back").css('background', 'darkgrey')
         $("#lateral").css('background', '#337ab7')
+        if(mipsToggle){
+            $('path').css('stroke','darkgray');
+            d3.selectAll('#pathBM').attr('opacity','1');
+
+        }
     }
+
 }
 function toggleTree(para){
     if(para=="arcsD"){
@@ -115,6 +134,58 @@ function checkBoxChange(para){
 
 }
 
+let checkBoxAnnotateToggle=false;
+let notAnnoated= true
+function checkBoxAnnotate()
+{
+    if(notAnnoated)
+    {
+        annotate();
+        notAnnoated = false;
+    }
+    if(!checkBoxAnnotateToggle)
+    {
+        checkBoxAnnotateToggle=true;
+        $("#Filename").css('display','');
+        $(".annotation").css('display','');
+
+
+    }
+    else
+    {
+        checkBoxAnnotateToggle = false;
+        $("#Filename").css('display','none');
+        $(".annotation").css('display','none');
+
+
+    }
+}
+
+let mipsToggle = false;
+
+function mipsToggleCheckBox()
+{
+    if(!mipsToggle)
+    {
+        mipsToggle =true;
+        $('path').css('stroke','darkgray');
+        d3.selectAll('#pathBM').attr('opacity','1');
+
+        $('.right-panel').css('background-color',"#333");
+        $('.left-panel').css('background-color',"#333");
+        $('body').css("color","white");
+    }
+    else{
+        mipsToggle = false;
+        d3.selectAll('#pathBM').attr('opacity','1');
+
+        $('path').css('stroke','');
+        $('.right-panel').css('background-color',"rgba(13, 1, 28, 0.04)");
+        $('.left-panel').css('background-color',"rgba(1, 32, 53, 0.1)");
+        $('body').css("color","black");
+    }
+}
+
 let legendCheckBox = true;
 
 //Desc: This function should toggle
@@ -130,4 +201,19 @@ function checkBoxChangeLegend()
         $("#dendrogramviewlegend").css('display','');
         $("#dendrogramviewlegend1").css('display','');
     }
+}
+
+function saveFile()
+{
+    html2canvas(document.querySelector("#dendrogram")).then(function(canvas) {
+        var tempcanvas=document.createElement('canvas');
+        tempcanvas.width=2100;
+        tempcanvas.height=1500;
+        var context=tempcanvas.getContext('2d');
+        context.drawImage(canvas,0,0,2100,1500);
+        var link=document.createElement("a");
+        link.href=tempcanvas.toDataURL('image/jpg');   //function blocks CORS
+        link.download = $('#provideFN').val();+'.jpg';
+        link.click();
+    });
 }

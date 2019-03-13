@@ -6,9 +6,9 @@ let data1;
 let viewspecs;
 
 //The solution for maintaining global projection
-let evaluation = true;
+let evaluation = false;
 let stenosis = false;
-let stenosisArray = []
+let stenosisArray = [];
 
 
 // Script to convert 3D projection to 2D projection ... orthographic projections.
@@ -52,7 +52,9 @@ function initializeView(){
     if(evaluation) {
         abnormailityLocation.then(function (r1) {
 
-            let condition = stenosis ? "stenosis":"aneurysm"
+            console.log(r1)
+
+            let condition = stenosis ? "stenosis":"aneurysm";
             stenosisArray = r1["Arteries"].split("-").map(function(d){return parseInt(d)});
 
             promise.then(function (data) {
@@ -63,8 +65,9 @@ function initializeView(){
                 projection = viewspecs.getProjection();
 
 
+
                 //  //Define the global data access structures at one place and access them whererever they are required
-                globalDataStructures = new defineGlobalAccessDataStructures(data, projection);
+                globalDataStructures = new defineGlobalAccessDataStructures(data, projection,parseInt(r1['Parent']));
 
 
                 //First gather the clustering information and then send it to
@@ -124,9 +127,9 @@ function changeProjection(brainView){
 
     var data=globalDataStructures.fetchData();
 
-    viewspecs.setProjection(brainView)
+    viewspecs.setProjection(brainView);
 
-    globalDataStructures.changeProjection(data,viewspecs.getProjection())
+    globalDataStructures.changeProjection(data,viewspecs.getProjection());
 
 
     if(evaluation){
@@ -146,12 +149,20 @@ function changeProjection(brainView){
 
 
 function addBloodFlowInSymmetry(val){
+    if(evaluation){
+        let condition = stenosis ? "stenosis":"aneurysm";
+        globalDataStructures.setBloodBlowSymmetry(val);
+        drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1, globalDataStructures.fetchArteryStorageByIndex(),stenosisArray,condition)
+        drawLabelsBrainMap(viewspecs.getProjectionType(),"brainmap","#252525");
+        drawDendrogram(globalDataStructures,view,stenosisArray,condition);
 
-    globalDataStructures.setBloodBlowSymmetry(val);
-
-    drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1, globalDataStructures.fetchArteryStorageByIndex())
-    drawLabelsBrainMap(viewspecs.getProjectionType(),"brainmap","#252525")
-    drawDendrogram(globalDataStructures,view)
+    }
+    else{
+        globalDataStructures.setBloodBlowSymmetry(val);
+        drawBrainMap(globalDataStructures,viewspecs, 'brainmap', globalDataStructures.fetchDataForArteries(), globalDataStructures.fetchArteryWidth(),1, globalDataStructures.fetchArteryStorageByIndex())
+        drawLabelsBrainMap(viewspecs.getProjectionType(),"brainmap","#252525");
+        drawDendrogram(globalDataStructures,view);
+    }
 
 }
 
