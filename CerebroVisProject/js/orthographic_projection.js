@@ -34,7 +34,7 @@ function initializeView(){
     readMetaData(fileName.split("_")[0]);
 
     //This block will set the evaluation parameter
-    evaluation = false;
+    evaluation = true;
     stenosis = true;
     let abnormailityLocation;
     if(stenosis){

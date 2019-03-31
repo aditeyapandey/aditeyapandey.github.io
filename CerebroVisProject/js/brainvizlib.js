@@ -88,6 +88,8 @@ function getParentChildJson(result)
     //This piece of code uses a depth first search to find all the parts of an artery and then creates a dictionary with root of the artery as the key
     segments=findSegments(node,-1,1)
 
+    console.log(segments);
+
     var treeData={}
     var treeDataCOW={}
 
@@ -104,28 +106,28 @@ function getParentChildJson(result)
 function findSegments(node,Root,Child)
 {
     if(Segments[Root]==undefined){
-        Segments[Root]= new Array()
-        Segments[Root].push(Child)
+        Segments[Root]= new Array();
+        Segments[Root].push(Child);
     }
     else{
-        Segments[Root].push(Child)
+        Segments[Root].push(Child);
     }
 
     if(node[Child]==undefined){
-        childNodesLength=0
+        childNodesLength=0;
     }
     else{
-        childNodesLength=node[Child].length
+        childNodesLength=node[Child].length;
     }
 
     if(childNodesLength>=2){
         //Use local variables for Recursion
-        var cnl=childNodesLength
-        var childCurrent=Child
-        var rootCurrent=Root
+        var cnl=childNodesLength;
+        var childCurrent=Child;
+        var rootCurrent=Root;
         for (var i=0;i<cnl;i++)
         {
-            findSegments(node,childCurrent,node[childCurrent][i])
+            findSegments(node,childCurrent,node[childCurrent][i]);
             if(i!=cnl-1)
             {Segments[childCurrent].push(-999)}
         }

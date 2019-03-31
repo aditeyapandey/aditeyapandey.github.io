@@ -179,6 +179,7 @@ function drawBrainMap(globalData,viewSpec,visualizationId, inputArteryData, inpu
                 return radius(arteryWidth[arteries[index].nodeid]);
                 }
                 })
+
            // .attr("stroke-width", function(){return radius(0.5)})
            //  .attr("opacity", function(){
            //      return opacity( arteryIndex[arteries[index].nodeid]['z']);
@@ -323,7 +324,7 @@ function colorSymmetry(type)
 {
 
     //var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7]).range(['lightcoral', 'darkblue', '#B22222', 'lightseagreen', 'slateblue', 'gold', 'forestgreen'])
-    var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7,8,9]).range(['#7570b3', '#bf812d', '#8c510a', '#01665e', '#35978f', '#dfc27d', '#80cdc1','#B22222', '#d95f02' ])
+    var color = d3.scaleOrdinal().domain([0, 2, 3, 4, 5, 6, 7,8,9]).range(['#7570b3', '#8c510a', '#bf812d', '#35978f',  '#01665e', '#dfc27d', '#80cdc1','#B22222', '#d95f02' ])
     return color(type)
 
     //'#1b9e77', '#d95f02', '#7570b3', '#e7298a', '#66a61e', '#e6ab02', '#a6761d'
@@ -373,7 +374,7 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
     //This var stores the temporary data to make an independent tree, an independent tree will be used later to visualize the two branches coming out of basilar arteries
     var nodes1={};
 
-
+    console.log(treeData);
     nodes = d3.hierarchy(treeData);
 
     console.log(nodes);
@@ -492,6 +493,8 @@ function drawDendrogram(globalDataStructure,view, stenosisArray = [],condition) 
     treemapVis(descendants);
 
     function treemapVis(descendants) {
+
+        console.log(descendants)
 
         g.append("path").attr("id","anteriorComm")
 
