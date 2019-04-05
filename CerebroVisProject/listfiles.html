@@ -14,14 +14,18 @@
         }
         ol{
             padding-left: 5%;
+            columns: 3;
+            -webkit-columns: 3;
+            -moz-columns: 3;
         }
+
 
     </style>
 
 </head>
 <body>
 <h1 align="center" style="padding: 5px">CerebroVis Tool: Data Files</h1>
-<ul id="listFiles"></ul>
+<ol id="listFiles"></ol>
 <script>
     allData=readAllData();
     allData.then(function(data) {
@@ -37,14 +41,14 @@
             if(data[element].booleanval) {
                 $('#listFiles').append('<li id="fileName" >' + '<a style="color:lightseagreen" href="./visualization.html?name=' + element + '" target="_blank">' + element.split("_")[0]+"_CBV" + '</a>' + '</li>')
                // $('#listFiles').append('<li id="fileName" >' + '<a style="color:lightseagreen" href="./SharkViewer-master/index.html?name=' + element.split("_")[0] + '" target="_blank">' + element.split("_")[0]+"_3D" + '</a>' + '</li>')
-                $('#listFiles').append('<textarea rows="4" cols="50">Report an Issue</textarea>')
-                $('#listFiles').append('<button class="okButton" id="' + element + '" >Looks Great!</button> <button class="NotokButton" id="' + element + '" >Report an Issue</button>')
+//                $('#listFiles').append('<textarea rows="4" cols="50">Report an Issue</textarea>')
+//                $('#listFiles').append('<button class="okButton" id="' + element + '" >Looks Great!</button> <button class="NotokButton" id="' + element + '" >Report an Issue</button>')
 
             }
             else{
                 $('#listFiles').append('<li id="fileName">' + '<a style="color:maroon" href="./visualization.html?name=' + element + '" target="_blank">' + element + '</a>' + '</li>')
-                $('#listFiles').append('<textarea rows="4" cols="50">Report an Issue</textarea>')
-                $('#listFiles').append('<button class="okButton" id="' + element + '" >Looks Great!</button> <button class="NotokButton" id="' + element + '" >Report an Issue</button>')
+              //  $('#listFiles').append('<textarea rows="4" cols="50">Report an Issue</textarea>')
+              //  $('#listFiles').append('<button class="okButton" id="' + element + '" >Looks Great!</button> <button class="NotokButton" id="' + element + '" >Report an Issue</button>')
 
             }
         })

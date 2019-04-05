@@ -27,8 +27,10 @@ function initializeView(){
     }
     dataFileName();
 
+    replacedFileName = checkFileValidity(fileName);
+
     //Reads the scan data from the firebase server
-    promise=readdata(fileName);
+    promise=readdata(replacedFileName);
 
     //Reads data from the metadata file
     readMetaData(fileName.split("_")[0]);
@@ -188,3 +190,33 @@ window.onresize = function(){
     createTimeout = setTimeout(resizeVis, 100);
 };
 
+function checkFileValidity(param) {
+    if (param == "BG04_ColorCoded") {
+        return 'BH0020_ColorCoded'
+    }
+    if (param == "BG0022_ColorCoded") {
+        return 'BH0039_ColorCoded'
+    }
+    if (param == "BG12_ColorCoded") {
+        return 'BH0034_ColorCoded'
+    }
+    if (param == "BG0014_ColorCoded") {
+        return 'BH0036_ColorCoded'
+    }
+    if (param == "BH0012_ColorCoded") {
+        return 'BG0002_ColorCoded'
+    }
+    if (param == "BH0013_ColorCoded") {
+        return 'Set8_ColorCoded'
+    }
+    if (param == "BH0017_ColorCoded") {
+        return 'BG0021_ColorCoded'
+    }
+    if (param == "BH0018_ColorCoded") {
+        return 'BG001_ColorCoded'
+    }
+
+
+return param
+
+}

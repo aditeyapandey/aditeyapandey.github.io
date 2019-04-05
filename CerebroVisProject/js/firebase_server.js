@@ -132,7 +132,7 @@ async function readAneurysmData(fileName)
 
 function readAllData()
 {
-    datapoint=firebase.database().ref('/Test').once('value').then(function(snapshot)
+    datapoint=firebase.database().ref('/Points').once('value').then(function(snapshot)
     {
         console.log(snapshot.val())
         return snapshot.val()
