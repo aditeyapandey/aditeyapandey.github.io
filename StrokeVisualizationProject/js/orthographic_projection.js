@@ -9,7 +9,7 @@ var viewspecs
 function initializeView(){
 
     var fileName
-    function abc () {
+    function getFileName () {
         var url = document.location.href,
             params = url.split('?')[1].split('&'),
             data = {}, tmp;
@@ -20,10 +20,12 @@ function initializeView(){
         fileName=data.name;
         console.log(fileName)
     }
-abc()
+    //This function gives the filenames
+    getFileName()
+
     console.log(fileName)
-promise=readdata(fileName)
-promise.then(function(data) {
+    promise=readdata(fileName)
+    promise.then(function(data) {
 
     //console.log(data)
 
@@ -40,30 +42,11 @@ promise.then(function(data) {
     // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
       drawBrainMap(globalDataStructures,viewspecs)
     //
-    //  //  //Drawing dendrograms
-     drawDendrogram(globalDataStructures,view)
-   //
-   // // //Rectangular Dendogram
-  //drawphlyogram(globalDataStructures,view)
+
+    //This command would close the drawing of CerebroVis
+    // drawDendrogram(globalDataStructures,view)
 
 });
-}
-
-//This function should be called for switching between arc and rectangular dendorgrams, for arc dendogram treetype=arcsD and for rectangular dendrogram treetype=arcsR , it will always load normal view of dendograms
-
-function changeTree(treeType){
-
-    viewspecs.setTreeView(treeType)
-
-    if(treeType=="arcsD"){
-        drawDendrogram(globalDataStructures,viewspecs.getView())
-    }
-    else{
-        drawphlyogram(globalDataStructures,viewspecs.getView())
-    }
-
-    // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
-
 }
 
 
@@ -79,29 +62,7 @@ function changeProjection(brainView){
     drawBrainMap(globalDataStructures,viewspecs)
 }
 
-//This function should be called for switching between normal and symmetry view for both arc and rectangular dendorgrams, dendogramView=Symmetry and for arc dendogram treetype=arcsD and for rectangular dendrogram treetype=arcsR
-function changeView(dendrogramView){
-    if(dendrogramView=="Hybrid"){
-        //globalDataStructures.setBloodBlowSymmetry(true)
-    }
 
-    var data=globalDataStructures.fetchData()
-
-    viewspecs.setViewMode(dendrogramView)
-
-    // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
-    if(viewspecs.getTreeView()=="arcsD"){
-        drawDendrogram(globalDataStructures,viewspecs.getView())
-        drawBrainMap(globalDataStructures,viewspecs)
-
-    }
-    else{
-        drawphlyogram(globalDataStructures,viewspecs.getView())
-        drawBrainMap(globalDataStructures,viewspecs)
-
-    }
-
-}
 
 function addBloodFlowInSymmetry(val){
 
@@ -116,7 +77,7 @@ function addBloodFlowInSymmetry(val){
     }
     else{
         drawphlyogram(globalDataStructures,viewspecs.getView())
-         drawBrainMap(globalDataStructures,viewspecs)
+        drawBrainMap(globalDataStructures,viewspecs)
 
     }
 
@@ -124,3 +85,49 @@ function addBloodFlowInSymmetry(val){
 
 
 initializeView()
+
+
+//Unused functions
+
+
+//This function should be called for switching between normal and symmetry view for both arc and rectangular dendorgrams, dendogramView=Symmetry and for arc dendogram treetype=arcsD and for rectangular dendrogram treetype=arcsR
+// function changeView(dendrogramView){
+//     if(dendrogramView=="Hybrid"){
+//         //globalDataStructures.setBloodBlowSymmetry(true)
+//     }
+//
+//     var data=globalDataStructures.fetchData()
+//
+//     viewspecs.setViewMode(dendrogramView)
+//
+//     // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
+//     if(viewspecs.getTreeView()=="arcsD"){
+//         drawDendrogram(globalDataStructures,viewspecs.getView())
+//         drawBrainMap(globalDataStructures,viewspecs)
+//
+//     }
+//     else{
+//         drawphlyogram(globalDataStructures,viewspecs.getView())
+//         drawBrainMap(globalDataStructures,viewspecs)
+//
+//     }
+//
+// }
+
+
+//This function should be called for switching between arc and rectangular dendorgrams, for arc dendogram treetype=arcsD and for rectangular dendrogram treetype=arcsR , it will always load normal view of dendograms
+
+// function changeTree(treeType){
+//
+//     viewspecs.setTreeView(treeType)
+//
+//     if(treeType=="arcsD"){
+//         drawDendrogram(globalDataStructures,viewspecs.getView())
+//     }
+//     else{
+//         drawphlyogram(globalDataStructures,viewspecs.getView())
+//     }
+//
+//     // //  //drawArteries(getDataForScatterPlot(result),getDataforArteries(result))
+//
+// }
