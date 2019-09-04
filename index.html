@@ -1,347 +1,227 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<title>Aditeya Pandey</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="https://use.fontawesome.com/7372348d53.js"></script>
-        <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
-
-        <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
-
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123060269-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-123060269-1');
-
-            var slideIndex = 1;
-            function currentSlide(n){
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("dot");
-//                if (n > slides.length) {slideIndex = 1}
-//                if (n < 1) {slideIndex = slides.length}
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[n-1].style.display = "block";
-                dots[n-1].className += " active";
-            }
-
-        </script>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
 
 
-    </head>
-
-    <body>
-
-    <div class="site-container">
-        <div class="title-area"><p class="site-title" itemprop="headline">
-
-            <div class="nav-right">
-                <a class="link" href="https://drive.google.com/file/d/1DjXThJvWmL3WH_vJH9Z9NFfjgau9YVp8/view?usp=sharing">Resume</a>
-                <a href=https://www.linkedin.com/in/aditeya-pandey-24195727/" class="link">Linkedin</a>
-                <a href="https://youtu.be/N6s8lotLEZw" class="link">Video</a>
-
-            <!--<a href="https://github.com/aditeyapandey" class="link">Github</a>-->
-                <!--<a href="mailto:aditeyapandey@gmail.com" class="link" target="_top">Contact</a>-->
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div style="height:10%" class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="linderpix-NEU-59238-crop.jpg" style="width:100%" alt="Avatar">
         </div>
+        <div class="w3-container">
+          <p><i class="fa fa-user-circle fa-fw w3-margin-right w3-large w3-text-teal"></i>Aditeya Pandey</p>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>PhD Student @ <a href="https://www.khoury.northeastern.edu/people/aditeya-pandey/">Northeastern University</a></p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Boston, MA, US</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>aditeyapandey@gmail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>(857) 930--0481</p>
+          <hr>
 
-
+          <a id="news" class="twitter-timeline" data-height="500" href="https://twitter.com/aaditeya?ref_src=twsrc%5Etfw">Tweets by aaditeya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        
+          <br>
         </div>
+      </div><br>
 
-        <!-- Add your site or application content here -->
-        <div id="maincontent">
-            <div id="name">
-                <h2 style="-webkit-margin-before: 2em">Aditeya Pandey</h2>
+    <!-- End Left Column -->
+    </div>
 
-                <p style="-webkit-margin-before: -1em"> <a href="https://www.ccis.northeastern.edu/people/aditeya-pandey/">PhD Student at Northeastern</a> <a href="mailto:aditeyapandey@gmail.com" class="link" target="_top"><i class="fa fa-envelope" aria-hidden="true"></i></a> </p>
-            </div>
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+        <div id="navigation" class="w3-container w3-card w3-white w3-margin-bottom ">
+            <h6 style="text-align: center" class="w3-text-teal"> 
+               <button onclick="location.href='.#researchExp'" class="w3-button w3-teal"> <i class="fa fa-suitcase" aria-hidden="true"></i> Research</button> 
+               <button onclick="location.href='.#publications'" class="w3-button w3-teal"> <i class="fa fa-book" aria-hidden="true"></i> Publications</button> 
+               <button onclick="location.href='.#awards'" class="w3-button w3-teal"> <i class="fa fa-trophy" aria-hidden="true"></i> Awards</button>
+         </h6>
+          </div>
 
-            <div id="information" style="margin-left:5%;display: flex;">
-            <section class="mainHeaderSection">
-            <article>
-
-            <img style="max-width:100%;max-height:100%;" src="img/AP.png">
-
-                <!--News slide show underneath the image of main photo-->
-                <div class="slideshow-container">
-                    <div class="newsContainer">
-                        <span> <u>News</u> </span>
-                    <div id="s1" class="mySlides mySlideActive">
-                        <a href="https://aditeyapandey.github.io/CerebroVisProject/">CerebroVis</a> awarded Best Poster Award at IEEE Vis 2018! <a href="http://ieeevis.org/year/2018/info/awards/best-poster-awards"> (Award) </a>
-                    </div>
-
-                    <div id="s2" class="mySlides mySlideInactive">
-                        Submitted our recent work done in collaboration with the School of Psychology(Northeastern University) to CHI 2019.
-                    </div>
-
-                    <div id="s3" class="mySlides mySlideInactive">
-                     Will be at Vis 2018 in Berlin from Oct 21-26.
-                    </div>
-                </div>
-                    <div class="dot-container">
-                        <span class="dot active" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                    </div>
-                </div>
-            </article>
-            <article>
-            <div>
-                <p> <b>Summary:</b> Developing visual analytics tools for exploratory data analysis and insight generation from machine learning models, visualization and analysis of hierarchical and network datasets, quantitative – qualitative evaluation of visualization interfaces, and studying human perception and cognition with data glyphs. </p>
-                <p> <b>Short-term Goal:</b> Develop a novel visualization tool to support the diagnosis of cerebrovascular diseases like Stroke and Aneurysms.</p>
-                <p> <b>Long-term Goal:</b> Work on interdisciplinary projects with the focus on the design and development of 'contextually' aware and 'user-centered' data visualization tools.</p>
-
-                <a class="button" href=".#industryproj" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
-                Industry Projects
-                </a>
-                <a class="button" href=".#researchproj" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
-                    Research Projects
-                </a>
-                <a class="button" href=".#pub" onclick="" style="background-color: #e7e7e7; color: black;" class="timeline-chrono">
-                    Publications
-                </a>
-            </div>
-            </article>
-            </section>
-        </div>
-
-
-            <div id="industryproj" style="font-size:20px;">
-                <h1>Selected Industry Projects</h1>
-                <section >
-                    <article>
-                        <div class="sectionContent">
-                            <img src="img/BDF.jpg" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
-                            <h3> <a title="click to learn more"  href="VisualDF.html"> Visual Bayesian fusion to navigate a data lake</a>  </h3>
-                            <p>  A data-fusion based visual analytics platform for navigating a data lake to derive insights. Our platform allows for rich interactive visualizations, querying and keyword-based search within and across datasets or models, as well as intuitive visual interfaces for value-imputation or model-based predictions.
-                        </div>
-                    </article>
-
-                    <article style="border: solid; border-color: #e4e4e4">
-                        <div class="sectionContent">
-                            <img src="img/FusionWorkbench.jpg" alt="Photograph of a flying saucer over the US Capitol building">
-                            <h3> <a title="click to learn more"  href="FusionWorkbench.html">Multi-sensor Visual Analytics Supported by Machine-Learning Models </a></h3>
-                            <p> A platform designed to explore multi-dimensional sensor data. Special focus on visualization of temporal sensor data using time-series visualization. Real-time time-series query visualization support, where the similar and frequent patterns can be queried using suitable machine learning algorithms.</p>
-                        </div>
-                    </article>
-
-                    <article>
-                        <div class="sectionContent">
-                            <img src="img/EuroVA2014.png" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
-                            <h3> <a href="RuleVis.html">Interactively Visualizing Summaries of Rules and Exceptions</a> </h3>
-                            <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this work we present a novel hierarchical view of the rules and exceptions in a bubble layout.</p>
-                        </div>
-                    </article>
-                </section>
-            </div>
-
-
-            <div id="researchproj" style="font-size:20px;">
-            <h1>Research Projects</h1>
-              <section >
-                  <article>
-                      <div class="sectionContent">
-                          <img src="img/TeaserV7.svg" style="margin-bottom: -10px" alt="Photograph of a flying saucer over the US Capitol building">
-                          <h3> <a title="click to learn more"  href="cerebrovis.html"> CerebroVis : Visualization of Arteries in Human Brain
-                          </a>  </h3>
-                          <p> Arteries in the brain form a network of blood flow. In this work we present a novel network visualization method to look at cerebrovascular arteries. </p>
-                      </div>
-                  </article>
-
-                  <article style="border: solid; border-color: #e4e4e4">
-                     <div class="sectionContent">
-                      <img src="img/Teaser.png" alt="Photograph of a flying saucer over the US Capitol building">
-                      <h3> <a title="click to learn more"  href="picpen.html">Picture Penguin : A Multi-Faceted Mobile Photo Navigation System </a></h3>
-                      <p> Picture Penguin, a novel personal photo navigation system that enables search and filtering through linked and combined views of temporal, geospatial, and photo content information.</p>
-                     </div>
-                  </article>
-
-                  <!--ToDo: Hidden the glyph visualization project.-->
-
-                  <!--<article>-->
-                      <!--<div class="sectionContent">-->
-                          <!--<img src="img/TeaserEval.png"  alt="Photograph of a flying saucer over the US Capitol building">-->
-                          <!--<h3 style="-webkit-margin-before: 0.5em"> Glyph Evaluation for Probabilistic Categorization </h3>-->
-                          <!--<p> In this project we conduct a quantitative evaluation of four glyph designs on Amazon's Mechanical Turk platform. The objective of this study is to understand the difference in human perception when performing a categorization task with different glyph designs. </p>-->
-                      <!--</div>-->
-                  <!--</article>-->
-
-                  <article>
-                      <div class="sectionContent">
-                          <img src="img/Picture1.png" alt="Photograph of a flying saucer over the US Capitol building">
-                          <h3> <a href="RefugeeScholar.html"> Rediscovering the Refugee Scholars of the Nazi Era </a> </h3>
-                          <p> A story-line visualization which highlights the struggle of European women scholars to find employment in United States during the Nazi government. </p>
-                      </div>
-                  </article>
-                  <article>
-
-                      <div class="sectionContent">
-                          <!--<img src="img/tumor.jpg" alt="Photograph of a flying saucer over the US Capitol building">-->
-                          <h3>Predicting Survival of Patients suffering with Glioblastoma</h3>
-                          <p> In this work we use machine learning to predict the survival of patients suffereing with Glioblastoma (Grade 4) tumor. Our results show in addition to size of tumor the variation in the white matter intensity may also be a strong indicator of the time of survival of each patient.</p>
-                      </div>
-
-                  </article>
-              </section>
+      <div id="researchExp" class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Research Experience</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Graduate Research Assistant @ Northeastern University </b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2016 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+          <div class="project" style="display:flex">
+            <div style="width:40%;padding:2.5%" class="image">   <img src="CerebroVis/CerebroVisColor.svg" style="width:100%" alt="Avatar"> </div>
+            <div style="width:60%;padding:2.5%" class="information">  <b> CerebroVis </b> <p>CerebroVis is a novel network visualization tool which assists in diagnosis cerebrovascular abnormalities like stenosis and aneurysms. We found that CerebroVis improves the identification of cerebrovascular abnormalities in the brain over existing 3D MRA visualization. 
+            
+              <h6 class="w3-opacity"> <a href="https://aditeyapandey.github.io/CerebroVisProject/">Learn More</a> |  <a href="https://youtu.be/CN0DrIBxlb8">Demo</a>
 
             </div>
-
-
-
-            <div class="publications" id="pub">
-                <h1>Publications</h1>
-                <button class="collapsible">CerebroVis: Topology- and Constraint-based Network Layout for Visualization of Cerebrovascular Arteries  </button>
-                <div class="content">
-                    <p>Aditeya Pandey, Harsh Shukla, Geoffrey S. Young, Lei Qin, Cody Dunne and Michelle Borkin. CerebroVis: Topology- and Constraint-based Network Layout for Visualization of Cerebrovascular Arteries (Poster at IEEE Vis 2018)
-                    </p>
-
-                    <p>   <b>Abstract</b>: Blood circulation to the human brain is provided through a network of cerebral arteries. A blockage or leakage of an artery in this system may be due to diseases such as a stroke or aneurysm. To identify and diagnose these conditions, doctors obtain and examine  CTA or MRA radiological images. The doctor’s diagnostic tasks include examination of artery branches for abnormalities and identification of paths of abnormal flow from a deformed artery. These tasks are in actuality the network analysis tasks of browsing and path  following. In this work, we introduce the definition of the cerebral artery system as a network. This framing allowed us to develop a novel network representation of the cerebrovascular arteries. The layout uses a topology- and constraint-based technique to present the structure  intuitively and preserve the spatial context. Experts validated the layout design, and robustness is demonstrated through testing with 56 MRA datasets.
-                    </p>
-                    <a href="https://drive.google.com/file/d/19HqDicXUbg70bnbCPwiHO2h9XXzxhi5f/view" target="_blank"> <i class="fa fa-file-pdf-o"  aria-hidden="true">PDF</i> </a>
-
+           
+            </div>
+            <div class="project" style="display:flex">
+                <div style="width:40%;padding:2.5%" class="image">   <img src="GlyphEvaluation/Teaser.jpg" style="width:100%" alt="Avatar"> </div>
+                <div style="width:60%;padding:2.5%" class="information">  <b> Evaluationg Glyph Design for Increased Probablistic Categorization Accuracy </b>          
+                  <p><p>In a crowdsourced experiment, we measured the effect of glyph design on an everyday task of categorization. We found that abstract glyphs are more accurate compared to anthropomorphic glyphs in a categorization experiment. </p>
                 </div>
-                <button class="collapsible">Maximizing Resolvable Items: A Mantra for Mobile Data Visualization</button>
-                <div class="content">
-
-                    <p> Michail Schwab, Aditeya Pandey and Michelle A. Borkin. Maximizing Resolvable Items: A Mantra of Mobile Visualization. (2018).
-                      <p>   <b>Abstract</b>:  Mobile data visualization is becoming more and more common, but only few guidelines for their design exist. In this paper, we describe the design process of taking a pan and zoom-based linear timeline from a desktop visualization to the mobile platform by turning it into a static and elliptical timeline with a draggable handle for selection. The lessons we learned are general design principles for mobile data visualization: 1. Interaction should be simple, directly manipulate one object, and avoid two-finger gestures. 2. Linked and coordinated views are challenging, but beneficial if context is maintained. 3. Overview first, details later. 4. Because of display size and the fat finger problem, the number of items that can be reached with one interaction is low by default, and needs to be carefully considered and improved for effective navigation. We provide a framework to aid future design processes for mobile visualization.
-                    </p>
-                    <a href="https://mobilevis.github.io/assets/mobilevis2018_paper_10.pdf" target="_blank"> <i class="fa fa-file-pdf-o"  aria-hidden="true">PDF</i></a>
-
-
                 </div>
-                <button class="collapsible">Visual Bayesian fusion to navigate a data lakes</button>
-                <div class="content">
 
-                    <p>K. Singh et al., "Visual Bayesian fusion to navigate a data lake," 2016 19th International Conference on Information Fusion (FUSION)</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>MTS Data Visualization Intern @ Illumio</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2019 - Aug 2019</h6>
+          <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image">   <img src="Segmentrix/Teaser.png" style="width:100%" alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information">  <b> Segmentrix </b>          
+                <p> The Network Infrastructure of computer-based business is expanding every day. Consequently, monitoring and cyber-fencing of these massive networks is a growing concern within organizations. We developed a visualization tool which assists organizations to segment their network, write security policies and monitor network.</p>
+                <h6 class="w3-opacity"> <a href="./Segmentrix/Microsegmentation_Visualization.pdf">Learn More</a> | <a href="">Video (Coming Soon!)</a> </h6>
 
-                    <p><b>Abstract</b>:The evolution from traditional business intelligence to big data analytics has witnessed the emergence of `Data Lakes’ in which data is ingested in raw form rather than into traditional data warehouses. With the increasing availability of many more pieces of information about each entity of interest, e.g., a customer, often from diverse sources (social-media, mobility, internet-of-things), fusing, visualizing and deriving insights from such data pose a number of challenges: First, disparate datasets often lack a natural join key. Next, datasets may describe measures at different levels of granularity, e.g., individual vs. aggregate data, and finally, different datasets may be derived from physically distinct populations. Moreover, once data has been fused, queries are often an inefficient and inaccurate mechanism to derive insight from high-dimensional data. In this paper we describe iFuse, a data-fusion based visual analytics platform for navigating a data lake to derive insights. We rely on Bayesian graphical models to provide useful rudder with which to fuse and analyze disparate islands of data in a systematic manner. Our platform allows for rich interactive visualizations, querying and keyword-based search within and across datasets or models, as well as intuitive visual interfaces for value-imputation or model-based predictions. We illustrate the use of our platform in multiple scenarios, including two public data challenges as well as a real-life industry use-case involving the probabilistic fusion of datasets that lack a natural join-key.
+              </div>
+              </div>          <hr>
+              <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
 
-                    </p>
-                    <a href="https://drive.google.com/file/d/1s1sXEm2tXaPn4rsAOINpkcBhoAxvfqy9/view?usp=sharing" target="_blank"> <i class="fa fa-file-pdf-o"  aria-hidden="true">PDF</i></a>
-
-                </div>
-                <button class="collapsible">Interactive Visual Analysis of Temporal Text Data</button>
-                <div class="content">
-                    <p>Aditeya Pandey, Kunal Ranjan, Geetika Sharma, and Lipika Dey. 2015. Interactive Visual Analysis of Temporal Text Data. In Proceedings of the 8th International Symposium on Visual Information Communication and Interaction (VINCI '15)</p>
-                    <p><b>Abstract</b>This paper presents a novel interactive visualization technique that helps in gathering insights from large volumes of text generated through dyadic communications. The emphasis is specifically on showing content evolution and modification with passage of time. The challenge lies in presenting not only the content as a stand-alone but also understand how the present is related to the past. For example analyzing large volumes of emails can show how communication among a set of people have progressed or evolved over time, may be along with the roles of the communicators. It can also show how the content has changed or evolved. In order to depict the changes, the email repositories are first clustered using a novel algorithm. The clusters are further time-stamped and correlated. User-insights are provided through visualization of these clusters. Results of implementation over two different datasets are presented.</p>
-
-                    <a href="https://drive.google.com/file/d/1WcVdXWL41i2voem8pSEVtLf8XaR_g8HU/view?usp=sharing" target="_blank"> <i class="fa fa-file-pdf-o"  aria-hidden="true">PDF</i></a>
-
-                </div>
-                <button class="collapsible">Multi-sensor visual analytics supported by machine-learning models</button>
-                <div class="content">
-                <p>G. Sharma, G. Shroff, A. Pandey, B. Singh, G. Sehgal, K. Paneri,and P. Agarwal, “Multi-sensor visual analytics supported by machine-learning models,” in ICDM Workshop on Data Analytics meets Visual Analytics, 2015
-                </p>
-                <p><b>Abstract</b>: Machines, such as engines, vehicles, or even aircraft, go through extensive controlled trials during their development. Each machine is typically instrumented with hundreds of sensors that produce voluminous time-series data. Engineers analyze suchdata to improve their understanding of how machines are used in practice, which in turn helps them in taking design decisions. Most often they study operational profiles various sensors fora given day of operation using histograms, or examine time-series from multiple sensors together. However, when confrontedwith data from dozens of sensors, over many years of operation, they are challenged by the large number of histograms toanalyze, and the sheer length of time-series’ to explore. Traditional approaches such as hierarchical histograms, time-series semantic zooming etc. often cannot cope with the volume of data encountered in practice. We augment basic data visualizations such as histograms, heat-maps and basic time-series visualizations with machine-learning models that aid in summarizing, querying, searching, and interactively linking visualizations derived fromlarge volumes of multi-sensor data. In this paper we describe our machine-learning augmented approach to visual analytics in thecontext of its actual use in practice for answering questions ofinterest to engineers analyzing large-scale multi-sensor data.
-                </p>
-
-                    <a href="https://drive.google.com/file/d/1OAwU-RaG9afmqQk0VhFoDR3uuUlUeUdZ/view?usp=sharing" target="_blank"> <i class="fa fa-file-pdf-o"  aria-hidden="true">PDF</i></a>
-
-
-                </div>
-                <button class="collapsible">Interactively visualizing rule exception summaries</button>
-                <div class="content">
-
-                    <p>G. Sharma, G. Shroff, A. Pandey, P. Agarwal, and A. Srinivasan, “Interactively visualizing rule exception summaries,” in Proceedings of the EuroGraphics Workshop on Visual Analytics, 2014</p>
-                    <p><b>Abstract</b>: Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this paper we describe an interactive visualization scheme for rules and their exceptions. Our visual encoding is based on principles for creating perceptually effective visualizations from literature. Our visualization scheme presents an overview first, allows semantic zooming and then shows details on demand using established principles of interactive visualization. We assume that rules and exceptions have been mined and summarized using available techniques; however our visualization is applicable for more general rule hierarchies as well. We illustrate our visualization using rules and exceptions extracted from real customer surveys as well as on rule sets derived from past literature.
-
-                    </p>
-
-                </div>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>R&D Engineer @ Tata Consultancy Services</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2013 - July 2016</h6>
+          <div class="project" style="display:flex">
+            <div style="width:40%;padding:2.5%" class="image">   <img src="BDF/BDF.jpg" style="width:100%" alt="Avatar"> </div>
+            <div style="width:60%;padding:2.5%" class="information">  <b> Visual Bayesian Fusion to Navigate a Data Lake </b>          <p>A data-fusion based visual analytics platform for navigating a data lake to derive insights. Our platform allows for rich interactive visualizations, querying and keyword-based search within and across datasets or models, as well as intuitive visual interfaces for value-imputation or model-based predictions.</p>
+              <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7527993">Learn More</a> | <a href="https://youtu.be/eniSZKFpq_o">Demo</a> 
 
             </div>
+        </div>
+        <div class="project" style="display:flex">
+          <div style="width:40%;padding:2.5%" class="image">   <img src="FusionWorkbench/FusionWorkbench.jpg" style="width:100%" alt="Avatar"> </div>
+          <div style="width:60%;padding:2.5%" class="information">  <b> Multi-sensor Visual Analytics Supported by Machine-Learning Models </b>          <p>A platform designed to explore multi-dimensional sensor data. Special focus on visualization of temporal sensor data using time-series visualization. Real-time time-series query visualization support, where the similar and frequent patterns can be queried using suitable machine learning algorithms.</p>
 
-            <!--<h1>Timeline Visualization</h1>-->
+            <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7395731">Learn More</a> | <a href="https://youtu.be/6XPJVCmA6MQ">Video</a> 
 
+          </div>
+          </div>
+          <div class="project" style="display:flex">
+            <div style="width:40%;padding:2.5%" class="image">   <img src="VARC/Varc.png" style="width:100%" alt="Avatar"> </div>
+            <div style="width:60%;padding:2.5%" class="information">  <b> Interactively Visualizing Summaries of Rules and Exceptions </b>          <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this work we present a novel hierarchical view of the rules and exceptions in a bubble layout.</p>
+            </div>
+            </div>
 
-            <!--<div class="site-inner" id="timeline-embed" style="width: 100%; height: 600px">-->
+        </div>
+        <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
 
-                <!--&lt;!&ndash;  <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1Xr08pZVlN6yfI4GqmPrxfQ_afIPT8BAwRMG4roqcw_s&font=Default&lang=en&initial_zoom=1&scale_factor=1-->
-                 <!--&height=650' width='100%' height='100%' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe> &ndash;&gt;-->
-        <!--</div>-->
+      </div>
 
-
-
-                <script type="text/javascript">
-                  var screenWidth=window.innerWidth
-                  var scrrenHeight=window.innerHeight
-                 var additionalOptions = {
-                                 start_at_end: true,
-                                 }
-//                        timeline = new TL.Timeline('timeline-embed',
-//                          'https://docs.google.com/spreadsheets/d/1Xr08pZVlN6yfI4GqmPrxfQ_afIPT8BAwRMG4roqcw_s/pubhtml',additionalOptions);
-//                console.log(screenWidth)
-                    if(screenWidth>600)
-                      {
-
-                           document.getElementById("maincontent").style.marginLeft="2%"
-                           document.getElementById("maincontent").style.marginRight="2%"
-//                           document.getElementById("timeline-embed").style.marginTop="5%"
-
-                       }
-//                        if(screenWidth<600)
-//                      {
-//
-//                           document.getElementById("maincontent").style.marginTop="30%"
-//                            document.getElementById("information").style.display="none"
-//                            document.getElementById("information-mobile").style.display=""
-//                           document.getElementById("timeline-embed").style.marginTop="10%"
-//
-//
-//                       }
-
-                    function displayTimeline(){
+      <!-- Right Column Research Experience Ends -->
 
 
+      <div id="publications" class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-book fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Publications</h2>
+        <h6 class="w3-opacity"><b>Journal Article (J), Conference Paper (C), Workshop Paper (W) </b></h6>
 
-                    }
+        <div class="w3-container">
+            <h6 class="w3-text-teal"><b>CerebroVis: Designing an Abstract yet Spatially Contextualized Cerebral Arteries Network Visualization (J)</b></h6>
 
-                  var coll = document.getElementsByClassName("collapsible");
-                  var i;
+          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Aditeya Pandey*, Harsh Shukla, Geoffrey S Young, Lei Qin, Amir A Zamani, Liangge Hsu, Raymond Huang, Cody Dunne, Michelle A Borkin <i class="fa fa-map-marker" aria-hidden="true"></i> To appear in  IEEE Transactions on Visualization and Computer Graphics (TVCG)
+            </h6>
+          <h6 class="w3-opacity"> <a href="https://arxiv.org/abs/1907.12663">Paper</a> | <a href="">Video</a> | <a href="https://osf.io/e5sxt/">Supplemental Material</a></h6>
 
-                  for (i = 0; i < coll.length; i++) {
-                      coll[i].addEventListener("click", function() {
-                          this.classList.toggle("active");
-                          var content = this.nextElementSibling;
-                          if (content.style.maxHeight){
-                              content.style.maxHeight = null;
-                          } else {
-                              content.style.maxHeight = content.scrollHeight + "px";
-                          }
-                      });
-                  }
-        </script>
+          <hr>
+        </div>
+ 
+        <div class="w3-container">
+            <h6 class="w3-text-teal"><b>Visual bayesian fusion to navigate a data lake (C)</b></h6>
+
+          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Karamjit Singh, Kaushal Paneri, Aditeya Pandey*, Garima Gupta, Geetika Sharma, Puneet Agarwal, and Gautam Shroff  <i class="fa fa-map-marker" aria-hidden="true"></i> 19th International Conference on Information Fusion (FUSION), pp. 987-994. IEEE, 2016</h6>
+          <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7527993">Paper</a> | <a href="https://youtu.be/eniSZKFpq_o">Video</a> 
+          <hr>
+          
+        </div>
+        <div class="w3-container">
+            <h6 class="w3-text-teal"><b>Multi-sensor visual analytics supported by machine-learning models (W)</b></h6>
+
+          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Geetika Sharma, Gautam Shroff, Aditeya Pandey*, Brijendra Singh, Gunjan Sehgal, Kaushal Paneri, Puneet Agarwal <i class="fa fa-map-marker" aria-hidden="true"></i> 2015 IEEE International Conference on Data Mining Workshop (ICDMW), 668-674</h6>
+          <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7395731">Paper</a> | <a href="https://youtu.be/6XPJVCmA6MQ">Video</a> 
+
+          <hr>
         </div>
 
-        <div id="footer" style="margin-top: 2%;font-size:14px ">
-            <section>
-                <article style="text-align: center;background-color: #cccccc;color: black">
-                    Website designed and developed by Aditeya Pandey
-                </article>
-            </section>
+        <div class="w3-container">
+            <h6 class="w3-text-teal"><b>Interactive Visual Analysis of Temporal Text Data (C)</b></h6>
+
+          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Aditeya Pandey*, Kunal Ranjan, Geetika Sharma, Lipika Dey <i class="fa fa-map-marker" aria-hidden="true"></i> Proceedings of the 8th International Symposium on Visual Information Communication and Interaction, 2015</h6>
+          <h6 class="w3-opacity"> <a href="https://dl.acm.org/citation.cfm?id=2801049"> Paper</a> 
+          <hr>
         </div>
 
+        <div class="w3-container">
+            <h6 class="w3-text-teal"><b>Interactively visualizing summaries of rules and exceptions (W)</b></h6>
 
+          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Geetika Sharma, Gautam Shroff, Aditeya Pandey*, Puneet Agarwal, Ashwin Srinivasan <i class="fa fa-map-marker" aria-hidden="true"></i> EuroVA, 2014</h6>
+          <h6 class="w3-opacity"> <a href="https://diglib.eg.org/handle/10.2312/eurova.20141146.055-059">Paper</a> 
+          <hr>
+        </div>
+
+        <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
+
+      </div>
+      
+    <!-- Right Column Publication Ends -->
+
+    <div id="awards" class="w3-container w3-card w3-white w3-margin-bottom">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-trophy fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Awards and Honors</h2>
+
+      <div class="w3-container">
+        <h6 class="w3-text-teal"><b>CerebroVis: Topology and Constraint-based Network Layout for the Visualization of Cerebrovascular Arteries </b></h6>
+
+      <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> Best Poster at IEEE Vis 2018</h6>
+      <h6 class="w3-opacity"> <a href="http://ieeevis.org/year/2018/info/awards/best-poster-awards">Link</a> | <a href="https://www.khoury.northeastern.edu/current-students/phd-student-aditeya-pandey-wins-ieee-best-poster-award-for-research-that-helps-doctors-diagnose-brain-disease/">News </a> 
+      <hr>
+    </div>
+
+
+    <div class="w3-container">
+      <h6 class="w3-text-teal"><b>iFuse: A Visual Data Fusion Approach, by Gunjan Sehgal, Kaushal Paneri, Aditeya Pandey and Garima Gupta, TCS Research
+      </b></h6>
+
+    <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> First Prize at Dataview 2016 – comad 2016 machine learning competition</h6>
+    <h6 class="w3-opacity"> <a href="http://comad.in/comad2016/results_dataview2016.html">Link</a> 
+    <hr>
+  </div>
+
+  <div class="w3-container">
+    <h6 class="w3-text-teal"><b>VISTA: Visual Interactive Spatio-Temporal Data Analysis</b></h6>
+
+  <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> Honorable Mention for User-Friendly Anomaly Detection VAST 2016</h6>
+  <h6 class="w3-opacity"> <a href="http://comad.in/comad2016/results_dataview2016.html">Link</a> 
+  <hr>
+</div>
+<p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
+
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
 </div>
 
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Find me on social media.</p>
+  <a href="https://www.facebook.com/aditeya.pandey"><i  class="fa fa-facebook-official w3-hover-opacity"></i></a>
+  <a href="https://www.facebook.com/aditeya.pandey"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+  <a href="https://twitter.com/aaditeya"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+  <a href="https://www.linkedin.com/in/aditeyapandey/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+</footer>
 
-    </body>
+</body>
 </html>
