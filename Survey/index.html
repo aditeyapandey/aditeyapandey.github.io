@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Survey</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
+    <style>
+      rect {
+        fill: #333;
+        opacity: 0.3;
+        stroke: white;
+      }
+      path {
+        fill: #333;
+        opacity: 0.3;
+        stroke: white;
+      }
+
+      .svg-container {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        vertical-align: top;
+        overflow: hidden;
+      }
+      .svg-content {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+      <!-- One -->
+      <!-- <section
+        class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
+      >
+        <div class="content">
+          <h1>Story</h1>
+          <p class="major">
+            A (modular, highly tweakable) responsive one-page template designed
+            by <a href="https://html5up.net">HTML5 UP</a> and released for free
+            under the
+            <a href="https://html5up.net/license">Creative Commons</a>.
+          </p>
+          <ul class="actions stacked">
+            <li>
+              <a href="#first" class="button big wide smooth-scroll-middle"
+                >Get Started</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="image">
+			<svg width="800" height="400">
+				<g></g>
+			</svg>
+			<svg id="suburst" width="800" height="400">
+				<g transform="translate(400, 200)"></g>
+			</svg>
+
+			<!-- <form id="test-form">
+			
+				<div>
+					<label>Field 1</label>
+					<input type="text" name="form_field_1" placeholder="Field 1" />
+				</div>
+
+				<div>
+					<label>Field 2</label>
+					<input type="text" name="form_field_2" placeholder="Field 2" />
+				</div>
+			
+				<div>
+					<button type="submit" id="submit-form">Submit</button>
+				</div>
+			
+			</form> -->
+
+      <!-- </section>
+	   -->
+
+      <section class="wrapper style1 align-center">
+        <div class="inner">
+          <h2>The Visualization Paradox</h2>
+          <p>
+            Savitri is a Senior Analyst at Lorem Ipsum Inc. She has to present
+            results from her recent project to the board. She has tree data, and
+            she wants to communicate her findings visually. She was planning to
+            use 'Icicle Chart', but her friend John suggested an alternate
+            representation called the 'Sunburst Chart', which he claims is
+            cooler and prettier than 'Icicle Chart.' Now Savitri is Confused! :(
+          </p>
+          <div class="items style1 medium onscroll-fade-in">
+            <section>
+              <span class="icon style2 major fa-square"></span>
+              <h3>Icicle Chart</h3>
+              <div id="icicleDiv" class="svg-container">
+                <svg
+                  id="icicle"
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 300 300"
+                >
+                  <g></g>
+                </svg>
+              </div>
+              <!-- <svg width="400" height="400">
+                <g></g>
+			  </svg> -->
+              <!-- <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                id ante sed ex pharetra lacinia sit amet vel massa. Donec
+                facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce
+                lorem lectus, pharetra pretium massa et, hendrerit vestibulum
+                odio lorem ipsum.
+              </p> -->
+            </section>
+            <section id="sbSection">
+              <span class="icon solid style2 major fa-circle"></span>
+              <h3>Sunburst Chart</h3>
+              <div id="sbDiv" class="svg-container">
+                <svg
+                  id="suburst"
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 180 180"
+                >
+                  <g transform="translate(100, 100)"></g>
+                </svg>
+              </div>
+              <!-- <svg id="suburst" width="400" height="400">
+                <g transform="translate(200, 200)"></g>
+              </svg> -->
+            </section>
+          </div>
+          <p>
+            Have you faced a similar problem before with tree visualizations or
+            other visualizations due to the ample design space. Will you like to
+            share with Savitri how you usually solve this problem. If you will
+            like to help, please get in touch with Savitri by responding to the
+            survey questions.
+          </p>
+          <span class="icon solid style2 major fa-arrow-down"></span>
+        </div>
+      </section>
+
+      <section class="wrapper style1 align-center">
+        <div class="inner medium">
+          <h2>Get in touch</h2>
+          <form id="test-form" action="#">
+            <div class="fields">
+              <div class="field">
+                <label for="response"
+                  >Share any strategies, resources, tips or techniques that can
+                  help Savitri.</label
+                >
+                <textarea name="response" id="response" rows="6"></textarea>
+              </div>
+              <div class="field half">
+                <label for="profession">Professional Background</label>
+                <input type="text" name="profession" id="profession" value="" />
+              </div>
+              <div class="field half">
+                <label for="exp">Years of Experience</label>
+                <input type="text" name="exp" id="exp" value="" />
+              </div>
+            </div>
+            <ul class="actions special">
+              <li>
+                <input
+                  type="submit"
+                  name="submit"
+                  id="submit-form"
+                  value="Send Message"
+                />
+              </li>
+            </ul>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="wrapper style1 align-center">
+        <div class="inner">
+          <p>
+            Template Credit: &copy; Untitled. Design:
+            <a href="https://html5up.net">HTML5 UP</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+    <script src="icicle.js"></script>
+    <script src="sunburst.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var $form = $("form#test-form"),
+        url =
+          "https://script.google.com/macros/s/AKfycbw4Ci0zBjyFMstfZt9G_pN8Ce4sWKJXVXwc6j_cmx86WdKUYY8/exec";
+
+      $("#submit-form").on("click", function(e) {
+        e.preventDefault();
+        var formData = $form.serializeArray();
+        console.log(formData);
+        var jqxhr = $.ajax({
+          url: url,
+          method: "GET",
+          dataType: "json",
+          data: formData,
+          success: function(data) {
+            alert("Your Response was Registered!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
