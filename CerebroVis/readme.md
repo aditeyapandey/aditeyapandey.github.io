@@ -1,80 +1,36 @@
-# Project Title
+# CerebroVis
 
-One Paragraph of project description goes here
+CerebroVis is a novel visualization design to represent the human cerebrovascular system. This repository, stores the source code of the tool and 60 sample brain scans visualized with CerebroVis.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+CerebroVis is a web application developed using HTML, CSS, Javascript and d3.js. You can follow these steps to run CerebroVis on your local machine.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You will need a simple web server to run this application. There are many ways to install a basic server on your local machine.
 
-```
-Give examples
-```
+1. For a method with little overhead, use python simpleserver. You can find information about python simple-server at the following links: https://docs.python.org/2/library/simplehttpserver.html.
+2. If you are using a Linux installation, you can use apache server. To install a local server on Ubuntu: https://tutorials.ubuntu.com/tutorial/install-and-configure-apache#0.
+3. On Mac you can install MAMP server: https://www.mamp.info/en/.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step explanation of installing and running CerebroVis.
 
-Say what the step will be
+1. Clone or Download the repository.
+2. Go to the repository. And make sure you launch the server at this point.
+3. Based on the port the server is running, go to your browser and type: localhost:<portnumber>/listfiles.html
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+listfiles.html contains all the brain scans.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+To contribute please reach out to <aditeyapandey@gmail.com>.
 
 ## Authors
 
-- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+- **Aditeya Pandey** - -(https://aditeyapandey.com)
 
 ## License
 
@@ -82,6 +38,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- http://cng.gmu.edu/brava/home.php?s=1&name_browser=false
+- NSF
