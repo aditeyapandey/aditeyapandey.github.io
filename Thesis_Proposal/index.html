@@ -1,0 +1,127 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+        <div class="w3-container w3-center">
+        <h2>Thesis Proposal Website</h2>
+        </div>
+        <div class="w3-row w3-container w3-padding-16">
+            <div class="w3-col s3 w3-margin">
+                <div class="w3-container w3-light-grey w3-margin-bottom">
+                    <h3>Candidate Information</h3>
+                </div>
+                <div class="w3-card-4">
+                    <img src="../img/AP.png" alt="Aditeya Pandey" style="width:100%">
+                    <div class="w3-container ">
+                      <h4>Aditeya Pandey</h4>
+                      <h5>PhD Candidate</h5>
+                      <h5>Khoury College of Computer Sciences, Northeastern University </h5>
+                      <h6><a href="https://www.khoury.northeastern.edu/people/aditeya-pandey/" target="_blank"> Professional Website</a></h6>
+                      <h6><a href="http://www.aditeyapandey.com" target="_blank"> Personal Website</a></h6>
+                      <h6><a href="mailto:pandey.ad@northeastern.edu">Contact (pandey.ad@northeastern.edu)</a></h6>
+
+                    </div>
+                  </div>
+            </div>
+            <div class="w3-col s8 w3-margin">
+                <div class="w3-container w3-light-grey w3-margin-bottom">
+                    <h3>Thesis Title: Task and Data Based Considerations for Design and Recommendation of Visualizations </h3> 
+                  </div>
+
+              <button class="w3-button w3-teal" onclick="document.getElementById('id01').style.display='block'">Show Abstract</button> 
+              <button class="w3-button w3-red" type="submit" onclick="window.open('Thesis_Proposal___Aditeya_Pandey.pdf')"> View Proposal </button> 
+
+              <!-- Abstract -->
+              <div id="id01" class="w3-panel w3-teal w3-display-container" style="display:none">
+                <span onclick="this.parentElement.style.display='none'"
+                class="w3-button w3-red w3-display-topright">x</span>
+                <p> Data visualization is a graphical representation of information and data, enabling end-users to identify meaningful knowledge from the data and make informed decisions. But the process of visualization design is intensive and prone to errors. A common mistake in visualization design is the incorrect mapping between data and task requirements and visual encoding, or in simple terms, ``choice of visualization". The mapping of data and tasks to a suitable visual encoding can be challenging because of the following reasons:  (1) Limited Theoretical Support: Existing visualization theory may offer limited support to identify the analytical goals of the end user, (2) Incomplete or Inconsistent Guidelines: The knowledge for designing visualizations may be incomplete, inconsistent or inaccessible, (3) Lack of Practical Resources:  Shortage or lack of resources that can guide visualization practitioners in their task of visualization design. My work aims to limit these challenges and support visualization practitioners and researchers in selecting visualization design more effectively. </p>
+  
+                <p>The overarching research goal of my thesis is: \textit{How can we develop theory, identify visualization best practices, and build applications that enable visualization practitioners to create effective and expressive visualizations?} To answer this question, my work contributes knowledge to three visualization areas: theory, design guidelines, and recommendation systems. My thesis's theory contribution includes identifying shortcomings of existing visualization theory and recommending methods to eliminate the shortcomings. To determine the shortcomings, I conducted three novel design studies CerebroVis, Strokevis and Segmentrix+Portola. In these studies, I developed tree and network visualizations to solve novel domain problems. A posthoc analysis of the studies revealed that existing general task abstraction theory lacked specificity to describe tree visualization tasks. To improve the task abstraction specificity for trees, my research contributes a tree visualization specific extension to the established task abstraction framework Multi-Level Task Typology. My thesis also contributes visualization design guidelines. In my work, I systematically curate task-based design guidelines through a meta-analysis of empirical results of tree visualization effectiveness from a survey of over 50 papers. In addition to tree visualization, my work also contributes novel design guidelines for data glyphs and timelines. My thesis's final contribution is focused on making the design guidelines and visualization knowledge easy to access for practitioners and researchers. To do so, I contribute two novel visualization recommendation systems. Based on the theory and data gathered on trees, I developed a recommendation system to help visualization practitioners navigate the vast tree design space and choose an effective visual encoding based on their data and tasks. Besides the tree visualization recommendation system, my work also presents a knowledge-based recommendation system for genomics visualizations. Such systems would make tree and genomics visualization creation accessible to both experts and novices and improve visualization literacy.</p>
+                  
+                <p>Through a series of theoretical and practical contributions, my thesis supports mapping data and task requirements to appropriate tree and genomics visualizations. In this thesis, I also reflect on the broader applications of the contributions, specifically how my work can act as a framework to support the effective and expressive design of information visualization in general. </p>
+              </div>
+
+              <!-- About The Proposal -->
+              <div id="id03" class="w3-panel w3-red w3-display-container" style="display:none">
+                <span onclick="this.parentElement.style.display='none'"
+                class="w3-button w3-red w3-display-topright">x</span>       
+                <a href="Thesis_Proposal___Aditeya_Pandey.pdf" download>
+                  Download PDF file
+                </a>      
+              </div>             
+            
+              <!-- Thesis Committee -->
+
+              <div class="w3-container w3-light-grey w3-margin-top w3-margin-bottom">
+                <h3> Committee Members </h3> 
+              </div>
+              <button class="w3-button w3-blue-grey" onclick="document.getElementById('id02').style.display='block'">About the Committee</button> 
+              <!-- About The Committee -->
+              <div id="id02" class="w3-panel w3-blue-grey w3-display-container" style="display:none">
+                <span onclick="this.parentElement.style.display='none'"
+                class="w3-button w3-red w3-display-topright">x</span>       
+                <p>"I have reviewed and concur on the choice of members for Aditeya's thesis committee. The committee composition also meets the guidelines of the college with two members drawn from the Khoury College of Computer Sciences, plus one additional external member. 
+                  Prof. Cody Dunne (Assistant Professor, Khoury College of Computer Sciences, Northeastern University, Boston) is a world expert in data visualization and specifically, network visualization, a critical thread throughout Aditeya's dissertation research. 
+                  Prof. John Alexis Guerra Gomez (Assistant Teaching Professor, Khoury College of Computer Sciences, Northeastern University, Silicon Valley) is a world expert in data visualization and specifically tree visualization, another critical thread throughout Aditeya's dissertation research. Finally, Prof. Nils Gehlenborg (Assistant Professor of Biomedical Informatics, Harvard Medical School, Boston) is a world expert in data visualization and specifically biomedical visualization, a key domain application area of Aditeya's dissertation. Profs. Dunne and Gomez also have the technical expertise to evaluate the dissertation's software and tool contributions. 
+                  Prof. Gehlenborg has the technical expertise in biomedical sciences and recommendation systems to assess the dissertation's novel recommendation tools. 
+                  This committee will be able to effectively guide Aditeya as he completes his dissertation's research and composition and can provide critical expertise to ensure novelty and originality."- Michelle A. Borkin (Thesis Advisor)
+                </p>           
+              </div>
+
+              <div class="w3-row w3 w3-margin-top">
+                <div class="w3-col w3-margin-right" style="width:23%" >
+                  <div class="w3-card-4">
+                  <img src="../img/Michelle-Borkin-index-image.jpg" alt="Michelle Borkin" style="width:100%">
+                  <div class="w3-container ">
+                    <h5>Michelle A. Borkin</h5>
+                    <h6>Assistant Professor of Computer Science</h6>
+                    <h6>Khoury College of Computer Sciences, Northeastern University (Boston) </h6>
+                    <h6>Thesis Advisor </h6>
+                    <h6><a href="https://www.khoury.northeastern.edu/people/michelle-borkin/" target="_blank">Website</a></h6>
+                  </div>
+                </div>
+              </div>
+              <div class="w3-col w3-margin-right" style="width:23%" >
+                <div class="w3-card-4">
+                  <img src="../img/Dunne_Cody-index-image.jpg" alt="Cody Dunne" style="width:100%">
+                  <div class="w3-container ">
+                    <h5>Cody Dunne</h5>
+                    <h6>Assistant Professor of Computer Science</h6>
+                    <h6>Khoury College of Computer Sciences, Northeastern University (Boston) </h6>
+                    <h6>Committee Member</h6>
+                    <h6><a href="https://www.khoury.northeastern.edu/people/cody-dunne/" target="_blank">Website</a></h6>
+                  </div>
+                </div>
+              </div>
+              <div class="w3-col w3-margin-right" style="width:23%" >
+                <div class="w3-card-4">
+                  <img src="../img/john-gomez.jpg" alt="John Gomez" style="width:100%">
+                  <div class="w3-container ">
+                    <h5>John A.G. Gomez</h5>
+                    <h6>Assistant Teaching Professor of Computer Science</h6>
+                    <h6>Khoury College of Computer Sciences, Northeastern University (Silicon Valley) </h6>
+                    <h6>Committee Member</h6>
+                    <h6><a href="https://johnguerra.co/" target="_blank">Website</a></h6>
+                  </div>
+                </div>
+              </div>
+              <div class="w3-col w3-margin-right" style="width:23%" >
+                <div class="w3-card-4">
+                  <img src="../img/0001_NilsGehlenborgLab_001-300x350.jpg" alt="Nils" style="height:30%;width:100%">
+                  <div class="w3-container ">
+                    <h5>Nils Gehlenborg</h5>
+                    <h6>Assistant Professor of Biomedical Informatics</h6>
+                    <h6>Harvard Medical School, Harvard University </h6>
+                    <h6>External Member</h6>
+                    <h6><a href="https://dbmi.hms.harvard.edu/people/nils-gehlenborg" target="_blank">Website</a></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+          </div>
+  
+</body>
