@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html>
 <title>Aditeya Pandey</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123060269-1"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123060269-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
 
-      gtag('config', 'UA-123060269-1');
+  gtag('config', 'UA-123060269-1');
 
-      var slideIndex = 1;
-      function currentSlide(n){
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("dot");
-//                if (n > slides.length) {slideIndex = 1}
-//                if (n < 1) {slideIndex = slides.length}
-          for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";
-          }
-          for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[n-1].style.display = "block";
-          dots[n-1].className += " active";
-      }
+  var slideIndex = 1;
+  function currentSlide(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    //                if (n > slides.length) {slideIndex = 1}
+    //                if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[n - 1].style.display = "block";
+    dots[n - 1].className += " active";
+  }
 
-  </script>
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Roboto", sans-serif
+  }
 </style>
+
 <body class="w3-light-grey">
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <div class="w3-top">
+    <div class="w3-bar w3-teal">
+      <a href="#aboutme" class="w3-bar-item w3-button">About Me</a>
+      <a href="#researchExp" class="w3-bar-item w3-button">Projects</a>
+      <a href="#publications" class="w3-bar-item w3-button">Publications</a>
+      <a href="#awards" class="w3-bar-item w3-button">Awards</a>
+    </div>
+  </div>
 
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div style="height:10%;overflow-x:scroll;" class="w3-third">
+  <br><br>
+
+  <!-- Page Container -->
+  <div class="w3-content w3-margin-top" style="max-width:75%;">
+
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+      <!-- Left Column -->
+      <!-- <div style="height:10%;overflow-x:scroll;" class="w3-third">
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
@@ -66,226 +88,326 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </div>
       </div><br>
 
-    <!-- End Left Column -->
-    </div>
+    </div> -->
 
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-        <div id="navigation" class="w3-container w3-card w3-white w3-margin-bottom ">
-            <h6 style="text-align: center" class="w3-text-teal"> 
-               <button onclick="location.href='.#researchExp'" class="w3-button w3-teal"> <i class="fa fa-suitcase" aria-hidden="true"></i> Research</button> 
-               <button onclick="location.href='.#publications'" class="w3-button w3-teal"> <i class="fa fa-book" aria-hidden="true"></i> Publications</button> 
-               <button onclick="location.href='.#awards'" class="w3-button w3-teal"> <i class="fa fa-trophy" aria-hidden="true"></i> Awards</button>
-         </h6>
+
+      <!-- Main Column -->
+      <div class="">
+
+
+        <div id="aboutme" class="w3-container w3-card w3-white w3-margin-bottom ">
+
+          <div id="profilepic" class="w3-display-container w3-center w3-margin-top">
+            <img src="img/AP.png" style="width:30%;height:50%;" class="w3-circle w3-center" alt="Profile pic">
+          </div>
+          <div>
+            <h2 class="w3-center"> Aditeya Pandey </h3>
+              <p> I am a Ph.D. candidate in Computer Science at  <a href="https://www.khoury.northeastern.edu/people/aditeya-pandey/">Northeastern University</a>.
+                I build visualization tools to support analysis of complex and large datasets.
+                My research has contributed to novel visualization tools in the domain of medical diagnosis and
+                cybersecurity. I also work with <a href="http://gehlenborglab.org/team/members/aditeya-pandey/"> Harvard Medical School </a>, where I am developing a visualization recommendation system
+                to assist genomics analysts in identifying appropriate visualization techniques. </p>
           </div>
 
-      <div id="researchExp" class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Research Experience</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Graduate Research Assistant @ Northeastern University </b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2016 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          
-          <div class="project" style="display:flex">
-            <div style="width:40%;padding:2.5%" class="image">   <img src="img/BELIV Talk.jpg" style="width:100%" alt="Avatar"> </div>
-            <div style="width:60%;padding:2.5%" class="information">  
-              <b> Towards Identification and Mitigation of <em>Task-Based</em> Challenges </b> 
-              <p> BELIV 2020 </p>
-              <p>In this work, we systematically
-              identify and curate the task-based challenges of comparative studies
-              by reviewing existing visualization literature on the topic. Furthermore,
-              for each of the presented challenges we discuss the potential
-              threats to validity for a comparative study. The challenges discussed
-              in this paper are further backed by evidence identified in a detailed
-              survey of comparative tree visualization studies.</p> 
-            
-              <h6 class="w3-opacity"> <a href="https://osf.io/5p73v/">Pre-print</a> |  <a href="">Talk Slides</a> |  <a href="https://osf.io/g3btk/">Supplementary Material</a>
-
-            </div>
-           
-            </div>
-          
-          
-          
-          
-          <div class="project" style="display:flex">
-            <div style="width:40%;padding:2.5%" class="image">   <img src="CerebroVis/CerebroVisColor.svg" style="width:100%" alt="Avatar"> </div>
-            <div style="width:60%;padding:2.5%" class="information">  <b> CerebroVis </b> <p>CerebroVis is a novel network visualization tool which assists in diagnosis cerebrovascular abnormalities like stenosis and aneurysms. We found that CerebroVis improves the identification of cerebrovascular abnormalities in the brain over existing 3D MRA visualization. 
-            
-              <h6 class="w3-opacity"> <a href="./CerebroVisProject/">Learn More</a> |  <a href="https://youtu.be/CN0DrIBxlb8">Demo</a>
-
-            </div>
-           
-            </div>
-            <div class="project" style="display:flex">
-                <div style="width:40%;padding:2.5%" class="image">   <img src="GlyphEvaluation/Teaser.jpg" style="width:100%" alt="Avatar"> </div>
-                <div style="width:60%;padding:2.5%" class="information">  <b> Evaluationg Glyph Design for Increased Probablistic Categorization Accuracy </b>          
-                  <p><p>In a crowdsourced experiment, we measured the effect of glyph design on an everyday task of categorization. We found that abstract glyphs are more accurate compared to anthropomorphic glyphs in a categorization experiment. </p>
-                  <h6 class="w3-opacity"> <a href="Glyph_Evaluation_Poster_InfoVis_2019 (1).pdf">Learn More</a>
-                </div>
-                </div>
-
-                          <div class="project" style="display:flex">
-                            <div style="width:40%;padding-top:10.5%" class="image"> <img src="PP/PPteaser.png" style="width:100%"
-                                alt="Avatar"> </div>
-                            <div style="width:60%;padding:2.5%" class="information"> <b> Picture Penguin: A Multi-Faceted Mobile Photo Navigation System </b>
-                              <p>
-                                <p> Multi-faceted data, such as a photo’s location, timestamp, and content, are difficult to navigate, particularly when a
-                                user has incomplete knowledge of the data, such as when the date of a photo is unknown. We present Picture Penguin, a novel personal photo navigation system that enables search and filtering through linked and
-                                combined views of temporal, geospatial, and photo content information. Picture Penguin scales to large photo collections andreduces complexity through clustering and data summarization
-                                techniques, and runs as both a mobile and a desktop application.
-                                </p>
-                                <h6 class="w3-opacity"> <a href="https://youtu.be/lgqPlpu2dLQ">Demo</a>
-                            </div>
-                          </div>
-
-          <hr>
+        <div id="links"> 
+          <div class="w3-half"> 
+            <h3 style="text-align: center" class="w3-text-teal">
+              <i class="fa fa-file-pdf-o w3-hover-opacity"> <a href="https://twitter.com/aaditeya"> CV</a></i>
+              <i class="fa fa-file-pdf-o w3-hover-opacity"> <a href="https://twitter.com/aaditeya"> Resume</a></i>
+  
+            </h3>
+           </div>  
+         <div class="w3-half"> 
+          <h3 style="text-align: center" class="w3-text-teal">
+            <a href="https://twitter.com/aaditeya"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+            <a href="https://www.linkedin.com/in/aditeyapandey/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+            <a href="https://github.com/aditeyapandey"><i class="fa fa-github w3-hover-opacity" aria-hidden="true"></i></a>
+            <a href="https://scholar.google.com/citations?user=whUXI9AAAAAJ&hl=en"><i class="fa fa-graduation-cap w3-hover-opacity" aria-hidden="true"></i></a>
+            </h3>
+         </div> 
+         </div>   
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>MTS Data Visualization Intern @ Illumio</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2019 - Aug 2019</h6>
-          <div class="project" style="display:flex">
-              <div style="width:40%;padding:2.5%" class="image">   <img src="Segmentrix/Teaser.png" style="width:100%" alt="Avatar"> </div>
-              <div style="width:60%;padding:2.5%" class="information">  <b> Segmentrix </b>          
-                <p> The Network Infrastructure of computer-based business is expanding every day. Consequently, monitoring and cyber-fencing of these massive networks is a growing concern within organizations. We developed a visualization tool which assists organizations to segment their network, write security policies and monitor network.</p>
-                <h6 class="w3-opacity"> <a href="./Segmentrix/Microsegmentation_Visualization.pdf">Learn More</a> | <a href="https://www.youtube.com/watch?v=NJd5tQmjMpI">Demo</a> </h6>
+
+        <div id="researchExp" class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Research Experience</h2>
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>Graduate Research Assistant @ Northeastern University </b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2016 - <span
+                class="w3-tag w3-teal w3-round">Current</span></h6>
+
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image"> <img src="img/BELIV Talk.jpg" style="width:100%"
+                  alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information">
+                <b> Towards Identification and Mitigation of <em>Task-Based</em> Challenges </b>
+                <p> BELIV 2020 </p>
+                <p>In this work, we systematically
+                  identify and curate the task-based challenges of comparative studies
+                  by reviewing existing visualization literature on the topic. Furthermore,
+                  for each of the presented challenges we discuss the potential
+                  threats to validity for a comparative study. The challenges discussed
+                  in this paper are further backed by evidence identified in a detailed
+                  survey of comparative tree visualization studies.</p>
+
+                <h6 class="w3-opacity"> <a href="https://osf.io/5p73v/">Pre-print</a> | <a href="">Talk Slides</a> | <a
+                    href="https://osf.io/g3btk/">Supplementary Material</a>
 
               </div>
-              </div>          <hr>
-              <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
-
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>R&D Engineer @ Tata Consultancy Services</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2013 - July 2016</h6>
-          <div class="project" style="display:flex">
-            <div style="width:40%;padding:2.5%" class="image">   <img src="BDF/BDF.jpg" style="width:100%" alt="Avatar"> </div>
-            <div style="width:60%;padding:2.5%" class="information">  <b> Visual Bayesian Fusion to Navigate a Data Lake </b>          <p>A data-fusion based visual analytics platform for navigating a data lake to derive insights. Our platform allows for rich interactive visualizations, querying and keyword-based search within and across datasets or models, as well as intuitive visual interfaces for value-imputation or model-based predictions.</p>
-              <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7527993">Learn More</a> | <a href="https://youtu.be/eniSZKFpq_o">Demo</a> 
 
             </div>
-        </div>
-        <div class="project" style="display:flex">
-          <div style="width:40%;padding:2.5%" class="image">   <img src="FusionWorkbench/FusionWorkbench.jpg" style="width:100%" alt="Avatar"> </div>
-          <div style="width:60%;padding:2.5%" class="information">  <b> Multi-sensor Visual Analytics Supported by Machine-Learning Models </b>          <p>A platform designed to explore multi-dimensional sensor data. Special focus on visualization of temporal sensor data using time-series visualization. Real-time time-series query visualization support, where the similar and frequent patterns can be queried using suitable machine learning algorithms.</p>
 
-            <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7395731">Learn More</a> | <a href="https://youtu.be/6XPJVCmA6MQ">Video</a> 
+
+
+
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image"> <img src="CerebroVis/CerebroVisColor.svg"
+                  style="width:100%" alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information"> <b> CerebroVis </b>
+                <p>CerebroVis is a novel network visualization tool which assists in diagnosis cerebrovascular
+                  abnormalities like stenosis and aneurysms. We found that CerebroVis improves the identification of
+                  cerebrovascular abnormalities in the brain over existing 3D MRA visualization.
+
+                <h6 class="w3-opacity"> <a href="./CerebroVisProject/">Learn More</a> | <a
+                    href="https://youtu.be/CN0DrIBxlb8">Demo</a>
+
+              </div>
+
+            </div>
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image"> <img src="GlyphEvaluation/Teaser.jpg"
+                  style="width:100%" alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information"> <b> Evaluationg Glyph Design for Increased
+                  Probablistic Categorization Accuracy </b>
+                <p>
+                <p>In a crowdsourced experiment, we measured the effect of glyph design on an everyday task of
+                  categorization. We found that abstract glyphs are more accurate compared to anthropomorphic glyphs in
+                  a categorization experiment. </p>
+                <h6 class="w3-opacity"> <a href="Glyph_Evaluation_Poster_InfoVis_2019 (1).pdf">Learn More</a>
+              </div>
+            </div>
+
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding-top:10.5%" class="image"> <img src="PP/PPteaser.png" style="width:100%"
+                  alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information"> <b> Picture Penguin: A Multi-Faceted Mobile Photo
+                  Navigation System </b>
+                <p>
+                <p> Multi-faceted data, such as a photo’s location, timestamp, and content, are difficult to navigate,
+                  particularly when a
+                  user has incomplete knowledge of the data, such as when the date of a photo is unknown. We present
+                  Picture Penguin, a novel personal photo navigation system that enables search and filtering through
+                  linked and
+                  combined views of temporal, geospatial, and photo content information. Picture Penguin scales to large
+                  photo collections andreduces complexity through clustering and data summarization
+                  techniques, and runs as both a mobile and a desktop application.
+                </p>
+                <h6 class="w3-opacity"> <a href="https://youtu.be/lgqPlpu2dLQ">Demo</a>
+              </div>
+            </div>
+
+            <hr>
+          </div>
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>MTS Data Visualization Intern @ Illumio</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2019 - Aug 2019</h6>
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image"> <img src="Segmentrix/Teaser.png" style="width:100%"
+                  alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information"> <b> Segmentrix </b>
+                <p> The Network Infrastructure of computer-based business is expanding every day. Consequently,
+                  monitoring and cyber-fencing of these massive networks is a growing concern within organizations. We
+                  developed a visualization tool which assists organizations to segment their network, write security
+                  policies and monitor network.</p>
+                <h6 class="w3-opacity"> <a href="./Segmentrix/Microsegmentation_Visualization.pdf">Learn More</a> | <a
+                    href="https://www.youtube.com/watch?v=NJd5tQmjMpI">Demo</a> </h6>
+
+              </div>
+            </div>
+            <hr>
+            <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to
+                  Top</i> </a></p>
 
           </div>
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>R&D Engineer @ Tata Consultancy Services</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2013 - July 2016</h6>
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image"> <img src="BDF/BDF.jpg" style="width:100%" alt="Avatar">
+              </div>
+              <div style="width:60%;padding:2.5%" class="information"> <b> Visual Bayesian Fusion to Navigate a Data
+                  Lake </b>
+                <p>A data-fusion based visual analytics platform for navigating a data lake to derive insights. Our
+                  platform allows for rich interactive visualizations, querying and keyword-based search within and
+                  across datasets or models, as well as intuitive visual interfaces for value-imputation or model-based
+                  predictions.</p>
+                <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7527993">Learn More</a> | <a
+                    href="https://youtu.be/eniSZKFpq_o">Demo</a>
+
+              </div>
+            </div>
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image"> <img src="FusionWorkbench/FusionWorkbench.jpg"
+                  style="width:100%" alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information"> <b> Multi-sensor Visual Analytics Supported by
+                  Machine-Learning Models </b>
+                <p>A platform designed to explore multi-dimensional sensor data. Special focus on visualization of
+                  temporal sensor data using time-series visualization. Real-time time-series query visualization
+                  support, where the similar and frequent patterns can be queried using suitable machine learning
+                  algorithms.</p>
+
+                <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7395731">Learn More</a> | <a
+                    href="https://youtu.be/6XPJVCmA6MQ">Video</a>
+
+              </div>
+            </div>
+            <div class="project" style="display:flex">
+              <div style="width:40%;padding:2.5%" class="image"> <img src="VARC/Varc.png" style="width:100%"
+                  alt="Avatar"> </div>
+              <div style="width:60%;padding:2.5%" class="information"> <b> Interactively Visualizing Summaries of Rules
+                  and Exceptions </b>
+                <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible
+                  manner. In this work we present a novel hierarchical view of the rules and exceptions in a bubble
+                  layout.</p>
+              </div>
+            </div>
+
           </div>
-          <div class="project" style="display:flex">
-            <div style="width:40%;padding:2.5%" class="image">   <img src="VARC/Varc.png" style="width:100%" alt="Avatar"> </div>
-            <div style="width:60%;padding:2.5%" class="information">  <b> Interactively Visualizing Summaries of Rules and Exceptions </b>          <p>Rules along with their exceptions have been used to explain large data sets in a comprehensible manner. In this work we present a novel hierarchical view of the rules and exceptions in a bubble layout.</p>
-            </div>
-            </div>
+          <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to
+                Top</i> </a></p>
 
         </div>
-        <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
 
-      </div>
-
-      <!-- Right Column Research Experience Ends -->
+        <!-- Right Column Research Experience Ends -->
 
 
-      <div id="publications" class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-book fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Publications</h2>
-        <h6 class="w3-opacity"><b>Journal Article (J), Conference Paper (C), Workshop Paper (W) </b></h6>
+        <div id="publications" class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-book fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Publications</h2>
+          <h6 class="w3-opacity"><b>Journal Article (J), Conference Paper (C), Workshop Paper (W) </b></h6>
 
-        <div class="w3-container">
-            <h6 class="w3-text-teal"><b>CerebroVis: Designing an Abstract yet Spatially Contextualized Cerebral Arteries Network Visualization (J)</b></h6>
+          <div class="w3-container">
+            <h6 class="w3-text-teal"><b>CerebroVis: Designing an Abstract yet Spatially Contextualized Cerebral Arteries
+                Network Visualization (J)</b></h6>
 
-          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Aditeya Pandey*, Harsh Shukla, Geoffrey S Young, Lei Qin, Amir A Zamani, Liangge Hsu, Raymond Huang, Cody Dunne, Michelle A Borkin <i class="fa fa-map-marker" aria-hidden="true"></i> To appear in  IEEE Transactions on Visualization and Computer Graphics (TVCG)
+            <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Aditeya Pandey*, Harsh Shukla,
+              Geoffrey S Young, Lei Qin, Amir A Zamani, Liangge Hsu, Raymond Huang, Cody Dunne, Michelle A Borkin <i
+                class="fa fa-map-marker" aria-hidden="true"></i> To appear in IEEE Transactions on Visualization and
+              Computer Graphics (TVCG)
             </h6>
-          <h6 class="w3-opacity"> <a href="./CerebroVisProject/pdf/08842614.pdf">Paper</a> | <a href="">Video</a> | <a href="https://osf.io/e5sxt/">Supplemental Material</a></h6>
+            <h6 class="w3-opacity"> <a href="./CerebroVisProject/pdf/08842614.pdf">Paper</a> | <a href="">Video</a> | <a
+                href="https://osf.io/e5sxt/">Supplemental Material</a></h6>
 
-          <hr>
-        </div>
- 
-        <div class="w3-container">
+            <hr>
+          </div>
+
+          <div class="w3-container">
             <h6 class="w3-text-teal"><b>Visual bayesian fusion to navigate a data lake (C)</b></h6>
 
-          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Karamjit Singh, Kaushal Paneri, Aditeya Pandey*, Garima Gupta, Geetika Sharma, Puneet Agarwal, and Gautam Shroff  <i class="fa fa-map-marker" aria-hidden="true"></i> 19th International Conference on Information Fusion (FUSION), pp. 987-994. IEEE, 2016</h6>
-          <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7527993">Paper</a> | <a href="https://youtu.be/eniSZKFpq_o">Video</a> 
-          <hr>
-          
-        </div>
-        <div class="w3-container">
+            <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Karamjit Singh, Kaushal Paneri,
+              Aditeya Pandey*, Garima Gupta, Geetika Sharma, Puneet Agarwal, and Gautam Shroff <i
+                class="fa fa-map-marker" aria-hidden="true"></i> 19th International Conference on Information Fusion
+              (FUSION), pp. 987-994. IEEE, 2016</h6>
+            <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7527993">Paper</a> | <a
+                href="https://youtu.be/eniSZKFpq_o">Video</a>
+              <hr>
+
+          </div>
+          <div class="w3-container">
             <h6 class="w3-text-teal"><b>Multi-sensor visual analytics supported by machine-learning models (W)</b></h6>
 
-          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Geetika Sharma, Gautam Shroff, Aditeya Pandey*, Brijendra Singh, Gunjan Sehgal, Kaushal Paneri, Puneet Agarwal <i class="fa fa-map-marker" aria-hidden="true"></i> 2015 IEEE International Conference on Data Mining Workshop (ICDMW), 668-674</h6>
-          <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7395731">Paper</a> | <a href="https://youtu.be/6XPJVCmA6MQ">Video</a> 
+            <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Geetika Sharma, Gautam Shroff,
+              Aditeya Pandey*, Brijendra Singh, Gunjan Sehgal, Kaushal Paneri, Puneet Agarwal <i
+                class="fa fa-map-marker" aria-hidden="true"></i> 2015 IEEE International Conference on Data Mining
+              Workshop (ICDMW), 668-674</h6>
+            <h6 class="w3-opacity"> <a href="https://ieeexplore.ieee.org/document/7395731">Paper</a> | <a
+                href="https://youtu.be/6XPJVCmA6MQ">Video</a>
 
-          <hr>
-        </div>
+              <hr>
+          </div>
 
-        <div class="w3-container">
+          <div class="w3-container">
             <h6 class="w3-text-teal"><b>Interactive Visual Analysis of Temporal Text Data (C)</b></h6>
 
-          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Aditeya Pandey*, Kunal Ranjan, Geetika Sharma, Lipika Dey <i class="fa fa-map-marker" aria-hidden="true"></i> Proceedings of the 8th International Symposium on Visual Information Communication and Interaction, 2015</h6>
-          <h6 class="w3-opacity"> <a href="https://dl.acm.org/citation.cfm?id=2801049"> Paper</a> 
-          <hr>
-        </div>
+            <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Aditeya Pandey*, Kunal Ranjan,
+              Geetika Sharma, Lipika Dey <i class="fa fa-map-marker" aria-hidden="true"></i> Proceedings of the 8th
+              International Symposium on Visual Information Communication and Interaction, 2015</h6>
+            <h6 class="w3-opacity"> <a href="https://dl.acm.org/citation.cfm?id=2801049"> Paper</a>
+              <hr>
+          </div>
 
-        <div class="w3-container">
+          <div class="w3-container">
             <h6 class="w3-text-teal"><b>Interactively visualizing summaries of rules and exceptions (W)</b></h6>
 
-          <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Geetika Sharma, Gautam Shroff, Aditeya Pandey*, Puneet Agarwal, Ashwin Srinivasan <i class="fa fa-map-marker" aria-hidden="true"></i> EuroVA, 2014</h6>
-          <h6 class="w3-opacity"> <a href="https://diglib.eg.org/handle/10.2312/eurova.20141146.055-059">Paper</a> 
-          <hr>
+            <h6 class="w3-opacity"><i class="fa fa-user-circle" aria-hidden="true"></i> Geetika Sharma, Gautam Shroff,
+              Aditeya Pandey*, Puneet Agarwal, Ashwin Srinivasan <i class="fa fa-map-marker" aria-hidden="true"></i>
+              EuroVA, 2014</h6>
+            <h6 class="w3-opacity"> <a href="https://diglib.eg.org/handle/10.2312/eurova.20141146.055-059">Paper</a>
+              <hr>
+          </div>
+
+          <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to
+                Top</i> </a></p>
+
         </div>
 
-        <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
+        <!-- Right Column Publication Ends -->
 
+        <div id="awards" class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-trophy fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Awards and Honors</h2>
+
+          <div class="w3-container">
+            <h6 class="w3-text-teal"><b>CerebroVis: Topology and Constraint-based Network Layout for the Visualization
+                of Cerebrovascular Arteries </b></h6>
+
+            <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> Best Poster at IEEE Vis 2018</h6>
+            <h6 class="w3-opacity"> <a href="http://ieeevis.org/year/2018/info/awards/best-poster-awards">Link</a> | <a
+                href="https://www.khoury.northeastern.edu/current-students/phd-student-aditeya-pandey-wins-ieee-best-poster-award-for-research-that-helps-doctors-diagnose-brain-disease/">News
+              </a>
+              <hr>
+          </div>
+
+
+          <div class="w3-container">
+            <h6 class="w3-text-teal"><b>iFuse: A Visual Data Fusion Approach, by Gunjan Sehgal, Kaushal Paneri, Aditeya
+                Pandey and Garima Gupta, TCS Research
+              </b></h6>
+
+            <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> First Prize at Dataview 2016 – comad
+              2016 machine learning competition</h6>
+            <h6 class="w3-opacity"> <a href="http://comad.in/comad2016/results_dataview2016.html">Link</a>
+              <hr>
+          </div>
+
+          <div class="w3-container">
+            <h6 class="w3-text-teal"><b>VISTA: Visual Interactive Spatio-Temporal Data Analysis</b></h6>
+
+            <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> Honorable Mention for User-Friendly
+              Anomaly Detection VAST 2016</h6>
+            <h6 class="w3-opacity"> <a href="http://comad.in/comad2016/results_dataview2016.html">Link</a>
+              <hr>
+          </div>
+          <p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to
+                Top</i> </a></p>
+
+        </div>
+
+        <!-- End Right Column -->
       </div>
-      
-    <!-- Right Column Publication Ends -->
 
-    <div id="awards" class="w3-container w3-card w3-white w3-margin-bottom">
-      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-trophy fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Awards and Honors</h2>
-
-      <div class="w3-container">
-        <h6 class="w3-text-teal"><b>CerebroVis: Topology and Constraint-based Network Layout for the Visualization of Cerebrovascular Arteries </b></h6>
-
-      <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> Best Poster at IEEE Vis 2018</h6>
-      <h6 class="w3-opacity"> <a href="http://ieeevis.org/year/2018/info/awards/best-poster-awards">Link</a> | <a href="https://www.khoury.northeastern.edu/current-students/phd-student-aditeya-pandey-wins-ieee-best-poster-award-for-research-that-helps-doctors-diagnose-brain-disease/">News </a> 
-      <hr>
+      <!-- End Grid -->
     </div>
 
-
-    <div class="w3-container">
-      <h6 class="w3-text-teal"><b>iFuse: A Visual Data Fusion Approach, by Gunjan Sehgal, Kaushal Paneri, Aditeya Pandey and Garima Gupta, TCS Research
-      </b></h6>
-
-    <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> First Prize at Dataview 2016 – comad 2016 machine learning competition</h6>
-    <h6 class="w3-opacity"> <a href="http://comad.in/comad2016/results_dataview2016.html">Link</a> 
-    <hr>
+    <!-- End Page Container -->
   </div>
 
-  <div class="w3-container">
-    <h6 class="w3-text-teal"><b>VISTA: Visual Interactive Spatio-Temporal Data Analysis</b></h6>
-
-  <h6 class="w3-opacity"><i class="fa fa-trophy" aria-hidden="true"></i> Honorable Mention for User-Friendly Anomaly Detection VAST 2016</h6>
-  <h6 class="w3-opacity"> <a href="http://comad.in/comad2016/results_dataview2016.html">Link</a> 
-  <hr>
-</div>
-<p><a style="float: right" href=".#navigation"> <i class="fa fa-long-arrow-up" aria-hidden="true"> Back to Top</i> </a></p>
-
-      </div>
-
-    <!-- End Right Column -->
-    </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
-
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me on social media.</p>
-  <a href="https://twitter.com/aaditeya"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-  <a href="https://www.linkedin.com/in/aditeyapandey/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-</footer>
+  <footer class="w3-container w3-teal w3-center w3-margin-top">
+    <p>Find me on social media.</p>
+    <a href="https://twitter.com/aaditeya"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/aditeyapandey/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+  </footer>
 
 </body>
+
 </html>
