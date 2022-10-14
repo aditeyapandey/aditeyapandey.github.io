@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <style>
   html,
   body,
@@ -48,12 +49,14 @@
 
 <body class="w3-light-grey">
 
-  <div class="w3-top">
+  <div class="w3-top w3-right">
     <div class="w3-bar w3-teal">
-      <a href="#aboutme" class="w3-bar-item w3-button">About Me</a>
+      <a href="#aboutme" class="w3-bar-item w3-button">Aditeya Pandey</a>
       <a href="#researchExp" class="w3-bar-item w3-button">Projects</a>
-      <a href="#publications" class="w3-bar-item w3-button">Publications</a>
+      <!-- <a href="#publications" class="w3-bar-item w3-button">Thesis</a> -->
       <a href="#awards" class="w3-bar-item w3-button">Awards</a>
+      <a href="./AditeyaPandey_CV.pdf" target="_blank" class="w3-bar-item w3-button">CV</a>
+
     </div>
   </div>
 
@@ -62,74 +65,65 @@
 
   <!-- Page Container -->
   <div class="w3-content w3-margin-top" style="max-width:85%;">
-
-
     <!-- The Grid -->
     <div class="w3-row-padding">
-
-
-
       <!-- Main Column -->
       <div class="">
-
-
-        <div id="aboutme" class="w3-container w3-card w3-white w3-margin-bottom ">
-
-          <div id="profilepic" class="w3-display-container w3-center w3-margin-top">
-            <img src="img/AP.png" style="width:30%;height:50%;" class="w3-circle w3-center" alt="Profile pic">
-          </div>
-          <div>
-            <h2 class="w3-center"> Aditeya Pandey </h2>
-            <h6 class="w3-center"> Contact: <a href="mailto:pandey.ad@northeastern.edu">pandey.ad@northeastern.edu</a>
-            </h6>
-
-
-            <p> I am a Ph.D. candidate in Computer Science at <a
-                href="https://www.khoury.northeastern.edu/people/aditeya-pandey/">Northeastern University</a>.
-              I build visualization tools to support analysis of complex and large datasets.
-              My research has contributed to novel visualization tools in the domain of medical diagnosis and
-              cybersecurity. I am also a visiting PhD Student at <a
-                href="http://gehlenborglab.org/team/members/aditeya-pandey/"> Gehlenborg Lab (Harvard Medical
-                School)</a>, where I am developing a visualization recommendation system
-              to assist genomics analysts in identifying appropriate visualization techniques. </p>
-
-            <!-- <h5 class="w3-blue-grey w3-padding"> I am looking for an industry job starting in the Summer of 2022. If my
-              experience and projects feel like a good fit, please feel free to <a
-                href="mailto:pandey.ad@northeastern.edu">reach out.</a> </h5> -->
-          </div>
-
-          <div id="links">
-            <div class="w3-half">
-              <h3 style="text-align: center" class="w3-text-teal">
-                <i class="fa fa-file-pdf-o w3-hover-opacity"> <a href="./AditeyaPandey_CV.pdf"> CV</a></i>
-                <!-- <i class="fa fa-file-pdf-o w3-hover-opacity"> <a href="./AditeyaPandeyResume2019.pdf"> Resume</a></i> -->
-
-              </h3>
-            </div>
-            <div class="w3-half">
-              <h3 style="text-align: center" class="w3-text-teal">
-                <a href="https://twitter.com/aaditeya"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-                <a href="https://www.linkedin.com/in/aditeyapandey/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-                <a href="https://github.com/aditeyapandey"><i class="fa fa-github w3-hover-opacity"
+        <div id="aboutme" class="w3-container w3-card w3-white">
+          <div class="w3-half w3-margin-top w3-margin-bottom">
+              <div id="profilepic" class="w3-display-container w3-center w3-margin-top">
+                <img src="img/AP.png" style="width:70%;height:70%;" class="w3-circle w3-center" alt="Profile pic">
+              </div>
+            </div> 
+            <div class="w3-half w3-margin-top w3-margin-bottom">
+              <div class="w3-xxlarge w3-center"> Aditeya Pandey </div>
+              <div class="w3-large w3-center"> Researcher | Software Developer  </div>
+              <hr>
+              <p> I am a Senior Application Developer at Regeneron Genetics Center. I completed my PhD in Computer Science from Northeastern University</a>.
+                During my PhD, I developed systems and tools to support web-based analysis of complex and large datasets.
+                My research has contributed to novel systems and tools in the domain of genomics, medical diagnosis and cybersecurity.</p>
+              <hr>
+              <div class=""> Previous Experiences: Tableau Research | Harvard Medical School | Illumio | TCS Innovation Labs  </div>
+              <hr>
+              <div style="text-align: center" class="w3-text-teal w3-row w3-xlarge w3-center">
+                <a class="w3-col s2" href="mailto:pandey.ad@northeastern.edu"><i title="Contact Me" class="fa fa-envelope w3-hover-opacity"></i></a>
+                <a class="w3-col s2" href="https://twitter.com/aaditeya"><i title="Twitter" class="fa fa-twitter w3-hover-opacity"></i></a>
+                <a class="w3-col s2" href="https://www.linkedin.com/in/aditeyapandey/"><i title="LinkedIn" class="fa fa-linkedin w3-hover-opacity"></i></a>
+                <a class="w3-col s2" href="https://github.com/aditeyapandey"><i title="Github" class="fa fa-github w3-hover-opacity"
                     aria-hidden="true"></i></a>
-                <a href="https://scholar.google.com/citations?user=whUXI9AAAAAJ&hl=en"><i
+                <a class="w3-col s2" title="Google Scholar" href="https://scholar.google.com/citations?user=whUXI9AAAAAJ&hl=en"><i
                     class="fa fa-graduation-cap w3-hover-opacity" aria-hidden="true"></i></a>
-              </h3>
-            </div>
+                <a class="w3-col s2" href="./AditeyaPandey_CV.pdf"><i title="CV/Resume" class="fa fa-file-pdf-o w3-hover-opacity"></i></a>
+                </div>
+              </div>   
           </div>
-        </div>
 
         <div id="researchExp" class="w3-container w3-card w3-white w3-margin-bottom">
           <h2 class="w3-text-grey w3-padding-16"><i
               class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
 
+          <div id="medley" class="w3-container">
+            <div class="w3-third w3-display-container w3-margin-top w3-center">
+              <img src="static/img/medley.jpg" style="width:100%" alt="Avatar">
+            </div>
+            <div class="w3-twothird w3-container w3-margin-top">
+              <h4>MEDLEY: Intent-based Recommendations to Support Dashboard Composition</h4>
+              <div> <i class="fa fa-trophy fa-fw w3-margin-right w3-large"></i><span class="w3-red" >Best Paper Honorable Mention at IEEE VIS 2022 </span></div>
+              <p>MEDLEY is a multi-view recommendation system that assists visualization authors to generate dashboards. We surveyed 200 dashboards to understand common visualization desing patterns. With the help of this information, we created a recommendation algorithm that can translate the intent and data requirements of the user to a set of views that they can use for dashboard authoring. </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> IEEE Vis 2022, To appear in IEEE Transactions on Visualization and Computer Graphics (TVCG)</p>
+              <h6 class="w3-opacity">
+                <a class="w3-hover-opacity" href="https://arxiv.org/pdf/2208.03175.pdf"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Paper</a> |
+                <a class="w3-hover-opacity" href="https://www.youtube.com/watch?v=ViFBhTriwTA&ab_channel=ArjunSrinivasan"> <i class="fa fa-file-video-o" aria-hidden="true"></i> Video</a> 
+            </div>
+          </div>
+          <hr>              
           <div id="genorec" class="w3-container">
             <div class="w3-third w3-display-container w3-margin-top w3-center">
               <img src="img/GenoREC.jpeg" style="width:100%" alt="Avatar">
             </div>
-
             <div class="w3-twothird w3-container w3-margin-top">
-              <h4>GenoREC </h4>
+              <h4>GenoREC: A Recommendation System for Interactive Genomics Data Visualization</h4>
+              <div> <i class="fa fa-trophy fa-fw w3-margin-right w3-large"></i> <span class="w3-red" >Best Poster Award at IEEE VIS 2020 </span></div>
               <p>GenoREC is a system to recommend genomics visualization. GenoREC uses data and task description from
                 the users and suggests appropriate visualizations.
                 GenoREC consists of two components: a knowledge-based recommendation engine that uses visualization
@@ -137,33 +131,63 @@
                 GenoREC's front-end provides a domain-specific user interface for users to specify their requirements
                 and view the recommendation.
               </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> IEEE Vis 2022, To appear in IEEE Transactions on Visualization and Computer Graphics (TVCG)</p>
               <h6 class="w3-opacity">
-                <a class="w3-hover-opacity" href="https://youtu.be/njVXRH4h6DM"> <i class="fa fa-file-video-o"
-                    aria-hidden="true"></i> Video</a> |
-                <a class="w3-hover-opacity" href="https://aditeyapandey.github.io/Genorec-Client/"> <i
+                <a class="w3-hover-opacity" href="https://osf.io/rscb4"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Paper</a> |
+                <a class="w3-hover-opacity" href="https://www.youtube.com/watch?v=Cid-Tz8bXr4&t=7s&ab_channel=AditeyaPandey"> <i class="fa fa-file-video-o"
+                    aria-hidden="true"></i> Video</a> 
+                <!-- <a class="w3-hover-opacity" href="https://aditeyapandey.github.io/Genorec-Client/"> <i
                     class="fa fa-laptop" aria-hidden="true"></i> Demo</a> |
                 <a class="w3-hover-opacity" href="https://github.com/aditeyapandey/Genorec-Engine"> <i
                     class="fa fa-code" aria-hidden="true"></i> Code (Model)</a> |
                 <a class="w3-hover-opacity" href="https://github.com/aditeyapandey/Genorec-Client"> <i
-                    class="fa fa-code" aria-hidden="true"></i> Code (Web App)</a>
+                    class="fa fa-code" aria-hidden="true"></i> Code (Web App)</a> -->
             </div>
           </div>
           <hr>
-
-
+          <div id="portola" class="w3-container">
+            <div class="w3-third w3-display-container w3-margin-top w3-center">
+              <img src="/static/img/Gupta2022PortolaHybridTreeNetwork.png" style="width:80%; height:40%" alt="Avatar">
+            </div>
+            <div class="w3-twothird w3-container w3-margin-top">
+              <h4>Portola: A Hybrid Tree and Network Visualization Technique for Network Segmentation</h4>
+              <p> Portola is a network visualization solution that allows visibility into a segmented computer network.</p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> VizSec 2022</p>
+              <h6 class="w3-opacity">
+                <a class="w3-hover-opacity" href="https://osf.io/dyhkc"> <i class="fa fa-file-pdf-o"
+                    aria-hidden="true"></i> Paper</a> 
+              </h6>
+            </div>
+          </div>
+          <hr>
+          <div id="biascope" class="w3-container">
+            <div class="w3-third w3-display-container w3-margin-top w3-center">
+              <img src="/static/img/Risaki2022BiaScopeGraphEmbeddingDiagnosis.png" style="width:80%" alt="Avatar">
+            </div>
+            <div class="w3-twothird w3-container w3-margin-top">
+              <h4>BiaScope: Visual Unfairness Diagnosis for Graph Embeddings</h4>
+              <p> BiaScope, an interactive visualization tool that supports end-to-end visual unfairness diagnosis for graph embeddings. It allows the user to visually compare two embeddings with respect to fairness, locate nodes or graph communities that are unfairly embedded, and understand the source of bias by interactively linking the relevant embedding subspace with the corresponding graph topology.</p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Visualization in Data Science at IEEE VIS 2022</p>
+              <h6 class="w3-opacity">
+                <a class="w3-hover-opacity" href="https://arxiv.org/abs/2210.06417"> <i class="fa fa-file-pdf-o"
+                    aria-hidden="true"></i> Paper</a> 
+              </h6>
+            </div>
+          </div>
+          <hr>          
           <div id="treetasks" class="w3-container">
             <div class="w3-third w3-display-container w3-margin-top w3-center">
               <img src="img/TreeTask.jpeg" style="width:80%" alt="Avatar">
             </div>
-
             <div class="w3-twothird w3-container w3-margin-top">
-              <h4>Tree Visualization Task Survey </h4>
+              <h4>A State-of-the-Art Survey of Tasks for Tree Design and Evaluation With a Curated Task Dataset</h4>
               <p> We proposed a taxonomy to categorize analytical tasks being used for tree visualization design and
                 evaluation.
                 We also curated a dataset of 200+ analytical tasks from a survey of over 1000+ tree visualization
                 research articles.
                 A website was developed to interactively explore the results of the survey.
               </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> IEEE Transactions on Visualization and Computer Graphics (TVCG) 2021</p>
               <h6 class="w3-opacity">
                 <a class="w3-hover-opacity" href="https://osf.io/3r9ab/"> <i class="fa fa-file-pdf-o"
                     aria-hidden="true"></i> Paper</a> |
@@ -177,15 +201,13 @@
             </div>
           </div>
           <hr>
-
-
           <div id="segmentrix" class="w3-container">
             <div class="w3-third w3-display-container w3-margin-top w3-center">
               <img src="Segmentrix/Teaser.png" style="width:80%" alt="Avatar">
             </div>
-
             <div class="w3-twothird w3-container w3-margin-top">
-              <h4>Segmentrix </h4>
+              <h4>Segmentrix: A Network Visualization Tool to Develop and Monitor Micro-Segmentation Strategies </h4>
+              <div> <i class="fa fa-trophy fa-fw w3-margin-right w3-large"></i> <span class="w3-red" >Best Poster Award at VizSec 2019 </span></div>
               <p> The network infrastructure of computer-based business is expanding every day. Consequently,
                 monitoring and cyber-fencing of these massive networks is a growing concern within organizations. In
                 this project, we
@@ -193,6 +215,7 @@
                 security
                 policies and monitor network.
               </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Poster at VizSec 2022</p>
               <h6 class="w3-opacity">
                 <a class="w3-hover-opacity" href="./Segmentrix/Microsegmentation_Visualization.pdf"> <i
                     class="fa fa-file-pdf-o" aria-hidden="true"></i> Paper</a> |
@@ -202,15 +225,13 @@
             </div>
           </div>
           <hr>
-
-
           <div id="cerebrovis" class="w3-container">
             <div class="w3-third w3-display-container w3-margin-top w3-center">
               <img src="CerebroVis/CerebroVisColor.svg" style="width:100%" alt="Avatar">
             </div>
-
             <div class="w3-twothird w3-container w3-margin-top">
-              <h4>CerebroVis </h4>
+              <h4>CerebroVis: Designing an Abstract yet Spatially Contextualized Cerebral Arteries Network Visualization</h4>
+              <div> <i class="fa fa-trophy fa-fw w3-margin-right w3-large"></i> <span class="w3-red" >Best Poster Award at IEEE VIS 2018 </span></div>
               <p>
                 CerebroVis is a visualization tool which assists in diagnosis cerebrovascular
                 abnormalities like stenosis and aneurysms. We developed a novel visualization technique to display the
@@ -218,6 +239,7 @@
                 We found that, CerebroVis improves improves the identification of
                 cerebrovascular abnormalities in the brain over existing 3D MRA visualization.
               </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> IEEE Vis 2019, Appeared in IEEE Transactions on Visualization and Computer Graphics (TVCG)</p>
               <h6 class="w3-opacity">
                 <a class="w3-hover-opacity" href="https://arxiv.org/abs/1907.12663"> <i class="fa fa-file-pdf-o"
                     aria-hidden="true"></i> Paper</a> |
@@ -248,9 +270,7 @@
               </p>
               <h6 class="w3-opacity">
                 <a class="w3-hover-opacity" href="https://www.youtube.com/watch?v=lgqPlpu2dLQ"> <i
-                    class="fa fa-file-video-o" aria-hidden="true"></i> Video</a> |
-                <a class="w3-hover-opacity" href="https://github.com/aditeyapandey/picpen"> <i class="fa fa-code"
-                    aria-hidden="true"></i> Code </a>
+                    class="fa fa-file-video-o" aria-hidden="true"></i> Video</a> 
               </h6>
             </div>
           </div>
@@ -260,7 +280,6 @@
             <div class="w3-third w3-display-container w3-margin-top w3-center">
               <img src="BDF/BDF.jpg" style="width:80%" alt="Avatar">
             </div>
-
             <div class="w3-twothird w3-container w3-margin-top">
               <h4>Visual Bayesian Fusion to Navigate a Data Lake </h4>
               <p>We developed a novel system for the analysis of heterogeneous data sources.
@@ -268,6 +287,7 @@
                 Within the platform we integrated a novel interactive visualization to evaluate results from
                 Probabilistic Graphical Models.
               </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> IEEE International Conference on Information Fusion 2016</p>
               <h6 class="w3-opacity">
                 <a class="w3-hover-opacity" href="https://ieeexplore.ieee.org/document/7527993"> <i
                     class="fa fa-file-pdf-o" aria-hidden="true"></i> Paper</a> |
@@ -282,13 +302,13 @@
             <div class="w3-third w3-display-container w3-margin-top w3-center">
               <img src="FusionWorkbench/FusionWorkbench.jpg" style="width:80%" alt="Avatar">
             </div>
-
             <div class="w3-twothird w3-container w3-margin-top">
               <h4>Multi-sensor Visual Analytics Supported by Machine-Learning Models </h4>
               <p>
                 We developed a system that supports visual pattern search to discover similar patterns in engine sensor
                 data.
               </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> IEEE International Conference on Data Mining Workshop 2015</p>
               <h6 class="w3-opacity">
                 <a class="w3-hover-opacity" href="https://ieeexplore.ieee.org/document/7395731"> <i
                     class="fa fa-file-pdf-o" aria-hidden="true"></i> Paper</a> |
@@ -303,13 +323,13 @@
             <div class="w3-third w3-display-container w3-margin-top w3-center">
               <img src="VARC/Varc.png" style="width:80%" alt="Avatar">
             </div>
-
             <div class="w3-twothird w3-container w3-margin-top">
               <h4>VARC: Interactively Visualizing Summaries of Rules and Exceptions </h4>
               <p>
                 We developed a visualization tool to interactively visualize the summary of association rules and their
                 exceptions generated from rule-mining algorithms.
               </p>
+              <p id="location"><i class="fa fa-map-marker" aria-hidden="true"></i> EuroVA 2014</p>
               <h6 class="w3-opacity">
                 <a class="w3-hover-opacity" href="http://diglib.eg.org/handle/10.2312/eurova.20141146.055-059"> <i
                     class="fa fa-file-pdf-o" aria-hidden="true"></i> Paper</a>
@@ -322,7 +342,7 @@
         <!-- Right Column Research Experience Ends -->
 
 
-        <div id="publications" class="w3-container w3-card w3-white w3-margin-bottom">
+        <!-- <div id="publications" class="w3-container w3-card w3-white w3-margin-bottom">
           <h2 class="w3-text-grey w3-padding-16"><i
               class="fa fa-book fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Publications</h2>
           <h6 class="w3-opacity"><b>Journal Article (J), Conference Paper (C), Workshop Paper (W), Poster (P) </b></h6>
@@ -568,7 +588,7 @@
             <hr>
           </div>
 
-        </div>
+        </div> -->
 
         <!-- Right Column Publication Ends -->
 
@@ -680,7 +700,7 @@
           class="fa fa-graduation-cap w3-hover-opacity" aria-hidden="true"></i></a>
     </h5>
   </footer>
-
+  <script src="./js/main.js"/>
 </body>
 
 </html>

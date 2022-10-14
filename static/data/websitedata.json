@@ -1,0 +1,17 @@
+{
+    "personalinfo":{
+        "name": "Aditeya Pandey",
+        "email": "aditeyapandey@gmail.com",
+        "education":"Ph.D.",
+        "sociallinks":{
+            "twitter":"",
+            "linkedin":"",
+            "googlescholar":"",
+            "github":""
+        },
+        "bio":"",
+        "interests":"",
+        "image":""
+
+    }
+}
